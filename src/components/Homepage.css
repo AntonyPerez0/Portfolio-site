@@ -1,0 +1,206 @@
+.homepage {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+/* Hero Section */
+.hero-section {
+  width: 100%;
+  margin: 2rem 0 3rem 0;
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 15px;
+  box-shadow: 0 4px 24px rgba(32,78,99,0.15);
+  border-bottom: 4px solid #ffd016;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: #34495e;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Apprenticeship Overview */
+.apprenticeship-overview {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.apprenticeship-overview h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.overview-content p {
+  font-size: 1.1rem;
+  color: #34495e;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(32,78,99,0.08);
+}
+
+.apprenticeship-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.highlight-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-5px);
+}
+
+.highlight-item h3 {
+  color: #3498db;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.highlight-item p {
+  color: #7f8c8d;
+  line-height: 1.6;
+}
+
+/* Learning Reflection */
+.learning-reflection {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.learning-reflection h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.reflection-content p {
+  font-size: 1.1rem;
+  color: #34495e;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(32,78,99,0.08);
+}
+
+.key-skills {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.key-skills h3 {
+  color: #27ae60;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.key-skills ul {
+  list-style: none;
+  padding: 0;
+}
+
+.key-skills li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ecf0f1;
+  color: #34495e;
+}
+
+.key-skills li:last-child {
+  border-bottom: none;
+}
+
+.growth-areas {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.growth-areas h3 {
+  color: #e74c3c;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.growth-areas p {
+  color: #34495e;
+  line-height: 1.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .apprenticeship-highlights {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .highlight-item {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .apprenticeship-overview h2,
+  .learning-reflection h2 {
+    font-size: 1.6rem;
+  }
+} 
