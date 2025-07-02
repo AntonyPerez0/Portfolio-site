@@ -8,13 +8,12 @@ const Homepage = () => {
         <div className="hero-content">
           <h1 className="hero-title">Welcome to My Portfolio</h1>
           <p className="hero-subtitle">
-            Full-Stack Developer | Multiverse Apprentice | Problem Solver
+            Android Developer | Full-Stack Developer | Technical Writer | Multiverse Apprentice | Problem Solver
           </p>
           <p className="hero-description">
-            I'm a passionate developer who completed a comprehensive apprenticeship program 
-            at Multiverse, where I gained hands-on experience in modern web development 
-            technologies and best practices. I specialize in creating efficient, scalable, 
-            and user-friendly applications.
+            I'm a passionate developer and technical writer who completed a comprehensive apprenticeship program 
+            at Multiverse, where I gained hands-on experience in modern web development and Android app development. 
+            I specialize in creating efficient, scalable, and user-friendly applications, and authoring clear, developer-focused documentation.
           </p>
         </div>
       </section>

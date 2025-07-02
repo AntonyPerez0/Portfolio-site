@@ -18,7 +18,7 @@ const Contact = () => {
             <h2>Professional Profiles</h2>
             <div className="profile-links">
               <a 
-                href="https://linkedin.com/in/your-profile" 
+                href="https://www.linkedin.com/in/antonyperez01/" 
                 className="contact-link linkedin"
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -31,7 +31,7 @@ const Contact = () => {
               </a>
               
               <a 
-                href="https://github.com/your-username" 
+                href="https://github.com/AntonyPerez0" 
                 className="contact-link github"
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -50,10 +50,10 @@ const Contact = () => {
             <div className="email-info">
               <p>For professional inquiries, please reach out to:</p>
               <a 
-                href="mailto:your.email@example.com" 
+                href="mailto:antonyperez0@yahoo.com" 
                 className="email-link"
               >
-                your.email@example.com
+                antonyperez0@yahoo.com
               </a>
               <p className="email-note">
                 I typically respond within 24 hours during business days.
@@ -65,16 +65,18 @@ const Contact = () => {
             <h2>About Me</h2>
             <div className="about-info">
               <p>
-                I'm a passionate full-stack developer who recently completed 
+                I'm a passionate full-stack developer and technical writer who recently completed 
                 a comprehensive apprenticeship program at Multiverse. I'm 
                 excited about opportunities to contribute to innovative 
-                projects and continue growing my technical skills.
+                projects and continue growing my technical skills, especially in Android development and documentation.
               </p>
               <p>
                 My key strengths include:
               </p>
               <ul>
                 <li>Full-stack development with React and Node.js</li>
+                <li>Android app development with Java and Kotlin</li>
+                <li>Technical documentation and developer guides</li>
                 <li>Database design and management</li>
                 <li>RESTful API development</li>
                 <li>Agile development practices</li>
