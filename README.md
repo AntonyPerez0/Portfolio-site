@@ -132,60 +132,6 @@ npm run test:ui
 npm run test:run
 ```
 
-## 🚀 Deployment
-
-### Option 1: Deploy to Netlify
-
-1. **Push to GitHub**: Ensure your code is in a GitHub repository
-
-2. **Connect to Netlify**:
-   - Go to [netlify.com](https://netlify.com)
-   - Click "New site from Git"
-   - Connect your GitHub account
-   - Select your repository
-
-3. **Configure Build Settings**:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-   - Click "Deploy site"
-
-### Option 2: Deploy to Vercel
-
-1. **Install Vercel CLI**:
-   ```bash
-   npm install -g vercel
-   ```
-
-2. **Deploy**:
-   ```bash
-   vercel
-   ```
-
-3. **Follow the prompts** to connect your GitHub repository
-
-### Option 3: Deploy to GitHub Pages
-
-1. **Add GitHub Pages dependency**:
-   ```bash
-   npm install --save-dev gh-pages
-   ```
-
-2. **Update package.json**:
-   ```json
-   {
-     "scripts": {
-       "predeploy": "npm run build",
-       "deploy": "gh-pages -d dist"
-     },
-     "homepage": "https://your-username.github.io/your-repo-name"
-   }
-   ```
-
-3. **Deploy**:
-   ```bash
-   npm run deploy
-   ```
-
 ## 📱 Responsive Design
 
 The portfolio is fully responsive and optimized for:
@@ -204,14 +150,6 @@ The portfolio is fully responsive and optimized for:
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📞 Contact
 
