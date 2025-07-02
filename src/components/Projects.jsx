@@ -6,37 +6,35 @@ const Projects = () => {
   // Sample projects data - you can replace with actual project details
   const projects = [
     {
-      id: 1,
-      title: "Inventory Full-Stack Application",
-      description: "A comprehensive inventory management system built with React frontend and Node.js backend. Features include user authentication, CRUD operations, real-time updates, and responsive design.",
-      technologies: ["React", "Node.js", "Express", "SQL", "JWT", "CSS3"],
-      codeUrl: "https://github.com/your-username/inventory-app",
-      imageUrl: "https://via.placeholder.com/400x250/4A90E2/FFFFFF?text=Inventory+App"
-    },
-    {
       id: 2,
-      title: "Final Bootcamp Hackathon Project",
-      description: "A collaborative project developed during an intensive hackathon. This application demonstrates rapid prototyping, team coordination, and innovative problem-solving under time constraints.",
-      technologies: ["React", "Firebase", "Material-UI", "JavaScript", "Git"],
-      codeUrl: "https://github.com/your-username/hackathon-project",
-      imageUrl: "https://via.placeholder.com/400x250/50C878/FFFFFF?text=Hackathon+Project"
+      title: "Final Bootcamp Hackathon Project: Portfolio Website",
+      description: "This professional portfolio website was built as the capstone project for my Multiverse apprenticeship. It showcases my technical skills, project work, and contact information. Built with React, Vite, and modern CSS, the site features a clean, responsive design, component-based architecture, and automated testing with Vitest and React Testing Library.",
+      technologies: ["React", "Vite", "CSS3", "Jest", "React Testing Library"],
+      codeUrl: "https://github.com/AntonyPerez0/Portfolio-site",
     },
     {
       id: 3,
-      title: "Back-End Module Project",
-      description: "A robust RESTful API built with Node.js and Express. Includes comprehensive error handling, data validation, authentication middleware, and thorough testing.",
-      technologies: ["Node.js", "Express", "Jest", "PostgreSQL", "JWT", "Swagger"],
-      codeUrl: "https://github.com/your-username/backend-module",
-      imageUrl: "https://via.placeholder.com/400x250/FF6B35/FFFFFF?text=Backend+API"
+      title: "Back-End Module Project: Personal Notes API",
+      description: "A secure and personalized RESTful API for managing notes. Features user registration, login with JWT tokens, password hashing, protected routes, CRUD operations, and an admin layer for managing all users and notes. Built with Node.js, Express.js, and SQLite3.",
+      technologies: ["Node.js", "Express.js", "SQLite3", "JWT", "bcryptjs", "REST API"],
+      codeUrl: "https://github.com/AntonyPerez0/notesApp",
+      imageUrl: "https://via.placeholder.com/400x250/2C3E50/FFD700?text=Notes+API"
     },
     {
       id: 4,
-      title: "Front-End Module Project",
-      description: "A modern, responsive web application showcasing advanced React concepts including hooks, context API, and component composition. Features smooth animations and intuitive UX.",
-      technologies: ["React", "CSS3", "JavaScript", "React Router", "Local Storage"],
-      codeUrl: "https://github.com/your-username/frontend-module",
-      imageUrl: "https://via.placeholder.com/400x250/9B59B6/FFFFFF?text=Frontend+App"
-    }
+      title: "Front-End Module Project: Android PocketDex (PokeAPI)",
+      description: "Red's PokeDex is an Android application built with Kotlin and Jetpack Compose. It allows users to browse and search for Pokémon, view detailed information, and manage their Pokémon team with a modern UI.",
+      technologies: ["Kotlin", "Jetpack Compose", "Android Studio"],
+      codeUrl: "https://github.com/AntonyPerez0/Android-PokeAPI",
+      imageUrl: "https://via.placeholder.com/400x250/FFCB05/3B4CCA?text=PocketDex+Android"
+    },
+    {
+      id: 6,
+      title: "MultiClock (Android App)",
+      description: "MultiClock is an Android application that helps you keep track of your clock-in and clock-out times and check the weather in your city. Features include 8.5-hour workday calculation and real-time weather checks using the OpenWeatherMap API. All calculations are performed locally, and no personal data is collected.",
+      technologies: ["Java", "Android Studio", "OpenWeatherMap API"],
+      codeUrl: "https://github.com/AntonyPerez0/multiClockApp"
+    },
   ]
 
   return (

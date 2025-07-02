@@ -6,10 +6,6 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div className="project-card">
-      <div className="project-image">
-        <img src={imageUrl} alt={title} />
-      </div>
-      
       <div className="project-content">
         <h3 className="project-title">{title}</h3>
         

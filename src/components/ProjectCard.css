@@ -14,22 +14,7 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.project-image {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.05);
-}
+/* Remove or comment out .project-image styles */
 
 .project-content {
   padding: 1.5rem;
@@ -128,9 +113,7 @@
 }
 
 @media (max-width: 480px) {
-  .project-image {
-    height: 150px;
-  }
+  /* Remove or comment out .project-image styles */
 
   .tech-tags {
     gap: 0.3rem;
