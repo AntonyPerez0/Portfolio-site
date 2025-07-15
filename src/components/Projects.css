@@ -10,13 +10,13 @@
 
 .projects-header h1 {
   font-size: 2.5rem;
-  color: #2c3e50;
+  color: #0a2540;
   margin-bottom: 1rem;
 }
 
 .projects-header p {
   font-size: 1.1rem;
-  color: #7f8c8d;
+  color: #5d6d7e;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.8;
@@ -68,4 +68,4 @@
   .projects-footer {
     padding: 1.5rem;
   }
-} 
+}

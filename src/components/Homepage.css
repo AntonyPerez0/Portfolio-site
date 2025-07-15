@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fff;
 }
 
 /* Hero Section */
@@ -14,22 +13,22 @@
   margin: 2rem 0 3rem 0;
   text-align: center;
   padding: 3rem 0;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
   border-radius: 15px;
-  box-shadow: 0 4px 24px rgba(32,78,99,0.15);
-  border-bottom: 4px solid #ffd016;
+  box-shadow: 0 4px 24px rgba(32, 78, 99, 0.15);
+  border-bottom: 4px solid #48c9b0;
 }
 
 .hero-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: #0a2540;
   margin-bottom: 1rem;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
-  color: #7f8c8d;
+  color: #5d6d7e;
   margin-bottom: 1.5rem;
   font-weight: 500;
 }
@@ -51,7 +50,7 @@
 
 .apprenticeship-overview h2 {
   font-size: 2rem;
-  color: #2c3e50;
+  color: #0a2540;
   margin-bottom: 1.5rem;
 }
 
@@ -62,7 +61,7 @@
   border-radius: 10px;
   padding: 1.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(32,78,99,0.08);
+  box-shadow: 0 2px 8px rgba(32, 78, 99, 0.08);
 }
 
 .apprenticeship-highlights {
@@ -86,13 +85,13 @@
 }
 
 .highlight-item h3 {
-  color: #3498db;
+  color: #1e88e5;
   font-size: 1.3rem;
   margin-bottom: 1rem;
 }
 
 .highlight-item p {
-  color: #7f8c8d;
+  color: #5d6d7e;
   line-height: 1.6;
 }
 
@@ -105,7 +104,7 @@
 
 .learning-reflection h2 {
   font-size: 2rem;
-  color: #2c3e50;
+  color: #0a2540;
   margin-bottom: 1.5rem;
 }
 
@@ -116,7 +115,7 @@
   border-radius: 10px;
   padding: 1.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(32,78,99,0.08);
+  box-shadow: 0 2px 8px rgba(32, 78, 99, 0.08);
 }
 
 .key-skills {
@@ -128,7 +127,7 @@
 }
 
 .key-skills h3 {
-  color: #27ae60;
+  color: #1e88e5;
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
@@ -156,7 +155,7 @@
 }
 
 .growth-areas h3 {
-  color: #e74c3c;
+  color: #48c9b0;
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
@@ -203,4 +202,4 @@
   .learning-reflection h2 {
     font-size: 1.6rem;
   }
-} 
+}

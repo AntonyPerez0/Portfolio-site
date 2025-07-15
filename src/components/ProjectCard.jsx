@@ -1,16 +1,18 @@
-import React from 'react'
-import './ProjectCard.css'
+import React from "react";
+import "./ProjectCard.css";
 
 const ProjectCard = ({ project }) => {
-  const { title, description, technologies, codeUrl, imageUrl } = project
+  const { title, description, technologies, liveUrl, codeUrl, imageUrl } =
+    project;
 
   return (
     <div className="project-card">
+      {imageUrl && <img src={imageUrl} alt={title} className="project-image" />}
       <div className="project-content">
         <h3 className="project-title">{title}</h3>
-        
+
         <p className="project-description">{description}</p>
-        
+
         <div className="project-technologies">
           <h4>Technologies Used:</h4>
           <div className="tech-tags">
@@ -21,20 +23,30 @@ const ProjectCard = ({ project }) => {
             ))}
           </div>
         </div>
-        
+
         <div className="project-links">
-          <a 
-            href={codeUrl} 
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              className="project-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Live
+            </a>
+          )}
+          <a
+            href={codeUrl}
             className="project-link code-link"
-            target="_blank" 
+            target="_blank"
             rel="noopener noreferrer"
           >
-            View on GitHub
+            View Code
           </a>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectCard 
+export default ProjectCard;
