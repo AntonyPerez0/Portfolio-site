@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      // Don't redirect if we are in local dev
+      if (
+        location.hostname !== "localhost" &&
+        location.hostname !== "127.0.0.1"
+      ) {
+        // Get the current path and search query
+        var path = location.pathname.split("/").slice(2).join("/");
+        var search = location.search;
+
+        // Redirect to the index.html with the correct path and query params
+        location.replace(
+          "/" +
+            location.pathname.split("/")[1] + // This correctly gets 'Portfolio-site'
+            "/?path=" +
+            path +
+            "&" +
+            search.substring(1)
+        );
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -5,22 +5,37 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 
 function App() {
-  const [currentSection, setCurrentSection] = useState("home");
+  const getInitialSection = () => {
+    const params = new URLSearchParams(window.location.search);
+    const path =
+      params.get("path") ||
+      window.location.pathname
+        .replace("/Portfolio-site/", "")
+        .replace("/", "") ||
+      "home";
+    if (path.startsWith("projects")) return "projects";
+    if (path.startsWith("contact")) return "contact";
+    return "home";
+  };
+
+  const [currentSection, setCurrentSection] = useState(getInitialSection);
 
   useEffect(() => {
-    const path = window.location.pathname.split("/").pop();
-    switch (path) {
-      case "projects":
-        setCurrentSection("projects");
-        break;
-      case "contact":
-        setCurrentSection("contact");
-        break;
-      default:
-        setCurrentSection("home");
-        break;
-    }
+    // This effect handles browser back/forward navigation
+    const handlePopState = () => {
+      setCurrentSection(getInitialSection());
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
+
+  const navigate = (section) => {
+    setCurrentSection(section);
+    // Use the correct base path when updating the URL
+    const newPath =
+      section === "home" ? `/Portfolio-site/` : `/Portfolio-site/${section}/`;
+    window.history.pushState({ section }, "", newPath);
+  };
 
   const renderSection = () => {
     switch (currentSection) {
@@ -44,43 +59,28 @@ function App() {
           </div>
           <ul className="nav-links">
             <li>
-              <a
-                href="/portfolio-site/"
+              <button
                 className={currentSection === "home" ? "active" : ""}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setCurrentSection("home");
-                  window.history.pushState({}, "", "/portfolio-site/");
-                }}
+                onClick={() => navigate("home")}
               >
                 Home
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="/portfolio-site/projects"
+              <button
                 className={currentSection === "projects" ? "active" : ""}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setCurrentSection("projects");
-                  window.history.pushState({}, "", "/portfolio-site/projects");
-                }}
+                onClick={() => navigate("projects")}
               >
                 Projects
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="/portfolio-site/contact"
+              <button
                 className={currentSection === "contact" ? "active" : ""}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setCurrentSection("contact");
-                  window.history.pushState({}, "", "/portfolio-site/contact");
-                }}
+                onClick={() => navigate("contact")}
               >
                 Contact
-              </a>
+              </button>
             </li>
           </ul>
         </nav>
