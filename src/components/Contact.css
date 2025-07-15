@@ -10,20 +10,22 @@
 
 .contact-header h1 {
   font-size: 2.5rem;
-  color: #0a2540;
+  color: #e6edf3;
   margin-bottom: 1rem;
+  border-bottom: 1px solid #444c56;
+  padding-bottom: 0.5rem;
 }
 
 .contact-header p {
   font-size: 1.1rem;
-  color: #5d6d7e;
+  color: #adbac7;
   line-height: 1.8;
 }
 
 .contact-content {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #373e47; /* Main card background */
+  border-radius: 8px;
+  border: 1px solid #5d6875;
   overflow: hidden;
 }
 
@@ -41,9 +43,9 @@
 
 .contact-section h2 {
   font-size: 1.6rem;
-  color: #0a2540;
+  color: #e6edf3;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid #ecf0f1;
+  border-bottom: 1px solid #5d6875;
   padding-bottom: 0.5rem;
 }
 
@@ -57,26 +59,16 @@
 .contact-link {
   display: block;
   text-decoration: none;
-  background: #f8f9fa;
-  border-radius: 10px;
+  background: #2d333b; /* Darker background for nested cards */
+  border-radius: 6px;
   padding: 1.5rem;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  border: 1px solid #5d6875;
 }
 
 .contact-link:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.contact-link.linkedin:hover {
-  border-color: #1e88e5;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
-}
-
-.contact-link.github:hover {
-  border-color: #333;
-  background: linear-gradient(135deg, #f8f9fa 0%, #f5f5f5 100%);
+  border-color: #4c95ff;
 }
 
 .link-content {
@@ -84,70 +76,73 @@
 }
 
 .link-content h3 {
-  color: #0a2540;
+  color: #e6edf3;
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
 
 .link-content p {
-  color: #5d6d7e;
+  color: #adbac7;
   margin-bottom: 0;
 }
 
 .link-arrow {
   position: absolute;
-  top: 0;
+  top: 50%;
   right: 0;
+  transform: translateY(-50%);
   font-size: 1.5rem;
-  color: #1e88e5;
-  transition: transform 0.3s ease;
+  color: #909dab;
+  transition: all 0.3s ease;
 }
 
 .contact-link:hover .link-arrow {
-  transform: translateX(5px);
+  color: #4c95ff;
+  transform: translateY(-50%) translateX(5px);
 }
 
 /* Email Section */
 .email-info {
-  background: #f8f9fa;
+  background: #2d333b;
   padding: 1.5rem;
-  border-radius: 10px;
+  border-radius: 6px;
+  border: 1px solid #5d6875;
   text-align: center;
 }
 
 .email-info p {
-  color: #5d6d7e;
+  color: #adbac7;
   margin-bottom: 1rem;
 }
 
 .email-link {
   display: inline-block;
-  color: #1e88e5;
   font-size: 1.2rem;
   font-weight: 600;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border: 2px solid #1e88e5;
-  border-radius: 8px;
+  border: 1px solid #316dca;
+  background-color: #316dca;
+  color: #ffffff;
+  border-radius: 6px;
   transition: all 0.3s ease;
   margin-bottom: 1rem;
 }
 
 .email-link:hover {
-  background: #1e88e5;
-  color: white;
-  transform: translateY(-2px);
+  background-color: #4c95ff;
+  border-color: #4c95ff;
 }
 
 .email-note {
   font-size: 0.9rem;
-  color: #95a5a6;
+  color: #909dab;
   font-style: italic;
 }
 
 /* About Section */
 .about-info p {
-  color: #34495e;
+  color: #c5d0dc;
   line-height: 1.8;
   margin-bottom: 1.5rem;
 }
@@ -159,8 +154,8 @@
 
 .about-info li {
   padding: 0.5rem 0;
-  border-bottom: 1px solid #ecf0f1;
-  color: #34495e;
+  border-bottom: 1px solid #444c56;
+  color: #c5d0dc;
   position: relative;
   padding-left: 1.5rem;
 }
@@ -169,7 +164,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #48c9b0;
+  color: #46954a;
   font-weight: bold;
 }
 
@@ -182,38 +177,30 @@
   .contact-header h1 {
     font-size: 2rem;
   }
-
   .contact-header p {
     font-size: 1rem;
   }
-
   .contact-info {
     padding: 1.5rem;
   }
-
   .profile-links {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-
   .contact-link {
     padding: 1rem;
   }
-
   .link-content h3 {
     font-size: 1.1rem;
   }
 }
-
 @media (max-width: 480px) {
   .contact-header h1 {
     font-size: 1.8rem;
   }
-
   .contact-section h2 {
     font-size: 1.4rem;
   }
-
   .email-link {
     font-size: 1rem;
     padding: 0.4rem 0.8rem;

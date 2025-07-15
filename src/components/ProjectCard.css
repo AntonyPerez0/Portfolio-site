@@ -1,8 +1,8 @@
 .project-card {
-  background: white;
-  border-radius: 15px;
+  background: #373e47; /* Card background */
+  border-radius: 8px;
+  border: 1px solid #5d6875;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   height: 100%;
   display: flex;
@@ -10,14 +10,17 @@
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  border-color: #4c95ff;
 }
+
 .project-image {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border-bottom: 1px solid #5d6875;
 }
+
 .project-content {
   padding: 1.5rem;
   flex: 1;
@@ -27,13 +30,13 @@
 
 .project-title {
   font-size: 1.4rem;
-  color: #0a2540;
+  color: #e6edf3;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 .project-description {
-  color: #5d6d7e;
+  color: #adbac7;
   line-height: 1.6;
   margin-bottom: 1.5rem;
   flex: 1;
@@ -44,7 +47,7 @@
 }
 
 .project-technologies h4 {
-  color: #34495e;
+  color: #e6edf3;
   font-size: 1rem;
   margin-bottom: 0.8rem;
   font-weight: 600;
@@ -57,12 +60,13 @@
 }
 
 .tech-tag {
-  background: #48c9b0;
-  color: white;
+  background-color: rgba(76, 149, 255, 0.15);
+  color: #7ab0ff;
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
+  border: 1px solid rgba(76, 149, 255, 0.3);
 }
 
 .project-links {
@@ -74,24 +78,19 @@
 .project-link {
   flex: 1;
   text-align: center;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.project-link {
-  background: transparent;
-  color: #1e88e5;
-  border-color: #1e88e5;
+  border: 1px solid #5d6875;
+  background-color: #444c56;
+  color: #e6edf3;
 }
 
 .project-link:hover {
-  background: #1e88e5;
-  color: white;
-  transform: translateY(-2px);
+  background-color: #515964;
+  border-color: #8b949e;
 }
 
 /* Responsive Design */
@@ -99,26 +98,21 @@
   .project-content {
     padding: 1rem;
   }
-
   .project-title {
     font-size: 1.2rem;
   }
-
   .project-links {
     flex-direction: column;
     gap: 0.5rem;
   }
-
   .project-link {
     padding: 0.6rem 1rem;
   }
 }
-
 @media (max-width: 480px) {
   .tech-tags {
     gap: 0.3rem;
   }
-
   .tech-tag {
     font-size: 0.7rem;
     padding: 0.2rem 0.6rem;

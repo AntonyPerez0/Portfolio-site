@@ -12,122 +12,103 @@
   width: 100%;
   margin: 2rem 0 3rem 0;
   text-align: center;
-  padding: 3rem 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
-  border-radius: 15px;
-  box-shadow: 0 4px 24px rgba(32, 78, 99, 0.15);
-  border-bottom: 4px solid #48c9b0;
+  padding: 3rem 1rem;
+  background-color: #373e47; /* Lighter card background */
+  border: 1px solid #5d6875;
+  border-radius: 8px;
 }
 
 .hero-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #0a2540;
+  color: #e6edf3;
   margin-bottom: 1rem;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
-  color: #5d6d7e;
+  color: #adbac7;
   margin-bottom: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .hero-description {
   font-size: 1.1rem;
-  color: #34495e;
+  color: #c5d0dc;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.8;
 }
 
-/* Apprenticeship Overview */
-.apprenticeship-overview {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.apprenticeship-overview h2 {
-  font-size: 2rem;
-  color: #0a2540;
-  margin-bottom: 1.5rem;
-}
-
-.overview-content p {
-  font-size: 1.1rem;
-  color: #34495e;
-  background: #fff;
-  border-radius: 10px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(32, 78, 99, 0.08);
-}
-
-.apprenticeship-highlights {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.highlight-item {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.highlight-item:hover {
-  transform: translateY(-5px);
-}
-
-.highlight-item h3 {
-  color: #1e88e5;
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-}
-
-.highlight-item p {
-  color: #5d6d7e;
-  line-height: 1.6;
-}
-
-/* Learning Reflection */
+/* Apprenticeship Overview & Learning Reflection */
+.apprenticeship-overview,
 .learning-reflection {
   width: 100%;
   text-align: center;
   margin-bottom: 3rem;
 }
 
+.apprenticeship-overview h2,
 .learning-reflection h2 {
   font-size: 2rem;
-  color: #0a2540;
+  color: #e6edf3;
   margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #444c56;
 }
 
+.overview-content p,
 .reflection-content p {
   font-size: 1.1rem;
-  color: #34495e;
-  background: #fff;
-  border-radius: 10px;
-  padding: 1.5rem;
+  color: #c5d0dc;
+  line-height: 1.8;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 8px rgba(32, 78, 99, 0.08);
 }
 
-.key-skills {
-  background: white;
+.apprenticeship-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.highlight-item {
+  background: #373e47;
+  border: 1px solid #5d6875;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-5px);
+  border-color: #4c95ff;
+}
+
+.highlight-item h3 {
+  color: #4c95ff;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.highlight-item p {
+  color: #adbac7;
+  line-height: 1.6;
+}
+
+.key-skills,
+.growth-areas {
+  background: #373e47;
+  padding: 2rem;
+  border-radius: 8px;
   margin-bottom: 2rem;
+  border: 1px solid #5d6875;
+  text-align: left;
 }
 
 .key-skills h3 {
-  color: #1e88e5;
+  color: #46954a;
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
@@ -139,30 +120,18 @@
 
 .key-skills li {
   padding: 0.5rem 0;
-  border-bottom: 1px solid #ecf0f1;
-  color: #34495e;
+  border-bottom: 1px solid #444c56;
+  color: #c5d0dc;
 }
 
 .key-skills li:last-child {
   border-bottom: none;
 }
 
-.growth-areas {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 .growth-areas h3 {
-  color: #48c9b0;
+  color: #9376e0;
   font-size: 1.4rem;
   margin-bottom: 1rem;
-}
-
-.growth-areas p {
-  color: #34495e;
-  line-height: 1.8;
 }
 
 /* Responsive Design */
@@ -170,34 +139,27 @@
   .hero-title {
     font-size: 2rem;
   }
-
   .hero-subtitle {
     font-size: 1rem;
   }
-
   .hero-description {
     font-size: 1rem;
   }
-
   .apprenticeship-highlights {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-
   .highlight-item {
     padding: 1.5rem;
   }
 }
-
 @media (max-width: 480px) {
   .hero-section {
     padding: 2rem 1rem;
   }
-
   .hero-title {
     font-size: 1.8rem;
   }
-
   .apprenticeship-overview h2,
   .learning-reflection h2 {
     font-size: 1.6rem;
