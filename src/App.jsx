@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Homepage from "./components/Homepage";
 import Projects from "./components/Projects";
@@ -6,6 +6,21 @@ import Contact from "./components/Contact";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("home");
+
+  useEffect(() => {
+    const path = window.location.pathname.split("/").pop();
+    switch (path) {
+      case "projects":
+        setCurrentSection("projects");
+        break;
+      case "contact":
+        setCurrentSection("contact");
+        break;
+      default:
+        setCurrentSection("home");
+        break;
+    }
+  }, []);
 
   const renderSection = () => {
     switch (currentSection) {
@@ -29,28 +44,43 @@ function App() {
           </div>
           <ul className="nav-links">
             <li>
-              <button
+              <a
+                href="/portfolio-site/"
                 className={currentSection === "home" ? "active" : ""}
-                onClick={() => setCurrentSection("home")}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCurrentSection("home");
+                  window.history.pushState({}, "", "/portfolio-site/");
+                }}
               >
                 Home
-              </button>
+              </a>
             </li>
             <li>
-              <button
+              <a
+                href="/portfolio-site/projects"
                 className={currentSection === "projects" ? "active" : ""}
-                onClick={() => setCurrentSection("projects")}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCurrentSection("projects");
+                  window.history.pushState({}, "", "/portfolio-site/projects");
+                }}
               >
                 Projects
-              </button>
+              </a>
             </li>
             <li>
-              <button
+              <a
+                href="/portfolio-site/contact"
                 className={currentSection === "contact" ? "active" : ""}
-                onClick={() => setCurrentSection("contact")}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCurrentSection("contact");
+                  window.history.pushState({}, "", "/portfolio-site/contact");
+                }}
               >
                 Contact
-              </button>
+              </a>
             </li>
           </ul>
         </nav>
