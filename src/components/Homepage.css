@@ -13,28 +13,28 @@
   margin: 2rem 0 3rem 0;
   text-align: center;
   padding: 3rem 1rem;
-  background-color: #373e47; /* Lighter card background */
-  border: 1px solid #5d6875;
+  background-color: #2c2c2c; /* Darker card background */
+  border: 1px solid #444444;
   border-radius: 8px;
 }
 
 .hero-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #e6edf3;
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
-  color: #adbac7;
+  color: #b0b0b0;
   margin-bottom: 1.5rem;
   font-weight: 400;
 }
 
 .hero-description {
   font-size: 1.1rem;
-  color: #c5d0dc;
+  color: #e0e0e0;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.8;
@@ -51,16 +51,16 @@
 .apprenticeship-overview h2,
 .learning-reflection h2 {
   font-size: 2rem;
-  color: #e6edf3;
+  color: #ffffff;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #444c56;
+  border-bottom: 1px solid #333333;
 }
 
 .overview-content p,
 .reflection-content p {
   font-size: 1.1rem;
-  color: #c5d0dc;
+  color: #e0e0e0;
   line-height: 1.8;
   margin-bottom: 2rem;
 }
@@ -73,8 +73,8 @@
 }
 
 .highlight-item {
-  background: #373e47;
-  border: 1px solid #5d6875;
+  background: #2c2c2c;
+  border: 1px solid #444444;
   padding: 2rem;
   border-radius: 8px;
   text-align: center;
@@ -83,32 +83,32 @@
 
 .highlight-item:hover {
   transform: translateY(-5px);
-  border-color: #4c95ff;
+  border-color: #76a9ff;
 }
 
 .highlight-item h3 {
-  color: #4c95ff;
+  color: #76a9ff;
   font-size: 1.3rem;
   margin-bottom: 1rem;
 }
 
 .highlight-item p {
-  color: #adbac7;
+  color: #b0b0b0;
   line-height: 1.6;
 }
 
 .key-skills,
 .growth-areas {
-  background: #373e47;
+  background: #2c2c2c;
   padding: 2rem;
   border-radius: 8px;
   margin-bottom: 2rem;
-  border: 1px solid #5d6875;
+  border: 1px solid #444444;
   text-align: left;
 }
 
 .key-skills h3 {
-  color: #46954a;
+  color: #6a9a6a; /* Softer green */
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
@@ -120,8 +120,8 @@
 
 .key-skills li {
   padding: 0.5rem 0;
-  border-bottom: 1px solid #444c56;
-  color: #c5d0dc;
+  border-bottom: 1px solid #333333;
+  color: #e0e0e0;
 }
 
 .key-skills li:last-child {
@@ -129,7 +129,7 @@
 }
 
 .growth-areas h3 {
-  color: #9376e0;
+  color: #a388ee; /* Softer purple */
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }

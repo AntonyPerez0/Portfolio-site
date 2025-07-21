@@ -10,15 +10,15 @@
 
 .projects-header h1 {
   font-size: 2.5rem;
-  color: #f0f6fc;
+  color: #ffffff;
   margin-bottom: 1rem;
-  border-bottom: 1px solid #30363d;
+  border-bottom: 1px solid #333333;
   padding-bottom: 0.5rem;
 }
 
 .projects-header p {
   font-size: 1.1rem;
-  color: #8b949e;
+  color: #b0b0b0;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.8;
@@ -33,15 +33,15 @@
 
 .projects-footer {
   text-align: center;
-  background: #161b22;
+  background: #1a1a1a;
   padding: 2rem;
   border-radius: 6px;
-  border: 1px solid #30363d;
+  border: 1px solid #333333;
 }
 
 .projects-footer p {
   font-size: 1.1rem;
-  color: #c9d1d9;
+  color: #e0e0e0;
   line-height: 1.8;
   margin: 0;
 }

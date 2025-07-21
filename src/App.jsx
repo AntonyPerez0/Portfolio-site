@@ -1,8 +1,10 @@
+// src/App.jsx
 import { useState, useEffect } from "react";
 import "./App.css";
 import Homepage from "./components/Homepage";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import StarsCanvas from "./components/Starfield"; // Import the new component
 
 function App() {
   const getInitialSection = () => {
@@ -52,6 +54,7 @@ function App() {
 
   return (
     <div className="App">
+      <StarsCanvas /> {/* Add the starfield canvas here */}
       <header className="App-header">
         <nav className="nav-bar">
           <div className="nav-brand">
