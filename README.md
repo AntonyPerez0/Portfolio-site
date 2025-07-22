@@ -1,161 +1,120 @@
-![# My Portfolio - Multiverse Apprenticeship Projects
+# **Antony Perez | Full-Stack & Android Developer Portfolio**
 
-A professional portfolio website showcasing the projects and skills developed during my Multiverse apprenticeship program. Built with React.js and featuring a modern, responsive design.
+Welcome to the official repository for my professional portfolio. This site showcases the projects, skills, and experience I gained during my comprehensive software engineering apprenticeship at **Multiverse**. It is built from the ground up with **React** and **Vite**, featuring a clean, modern design and a fully responsive layout.
 
-## 🚀 Features
-
-- **Professional Design**: Clean, modern interface with smooth animations
-- **Responsive Layout**: Optimized for desktop, tablet, and mobile devices
-- **Component-Based Architecture**: Built with React.js for maintainability
-- **Project Showcase**: Displays four major apprenticeship projects
-- **Contact Information**: Professional contact details and social links
-- **Testing Setup**: Comprehensive test coverage with Vitest and React Testing Library
-
-## 📋 Project Structure
-
-```
-src/
-├── components/
-│   ├── Homepage.jsx          # Main landing page
-│   ├── Projects.jsx          # Projects showcase
-│   ├── ProjectCard.jsx       # Individual project display
-│   ├── Contact.jsx           # Contact information
-│   └── *.css                 # Component-specific styles
-├── __tests__/
-│   ├── Homepage.test.jsx     # Homepage component tests
-│   └── Projects.test.jsx     # Projects component tests
-├── App.jsx                   # Main application component
-├── main.jsx                  # Application entry point
-└── setupTests.js             # Test configuration
-```
-
-## 🛠️ Technologies Used
-
-- **Frontend**: React.js 19.1.0
-- **Build Tool**: Vite 7.0.0
-- **Testing**: Vitest, React Testing Library
-- **Styling**: CSS3 with modern design patterns
-- **Deployment**: Ready for Netlify, Vercel, or GitHub Pages
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (version 20.18.0 or higher)
-- npm (version 10.9.0 or higher)
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone <your-repository-url>
-   cd portfolio-project
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Open your browser and navigate to `http://localhost:5173`
-
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm test` - Run tests
-- `npm run test:ui` - Run tests with UI
-- `npm run test:run` - Run tests once
-
-## 📝 Customization
-
-### Updating Project Information
-
-Edit the `projects` array in `src/components/Projects.jsx` to update your project details:
-
-```javascript
-const projects = \[
-  {
-    id: 1,
-    title: "Your Project Title",
-    description: "Project description...",
-    technologies: \["React", "Node.js", "Express"\],
-    liveUrl: "https://your-live-url.com",
-    codeUrl: "https://github.com/your-username/project",
-    imageUrl: "path/to/your/image.jpg"
-  }
-  // Add more projects...
-\]
-```
-
-### Updating Contact Information
-
-Edit `src/components/Contact.jsx` to update your contact details:
-
-```javascript
-// Update LinkedIn profile
-href="https://linkedin.com/in/your-actual-profile"
-
-// Update GitHub profile
-href="https://github.com/your-actual-username"
-
-// Update email address
-href="mailto:your.actual.email@example.com"
-```
-
-### Styling Customization
-
-The project uses a professional color palette that can be customized in the CSS files:
-
-- Primary colors: `#667eea`, `#764ba2` (gradient)
-- Secondary colors: `#2c3e50`, `#34495e`
-- Accent colors: `#3498db`, `#27ae60`, `#e74c3c`
-
-## 🧪 Testing
-
-The project includes comprehensive tests for all components:
-
-```bash
-# Run all tests
-npm test
-
-# Run tests with UI
-npm run test:ui
-
-# Run tests once
-npm run test:run
-```
-
-## 📱 Responsive Design
-
-The portfolio is fully responsive and optimized for:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (320px - 767px)
-
-## 🎨 Design Features
-
-- **Modern Gradient Backgrounds**: Professional color schemes
-- **Smooth Animations**: Hover effects and transitions
-- **Card-Based Layout**: Clean project presentation
-- **Typography**: Professional font hierarchy
-- **Accessibility**: Semantic HTML and ARIA labels
-
-## 📄 License
-
-This project is open source and available under the \[MIT License\](LICENSE).
-
-## 📞 Contact
-
-For questions or support, please reach out through the contact information provided in the portfolio.
+**🚀 [View the Live Portfolio](https://antonyperez0.github.io/Portfolio-site/)**
 
 ---
 
-**Built with ❤️ during the Multiverse Apprenticeship Program**
-](src/assets/profile-photo.jpg)
+### **Project Screenshot**
+
+![A screenshot of the portfolio website's homepage, showing a profile picture and a brief introduction.](https://i.imgur.com/your-screenshot-url.png)
+*(Note: You can replace the placeholder URL above with a real screenshot of your portfolio.)*
+
+---
+
+## **🌟 Key Features**
+
+* **Modern, Professional Design**: A clean and engaging interface built with a dark theme and smooth, subtle animations to create a polished user experience.
+* **Fully Responsive**: Optimized for all devices, from mobile phones and tablets to high-resolution desktop monitors.
+* **Dynamic 3D Background**: A captivating starfield background created with **React Three Fiber** to add a unique, immersive feel.
+* **Component-Based Architecture**: Built with **React** for a modular, scalable, and maintainable codebase.
+* **Comprehensive Project Showcase**: A dedicated section to display my key projects, complete with descriptions, tech stacks, and links.
+* **Integrated Testing**: Includes a full suite of tests written with **Vitest** and **React Testing Library** to ensure code quality and reliability.
+
+---
+
+## **🛠️ Tech Stack**
+
+This portfolio is built with a modern, industry-standard tech stack:
+
+| **Category** | **Technology** |
+| :---------------- | :--------------------------------------------------- |
+| **Frontend** | `React` `React Three Fiber` `HTML5` `CSS3`           |
+| **Build Tool** | `Vite`                                               |
+| **Testing** | `Vitest` `React Testing Library`                     |
+| **Deployment** | `GitHub Pages` `GitHub Actions`                      |
+| **Styling** | `CSS Modules` `Responsive Design`                    |
+
+---
+
+## **🚀 Getting Started**
+
+To get a local copy up and running, follow these simple steps.
+
+### **Prerequisites**
+
+* **Node.js**: Version 20.x or higher
+* **npm**: Version 10.x or higher
+
+### **Installation**
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/AntonyPerez0/Portfolio-site.git](https://github.com/AntonyPerez0/Portfolio-site.git)
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
+    cd Portfolio-site
+    ```
+3.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+4.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
+    Your portfolio will be running at `http://localhost:5173`.
+
+### **Available Scripts**
+
+| Script          | Description                                            |
+| :-------------- | :----------------------------------------------------- |
+| `npm run dev`   | Starts the Vite development server with hot-reloading. |
+| `npm run build` | Bundles the application for production.                |
+| `npm run preview`| Serves the production build locally for previewing.    |
+| `npm test`      | Runs tests in interactive watch mode.                  |
+| `npm run test:ui` | Runs tests with the Vitest UI for a visual report.   |
+| `npm run test:run`| Runs all tests once.                                 |
+
+---
+
+## **📝 Customization**
+
+### **Updating Project Information**
+
+To update the projects displayed on the portfolio, edit the `projects` array in `src/components/Projects.jsx`.
+
+### **Updating Contact Information**
+
+To update your contact details, including your LinkedIn, GitHub, and email, edit the links in `src/components/Contact.jsx`.
+
+---
+
+## **🧪 Testing**
+
+This project uses **Vitest** for unit and integration testing. All tests are located in the `src/__tests__` directory.
+
+To run the tests, use any of the testing scripts listed in the "Available Scripts" section above.
+
+---
+
+## **🚀 Deployment**
+
+This repository is configured with a **GitHub Actions** workflow for continuous deployment. Any push to the `main` branch will automatically build and deploy the site to **GitHub Pages**.
+
+---
+
+## **📄 License**
+
+This project is open-source and distributed under the **MIT License**.
+
+---
+
+## **📞 Contact**
+
+**Antony Perez**
+* **LinkedIn**: [antonyperez01](https://www.linkedin.com/in/antonyperez01/)
+* **GitHub**: [AntonyPerez0](https://github.com/AntonyPerez0)
+* **Email**: [antonyperez0@yahoo.com](mailto:antonyperez0@yahoo.com)
