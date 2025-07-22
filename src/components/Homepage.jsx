@@ -16,7 +16,7 @@ const Homepage = () => {
             <p className="hero-subtitle">
               Android Developer | Full-Stack Developer | Technical Writer | Multiverse Apprentice | Problem Solver
             </p>
-            <a href="/Portfolio-site/AntonyPerez_Resume.pdf" className="cta-button" download="AntonyPerez_Resume.pdf">Download Resume</a>
+            <a href="/Portfolio-site/Antony_Perez_Resume_v2.pdf" className="cta-button" download="Antony_Perez_Resume_v2.pdf">Download Resume</a>
           </div>
         </div>
       </section>
