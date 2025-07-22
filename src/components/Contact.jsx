@@ -10,7 +10,7 @@ const Contact = () => {
           I'm always interested in new opportunities and collaborations.
           Feel free to reach out through any of the channels below, or download my resume for a more detailed look at my experience.
         </p>
-        <a href="/Portfolio-site/Antony_Perez_Resume_v2.pdf" className="cta-button" download="Antony_Perez_Resume_v2.pdf">Download Resume</a>
+        <a href="/Portfolio-site/Resume_2025.pdf" className="cta-button" download="Resume_2025.pdf">Download Resume</a>
       </div>
 
       <div className="contact-content">
