@@ -6,13 +6,6 @@ Welcome to the official repository for my professional portfolio. This site show
 
 ---
 
-### **Project Screenshot**
-
-![A screenshot of the portfolio website's homepage, showing a profile picture and a brief introduction.](https://i.imgur.com/your-screenshot-url.png)
-*(Note: You can replace the placeholder URL above with a real screenshot of your portfolio.)*
-
----
-
 ## **🌟 Key Features**
 
 * **Modern, Professional Design**: A clean and engaging interface built with a dark theme and smooth, subtle animations to create a polished user experience.
