@@ -2,6 +2,14 @@ import React from "react";
 import ProjectCard from "./ProjectCard";
 import "./Projects.css";
 
+// Import your project images
+import inventoryImage from "../assets/projects/inventory-app.png";
+import portfolioImage from "../assets/projects/portfolio-site.png";
+import notesApiImage from "../assets/projects/notes-api.png";
+import pokedexImage from "../assets/projects/pokedex-android.png";
+import multiclockImage from "../assets/projects/multiclock-app.png";
+
+
 const Projects = () => {
   // Sample projects data - you can replace with actual project details
   const projects = [
@@ -20,8 +28,7 @@ const Projects = () => {
       ],
       codeUrl:
         "https://github.com/MV-SWE-Fiserv-US/group-full-stack-inventory-project-team-rocket",
-      imageUrl:
-        "https://via.placeholder.com/400x250/0A2540/48C9B0?text=Inventory+App",
+      imageUrl: inventoryImage, // Use the imported image
     },
     {
       id: 2,
@@ -30,8 +37,7 @@ const Projects = () => {
         "This professional portfolio website was built as the capstone project for my Multiverse apprenticeship. It showcases my technical skills, project work, and contact information. Built with React, Vite, and modern CSS, the site features a clean, responsive design, component-based architecture, and automated testing with Vitest and React Testing Library.",
       technologies: ["React", "Vite", "CSS3", "Jest", "React Testing Library"],
       codeUrl: "https://github.com/AntonyPerez0/Portfolio-site",
-      imageUrl:
-        "https://via.placeholder.com/400x250/1E88E5/FFFFFF?text=Portfolio+Site",
+      imageUrl: portfolioImage, // Use the imported image
     },
     {
       id: 3,
@@ -47,8 +53,7 @@ const Projects = () => {
         "REST API",
       ],
       codeUrl: "https://github.com/AntonyPerez0/notesApp",
-      imageUrl:
-        "https://via.placeholder.com/400x250/2C3E50/FFD700?text=Notes+API",
+      imageUrl: notesApiImage, // Use the imported image
     },
     {
       id: 4,
@@ -57,8 +62,7 @@ const Projects = () => {
         "Red's PokeDex is an Android application built with Kotlin and Jetpack Compose. It allows users to browse and search for Pokémon, view detailed information, and manage their Pokémon team with a modern UI.",
       technologies: ["Kotlin", "Jetpack Compose", "Android Studio"],
       codeUrl: "https://github.com/AntonyPerez0/Android-PokeAPI",
-      imageUrl:
-        "https://via.placeholder.com/400x250/FFCB05/3B4CCA?text=PocketDex+Android",
+      imageUrl: pokedexImage, // Use the imported image
     },
     {
       id: 6,
@@ -67,8 +71,7 @@ const Projects = () => {
         "MultiClock is an Android application that helps you keep track of your clock-in and clock-out times and check the weather in your city. Features include 8.5-hour workday calculation and real-time weather checks using the OpenWeatherMap API. All calculations are performed locally, and no personal data is collected.",
       technologies: ["Java", "Android Studio", "OpenWeatherMap API"],
       codeUrl: "https://github.com/AntonyPerez0/multiClockApp",
-      imageUrl:
-        "https://via.placeholder.com/400x250/48C9B0/FFFFFF?text=MultiClock",
+      imageUrl: multiclockImage, // Use the imported image
     },
   ];
 
