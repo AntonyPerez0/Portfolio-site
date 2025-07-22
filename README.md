@@ -1,4 +1,4 @@
-# My Portfolio - Multiverse Apprenticeship Projects
+![# My Portfolio - Multiverse Apprenticeship Projects
 
 A professional portfolio website showcasing the projects and skills developed during my Multiverse apprenticeship program. Built with React.js and featuring a modern, responsive design.
 
@@ -80,18 +80,18 @@ src/
 Edit the `projects` array in `src/components/Projects.jsx` to update your project details:
 
 ```javascript
-const projects = [
+const projects = \[
   {
     id: 1,
     title: "Your Project Title",
     description: "Project description...",
-    technologies: ["React", "Node.js", "Express"],
+    technologies: \["React", "Node.js", "Express"\],
     liveUrl: "https://your-live-url.com",
     codeUrl: "https://github.com/your-username/project",
     imageUrl: "path/to/your/image.jpg"
   }
   // Add more projects...
-]
+\]
 ```
 
 ### Updating Contact Information
@@ -149,7 +149,7 @@ The portfolio is fully responsive and optimized for:
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source and available under the \[MIT License\](LICENSE).
 
 ## 📞 Contact
 
@@ -158,3 +158,4 @@ For questions or support, please reach out through the contact information provi
 ---
 
 **Built with ❤️ during the Multiverse Apprenticeship Program**
+](src/assets/profile-photo.jpg)
