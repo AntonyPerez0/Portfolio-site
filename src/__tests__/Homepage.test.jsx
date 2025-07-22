@@ -10,6 +10,13 @@ describe('Homepage', () => {
     expect(heading).toBeInTheDocument()
   })
 
+  it('renders the profile picture', () => {
+    render(<Homepage />)
+    
+    const profileImage = screen.getByAltText(/Antony Perez/i)
+    expect(profileImage).toBeInTheDocument()
+  })
+
   it('renders the apprenticeship overview section', () => {
     render(<Homepage />)
     
@@ -32,9 +39,12 @@ describe('Homepage', () => {
   })
 
   it('shows the hero subtitle with role information', () => {
-    render(<Homepage />)
+    const { container } = render(<Homepage />);
+    const subtitle = container.querySelector('.hero-subtitle');
     
-    const subtitle = screen.getByText(/Full-Stack Developer \| Multiverse Apprentice \| Problem Solver/i)
-    expect(subtitle).toBeInTheDocument()
-  })
-}) 
+    expect(subtitle).toBeInTheDocument();
+    expect(subtitle).toHaveTextContent(
+      /Android Developer | Full-Stack Developer | Technical Writer | Multiverse Apprentice | Problem Solver/i
+    );
+  });
+})
