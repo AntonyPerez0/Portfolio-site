@@ -165,3 +165,38 @@
     font-size: 1.6rem;
   }
 }
+.hero-content-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.hero-image-container {
+  flex-shrink: 0;
+}
+
+.hero-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #76a9ff;
+}
+
+.hero-text-content {
+  flex: 1;
+  text-align: left;
+}
+
+/* Responsive adjustments for the new layout */
+@media (max-width: 768px) {
+  .hero-content-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-text-content {
+    text-align: center;
+  }
+}

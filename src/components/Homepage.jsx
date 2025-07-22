@@ -1,20 +1,26 @@
 import React from 'react'
 import './Homepage.css'
+import profilePhoto from '../assets/profile-photo.jpg' // Import your photo
 
 const Homepage = () => {
   return (
     <div className="homepage">
       <section className="hero-section">
-        <div className="hero-content">
-          <h1 className="hero-title">Welcome to My Portfolio</h1>
-          <p className="hero-subtitle">
-            Android Developer | Full-Stack Developer | Technical Writer | Multiverse Apprentice | Problem Solver
-          </p>
-          <p className="hero-description">
-            I'm a passionate developer and technical writer who completed a comprehensive apprenticeship program 
-            at Multiverse, where I gained hands-on experience in modern web development and Android app development. 
-            I specialize in creating efficient, scalable, and user-friendly applications, and authoring clear, developer-focused documentation.
-          </p>
+        <div className="hero-content-container">
+          <div className="hero-image-container">
+            <img src={profilePhoto} alt="Antony Perez" className="hero-image" />
+          </div>
+          <div className="hero-text-content">
+            <h1 className="hero-title">Welcome to My Portfolio</h1>
+            <p className="hero-subtitle">
+              Android Developer | Full-Stack Developer | Technical Writer | Multiverse Apprentice | Problem Solver
+            </p>
+            <p className="hero-description">
+              I'm a passionate developer and technical writer who completed a comprehensive apprenticeship program 
+              at Multiverse, where I gained hands-on experience in modern web development and Android app development. 
+              I specialize in creating efficient, scalable, and user-friendly applications, and authoring clear, developer-focused documentation.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -80,4 +86,4 @@ const Homepage = () => {
   )
 }
 
-export default Homepage 
+export default Homepage
