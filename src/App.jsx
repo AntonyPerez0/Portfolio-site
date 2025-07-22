@@ -4,6 +4,7 @@ import "./App.css";
 import Homepage from "./components/Homepage";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Blog from "./components/Blog"; // Import the new component
 import StarsCanvas from "./components/Starfield"; // Import the new component
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       "home";
     if (path.startsWith("projects")) return "projects";
     if (path.startsWith("contact")) return "contact";
+    if (path.startsWith("blog")) return "blog";
     return "home";
   };
 
@@ -45,6 +47,8 @@ function App() {
         return <Homepage />;
       case "projects":
         return <Projects />;
+      case "blog":
+        return <Blog />;
       case "contact":
         return <Contact />;
       default:
@@ -75,6 +79,14 @@ function App() {
                 onClick={() => navigate("projects")}
               >
                 Projects
+              </button>
+            </li>
+            <li>
+              <button
+                className={currentSection === "blog" ? "active" : ""}
+                onClick={() => navigate("blog")}
+              >
+                Blog
               </button>
             </li>
             <li>

@@ -1,3 +1,4 @@
+/* src/components/ProjectCard.css */
 .project-card {
   background: #2c2c2c; /* Darker card background */
   border-radius: 8px;
@@ -92,6 +93,18 @@
   background-color: #4a4a4a;
   border-color: #777777;
 }
+
+.details-link {
+  background-color: #76a9ff;
+  color: #1a1a1a;
+  border-color: #76a9ff;
+}
+
+.details-link:hover {
+  background-color: #9bbff1;
+  border-color: #9bbff1;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

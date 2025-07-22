@@ -1,3 +1,4 @@
+// src/components/Homepage.jsx
 import React from 'react'
 import './Homepage.css'
 import profilePhoto from '../assets/profile-photo.jpg' // Import your photo
@@ -15,11 +16,55 @@ const Homepage = () => {
             <p className="hero-subtitle">
               Android Developer | Full-Stack Developer | Technical Writer | Multiverse Apprentice | Problem Solver
             </p>
-            <p className="hero-description">
-              I'm a passionate developer and technical writer who completed a comprehensive apprenticeship program 
-              at Multiverse, where I gained hands-on experience in modern web development and Android app development. 
-              I specialize in creating efficient, scalable, and user-friendly applications, and authoring clear, developer-focused documentation.
-            </p>
+            <a href="/Portfolio-site/AntonyPerez_Resume.pdf" className="cta-button" download="AntonyPerez_Resume.pdf">Download Resume</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-me">
+        <h2>About Me</h2>
+        <p>
+          I'm a passionate full-stack developer and technical writer who recently completed
+          a comprehensive apprenticeship program at Multiverse. I'm
+          excited about opportunities to contribute to innovative
+          projects and continue growing my technical skills, especially in Android development and documentation.
+        </p>
+        <p>
+          My journey in tech is driven by a passion for creating efficient, scalable, and user-friendly applications, and authoring clear, developer-focused documentation.
+        </p>
+      </section>
+
+      <section className="skills-section">
+        <h2>Skills</h2>
+        <div className="skills-grid">
+          <div className="skill-category">
+            <h3>Languages</h3>
+            <ul>
+              <li>JavaScript (ES6+)</li>
+              <li>HTML5 & CSS3</li>
+              <li>Kotlin</li>
+              <li>Java</li>
+              <li>SQL</li>
+            </ul>
+          </div>
+          <div className="skill-category">
+            <h3>Frameworks & Libraries</h3>
+            <ul>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>Express.js</li>
+              <li>Jetpack Compose</li>
+            </ul>
+          </div>
+          <div className="skill-category">
+            <h3>Tools & Platforms</h3>
+            <ul>
+              <li>Git & GitHub</li>
+              <li>Android Studio</li>
+              <li>VS Code</li>
+              <li>Postman</li>
+              <li>Vite</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -28,9 +73,9 @@ const Homepage = () => {
         <h2>Overview of My Apprenticeship</h2>
         <div className="overview-content">
           <p>
-            During my time at Multiverse, I participated in an intensive full-stack 
-            development apprenticeship that provided me with real-world experience 
-            working on diverse projects. The program covered both front-end and 
+            During my time at Multiverse, I participated in an intensive full-stack
+            development apprenticeship that provided me with real-world experience
+            working on diverse projects. The program covered both front-end and
             back-end development, database management, and modern development practices.
           </p>
           <div className="apprenticeship-highlights">
@@ -54,32 +99,11 @@ const Homepage = () => {
         <h2>Reflection on Learning</h2>
         <div className="reflection-content">
           <p>
-            My apprenticeship journey has been transformative, pushing me to grow both 
-            technically and professionally. I've developed a strong foundation in 
-            modern web development while learning the importance of clean code, 
+            My apprenticeship journey has been transformative, pushing me to grow both
+            technically and professionally. I've developed a strong foundation in
+            modern web development while learning the importance of clean code,
             effective communication, and continuous learning.
           </p>
-          
-          <div className="key-skills">
-            <h3>Key Skills Developed</h3>
-            <ul>
-              <li><strong>Technical Skills:</strong> React.js, Node.js, SQL, RESTful API development</li>
-              <li><strong>Soft Skills:</strong> Team collaboration, problem-solving, time management</li>
-              <li><strong>Development Practices:</strong> Agile methodologies, version control, code review</li>
-              <li><strong>Tools & Technologies:</strong> Git, VS Code, Postman, various testing frameworks</li>
-            </ul>
-          </div>
-
-          <div className="growth-areas">
-            <h3>Areas of Growth</h3>
-            <p>
-              Throughout this journey, I've learned to approach complex problems 
-              systematically, communicate technical concepts clearly, and adapt 
-              quickly to new technologies. The hands-on project experience has 
-              given me confidence in building full-stack applications from concept 
-              to deployment.
-            </p>
-          </div>
         </div>
       </section>
     </div>

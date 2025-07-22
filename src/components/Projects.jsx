@@ -28,6 +28,7 @@ const Projects = () => {
       ],
       codeUrl:
         "https://github.com/MV-SWE-Fiserv-US/group-full-stack-inventory-project-team-rocket",
+      detailsUrl: "#", // Add a placeholder link
       imageUrl: inventoryImage, // Use the imported image
     },
     {
@@ -37,6 +38,7 @@ const Projects = () => {
         "This professional portfolio website was built as the capstone project for my Multiverse apprenticeship. It showcases my technical skills, project work, and contact information. Built with React, Vite, and modern CSS, the site features a clean, responsive design, component-based architecture, and automated testing with Vitest and React Testing Library.",
       technologies: ["React", "Vite", "CSS3", "Jest", "React Testing Library"],
       codeUrl: "https://github.com/AntonyPerez0/Portfolio-site",
+      detailsUrl: "#", // Add a placeholder link
       imageUrl: portfolioImage, // Use the imported image
     },
     {
@@ -53,6 +55,7 @@ const Projects = () => {
         "REST API",
       ],
       codeUrl: "https://github.com/AntonyPerez0/notesApp",
+      detailsUrl: "#", // Add a placeholder link
       imageUrl: notesApiImage, // Use the imported image
     },
     {
@@ -62,6 +65,7 @@ const Projects = () => {
         "Red's PokeDex is an Android application built with Kotlin and Jetpack Compose. It allows users to browse and search for Pokémon, view detailed information, and manage their Pokémon team with a modern UI.",
       technologies: ["Kotlin", "Jetpack Compose", "Android Studio"],
       codeUrl: "https://github.com/AntonyPerez0/Android-PokeAPI",
+      detailsUrl: "#", // Add a placeholder link
       imageUrl: pokedexImage, // Use the imported image
     },
     {
@@ -71,6 +75,7 @@ const Projects = () => {
         "MultiClock is an Android application that helps you keep track of your clock-in and clock-out times and check the weather in your city. Features include 8.5-hour workday calculation and real-time weather checks using the OpenWeatherMap API. All calculations are performed locally, and no personal data is collected.",
       technologies: ["Java", "Android Studio", "OpenWeatherMap API"],
       codeUrl: "https://github.com/AntonyPerez0/multiClockApp",
+      detailsUrl: "#", // Add a placeholder link
       imageUrl: multiclockImage, // Use the imported image
     },
   ];
