@@ -1,7 +1,6 @@
-// src/components/Homepage.jsx
-import React from 'react';
-import './Homepage.css';
-import profilePhoto from '../assets/profile-photo.jpg'; // Import your photo
+import React from 'react'
+import './Homepage.css'
+import profilePhoto from '../assets/profile-photo.jpg' // Import your photo
 
 const Homepage = () => {
   return (
@@ -16,7 +15,7 @@ const Homepage = () => {
             <p className="hero-subtitle">
               Android Developer | Full-Stack Developer | Technical Writer | Multiverse Apprentice | Problem Solver
             </p>
-            <a href="/Portfolio-site/Resume_2025.pdf" className="cta-button" download="Resume_2025.pdf">Download Resume</a>
+            <a href="/Resume_2025.pdf" className="cta-button" download="Resume_2025.pdf">Download Resume</a>
           </div>
         </div>
       </section>
@@ -107,7 +106,7 @@ const Homepage = () => {
         </div>
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default Homepage;
+export default Homepage
