@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useState, useEffect } from "react";
 import "./App.css";
 import Homepage from "./components/Homepage";
@@ -12,9 +11,7 @@ function App() {
     const params = new URLSearchParams(window.location.search);
     const path =
       params.get("path") ||
-      window.location.pathname
-        .replace("/Portfolio-site/", "")
-        .replace("/", "") ||
+      window.location.pathname.replace("/", "") ||
       "home";
     if (path.startsWith("projects")) return "projects";
     if (path.startsWith("contact")) return "contact";
@@ -35,9 +32,9 @@ function App() {
 
   const navigate = (section) => {
     setCurrentSection(section);
-    // Use the correct base path when updating the URL
+    // Correct the path for the custom domain
     const newPath =
-      section === "home" ? `/Portfolio-site/` : `/Portfolio-site/${section}/`;
+      section === "home" ? `/` : `/${section}/`;
     window.history.pushState({ section }, "", newPath);
   };
 
