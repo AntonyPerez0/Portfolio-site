@@ -1,36 +1,32 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <title>Redirecting...</title>
     <script type="text/javascript">
+      // This script redirects all 404 errors to the root of the site,
+      // passing the original path as a query parameter.
       (function () {
-        // Only redirect if we are not in local dev
-        if (
-          location.hostname !== "localhost" &&
-          location.hostname !== "127.0.0.1"
-        ) {
-          var path = location.pathname;
-          var repoName = path.split("/")[1];
+        // Don't redirect on localhost
+        if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+          return;
+        }
 
-          // Check if the path is likely a file (contains a file extension)
-          var isFile = path.split("/").pop().indexOf(".") > -1;
+        // Get the current path, removing any leading or trailing slashes.
+        const path = location.pathname.replace(/^\/+|\/+$/g, '');
 
-          // If it's not a file, redirect to the index with the correct path
-          if (!isFile) {
-            var newPath =
-              "/" +
-              repoName +
-              "/?path=" +
-              path.split("/").slice(2).join("/") +
-              "&" +
-              location.search.substring(1);
-
-            location.replace(newPath);
-          }
+        // If a path exists and it doesn't contain a period (i.e., it's not a file),
+        // redirect to the root with the path information.
+        if (path && (path.indexOf('.') === -1)) {
+          // Preserve existing query parameters
+          const search = location.search.slice(1);
+          window.location.replace(
+            '/?path=' + path + (search ? '&' + search : '')
+          );
         }
       })();
     </script>
   </head>
-  <body></body>
-</html> -->
+  <body>
+    </body>
+</html>
