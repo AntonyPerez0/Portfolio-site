@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProjectCard from "./ProjectCard";
 import "./Projects.css";
 
 // Import your project images
-import inventoryImage from "../assets/projects/inventory-app.png";
-import portfolioImage from "../assets/projects/portfolio-site.png";
-import notesApiImage from "../assets/projects/notes-api.png";
-import pokedexImage from "../assets/projects/pokedex-android.png";
-import multiclockImage from "../assets/projects/multiclock-app.png";
+import inventoryImage from "../assets/projects/inventory-management-app.png";
+import portfolioImage from "../assets/projects/portfolio-website-screenshot.png";
+import notesApiImage from "../assets/projects/notes-api-endpoints.png";
+import pokedexImage from "../assets/projects/pokedex-android-app.png";
+import multiclockImage from "../assets/projects/multiclock-android-app.png";
 
 
 const Projects = () => {
+  useEffect(() => {
+    document.title = "Projects | Antony Perez";
+    document.querySelector('meta[name="description"]').setAttribute("content", "A showcase of projects by Antony Perez, including a full-stack inventory app, a portfolio website, a notes API, and Android applications.");
+  }, []);
   // Sample projects data - you can replace with actual project details
   const projects = [
     {

@@ -3,8 +3,8 @@ import "./App.css";
 import Homepage from "./components/Homepage";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
-import Blog from "./components/Blog"; 
-import StarsCanvas from "./components/Starfield"; 
+import Blog from "./components/Blog";
+import StarsCanvas from "./components/Starfield";
 
 function App() {
   const getInitialSection = () => {
@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <StarsCanvas /> 
+      <StarsCanvas />
       <header className="App-header">
         <nav className="nav-bar">
           <div className="nav-brand">

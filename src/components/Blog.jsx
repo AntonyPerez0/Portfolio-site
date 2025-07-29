@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Blog.css';
 
 const Blog = () => {
+  useEffect(() => {
+    document.title = "Blog | Antony Perez";
+    document.querySelector('meta[name="description"]').setAttribute("content", "Read about Antony Perez's journey from retail to tech, and his experience as a software developer and technical writer.");
+  }, []);
+
   return (
     <div className="blog">
       <div className="blog-post">

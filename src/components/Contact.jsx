@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Contact.css'
 
 const Contact = () => {
+  useEffect(() => {
+    document.title = "Contact | Antony Perez";
+    document.querySelector('meta[name="description"]').setAttribute("content", "Get in touch with Antony Perez. Find links to his LinkedIn and GitHub profiles, and his email address for professional inquiries.");
+  }, []);
+
   return (
     <div className="contact">
       <div className="contact-header">

@@ -1,10 +1,47 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Homepage.css'
-import profilePhoto from '../assets/profile-photo.jpg' 
+import profilePhoto from '../assets/antony-perez-profile.jpg' 
 
 const Homepage = () => {
+  useEffect(() => {
+    document.title = "Antony Perez | Developer Portfolio";
+    document.querySelector('meta[name="description"]').setAttribute("content", "The portfolio of Antony Perez, a full-stack developer, Android developer, and technical writer. View my projects and get in touch.");
+  }, []);
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Antony Perez",
+    "url": "http://antonyperez.com",
+    "image": "http://antonyperez.com/assets/antony-perez-profile.jpg",
+    "sameAs": [
+      "https://www.linkedin.com/in/antonyperez01/",
+      "https://github.com/AntonyPerez0"
+    ],
+    "jobTitle": "Full-Stack Developer, Android Developer, Technical Writer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Clover Network, LLC"
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Western Governors University",
+        "sameAs": "https://www.wgu.edu/"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "Multiverse",
+        "sameAs": "https://www.multiverse.io/"
+      }
+    ]
+  };
+
   return (
     <div className="homepage">
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
       <section className="hero-section">
         <div className="hero-content-container">
           <div className="hero-image-container">
