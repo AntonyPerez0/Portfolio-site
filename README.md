@@ -2,7 +2,7 @@
 
 Welcome to the official repository for my professional portfolio. This site showcases the projects, skills, and experience I gained during my comprehensive software engineering apprenticeship at **Multiverse**. It is built from the ground up with **React** and **Vite**, featuring a clean, modern design and a fully responsive layout.
 
-**🚀 [View the Live Portfolio](https://antonyperez0.github.io/Portfolio-site/)**
+**🚀 [View the Live Portfolio](antonyperez.com)**
 
 ---
 
