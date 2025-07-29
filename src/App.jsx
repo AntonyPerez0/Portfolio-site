@@ -3,8 +3,8 @@ import "./App.css";
 import Homepage from "./components/Homepage";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
-import Blog from "./components/Blog"; // Import the new component
-import StarsCanvas from "./components/Starfield"; // Import the new component
+import Blog from "./components/Blog"; 
+import StarsCanvas from "./components/Starfield"; 
 
 function App() {
   const getInitialSection = () => {
@@ -22,7 +22,6 @@ function App() {
   const [currentSection, setCurrentSection] = useState(getInitialSection);
 
   useEffect(() => {
-    // This effect handles browser back/forward navigation
     const handlePopState = () => {
       setCurrentSection(getInitialSection());
     };
@@ -32,7 +31,6 @@ function App() {
 
   const navigate = (section) => {
     setCurrentSection(section);
-    // Correct the path for the custom domain
     const newPath =
       section === "home" ? `/` : `/${section}/`;
     window.history.pushState({ section }, "", newPath);
@@ -55,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <StarsCanvas /> {/* Add the starfield canvas here */}
+      <StarsCanvas /> 
       <header className="App-header">
         <nav className="nav-bar">
           <div className="nav-brand">

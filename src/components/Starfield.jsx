@@ -15,8 +15,7 @@ const Starfield = (props) => {
 
     // Loop through all the stars
     for (let i = 0; i < positions.length; i += 3) {
-      // Move star along the z-axis
-      positions[i + 2] += delta * 0.1; // Reduced speed from 0.5 to 0.1
+      positions[i + 2] += delta * 0.1; 
 
       // If the star is past the camera, reset its position to the back
       if (positions[i + 2] > 1.2) {
