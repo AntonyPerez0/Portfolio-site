@@ -13,7 +13,7 @@ const Homepage = () => {
     "@type": "Person",
     "name": "Antony Perez",
     "url": "http://antonyperez.com",
-    "image": "http://antonyperez.com/assets/antony-perez-profile.jpg",
+    "image": "http://antonyperez.com/profile-photo.jpg",
     "sameAs": [
       "https://www.linkedin.com/in/antonyperez01/",
       "https://github.com/AntonyPerez0"
