@@ -12,8 +12,7 @@ const Contact = () => {
       <div className="contact-header">
         <h1>Get In Touch</h1>
         <p>
-          I'm always interested in new opportunities and collaborations.
-          Feel free to reach out through any of the channels below, or download my resume for a more detailed look at my experience.
+          I'm ready for new opportunities and collaborations. Connect with me through the channels below, or download my resume for a detailed look at my experience.
         </p>
         <a href="/Resume_2025.pdf" className="cta-button" download="Resume_2025.pdf">Download Resume</a>
       </div>

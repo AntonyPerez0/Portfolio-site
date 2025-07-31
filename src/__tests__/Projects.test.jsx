@@ -49,7 +49,7 @@ describe('Projects', () => {
   it('renders the projects footer', () => {
     render(<Projects />)
     
-    const footerText = screen.getByText(/These projects represent my journey/i)
+    const footerText = screen.getByText(/This is my journey from code novice to production-ready developer./i)
     expect(footerText).toBeInTheDocument()
   })
 })

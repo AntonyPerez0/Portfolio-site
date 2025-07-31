@@ -60,13 +60,10 @@ const Homepage = () => {
       <section className="about-me">
         <h2>About Me</h2>
         <p>
-          I'm a passionate full-stack developer and technical writer who recently completed
-          a comprehensive apprenticeship program at Multiverse. I'm
-          excited about opportunities to contribute to innovative
-          projects and continue growing my technical skills, especially in Android development and documentation.
+          I am a full-stack developer and technical writer, having completed a comprehensive software engineering apprenticeship at Multiverse. My professional journey began in retail leadership, where I developed strong communication and problem-solving skills. This experience provided me with a unique perspective, enabling me to effectively bridge the gap between complex technical concepts and user-friendly solutions.
         </p>
         <p>
-          My journey in tech is driven by a passion for creating efficient, scalable, and user-friendly applications, and authoring clear, developer-focused documentation.
+           I am passionate about developing high-quality, scalable, and user-centric applications, as well as authoring clear and concise documentation. I am eager to contribute my diverse skillset to a forward-thinking team dedicated to building innovative technology.
         </p>
       </section>
 
@@ -109,10 +106,7 @@ const Homepage = () => {
         <h2>Overview of My Apprenticeship</h2>
         <div className="overview-content">
           <p>
-            During my time at Multiverse, I participated in an intensive full-stack
-            development apprenticeship that provided me with real-world experience
-            working on diverse projects. The program covered both front-end and
-            back-end development, database management, and modern development practices.
+            I completed an intensive, hands-on full-stack development apprenticeship at Multiverse, where I tackled a diverse range of real-world projects. This immersive program solidified my expertise in both front-end and back-end development, database management, and the agile methodologies that drive modern tech.
           </p>
           <div className="apprenticeship-highlights">
             <div className="highlight-item">
@@ -135,10 +129,10 @@ const Homepage = () => {
         <h2>Reflection on Learning</h2>
         <div className="reflection-content">
           <p>
-            My apprenticeship journey has been transformative, pushing me to grow both
-            technically and professionally. I've developed a strong foundation in
-            modern web development while learning the importance of clean code,
-            effective communication, and continuous learning.
+            My apprenticeship was a catalyst for my professional and technical growth. I emerged with a strong foundation in modern web development and a deep appreciation for clean code, effective communication, and continuous learning. This experience has instilled in me a commitment to lifelong learning that I bring to every project.
+          </p>
+          <p>
+            I am currently channeling that passion into a Bachelor of Science in Computer Science from Western Governors University, where I'm deepening my understanding of the fundamental principles that underpin our field. My goal is to not just keep up with the ever-evolving world of technology, but to become a driving force within it.
           </p>
         </div>
       </section>

@@ -31,10 +31,10 @@ describe('Homepage', () => {
     expect(reflectionHeading).toBeInTheDocument()
   })
 
-  it('displays key skills information', () => {
+  it('displays skills information', () => {
     render(<Homepage />)
     
-    const skillsHeading = screen.getByText(/Key Skills Developed/i)
+    const skillsHeading = screen.getByRole('heading', { name: /Skills/i })
     expect(skillsHeading).toBeInTheDocument()
   })
 
