@@ -1212,19 +1212,6 @@ table.ms-comments td.msg .cdate{font-weight:bold;display:block;margin-bottom:4px
     extend({ MeshLineGeometry, MeshLineMaterial });
 
     /* ---------- badge face, drawn with Canvas 2D ---------- */
-    function makeBadgeTexture() {
-      const W = 1024, H = 1440, P = 92;
-      const c = document.createElement('canvas'); c.width = W; c.height = H;
-      const x = c.getContext('2d');
-      const rr = (px, py, pw, ph, r) => {
-        x.beginPath();
-        x.moveTo(px + r, py);
-        x.arcTo(px + pw, py, px + pw, py + ph, r);
-        x.arcTo(px + pw, py + ph, px, py + ph, r);
-        x.arcTo(px, py + ph, px, py, r);
-        x.arcTo(px, py, px + pw, py, r);
-        x.closePath();
-      };
 
       /* card body */
       const bg = x.createLinearGradient(0, 0, 0, H);
@@ -1337,7 +1324,12 @@ table.ms-comments td.msg .cdate{font-weight:bold;display:block;margin-bottom:4px
       const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]));
       const [dragged, drag] = useState(false);
       const [hovered, hover] = useState(false);
-      const tex = useMemo(() => makeBadgeTexture(), []);
+      const tex = useMemo(() => {
+  const texture = new THREE.TextureLoader().load('badge-texture.png');
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.anisotropy = 16;
+  return texture;
+}, []);
 
       useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
       useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
