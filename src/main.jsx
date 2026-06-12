@@ -193,11 +193,11 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
         {/* Use onUpdate to safely force buffer initialization on mount */}
         <meshLineGeometry onUpdate={(geom) => geom.setPoints(curve.getPoints(40))} />
         <meshLineMaterial
-          color="white"
+          color="#1A2F4C"
           depthTest={false}
           resolution={[width, height]}
           transparent={true}
-          lineWidth={0.25}
+          lineWidth={0.5}
         />
       </mesh>
     </>
