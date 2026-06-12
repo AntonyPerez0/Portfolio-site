@@ -7,6 +7,9 @@ import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
 
 extend({ MeshLineGeometry, MeshLineMaterial })
 
+const log = (...a) => console.info('%c[badge]', 'color:#3DDC97;font-family:monospace', ...a)
+const logErr = (...a) => console.error('%c[badge]', 'color:#FF6B6B;font-family:monospace', ...a)
+
 /* Where the strap meets the card, in the card's local space.
  * The spherical joint, the metal clamp, and the band's first curve
  * point all share this anchor — that's what keeps the lanyard
@@ -88,9 +91,9 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const clip = new THREE.Vector3(), quat = new THREE.Quaternion()
   const segProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 }
   const { width, height } = useThree((s) => s.size)
-  /* FIVE control points now: clip-on-card → j3 → j2 → j1 → fixed.
-   * The extra first point is what closes the old gap between the
-   * strap and the badge. */
+  /* FIVE control points: clip-on-card → j3 → j2 → j1 → fixed.
+   * The extra first point rides the card and closes the gap
+   * between the strap and the badge. */
   const [curve] = useState(() => new THREE.CatmullRomCurve3(
     [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]
   ))
@@ -126,10 +129,9 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
         const clamped = Math.max(0.1, Math.min(1, ref.current.lerped.distanceTo(ref.current.translation())))
         ref.current.lerped.lerp(ref.current.translation(), delta * (minSpeed + clamped * (maxSpeed - minSpeed)))
       })
-      /* the strap's first point rides the card itself: take the card's
-       * local clip offset, rotate it by the card's current orientation,
-       * and add the card's position — so the band stays glued to the
-       * clamp no matter how the badge swings or spins */
+      /* first strap point rides the card: rotate the local clip offset
+       * by the card's live orientation and add its position, so the
+       * band stays glued to the clamp through swings and throws */
       const r = card.current.rotation()
       quat.set(r.x, r.y, r.z, r.w)
       clip.set(0, CLIP_Y, 0).applyQuaternion(quat).add(card.current.translation())
@@ -177,7 +179,6 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
               side={THREE.DoubleSide}
             />
           </mesh>
-          {/* clamp sits at the joint anchor, bridging strap and card */}
           <mesh position={[0, CLIP_Y - 0.04, 0]}>
             <boxGeometry args={[0.46, 0.2, 0.07]} />
             <meshStandardMaterial color="#AEB9CE" metalness={1} roughness={0.32} />
@@ -197,7 +198,17 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   )
 }
 
-function App({ wrap }) {
+/* Catches any render-time crash inside the 3D scene so a failure
+ * logs loudly and leaves the static badge visible — instead of
+ * silently blanking the column. */
+class BadgeBoundary extends React.Component {
+  constructor(props) { super(props); this.state = { broken: false } }
+  static getDerivedStateFromError() { return { broken: true } }
+  componentDidCatch(err) { logErr('crashed while rendering:', err) }
+  render() { return this.state.broken ? null : this.props.children }
+}
+
+function App({ wrap, debug }) {
   return (
     <Canvas
       camera={{ position: [0, 0, 13], fov: 25 }}
@@ -209,30 +220,76 @@ function App({ wrap }) {
         wrap.classList.remove('loading')
         const hint = document.getElementById('badgeHint')
         if (hint) hint.textContent = 'grab the badge · throw it'
+        log('live ✓ — grab the badge and throw it')
       }}
     >
       <ambientLight intensity={Math.PI} />
       <Env />
-      <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
+      <Physics debug={debug} interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band />
       </Physics>
     </Canvas>
   )
 }
 
-/* Progressive enhancement: the static badge in index.html is the
- * baseline; the physics version only replaces it when it can run. */
-const wrap = document.getElementById('badgeWrap')
-const mount = document.getElementById('badge3d')
+/* ════════════════════════════════════════════════════════════
+   SELF-HEALING MOUNT
+   Works with any combination of old/new index.html markup:
+   - new layout:  #badgeWrap > #badge3d (canvas mount) + static badge
+   - old layout:  #badge3d is itself the wrapper
+   - missing mount: one is created inside the wrapper
+   Flags: ?badge=force ignores reduced-motion · ?debug shows colliders
+   ════════════════════════════════════════════════════════════ */
+function boot() {
+  if (window.__badgeMounted) return
+  const params = new URLSearchParams(location.search)
+  const force = params.get('badge') === 'force'
+  const debug = params.has('debug')
 
-function canRun3D() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false
+  let wrap = document.getElementById('badgeWrap') || document.querySelector('.badge-wrap')
+  let mount = document.getElementById('badge3d')
+
+  if (!wrap && !mount) return logErr('no .badge-wrap / #badge3d found in the page — check index.html')
+  if (!wrap) wrap = mount.closest('.badge-wrap') || mount
+  if (!mount || mount === wrap) {
+    if (mount === wrap) log('old-style markup detected — creating a canvas mount inside it')
+    mount = document.createElement('div')
+    mount.className = 'badge-canvas'
+    wrap.appendChild(mount)
+  }
+  /* guarantee the mount fills the wrapper even if its CSS is missing */
+  if (mount !== wrap) {
+    Object.assign(mount.style, { position: 'absolute', inset: '0', zIndex: 2 })
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches && !force) {
+    return log('prefers-reduced-motion is on — keeping the static badge. Add ?badge=force to the URL to override.')
+  }
   try {
     const c = document.createElement('canvas')
-    return !!(c.getContext('webgl2') || c.getContext('webgl'))
-  } catch (e) { return false }
+    if (!(c.getContext('webgl2') || c.getContext('webgl'))) {
+      return logErr('WebGL unavailable — keeping the static badge')
+    }
+  } catch (e) {
+    return logErr('WebGL check failed — keeping the static badge', e)
+  }
+
+  try {
+    log('mounting 3D physics badge…' + (debug ? ' (debug colliders on)' : ''))
+    window.__badgeMounted = true
+    createRoot(mount).render(
+      <BadgeBoundary>
+        <App wrap={wrap} debug={debug} />
+      </BadgeBoundary>
+    )
+  } catch (err) {
+    window.__badgeMounted = false
+    logErr('failed to mount:', err)
+  }
 }
 
-if (wrap && mount && canRun3D()) {
-  createRoot(mount).render(<App wrap={wrap} />)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', boot)
+} else {
+  boot()
 }
