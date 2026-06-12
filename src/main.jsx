@@ -94,9 +94,14 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   /* FIVE control points: clip-on-card → j3 → j2 → j1 → fixed.
    * The extra first point rides the card and closes the gap
    * between the strap and the badge. */
-  const [curve] = useState(() => new THREE.CatmullRomCurve3(
-    [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]
-  ))
+/* Initialize the curve with points spread out to match the starting positions of your physics joints */
+const [curve] = useState(() => new THREE.CatmullRomCurve3([
+  new THREE.Vector3(0, 0, 0),
+  new THREE.Vector3(0.5, 0, 0),
+  new THREE.Vector3(1.0, 0, 0),
+  new THREE.Vector3(1.5, 0, 0),
+  new THREE.Vector3(2.0, 0, 0)
+]))
   const [dragged, drag] = useState(false)
   const [hovered, hover] = useState(false)
   const tex = useMemo(() => makeBadgeTexture(), [])
