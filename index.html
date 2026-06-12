@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="theme-color" content="#070B14" />
 <title>Antony Perez - Software Engineer</title>
 <meta name="description" content="Antony Perez is a software engineer in the SF Bay Area building full-stack applications and the GitOps infrastructure they ship on - Kubernetes, CI/CD, React, TypeScript." />
 <meta property="og:title" content="Antony Perez - Software Engineer" />
@@ -130,18 +131,84 @@ img,svg{display:block;max-width:100%}
 
 .badge-wrap{
   position:relative;height:660px;margin:-150px 0 -60px;
-  min-width:0;
+  min-width:0;display:flex;align-items:flex-start;justify-content:center;
 }
-@media(max-width:920px){.badge-wrap{height:430px;margin:0 -12px}}
-.badge-wrap canvas{touch-action:pan-y}
+@media(max-width:920px){.badge-wrap{height:500px;margin:24px -12px 0}}
+.badge-canvas{position:absolute;inset:0;z-index:2}
+.badge-canvas canvas{touch-action:pan-y}
 .badge-hint{
   position:absolute;bottom:38px;left:50%;transform:translateX(-50%);
   font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--faint);white-space:nowrap;pointer-events:none;
+  color:var(--faint);white-space:nowrap;pointer-events:none;z-index:3;
   transition:opacity .4s;
 }
-.badge-wrap.loading .badge-hint{animation:pulse 1.6s infinite}
-.badge-wrap.failed{display:none}
+/* when the live 3D badge mounts, the static one bows out */
+.badge-wrap.live .badge-static{opacity:0;transform:translateX(-50%) scale(.96);pointer-events:none}
+
+/* ---- STATIC FALLBACK BADGE (always in the HTML, zero-JS) ---- */
+.badge-static{
+  position:absolute;top:150px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;
+  transition:opacity .6s ease,transform .6s ease;z-index:1;
+  width:min(290px,70%);
+}
+@media(max-width:920px){.badge-static{top:0}}
+@media(prefers-reduced-motion:no-preference){
+  .badge-static{animation:badgeSway 6s ease-in-out infinite;transform-origin:top center}
+  @keyframes badgeSway{0%,100%{rotate:-2deg}50%{rotate:2deg}}
+}
+.badge-lanyard{
+  width:13px;height:140px;
+  background:
+    linear-gradient(90deg,transparent 36%,rgba(255,255,255,.2) 50%,transparent 64%),
+    var(--grad);
+  border-radius:3px;
+}
+@media(max-width:920px){.badge-lanyard{height:84px}}
+.badge-clip{
+  width:46px;height:14px;background:linear-gradient(#C2CCDE,#8E9AB2);
+  border-radius:4px;margin-top:-3px;box-shadow:0 2px 5px rgba(0,0,0,.4);
+}
+.badge-card{
+  width:100%;aspect-ratio:1024/1440;margin-top:-2px;
+  border-radius:18px;padding:24px 22px;
+  background:linear-gradient(160deg,#141E36,#0A101E);
+  border:1px solid #2E3C5C;position:relative;overflow:hidden;
+  box-shadow:0 34px 70px -28px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.05);
+  display:flex;flex-direction:column;
+}
+.badge-card::before{
+  content:'';position:absolute;inset:0;opacity:.5;
+  background-image:radial-gradient(rgba(148,163,196,.16) 1px,transparent 1px);
+  background-size:18px 18px;
+}
+.badge-card::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--grad);
+}
+.badge-card > *{position:relative}
+.badge-slot{width:72px;height:13px;border:2px solid #3A4A70;border-radius:8px;margin:0 auto 16px}
+.badge-eyebrow{
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;color:var(--faint);
+  display:flex;justify-content:space-between;margin-bottom:10px;
+}
+.badge-name{
+  font-family:var(--display);font-weight:800;font-size:29px;line-height:.96;
+  letter-spacing:-.02em;color:#EDF1FA;
+}
+.badge-role{
+  font-family:var(--mono);font-size:9px;letter-spacing:.18em;margin:9px 0 14px;font-weight:600;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.badge-meta{font-family:var(--mono);font-size:9.5px;line-height:2;color:#8E9AB2}
+.badge-meta b{color:#5E6A83;font-weight:500;display:inline-block;width:54px}
+.badge-foot{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.badge-bars{display:flex;gap:2px;align-items:flex-end;height:25px}
+.badge-bars i{width:2px;background:#D7DEF0;font-style:normal}
+.badge-ci{
+  font-family:var(--mono);font-size:8.5px;font-weight:600;color:var(--green);
+  background:var(--green-dim);border:1px solid rgba(61,220,151,.3);
+  padding:4px 9px;border-radius:999px;white-space:nowrap;
+}
 
 .hero-badge{
   display:inline-flex;align-items:center;gap:9px;
@@ -654,6 +721,69 @@ table.ms-comments td.msg .cdate{font-weight:bold;display:block;margin-bottom:4px
 }
 .ms-back:active{border-style:inset}
 </style>
+<style>
+/* ============================================================
+   COMMAND PALETTE / PROGRESS / NAV POLISH
+   ============================================================ */
+.nav-k{
+  font-family:var(--mono);font-size:12px;font-weight:600;cursor:pointer;
+  color:var(--muted);background:rgba(255,255,255,.04);
+  border:1px solid var(--line);border-radius:8px;padding:6px 11px;
+  transition:color .15s,border-color .15s;
+}
+.nav-k:hover{color:var(--text);border-color:var(--line-strong)}
+.nav-links a.active{color:var(--text);background:rgba(255,255,255,.07)}
+
+.progress{
+  position:fixed;top:0;left:0;height:3px;width:0;z-index:160;
+  background:var(--grad);border-radius:0 3px 3px 0;
+  pointer-events:none;
+}
+body.myspace .progress{display:none}
+
+.palette{position:fixed;inset:0;z-index:300}
+.palette[hidden]{display:none}
+.palette-backdrop{
+  position:absolute;inset:0;background:rgba(5,8,15,.65);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+}
+.palette-panel{
+  position:absolute;top:16vh;left:50%;transform:translateX(-50%);
+  width:min(580px,calc(100% - 32px));
+  background:rgba(13,19,35,.96);
+  border:1px solid var(--line-strong);border-radius:18px;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.9);
+  overflow:hidden;
+  font-family:var(--body);
+}
+.palette-input{
+  width:100%;background:transparent;border:none;outline:none;
+  font-family:var(--mono);font-size:15.5px;color:var(--text);
+  padding:18px 22px;border-bottom:1px solid var(--line);
+}
+.palette-input::placeholder{color:var(--faint)}
+.palette-list{list-style:none;max-height:320px;overflow-y:auto;padding:8px;margin:0}
+.palette-list li{
+  display:flex;align-items:center;gap:14px;
+  padding:11px 14px;border-radius:10px;cursor:pointer;
+  font-size:14.5px;color:#C2CBDD;
+}
+.palette-list li .ic{
+  width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+  background:rgba(255,255,255,.05);border:1px solid var(--line);
+  font-family:var(--mono);font-size:13px;flex-shrink:0;
+}
+.palette-list li .hint{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--faint)}
+.palette-list li.sel{background:rgba(91,140,255,.13);color:var(--text)}
+.palette-list li.sel .ic{border-color:rgba(91,140,255,.4)}
+.palette-empty{padding:22px;text-align:center;font-family:var(--mono);font-size:13px;color:var(--faint)}
+.palette-foot{
+  display:flex;gap:18px;justify-content:flex-end;
+  padding:10px 18px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:11px;color:var(--faint);
+}
+.proj-wide{grid-column:1/-1}
+</style>
 </head>
 <body>
 
@@ -672,6 +802,7 @@ table.ms-comments td.msg .cdate{font-weight:bold;display:block;margin-bottom:4px
     <li class="hide-m"><a href="#experience">Experience</a></li>
     <li class="hide-m"><a href="#projects">Projects</a></li>
     <li class="hide-m"><a href="#skills">Skills</a></li>
+    <li class="hide-m"><button class="nav-k" id="navCmdK" type="button" aria-label="Open command palette">⌘K</button></li>
     <li><a class="nav-cta" href="#contact">Get in touch</a></li>
   </ul>
 </nav>
@@ -689,8 +820,28 @@ table.ms-comments td.msg .cdate{font-weight:bold;display:block;margin-bottom:4px
         </div>
       </div>
       
-      <div class="badge-wrap loading" id="badge3d" aria-label="Interactive 3D conference badge on a physics-simulated lanyard - grab and throw it">
-        <div class="badge-hint" id="badgeHint">loading badge…</div>
+      <div class="badge-wrap" id="badgeWrap" aria-label="Interactive 3D conference badge on a physics-simulated lanyard - grab and throw it">
+        <div class="badge-static" aria-hidden="true">
+          <div class="badge-lanyard"></div>
+          <div class="badge-clip"></div>
+          <div class="badge-card">
+            <div class="badge-slot"></div>
+            <div class="badge-eyebrow"><span>ACCESS // ENGINEERING</span><span>'26</span></div>
+            <div class="badge-name">ANTONY<br>PEREZ</div>
+            <div class="badge-role">SOFTWARE ENGINEER</div>
+            <div class="badge-meta">
+              <div><b>stack</b>k8s · react · ts · CI/CD</div>
+              <div><b>repo</b>AntonyPerez0</div>
+              <div><b>degree</b>b.s. cs — 2026</div>
+            </div>
+            <div class="badge-foot">
+              <div class="badge-bars"><i style="height:24px"></i><i style="height:11px"></i><i style="height:21px"></i><i style="height:8px"></i><i style="height:17px"></i><i style="height:24px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:25px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:12px"></i><i style="height:18px"></i></div>
+              <span class="badge-ci">✓ CI PASSED</span>
+            </div>
+          </div>
+        </div>
+        <div id="badge3d" class="badge-canvas"></div>
+        <div class="badge-hint" id="badgeHint"></div>
       </div>
       
     </div>
@@ -818,6 +969,18 @@ table.ms-comments td.msg .cdate{font-weight:bold;display:block;margin-bottom:4px
           <li>Full CI/CD via GitHub Actions: build validation, lint gates, and automated production releases</li>
         </ul>
         <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Vitest</span><span class="tag">RTL</span><span class="tag">GitHub Actions</span><span class="tag">CSS Modules</span></div>
+      </article>
+      <article class="proj proj-wide reveal">
+        <div class="proj-icon">◈</div>
+        <div class="proj-top"><h3>This Very Website</h3><a class="link" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">view source ↗</a></div>
+        <p>The portfolio is a project too — treated like production software, not a template. Open the dev tools; the build is part of the pitch.</p>
+        <ul>
+          <li>Interactive 3D badge on a physics-simulated lanyard — React Three Fiber + Rapier rope joints, draggable and throwable</li>
+          <li>Progressive enhancement: a pure-CSS badge renders instantly, then upgrades to WebGL physics when the device can run it</li>
+          <li>Built with Vite, deployed automatically to GitHub Pages by a GitHub Actions pipeline on every push to main</li>
+          <li>Hand-rolled design system, a vanilla-JS command palette (try ⌘K), and a fully period-accurate 2006 easter egg</li>
+        </ul>
+        <div class="tags"><span class="tag">React Three Fiber</span><span class="tag">Rapier</span><span class="tag">Three.js</span><span class="tag">Vite</span><span class="tag">GitHub Actions</span><span class="tag">Vanilla JS</span></div>
       </article>
     </div>
   </section>
@@ -1071,7 +1234,20 @@ table.ms-comments td.msg .cdate{font-weight:bold;display:block;margin-bottom:4px
       </div>
     </div>
   </div>
-</div><script>
+</div>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<div class="palette" id="palette" hidden>
+  <div class="palette-backdrop" data-close></div>
+  <div class="palette-panel" role="dialog" aria-modal="true" aria-label="Command palette">
+    <input class="palette-input" id="paletteInput" type="text" placeholder="Type a command or search…" autocomplete="off" spellcheck="false" />
+    <ul class="palette-list" id="paletteList"></ul>
+    <div class="palette-foot"><span>↑↓ navigate</span><span>↵ run</span><span>esc close</span></div>
+  </div>
+</div>
+
+<script>
 (function(){
   "use strict";
   var $ = function(s){ return document.querySelector(s); };
@@ -1129,6 +1305,124 @@ table.ms-comments td.msg .cdate{font-weight:bold;display:block;margin-bottom:4px
     play.textContent = playing ? '⏸ PAUSE' : '▶ PLAY';
     eq.classList.toggle('playing', playing);
   });
+
+  /* ===== console greeting for the curious ===== */
+  try {
+    console.log('%c\u2388 antony.perez \u2014 documented \u00b7 tested \u00b7 deployed',
+      'font-family:monospace;font-size:13px;padding:6px 12px;background:#0B1120;color:#3DDC97;border:1px solid #1E2A40;border-radius:8px');
+    console.log('Reading the source? Good instinct. Say hi: antonyperez0@yahoo.com \u00b7 github.com/AntonyPerez0');
+  } catch (e) {}
+
+  /* ===== scroll progress bar ===== */
+  var prog = $('#progress');
+  if (prog) {
+    var ticking = false;
+    var onScroll = function(){
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function(){
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+        ticking = false;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ===== highlight the section you're reading in the nav ===== */
+  var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  if ('IntersectionObserver' in window && navLinks.length) {
+    var navMap = {};
+    navLinks.forEach(function(a){
+      if (a.classList.contains('nav-cta')) return;
+      var s = document.getElementById(a.getAttribute('href').slice(1));
+      if (s) navMap[s.id] = a;
+    });
+    var navIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        navLinks.forEach(function(a){ a.classList.remove('active'); });
+        if (navMap[en.target.id]) navMap[en.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    Object.keys(navMap).forEach(function(id){ navIO.observe(document.getElementById(id)); });
+  }
+
+  /* ===== command palette (\u2318K) ===== */
+  var pal = $('#palette'), palInput = $('#paletteInput'), palList = $('#paletteList'), palKBtn = $('#navCmdK');
+  if (pal && palInput && palList) {
+    var isMac = /Mac|iPhone|iPad/.test(navigator.platform || '');
+    if (palKBtn && !isMac) palKBtn.textContent = 'Ctrl K';
+
+    var go = function(hash){
+      if (document.body.classList.contains('myspace')) setMode(false);
+      var el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+    };
+    var ACTIONS = [
+      { t: 'Go to About',        hint: '#about',      ic: '01', run: function(){ go('#about'); } },
+      { t: 'Go to Experience',   hint: '#experience', ic: '02', run: function(){ go('#experience'); } },
+      { t: 'Go to Projects',     hint: '#projects',   ic: '03', run: function(){ go('#projects'); } },
+      { t: 'Go to Skills',       hint: '#skills',     ic: '04', run: function(){ go('#skills'); } },
+      { t: 'Go to Education',    hint: '#education',  ic: '05', run: function(){ go('#education'); } },
+      { t: 'Contact me',         hint: '#contact',    ic: '\u2709', run: function(){ go('#contact'); } },
+      { t: 'Download r\u00e9sum\u00e9',  hint: 'PDF', ic: '\u2193', run: function(){
+          var a = document.createElement('a'); a.href = 'resume.pdf'; a.setAttribute('download','antony-perez-resume.pdf');
+          document.body.appendChild(a); a.click(); a.remove();
+        } },
+      { t: 'Copy email address', hint: 'antonyperez0@yahoo.com', ic: '\u29c9', run: function(){
+          var btn = $('#copyEmail'); go('#contact'); if (btn) btn.click();
+        } },
+      { t: 'Open GitHub',        hint: 'AntonyPerez0', ic: '\u25f3', run: function(){ window.open('https://github.com/AntonyPerez0','_blank','noopener'); } },
+      { t: 'Open LinkedIn',      hint: 'antonyperez-swe', ic: 'in', run: function(){ window.open('https://linkedin.com/in/antonyperez-swe','_blank','noopener'); } },
+      { t: "It's 2006 somewhere\u2026", hint: 'time machine', ic: '\ud83d\udcbf', mode: 'modern',  run: function(){ setMode(true); } },
+      { t: 'Take me back to 2026',      hint: 'time machine', ic: '\ud83d\ude80', mode: 'myspace', run: function(){ setMode(false); } }
+    ];
+    var filtered = [], sel = 0, lastFocus = null;
+
+    var visibleActions = function(q){
+      var inMs = document.body.classList.contains('myspace');
+      return ACTIONS.filter(function(a){
+        if (a.mode === 'modern' && inMs) return false;
+        if (a.mode === 'myspace' && !inMs) return false;
+        return !q || (a.t + ' ' + a.hint).toLowerCase().indexOf(q) !== -1;
+      });
+    };
+    var renderList = function(){
+      if (!filtered.length) { palList.innerHTML = '<li class="palette-empty">no matching commands</li>'; return; }
+      palList.innerHTML = filtered.map(function(a, i){
+        return '<li class="' + (i === sel ? 'sel' : '') + '" data-i="' + i + '"><span class="ic">' + a.ic + '</span><span>' + a.t + '</span><span class="hint">' + a.hint + '</span></li>';
+      }).join('');
+      var s = palList.querySelector('.sel'); if (s && s.scrollIntoView) s.scrollIntoView({ block: 'nearest' });
+    };
+    var refresh = function(){ filtered = visibleActions(palInput.value.trim().toLowerCase()); sel = 0; renderList(); };
+    var openPal = function(){ lastFocus = document.activeElement; pal.hidden = false; palInput.value = ''; refresh(); palInput.focus(); };
+    var closePal = function(){ pal.hidden = true; if (lastFocus && lastFocus.focus) lastFocus.focus(); };
+    var runSel = function(){ var a = filtered[sel]; if (a) { closePal(); a.run(); } };
+
+    palInput.addEventListener('input', refresh);
+    palInput.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(sel + 1, filtered.length - 1); renderList(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(sel - 1, 0); renderList(); }
+      else if (e.key === 'Enter') { e.preventDefault(); runSel(); }
+    });
+    palList.addEventListener('click', function(e){
+      var li = e.target.closest('li[data-i]'); if (!li) return;
+      sel = parseInt(li.getAttribute('data-i'), 10); runSel();
+    });
+    palList.addEventListener('mousemove', function(e){
+      var li = e.target.closest('li[data-i]'); if (!li) return;
+      var i = parseInt(li.getAttribute('data-i'), 10);
+      if (i !== sel) { sel = i; renderList(); }
+    });
+    pal.addEventListener('click', function(e){ if (e.target.hasAttribute('data-close')) closePal(); });
+    if (palKBtn) palKBtn.addEventListener('click', openPal);
+    document.addEventListener('keydown', function(e){
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); if (pal.hidden) { openPal(); } else { closePal(); } }
+      else if (e.key === 'Escape' && !pal.hidden) closePal();
+    });
+  }
 })();
 </script>
 
