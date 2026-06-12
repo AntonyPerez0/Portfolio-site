@@ -140,7 +140,8 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
       curve.points[2].copy(j2.current.lerped)
       curve.points[3].copy(j1.current.lerped)
       curve.points[4].copy(fixed.current.translation())
-      band.current.geometry.setPoints(curve.getPoints(40))
+      band.current.geometry.dispose()
+      band.current.geometry = new THREE.TubeGeometry(curve, 40, 0.015, 8, false)
       /* keep the card facing forward */
       ang.copy(card.current.angvel())
       rot.copy(card.current.rotation())
@@ -190,15 +191,9 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
 
       {/* MOVED OUTSIDE THE GROUP so it shares the same world-space as the physics joints */}
       <mesh ref={band} raycast={() => null}>
-        {/* Use onUpdate to safely force buffer initialization on mount */}
-        <meshLineGeometry onUpdate={(geom) => geom.setPoints(curve.getPoints(40))} />
-        <meshLineMaterial
-          color="#1A2F4C"
-          depthTest={false}
-          resolution={[width, height]}
-          transparent={true}
-          lineWidth={0.75}
-        />
+        {/* args: path, segments, radius, radialSegments, closed */}
+        <tubeGeometry args={[curve, 40, 0.015, 8, false]} />
+        <meshStandardMaterial color="#1A2F4C" roughness={0.8} />
       </mesh>
     </>
   )
