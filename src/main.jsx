@@ -155,18 +155,13 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
           </mesh>
         </group>
       </RigidBody>
-      <mesh ref={band} renderOrder={10}>
+      <mesh ref={band}>
   <meshLineGeometry />
   <meshLineMaterial
     color="white"
     depthTest={false}
-    transparent
-    opacity={1}
     resolution={[width, height]}
-    useMap
-    map={tex}
-    repeat={[-3, 1]}
-    lineWidth={2}
+    lineWidth={1}
   />
 </mesh>
     </group>
