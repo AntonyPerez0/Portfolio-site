@@ -111,6 +111,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
       curve.points[2].copy(j1.current.lerped)
       curve.points[3].copy(fixed.current.translation())
       band.current?.geometry?.setPoints(curve.getPoints(32))
+      if (band.current) band.current.position.z = 0.02
       ang.copy(card.current.angvel())
       rot.copy(card.current.rotation())
       card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z })
@@ -154,11 +155,13 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
           </mesh>
         </group>
       </RigidBody>
-      <mesh ref={band}>
+      <mesh ref={band} renderOrder={10}>
   <meshLineGeometry />
   <meshLineMaterial
     color="white"
     depthTest={false}
+    transparent
+    opacity={1}
     resolution={[width, height]}
     useMap
     map={tex}
