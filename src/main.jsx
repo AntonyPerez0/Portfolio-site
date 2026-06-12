@@ -186,14 +186,15 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
         </group>
       </RigidBody>
       <mesh ref={band} raycast={() => null}>
-        <meshLineGeometry />
-        <meshLineMaterial
-          color="white"
-          depthTest={false}
-          resolution={[width, height]}
-          lineWidth={1}
-        />
-      </mesh>
+  {/* Add the initial points so WebGL allocates the correct buffer size */}
+  <meshLineGeometry points={curve.getPoints(40)} />
+  <meshLineMaterial
+    color="white"
+    depthTest={false}
+    resolution={[width, height]}
+    lineWidth={1}
+  />
+</mesh>
     </group>
   )
 }
