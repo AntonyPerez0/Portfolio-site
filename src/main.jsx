@@ -86,10 +86,10 @@ function makeBadgeTexture() {
 }
 
 const lanyardShape = new THREE.Shape()
-lanyardShape.moveTo(-0.04, -0.005)
-lanyardShape.lineTo(0.04, -0.005)
-lanyardShape.lineTo(0.04, 0.005)
-lanyardShape.lineTo(-0.04, 0.005)
+lanyardShape.moveTo(-0.08, -0.012)
+lanyardShape.lineTo(0.08, -0.012)
+lanyardShape.lineTo(0.08, 0.012)
+lanyardShape.lineTo(-0.08, 0.012)
 
 function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef()
