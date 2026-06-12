@@ -101,15 +101,20 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
       card.current?.setNextKinematicTranslation({ x: vec.x - dragged.x, y: vec.y - dragged.y, z: vec.z - dragged.z })
     }
     if (fixed.current && card.current) {
-      [j1, j2].forEach((ref) => {
-        if (!ref.current.lerped) ref.current.lerped = new THREE.Vector3().copy(ref.current.translation())
-        const clamped = Math.max(0.1, Math.min(1, ref.current.lerped.distanceTo(ref.current.translation())))
-        ref.current.lerped.lerp(ref.current.translation(), delta * (minSpeed + clamped * (maxSpeed - minSpeed)))
-      })
-      curve.points[0].copy(j3.current.translation())
-      curve.points[1].copy(j2.current.lerped)
-      curve.points[2].copy(j1.current.lerped)
-      curve.points[3].copy(fixed.current.translation())
+
+      if (band.current && fixed.current && j1.current && j2.current && j3.current && card.current) {
+        const p0 = j3.current.translation()
+        const p1 = j2.current.translation()
+        const p2 = j1.current.translation()
+        const p3 = fixed.current.translation()
+      
+        curve.points[0].copy(p0)
+        curve.points[1].copy(p1)
+        curve.points[2].copy(p2)
+        curve.points[3].copy(p3)
+      
+        band.current.geometry.setPoints(curve.getPoints(32))
+      }
       band.current?.geometry?.setPoints(curve.getPoints(32))
       if (band.current) band.current.position.z = 0.02
       ang.copy(card.current.angvel())
