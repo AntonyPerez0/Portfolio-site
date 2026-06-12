@@ -197,7 +197,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
           depthTest={false}
           resolution={[width, height]}
           transparent={true}
-          lineWidth={1}
+          lineWidth={0.05}
         />
       </mesh>
     </>
