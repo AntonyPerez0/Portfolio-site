@@ -85,6 +85,12 @@ function makeBadgeTexture() {
   return texture
 }
 
+const lanyardShape = new THREE.Shape()
+lanyardShape.moveTo(-0.04, -0.005)
+lanyardShape.lineTo(0.04, -0.005)
+lanyardShape.lineTo(0.04, 0.005)
+lanyardShape.lineTo(-0.04, 0.005)
+
 function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef()
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3()
@@ -146,7 +152,11 @@ const [curve] = useState(() => new THREE.CatmullRomCurve3([
       curve.points[3].copy(j1.current.lerped)
       curve.points[4].copy(fixed.current.translation())
       band.current.geometry.dispose()
-      band.current.geometry = new THREE.TubeGeometry(curve, 40, 0.1, 8, false)
+      band.current.geometry = new THREE.ExtrudeGeometry(lanyardShape, {
+        extrudePath: curve,
+        steps: 40,
+        bevelEnabled: false
+      })
       /* keep the card facing forward */
       ang.copy(card.current.angvel())
       rot.copy(card.current.rotation())
@@ -196,9 +206,14 @@ const [curve] = useState(() => new THREE.CatmullRomCurve3([
 
       {/* MOVED OUTSIDE THE GROUP so it shares the same world-space as the physics joints */}
       <mesh ref={band} raycast={() => null}>
-        {/* args: path, segments, radius, radialSegments, closed */}
-        <tubeGeometry args={[curve, 40, 0.1, 8, false]} />
-        <meshStandardMaterial color="#1A2F4C" roughness={0.8} />
+        <extrudeGeometry args={[lanyardShape, { extrudePath: curve, steps: 40, bevelEnabled: false }]} />
+        {/* High roughness and slight metalness perfectly simulates synthetic nylon fabric */}
+        <meshStandardMaterial 
+          color="#1A2F4C" 
+          roughness={0.9} 
+          metalness={0.1} 
+          side={THREE.DoubleSide} 
+        />
       </mesh>
     </>
   )
