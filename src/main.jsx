@@ -197,7 +197,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
           depthTest={false}
           resolution={[width, height]}
           transparent={true}
-          lineWidth={0.5}
+          lineWidth={0.75}
         />
       </mesh>
     </>
@@ -268,9 +268,6 @@ function boot() {
     Object.assign(mount.style, { position: 'absolute', inset: '0', zIndex: 2 })
   }
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches && !force) {
-    return log('prefers-reduced-motion is on — keeping the static badge. Add ?badge=force to the URL to override.')
-  }
   try {
     const c = document.createElement('canvas')
     if (!(c.getContext('webgl2') || c.getContext('webgl'))) {
