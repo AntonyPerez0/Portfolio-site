@@ -170,17 +170,17 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
 function App() {
   const mount = document.getElementById('badge3d')
   return (
-    <Canvas
-      camera={{ position: [0, 0, 13], fov: 25 }}
-      dpr={[1, 1.5]}
-      gl={{ alpha: true, antialias: true }}
-      style={{ background: 'transparent', touchAction: 'pan-y' }}
-      onCreated={() => {
-        if (mount) mount.classList.remove('loading')
-        const hint = document.getElementById('badgeHint')
-        if (hint) hint.textContent = 'grab the badge · throw it'
-      }}
-    >
+<Canvas
+  camera={{ position: [0, 0, 13], fov: 25 }}
+  dpr={[1, 1.5]}
+  gl={{ alpha: true, antialias: true }}
+  style={{ background: 'transparent', touchAction: 'pan-y', position: 'relative', zIndex: 5 }}
+  onCreated={() => {
+    if (mount) mount.classList.remove('loading')
+    const hint = document.getElementById('badgeHint')
+    if (hint) hint.textContent = 'grab the badge · throw it'
+  }}
+>
       <ambientLight intensity={Math.PI} />
       <Env />
       <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
