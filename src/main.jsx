@@ -85,17 +85,12 @@ function makeBadgeTexture() {
   return texture
 }
 
-const lanyardShape = new THREE.Shape()
-lanyardShape.moveTo(-0.08, -0.012)
-lanyardShape.lineTo(0.08, -0.012)
-lanyardShape.lineTo(0.08, 0.012)
-lanyardShape.lineTo(-0.08, 0.012)
 
 function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef()
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3()
   const clip = new THREE.Vector3(), quat = new THREE.Quaternion()
-  const segProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 }
+  const segProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 }
   const { width, height } = useThree((s) => s.size)
   /* FIVE control points: clip-on-card → j3 → j2 → j1 → fixed.
    * The extra first point rides the card and closes the gap
@@ -151,12 +146,9 @@ const [curve] = useState(() => new THREE.CatmullRomCurve3([
       curve.points[2].copy(j2.current.lerped)
       curve.points[3].copy(j1.current.lerped)
       curve.points[4].copy(fixed.current.translation())
+// Swap out ExtrudeGeometry for a round TubeGeometry
       band.current.geometry.dispose()
-      band.current.geometry = new THREE.ExtrudeGeometry(lanyardShape, {
-        extrudePath: curve,
-        steps: 40,
-        bevelEnabled: false
-      })
+      band.current.geometry = new THREE.TubeGeometry(curve, 40, 0.025, 16, false)
       /* keep the card facing forward */
       ang.copy(card.current.angvel())
       rot.copy(card.current.rotation())
@@ -206,13 +198,12 @@ const [curve] = useState(() => new THREE.CatmullRomCurve3([
 
       {/* MOVED OUTSIDE THE GROUP so it shares the same world-space as the physics joints */}
       <mesh ref={band} raycast={() => null}>
-        <extrudeGeometry args={[lanyardShape, { extrudePath: curve, steps: 40, bevelEnabled: false }]} />
-        {/* High roughness and slight metalness perfectly simulates synthetic nylon fabric */}
+        <tubeGeometry args={[curve, 40, 0.025, 16, false]} />
+        {/* We keep the same material properties so it still looks like matte nylon! */}
         <meshStandardMaterial 
           color="#1A2F4C" 
           roughness={0.9} 
           metalness={0.1} 
-          side={THREE.DoubleSide} 
         />
       </mesh>
     </>
