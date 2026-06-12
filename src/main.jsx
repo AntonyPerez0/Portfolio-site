@@ -151,51 +151,56 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   curve.curveType = 'chordal'
 
   return (
-    <group position={[0, 4, 0]}>
-      <RigidBody ref={fixed} {...segProps} type="fixed" />
-      <RigidBody position={[0.5, 0, 0]} ref={j1} {...segProps}>
-        <BallCollider args={[0.1]} />
-      </RigidBody>
-      <RigidBody position={[1, 0, 0]} ref={j2} {...segProps}>
-        <BallCollider args={[0.1]} />
-      </RigidBody>
-      <RigidBody position={[1.5, 0, 0]} ref={j3} {...segProps}>
-        <BallCollider args={[0.1]} />
-      </RigidBody>
-      <RigidBody position={[2, 0, 0]} ref={card} {...segProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
-        <CuboidCollider args={[0.8, 1.125, 0.01]} />
-        <group
-          onPointerOver={() => hover(true)}
-          onPointerOut={() => hover(false)}
-          onPointerUp={(e) => { e.target.releasePointerCapture(e.pointerId); drag(false) }}
-          onPointerDown={(e) => { e.target.setPointerCapture(e.pointerId); drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))) }}
-        >
-          <mesh>
-            <planeGeometry args={[1.6, 2.25]} />
-            <meshPhysicalMaterial
-              map={tex} transparent
-              clearcoat={1} clearcoatRoughness={0.18}
-              roughness={0.4} metalness={0.35}
-              side={THREE.DoubleSide}
-            />
-          </mesh>
-          <mesh position={[0, CLIP_Y - 0.04, 0]}>
-            <boxGeometry args={[0.46, 0.2, 0.07]} />
-            <meshStandardMaterial color="#AEB9CE" metalness={1} roughness={0.32} />
-          </mesh>
-        </group>
-      </RigidBody>
+    <>
+      <group position={[0, 4, 0]}>
+        <RigidBody ref={fixed} {...segProps} type="fixed" />
+        <RigidBody position={[0.5, 0, 0]} ref={j1} {...segProps}>
+          <BallCollider args={[0.1]} />
+        </RigidBody>
+        <RigidBody position={[1, 0, 0]} ref={j2} {...segProps}>
+          <BallCollider args={[0.1]} />
+        </RigidBody>
+        <RigidBody position={[1.5, 0, 0]} ref={j3} {...segProps}>
+          <BallCollider args={[0.1]} />
+        </RigidBody>
+        <RigidBody position={[2, 0, 0]} ref={card} {...segProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
+          <CuboidCollider args={[0.8, 1.125, 0.01]} />
+          <group
+            onPointerOver={() => hover(true)}
+            onPointerOut={() => hover(false)}
+            onPointerUp={(e) => { e.target.releasePointerCapture(e.pointerId); drag(false) }}
+            onPointerDown={(e) => { e.target.setPointerCapture(e.pointerId); drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))) }}
+          >
+            <mesh>
+              <planeGeometry args={[1.6, 2.25]} />
+              <meshPhysicalMaterial
+                map={tex} transparent
+                clearcoat={1} clearcoatRoughness={0.18}
+                roughness={0.4} metalness={0.35}
+                side={THREE.DoubleSide}
+              />
+            </mesh>
+            <mesh position={[0, CLIP_Y - 0.04, 0]}>
+              <boxGeometry args={[0.46, 0.2, 0.07]} />
+              <meshStandardMaterial color="#AEB9CE" metalness={1} roughness={0.32} />
+            </mesh>
+          </group>
+        </RigidBody>
+      </group>
+
+      {/* MOVED OUTSIDE THE GROUP so it shares the same world-space as the physics joints */}
       <mesh ref={band} raycast={() => null}>
-  {/* Add the initial points so WebGL allocates the correct buffer size */}
-  <meshLineGeometry points={curve.getPoints(40)} />
-  <meshLineMaterial
-    color="white"
-    depthTest={false}
-    resolution={[width, height]}
-    lineWidth={1}
-  />
-</mesh>
-    </group>
+        {/* Use onUpdate to safely force buffer initialization on mount */}
+        <meshLineGeometry onUpdate={(geom) => geom.setPoints(curve.getPoints(40))} />
+        <meshLineMaterial
+          color="white"
+          depthTest={false}
+          resolution={[width, height]}
+          transparent={true}
+          lineWidth={1}
+        />
+      </mesh>
+    </>
   )
 }
 
