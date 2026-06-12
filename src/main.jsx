@@ -146,7 +146,7 @@ const [curve] = useState(() => new THREE.CatmullRomCurve3([
       curve.points[3].copy(j1.current.lerped)
       curve.points[4].copy(fixed.current.translation())
       band.current.geometry.dispose()
-      band.current.geometry = new THREE.TubeGeometry(curve, 40, 0.015, 8, false)
+      band.current.geometry = new THREE.TubeGeometry(curve, 40, 0.05, 8, false)
       /* keep the card facing forward */
       ang.copy(card.current.angvel())
       rot.copy(card.current.rotation())
@@ -197,7 +197,7 @@ const [curve] = useState(() => new THREE.CatmullRomCurve3([
       {/* MOVED OUTSIDE THE GROUP so it shares the same world-space as the physics joints */}
       <mesh ref={band} raycast={() => null}>
         {/* args: path, segments, radius, radialSegments, closed */}
-        <tubeGeometry args={[curve, 40, 0.015, 8, false]} />
+        <tubeGeometry args={[curve, 40, 0.05, 8, false]} />
         <meshStandardMaterial color="#1A2F4C" roughness={0.8} />
       </mesh>
     </>
