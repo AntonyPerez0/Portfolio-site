@@ -156,7 +156,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
       </RigidBody>
       <mesh ref={band}>
         <meshLineGeometry />
-        <meshLineMaterial color="#8FA3FF" depthTest={false} resolution={[width, height]} lineWidth={1} />
+        <meshLineMaterial color="#8FA3FF" depthTest={false} resolution={[width, height]} lineWidth={4} />
       </mesh>
     </group>
   )
