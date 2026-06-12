@@ -148,7 +148,7 @@ const [curve] = useState(() => new THREE.CatmullRomCurve3([
       curve.points[4].copy(fixed.current.translation())
 // Swap out ExtrudeGeometry for a round TubeGeometry
       band.current.geometry.dispose()
-      band.current.geometry = new THREE.TubeGeometry(curve, 40, 0.025, 16, false)
+      band.current.geometry = new THREE.TubeGeometry(curve, 40, 0.1, 16, false)
       /* keep the card facing forward */
       ang.copy(card.current.angvel())
       rot.copy(card.current.rotation())
