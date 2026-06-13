@@ -5,16 +5,19 @@ import { Canvas, extend, useThree, useFrame } from '@react-three/fiber'
 import { Physics, RigidBody, BallCollider, CuboidCollider, useRopeJoint, useSphericalJoint } from '@react-three/rapier'
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
 
+/* MeshLine renders a FLAT, camera-facing ribbon — that's what makes a
+ * real woven lanyard instead of a round cord. Registering it here lets us
+ * use <meshLineGeometry /> and <meshLineMaterial /> as JSX elements. */
 extend({ MeshLineGeometry, MeshLineMaterial })
 
 const log = (...a) => console.info('%c[badge]', 'color:#3DDC97;font-family:monospace', ...a)
 const logErr = (...a) => console.error('%c[badge]', 'color:#FF6B6B;font-family:monospace', ...a)
 
-/* Where the strap meets the card, in the card's local space.
- * The spherical joint, the metal clamp, and the band's first curve
- * point all share this anchor — that's what keeps the lanyard
- * visually CONNECTED to the badge instead of ending in mid-air. */
-const CLIP_Y = 1.26
+/* Anchor where the strap meets the card, in the card's local space.
+ * The card's plane is 2.25 tall (half-height 1.125), so anchoring the
+ * joint just above that top edge makes the strap meet the card exactly
+ * — no mid-air gap — and the metal clip bridges the seam. */
+const CLIP_Y = 1.15
 
 function Env() {
   const { gl, scene } = useThree()
@@ -30,6 +33,7 @@ function Env() {
   return null
 }
 
+/* ---- the badge face (Canvas-2D-free SVG data texture) ---- */
 function makeBadgeTexture() {
   const svg = `
   <svg width="1024" height="1440" xmlns="http://www.w3.org/2000/svg">
@@ -85,32 +89,93 @@ function makeBadgeTexture() {
   return texture
 }
 
+/* ---- the WOVEN STRAP texture (one seamless tile, repeated along the band) ----
+ * Dark nylon base + woven sheen + edge stitching + repeated printed wordmark,
+ * exactly the kind of printed lanyard the badge hangs from. */
+function makeStrapTexture() {
+  const W = 1024, H = 256
+  const c = document.createElement('canvas')
+  c.width = W; c.height = H
+  const x = c.getContext('2d')
+
+  // nylon base
+  x.fillStyle = '#0C1018'
+  x.fillRect(0, 0, W, H)
+
+  // vertical weave threads (subtle ribbing across the strap width)
+  x.globalAlpha = 0.05
+  x.strokeStyle = '#9FB2D6'
+  x.lineWidth = 1
+  for (let i = 4; i < W; i += 7) {
+    x.beginPath(); x.moveTo(i, 0); x.lineTo(i, H); x.stroke()
+  }
+  x.globalAlpha = 1
+
+  // top-lit sheen so the fabric reads as a rounded strap, not flat paper
+  const g = x.createLinearGradient(0, 0, 0, H)
+  g.addColorStop(0, 'rgba(255,255,255,0.10)')
+  g.addColorStop(0.45, 'rgba(255,255,255,0.0)')
+  g.addColorStop(1, 'rgba(0,0,0,0.30)')
+  x.fillStyle = g
+  x.fillRect(0, 0, W, H)
+
+  // stitched edges
+  x.strokeStyle = 'rgba(214,224,244,0.22)'
+  x.setLineDash([10, 7])
+  x.lineWidth = 2.5
+  x.beginPath(); x.moveTo(0, 20); x.lineTo(W, 20)
+  x.moveTo(0, H - 20); x.lineTo(W, H - 20); x.stroke()
+  x.setLineDash([])
+
+  // printed wordmark (generic font → no external font dependency)
+  x.fillStyle = '#EEF2FB'
+  x.textBaseline = 'middle'
+  x.textAlign = 'center'
+  try { x.letterSpacing = '16px' } catch (e) {}
+  x.font = '800 88px Arial, "Helvetica Neue", sans-serif'
+  x.fillText('ANTONY PEREZ', W / 2, H / 2 + 2)
+
+  // diamond delimiters near the seam so repeats read as one continuous print
+  try { x.letterSpacing = '0px' } catch (e) {}
+  x.font = '700 34px Arial, sans-serif'
+  x.fillStyle = 'rgba(123,160,255,0.95)'
+  x.fillText('◆', 70, H / 2)
+  x.fillText('◆', W - 70, H / 2)
+
+  const t = new THREE.CanvasTexture(c)
+  t.wrapS = THREE.RepeatWrapping
+  t.wrapT = THREE.RepeatWrapping
+  t.anisotropy = 16
+  t.colorSpace = THREE.SRGBColorSpace
+  return t
+}
 
 function Band({ maxSpeed = 50, minSpeed = 10 }) {
   const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef()
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3()
-  const clip = new THREE.Vector3(), quat = new THREE.Quaternion()
   const segProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 }
   const { width, height } = useThree((s) => s.size)
-  /* FIVE control points: clip-on-card → j3 → j2 → j1 → fixed.
-   * The extra first point rides the card and closes the gap
-   * between the strap and the badge. */
-/* Initialize the curve with points spread out to match the starting positions of your physics joints */
-const [curve] = useState(() => new THREE.CatmullRomCurve3([
-  new THREE.Vector3(0, 0, 0),
-  new THREE.Vector3(0.5, 0, 0),
-  new THREE.Vector3(1.0, 0, 0),
-  new THREE.Vector3(1.5, 0, 0),
-  new THREE.Vector3(2.0, 0, 0)
-]))
+  /* Four control points (card-end j3 → j2 → j1 → fixed), seeded spread out
+   * so the Catmull-Rom curve is valid on frame one. */
+  const [curve] = useState(() => {
+    const c = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(1.5, 0, 0),
+      new THREE.Vector3(1.0, 0, 0),
+      new THREE.Vector3(0.5, 0, 0),
+      new THREE.Vector3(0.0, 0, 0),
+    ])
+    c.curveType = 'chordal'
+    return c
+  })
   const [dragged, drag] = useState(false)
   const [hovered, hover] = useState(false)
   const tex = useMemo(() => makeBadgeTexture(), [])
+  const strapTex = useMemo(() => makeStrapTexture(), [])
 
   useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1])
   useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1])
   useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1])
-  /* anchor the joint exactly where the clamp + band meet the card */
+  /* pin the strap's lowest joint to the card's top edge (the clip point) */
   useSphericalJoint(j3, card, [[0, 0, 0], [0, CLIP_Y, 0]])
 
   useEffect(() => {
@@ -129,34 +194,24 @@ const [curve] = useState(() => new THREE.CatmullRomCurve3([
       card.current?.setNextKinematicTranslation({ x: vec.x - dragged.x, y: vec.y - dragged.y, z: vec.z - dragged.z })
     }
     if (fixed.current && card.current && band.current) {
-      /* smooth the inner joints so the strap doesn't jitter */
+      /* smooth the two inner joints so the strap flows instead of jittering */
       ;[j1, j2].forEach((ref) => {
         if (!ref.current.lerped) ref.current.lerped = new THREE.Vector3().copy(ref.current.translation())
         const clamped = Math.max(0.1, Math.min(1, ref.current.lerped.distanceTo(ref.current.translation())))
         ref.current.lerped.lerp(ref.current.translation(), delta * (minSpeed + clamped * (maxSpeed - minSpeed)))
       })
-      /* first strap point rides the card: rotate the local clip offset
-       * by the card's live orientation and add its position, so the
-       * band stays glued to the clamp through swings and throws */
-      const r = card.current.rotation()
-      quat.set(r.x, r.y, r.z, r.w)
-      clip.set(0, CLIP_Y, 0).applyQuaternion(quat).add(card.current.translation())
-      curve.points[0].copy(clip)
-      curve.points[1].copy(j3.current.translation())
-      curve.points[2].copy(j2.current.lerped)
-      curve.points[3].copy(j1.current.lerped)
-      curve.points[4].copy(fixed.current.translation())
-// Swap out ExtrudeGeometry for a round TubeGeometry
-      band.current.geometry.dispose()
-      band.current.geometry = new THREE.TubeGeometry(curve, 40, 0.075, 16, false)
-      /* keep the card facing forward */
+      /* feed live joint positions into the curve, then into the ribbon */
+      curve.points[0].copy(j3.current.translation())
+      curve.points[1].copy(j2.current.lerped)
+      curve.points[2].copy(j1.current.lerped)
+      curve.points[3].copy(fixed.current.translation())
+      band.current.geometry.setPoints(curve.getPoints(32))
+      /* spin the card's y-axis back toward the screen so the face stays readable */
       ang.copy(card.current.angvel())
       rot.copy(card.current.rotation())
       card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z })
     }
   })
-
-  curve.curveType = 'chordal'
 
   return (
     <>
@@ -188,31 +243,35 @@ const [curve] = useState(() => new THREE.CatmullRomCurve3([
                 side={THREE.DoubleSide}
               />
             </mesh>
-            <mesh position={[0, CLIP_Y - 0.04, 0]}>
-              <boxGeometry args={[0.46, 0.2, 0.07]} />
-              <meshStandardMaterial color="#AEB9CE" metalness={1} roughness={0.32} />
+            {/* metal clip that bridges the strap and the card top */}
+            <mesh position={[0, 1.04, 0]}>
+              <boxGeometry args={[0.5, 0.18, 0.08]} />
+              <meshStandardMaterial color="#AEB9CE" metalness={1} roughness={0.3} />
             </mesh>
           </group>
         </RigidBody>
       </group>
 
-      {/* MOVED OUTSIDE THE GROUP so it shares the same world-space as the physics joints */}
+      {/* the lanyard itself — a flat woven ribbon, OUTSIDE the offset group
+          so its world-space points line up with the physics joints */}
       <mesh ref={band} raycast={() => null}>
-        <tubeGeometry args={[curve, 40, 0.025, 16, false]} />
-        {/* We keep the same material properties so it still looks like matte nylon! */}
-        <meshStandardMaterial 
-          color="#1A2F4C" 
-          roughness={0.9} 
-          metalness={0.1} 
+        <meshLineGeometry />
+        <meshLineMaterial
+          color="white"
+          depthTest={false}
+          resolution={[width, height]}
+          useMap={1}
+          map={strapTex}
+          repeat={[-3, 1]}
+          lineWidth={0.55}
         />
       </mesh>
     </>
   )
 }
 
-/* Catches any render-time crash inside the 3D scene so a failure
- * logs loudly and leaves the static badge visible — instead of
- * silently blanking the column. */
+/* Catches any render-time crash inside the 3D scene so a failure logs
+ * loudly and leaves the static badge visible instead of blanking out. */
 class BadgeBoundary extends React.Component {
   constructor(props) { super(props); this.state = { broken: false } }
   static getDerivedStateFromError() { return { broken: true } }
@@ -246,10 +305,7 @@ function App({ wrap, debug }) {
 
 /* ════════════════════════════════════════════════════════════
    SELF-HEALING MOUNT
-   Works with any combination of old/new index.html markup:
-   - new layout:  #badgeWrap > #badge3d (canvas mount) + static badge
-   - old layout:  #badge3d is itself the wrapper
-   - missing mount: one is created inside the wrapper
+   Works with any combination of old/new index.html markup.
    Flags: ?badge=force ignores reduced-motion · ?debug shows colliders
    ════════════════════════════════════════════════════════════ */
 function boot() {
@@ -269,11 +325,13 @@ function boot() {
     mount.className = 'badge-canvas'
     wrap.appendChild(mount)
   }
-  /* guarantee the mount fills the wrapper even if its CSS is missing */
   if (mount !== wrap) {
     Object.assign(mount.style, { position: 'absolute', inset: '0', zIndex: 2 })
   }
 
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches && !force) {
+    return log('prefers-reduced-motion is on — keeping the static badge. Add ?badge=force to the URL to override.')
+  }
   try {
     const c = document.createElement('canvas')
     if (!(c.getContext('webgl2') || c.getContext('webgl'))) {
