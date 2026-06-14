@@ -783,6 +783,7 @@ body.myspace .progress{display:none}
   font-family:var(--mono);font-size:11px;color:var(--faint);
 }
 .proj-wide{grid-column:1/-1}
+.proj code{font-family:var(--mono);font-size:.86em;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:#C2CBDD}
 </style>
 </head>
 <body>
@@ -852,8 +853,8 @@ body.myspace .progress{display:none}
         <div class="term-body">
           <div class="row"><span class="p">❯</span> git log --oneline -3</div>
           <div class="row"><span class="k">a3f9c12</span> feat: 3D physics badge - react-three-fiber + rapier</div>
-          <div class="row"><span class="k">7be04dd</span> feat: GitOps homelab - k8s + FluxCD</div>
-          <div class="row"><span class="k">c91e2a0</span> ship: portfolio v3 - recruiter-ready</div>
+          <div class="row"><span class="k">7be04dd</span> feat: DefectPredict - ML test prioritization (capstone)</div>
+          <div class="row"><span class="k">c91e2a0</span> feat: GitOps homelab - k8s + FluxCD</div>
           <div class="row"><span class="p">❯</span> npm run pipeline</div>
           <div class="term-step"><span class="lbl">lint</span><span class="lead"></span><span class="res">✓ passed</span></div>
           <div class="term-step"><span class="lbl">test (vitest)</span><span class="lead"></span><span class="res">✓ all suites green</span></div>
@@ -944,7 +945,7 @@ body.myspace .progress{display:none}
     <div class="sec-head reveal">
       <div class="eyebrow">03 - Projects <span class="check">✓</span></div>
       <h2>Built, tested & running.</h2>
-      <p class="lede">Not tutorials - infrastructure and applications that are deployed and maintained like production systems.</p>
+      <p class="lede">Production infrastructure, full-stack team builds, REST APIs, CI tooling, and degree coursework - designed, shipped, and tested.</p>
     </div>
     <div class="proj-grid">
       <article class="proj reveal">
@@ -959,6 +960,55 @@ body.myspace .progress{display:none}
         </ul>
         <div class="tags"><span class="tag">Kubernetes</span><span class="tag">Talos Linux</span><span class="tag">FluxCD</span><span class="tag">Kustomize</span><span class="tag">Tailscale</span><span class="tag">CloudNativePG</span></div>
       </article>
+
+      <article class="proj reveal">
+        <div class="proj-icon">▦</div>
+        <div class="proj-top"><h3>Full-Stack Inventory App</h3><a class="link" href="https://github.com/AntonyPerez0/group-full-stack-inventory-project-team-rocket" target="_blank" rel="noopener">github ↗</a></div>
+        <p>A full-stack RESTful CRUD application for tracking e-commerce inventory, built as a team ("Team Rocket") through the full request lifecycle.</p>
+        <ul>
+          <li>Sequelize <code>Item</code> model (name, description, price, category, image) backed by Express CRUD routes</li>
+          <li>Front-end views to list, view, add, edit, and delete items, styled with Tailwind CSS</li>
+          <li>Automated test coverage across every route; collaborated via feature branches and pull requests</li>
+        </ul>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Sequelize</span><span class="tag">Tailwind</span><span class="tag">Jest</span><span class="tag">REST · Team</span></div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="proj-icon">▷</div>
+        <div class="proj-top"><h3>Movie Theater REST API</h3><a class="link" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">github ↗</a></div>
+        <p>An Express + Sequelize API serving a movie-theater database - Users and Shows resources with full endpoint coverage and server-side validation.</p>
+        <ul>
+          <li>Two Express routers exposing GET / PUT / DELETE endpoints, including user-to-show associations and genre filtering by query</li>
+          <li>Server-side validation with express-validator (show titles capped at 25 chars; usernames must be valid emails)</li>
+          <li>SQLite via Sequelize with a re-seedable database; every endpoint verified in Postman</li>
+        </ul>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Sequelize</span><span class="tag">SQLite</span><span class="tag">express-validator</span><span class="tag">Postman</span></div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="proj-icon">⇄</div>
+        <div class="proj-top"><h3>WGUPS Package Routing - DS&amp;A II</h3><a class="link" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">github ↗</a></div>
+        <p>A delivery-routing program (WGU C950) that schedules 40 packages across 27 addresses while holding total distance under a strict mileage budget.</p>
+        <ul>
+          <li>Custom self-adjusting hash table for O(1) package lookup by ID, with no external data-structure libraries</li>
+          <li>Greedy nearest-neighbor routing algorithm that keeps all trucks under the 120-mile constraint</li>
+          <li>Console interface to query any package's status and delivery time at any point in the day</li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Algorithms</span><span class="tag">Hash Tables</span><span class="tag">Greedy Search</span><span class="tag">CLI</span></div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="proj-icon">✓</div>
+        <div class="proj-top"><h3>SonarCloud Quality Gate in CI</h3><a class="link" href="https://github.com/AntonyPerez0/Sonar-Cloud-and-GitHub-Actions" target="_blank" rel="noopener">github ↗</a></div>
+        <p>A GitHub Actions pipeline that runs the test suite and pushes results to SonarCloud for static analysis and quality gating on every change.</p>
+        <ul>
+          <li>Workflow triggers Jest tests on every push and pull request to <code>main</code></li>
+          <li>SonarCloud scan wired into the pipeline for coverage, code smells, and security findings</li>
+          <li>Dockerized Node service with a <code>sonar-project.properties</code> config and automatic-analysis disabled in favor of CI</li>
+        </ul>
+        <div class="tags"><span class="tag">GitHub Actions</span><span class="tag">SonarCloud</span><span class="tag">Jest</span><span class="tag">Docker</span><span class="tag">CI/CD</span></div>
+      </article>
+
       <article class="proj reveal">
         <div class="proj-icon">⚛</div>
         <div class="proj-top"><h3>Front-End Portfolio Application</h3><a class="link" href="https://antonyperez.com" target="_blank" rel="noopener">antonyperez.com ↗</a></div>
@@ -970,6 +1020,21 @@ body.myspace .progress{display:none}
         </ul>
         <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Vitest</span><span class="tag">RTL</span><span class="tag">GitHub Actions</span><span class="tag">CSS Modules</span></div>
       </article>
+
+      <article class="proj proj-wide reveal">
+        <div class="proj-icon">◎</div>
+        <div class="proj-top"><h3>DefectPredict - AI Test Prioritization (Capstone)</h3><a class="link" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">github ↗</a></div>
+        <p>My WGU B.S. Computer Science capstone (C964): a machine-learning service that predicts which code is most likely to fail and reorders the CI/CD regression suite to run the riskiest tests first - shrinking feedback time and cloud compute.</p>
+        <ul>
+          <li>Random Forest classifier scoring each commit's defect risk from version-control history, defect tickets, and past test outcomes</li>
+          <li>Features engineered from commit metadata: TF-IDF on commit messages, one-hot encoding for author and module, then standardized</li>
+          <li>Targeted a 30% drop in regression-suite runtime and ≥85% precision identifying failing modules on the first test pass</li>
+          <li>Served as a FastAPI microservice in Docker, wired into Jenkins via webhooks, logging every prediction to PostgreSQL for retraining</li>
+          <li>Secured with OAuth 2.0 and TLS 1.3; validated through unit, integration, and end-to-end tests plus a two-week shadow-mode rollout</li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Random Forest</span><span class="tag">FastAPI</span><span class="tag">Jenkins CI/CD</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span><span class="tag">pandas</span></div>
+      </article>
+
       <article class="proj proj-wide reveal">
         <div class="proj-icon">◈</div>
         <div class="proj-top"><h3>This Very Website</h3><a class="link" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">view source ↗</a></div>
