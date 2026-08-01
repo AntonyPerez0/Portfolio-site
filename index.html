@@ -784,6 +784,8 @@ body.myspace .progress{display:none}
 }
 .proj-wide{grid-column:1/-1}
 .proj code{font-family:var(--mono);font-size:.86em;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:#C2CBDD}
+.proj-links{display:flex;gap:14px;flex-shrink:0}
+.proj > p strong{color:var(--text);font-weight:600}
 </style>
 </head>
 <body>
@@ -948,6 +950,25 @@ body.myspace .progress{display:none}
       <p class="lede">Production infrastructure, full-stack team builds, REST APIs, CI tooling, and degree coursework - designed, shipped, and tested.</p>
     </div>
     <div class="proj-grid">
+      <article class="proj proj-wide reveal">
+        <div class="proj-icon">✈</div>
+        <div class="proj-top">
+          <h3>SortiePrep - DCS Cockpit Trainer</h3>
+          <span class="proj-links">
+            <a class="link" href="https://sortieprep.com/" target="_blank" rel="noopener">live ↗</a>
+            <a class="link" href="https://github.com/AntonyPerez0/Interactive-F-14-startup-simulator" target="_blank" rel="noopener">github ↗</a>
+          </span>
+        </div>
+        <p>A browser trainer for DCS cockpit procedures. You click the real switches on real cockpit photographs, and a simulated aircraft underneath decides when a checklist step is actually complete - not when you say it is. Live at <a href="https://sortieprep.com/" target="_blank" rel="noopener">sortieprep.com</a>, where it serves <strong>100+ monthly visitors</strong>.</p>
+        <ul>
+          <li>12 procedures / 274 steps across start-up, INS alignment, air-to-air, landing, and shutdown - for both the pilot and RIO seats</li>
+          <li>Aircraft-agnostic core (switch state machine, event bus, hotspot &amp; pan/zoom view layer) with the F-14B as a data-only module, so new airframes drop in</li>
+          <li>Headless test suite drives every procedure to completion through the real sim, exercises failure paths (hung start, rejected CAP entry) and verifies no hotspot overlaps</li>
+          <li>Offline-first PWA - network-first code, cache-first photos - plus a zero-dependency static build that also bundles to one portable HTML file</li>
+        </ul>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">ES Modules</span><span class="tag">State Machines</span><span class="tag">PWA · Service Worker</span><span class="tag">Cloudflare Workers · D1</span><span class="tag">Zero-dependency</span></div>
+      </article>
+
       <article class="proj reveal">
         <div class="proj-icon">⎈</div>
         <div class="proj-top"><h3>GitOps Cloud Infrastructure Home Lab</h3><a class="link" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">github ↗</a></div>
