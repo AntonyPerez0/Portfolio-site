@@ -367,7 +367,7 @@ function Chain({ from, to, count }) {
   return (
     <instancedMesh ref={ref} args={[null, null, matrices.length]}>
       <torusGeometry args={[0.42, 0.13, 8, 14]} />
-      <meshStandardMaterial color="#1E2228" roughness={0.42} metalness={0.9} />
+      <meshStandardMaterial color="#16181D" roughness={0.8} metalness={0.25} />
     </instancedMesh>
   )
 }

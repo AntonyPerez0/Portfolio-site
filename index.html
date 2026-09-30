@@ -655,13 +655,20 @@ body.frozen .progress{display:none}
 }
 
 /* ---- logo (parody, gold on a storm-dark plaque) ---- */
-.fs-logo{position:absolute;top:4.5vh;left:3.5vw;z-index:5;margin:0;padding:20px 28px;border-radius:12px;
+.fs-logo{position:absolute;top:4.5vh;left:3.5vw;z-index:5;margin:0;padding:22px 34px 18px;border-radius:12px;
   background:radial-gradient(130% 130% at 30% 15%,rgba(14,24,50,.72),rgba(14,24,50,.34) 62%,transparent 88%);}
-.fs-logo-title{font-family:'Cinzel',serif;font-weight:800;font-size:clamp(38px,5.6vw,64px);line-height:.95;letter-spacing:.02em;color:#F6C945;margin:0;
-  text-shadow:0 0 1px #16325E,0 2px 0 #1B3667,0 5px 12px rgba(8,16,38,.9);}
-.fs-three{display:block;font-size:.52em;letter-spacing:.4em;color:#A9CCFF;margin-top:4px;
-  text-shadow:0 0 16px rgba(125,165,255,.85),0 2px 4px rgba(8,16,38,.9);}
-.fs-logo-sub{margin:8px 0 0;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(11px,1.5vw,16px);letter-spacing:.3em;color:#BFE0FF;
+.fs-logo-ice{position:absolute;left:46%;top:-14px;transform:translateX(-50%);z-index:-1;
+  font-family:'Cinzel',serif;font-weight:800;font-size:clamp(96px,13vw,150px);line-height:1;letter-spacing:.02em;
+  background:linear-gradient(180deg,#EAF4FF 0%,#BFD9F2 38%,#7FA6CC 72%,#4F769E 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 3px 6px rgba(8,16,38,.55)) drop-shadow(0 0 22px rgba(160,200,255,.5));
+  opacity:.95;user-select:none;}
+.fs-logo-title{position:relative;margin:0;
+  font-family:'Cinzel',serif;font-weight:800;font-size:clamp(44px,6.4vw,76px);line-height:.95;letter-spacing:.01em;
+  background:linear-gradient(180deg,#FFF3C4 0%,#FFD75E 30%,#F0B429 52%,#B97E14 74%,#8A5A0C 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 1px 0 #14243F) drop-shadow(0 2px 0 #0E1B33) drop-shadow(0 5px 10px rgba(6,12,28,.9)) drop-shadow(0 0 26px rgba(255,196,64,.28));}
+.fs-logo-sub{position:relative;margin:10px 0 0;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(11px,1.5vw,16px);letter-spacing:.3em;color:#BFE0FF;
   text-shadow:0 1px 3px rgba(8,16,38,.95),0 0 12px rgba(125,165,255,.45);}
 
 /* ---- the metal menu panel ---- */
@@ -1361,8 +1368,9 @@ body.frozen .progress{display:none}
   </div>
   <div id="frozenBg" aria-hidden="true"></div>
   <div class="fs-logo">
-    <h1 class="fs-logo-title">ANTONY<span class="fs-three">III</span></h1>
-    <p class="fs-logo-sub">THE FROZEN PORTFOLIO</p>
+    <span class="fs-logo-ice" aria-hidden="true">III</span>
+    <h1 class="fs-logo-title">Antony</h1>
+    <p class="fs-logo-sub">THE&nbsp;FROZEN&nbsp;PORTFOLIO</p>
   </div>
   <nav class="fs-menu" aria-label="Frozen Throne menu">
     <span class="fs-chain c1" aria-hidden="true"></span>
