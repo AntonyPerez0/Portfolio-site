@@ -673,46 +673,85 @@ body.frozen .progress{display:none}
   background-repeat:repeat-y;background-position:center top;}
 .fs-chain.c1{left:16%}
 .fs-chain.c2{left:70%}
-.fs-menu-in{position:relative;padding:26px 22px;border-radius:8px;
-  background:linear-gradient(165deg,#41464F 0%,#2B2F36 42%,#1E2229 100%);
-  border:2px solid #5A606A;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.15),inset 0 -12px 26px rgba(0,0,0,.5),inset 0 12px 26px rgba(255,255,255,.05),0 20px 55px rgba(4,9,20,.6);}
-.fs-menu-in::before{content:'';position:absolute;inset:0;border-radius:8px;pointer-events:none;
+.fs-menu-in{position:relative;padding:30px 26px;border-radius:10px;
   background:
-    radial-gradient(circle 3px at 11px 11px,#9AA1AC 45%,#23262D 60%,transparent 66%),
-    radial-gradient(circle 3px at calc(100% - 11px) 11px,#9AA1AC 45%,#23262D 60%,transparent 66%),
-    radial-gradient(circle 3px at 11px calc(100% - 11px),#9AA1AC 45%,#23262D 60%,transparent 66%),
-    radial-gradient(circle 3px at calc(100% - 11px) calc(100% - 11px),#9AA1AC 45%,#23262D 60%,transparent 66%);}
-.fs-btnrow{position:relative;margin:0 0 16px 30px}
+    repeating-linear-gradient(94deg, rgba(255,255,255,.045) 0 2px, rgba(0,0,0,0) 2px 7px),
+    repeating-linear-gradient(88deg, rgba(0,0,0,.12) 0 3px, rgba(0,0,0,0) 3px 9px),
+    linear-gradient(168deg,#464B54 0%,#2C3037 48%,#191C22 100%);
+  border:3px solid #0D1015;
+  box-shadow:
+    inset 0 0 0 2px #5A606A,
+    inset 0 0 0 7px #1D2127,
+    inset 0 0 0 9px #52586299,
+    inset 0 2px 0 rgba(255,255,255,.16),
+    inset 0 -16px 32px rgba(0,0,0,.55),
+    0 24px 60px rgba(4,9,20,.65);
+}
+/* rivet studs along every edge */
+.fs-menu-in::before{
+  content:'';position:absolute;inset:3px;border-radius:7px;pointer-events:none;z-index:1;
+  --stud: radial-gradient(circle 3.5px at 50% 42%, #C6CDD8 0%, #7A828F 46%, #262A31 74%, transparent 80%);
+  background-image:var(--stud),var(--stud),var(--stud),var(--stud);
+  background-size:44px 13px, 44px 13px, 13px 44px, 13px 44px;
+  background-repeat:repeat-x, repeat-x, repeat-y, repeat-y;
+  background-position:8px 2px, 8px calc(100% - 2px), 2px 8px, calc(100% - 2px) 8px;
+}
+/* heavy corner bolts */
+.fs-menu-in::after{
+  content:'';position:absolute;inset:0;border-radius:10px;pointer-events:none;z-index:1;
+  --bolt: radial-gradient(circle 6px at 50% 44%, #C6CDD8 0%, #7A828F 48%, #14171D 76%, transparent 82%);
+  background-image:var(--bolt),var(--bolt),var(--bolt),var(--bolt);
+  background-size:34px 34px, 34px 34px, 34px 34px, 34px 34px;
+  background-repeat:no-repeat;
+  background-position:4px 4px, calc(100% - 4px) 4px, 4px calc(100% - 4px), calc(100% - 4px) calc(100% - 4px);
+}
+.fs-btnrow{position:relative;z-index:2;margin:0 0 18px 30px}
 .fs-btnrow:last-child{margin-bottom:0}
 .fs-btnrow::before{content:'';position:absolute;left:-21px;top:50%;transform:translateY(-50%);
   border:9px solid transparent;border-right-color:#565C66;filter:drop-shadow(0 1px 1px rgba(0,0,0,.6));}
-.fs-btnrow.withmag{display:flex;gap:8px}
+.fs-btnrow.withmag{display:flex;gap:10px}
 .fs-btnrow.withmag .fs-btn{flex:1}
 .fs-btn{
-  display:block;width:100%;height:44px;border-radius:5px;cursor:pointer;padding:0 12px;
-  border:1px solid #05080F;
-  background:linear-gradient(180deg,#3452D6 0%,#1E30A6 45%,#111C6E 100%);
-  box-shadow:inset 0 1px 0 rgba(190,210,255,.35),inset 0 -8px 14px rgba(2,4,18,.55),0 3px 6px rgba(4,8,18,.55);
+  display:block;width:100%;height:46px;border-radius:5px;cursor:pointer;padding:0 12px;
+  border:1px solid #06080F;
+  background:linear-gradient(180deg,#2E49C4 0%,#1A2A94 45%,#0F185E 100%);
+  box-shadow:
+    0 0 0 3px #3A4049,
+    0 0 0 5px #0C0F14,
+    inset 0 2px 0 rgba(190,210,255,.4),
+    inset 0 -9px 15px rgba(2,4,18,.6),
+    0 4px 8px rgba(4,8,18,.55);
   color:#F6C945;font-family:'Cinzel',serif;font-weight:700;font-size:15px;letter-spacing:.08em;
   text-shadow:0 1px 2px rgba(0,0,10,.9);
   transition:background .15s,box-shadow .15s;
 }
+.fs-cap{color:#FFFFFF}
 .fs-btn:hover{
-  background:linear-gradient(180deg,#4664EC 0%,#2A3FC4 45%,#1A2684 100%);
-  box-shadow:inset 0 1px 0 rgba(210,225,255,.45),inset 0 -8px 14px rgba(2,4,18,.5),0 3px 6px rgba(4,8,18,.55),0 0 16px rgba(110,150,255,.5);
+  background:linear-gradient(180deg,#3D5BD8 0%,#2438B2 45%,#161F76 100%);
+  box-shadow:
+    0 0 0 3px #434955,
+    0 0 0 5px #0C0F14,
+    inset 0 2px 0 rgba(210,225,255,.5),
+    inset 0 -9px 15px rgba(2,4,18,.55),
+    0 4px 8px rgba(4,8,18,.55),
+    0 0 18px rgba(110,150,255,.5);
 }
-.fs-btn:focus-visible{outline:2px solid #F6C945;outline-offset:3px}
+.fs-btn:focus-visible{outline:2px solid #F6C945;outline-offset:6px}
 .fs-mag{
-  flex:0 0 44px;height:44px;border-radius:5px;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  border:1px solid #05080F;padding:0;font-size:17px;
-  background:linear-gradient(180deg,#2A44BE 0%,#18279B 45%,#0F1864 100%);
-  box-shadow:inset 0 1px 0 rgba(190,210,255,.35),inset 0 -8px 14px rgba(2,4,18,.55),0 3px 6px rgba(4,8,18,.55);
+  flex:0 0 46px;height:46px;border-radius:5px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  border:1px solid #06080F;padding:0;font-size:17px;
+  background:linear-gradient(180deg,#2439AC 0%,#15227E 45%,#0C1354 100%);
+  box-shadow:
+    0 0 0 3px #3A4049,
+    0 0 0 5px #0C0F14,
+    inset 0 2px 0 rgba(190,210,255,.4),
+    inset 0 -9px 15px rgba(2,4,18,.6),
+    0 4px 8px rgba(4,8,18,.55);
   color:#CFE0FF;text-shadow:0 1px 2px rgba(0,0,10,.9);transition:background .15s,box-shadow .15s;
 }
-.fs-mag:hover{background:linear-gradient(180deg,#3A58E2 0%,#2437BC 45%,#161F7C 100%);box-shadow:inset 0 1px 0 rgba(210,225,255,.45),inset 0 -8px 14px rgba(2,4,18,.5),0 0 16px rgba(110,150,255,.5)}
-.fs-mag:focus-visible{outline:2px solid #F6C945;outline-offset:3px}
-.fs-quit .fs-menu-in{padding:18px 22px}
+.fs-mag:hover{background:linear-gradient(180deg,#3350CC 0%,#1F2FA0 45%,#121A6A 100%);box-shadow:0 0 0 3px #434955,0 0 0 5px #0C0F14,inset 0 2px 0 rgba(210,225,255,.5),inset 0 -9px 15px rgba(2,4,18,.55),0 0 18px rgba(110,150,255,.5)}
+.fs-mag:focus-visible{outline:2px solid #F6C945;outline-offset:6px}
+.fs-quit .fs-menu-in{padding:22px 26px}
 .fs-version{
   position:absolute;right:3.5vw;bottom:2.5vh;z-index:6;margin:0;max-width:92vw;
   font-family:var(--mono);font-size:11px;line-height:1.6;color:#DCE5F2;
@@ -769,7 +808,7 @@ body.frozen .progress{display:none}
 @media(max-width:760px){
   .fs-logo{position:static;margin:0;padding:18px 20px 0;border-radius:0}
   .fs-menu,.fs-quit{position:relative;top:auto;right:auto;bottom:auto;margin:16px auto 0}
-  .fs-quit{margin-top:64px}
+  .fs-quit{margin-top:28px}
   .fs-quit .fs-chain{display:none}
   #frozenSite{padding-bottom:56px}
   .fs-version{position:static;margin:14px auto 0;width:max-content}
@@ -1329,20 +1368,19 @@ body.frozen .progress{display:none}
     <span class="fs-chain c1" aria-hidden="true"></span>
     <span class="fs-chain c2" aria-hidden="true"></span>
     <div class="fs-menu-in">
-      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="about">About Me</button></div>
+      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="about"><span class="fs-cap">A</span>bout Me</button></div>
       <div class="fs-btnrow withmag">
-        <button class="fs-btn" type="button" data-fs="projects">Campaign Missions</button>
+        <button class="fs-btn" type="button" data-fs="projects"><span class="fs-cap">C</span>ampaign Missions</button>
         <a class="fs-mag" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener" aria-label="Open GitHub profile in a new tab" title="Open GitHub">🔍</a>
       </div>
-      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="xp">Experience</button></div>
-      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="skills">Skills</button></div>
-      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="credits">Credits</button></div>
+      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="xp"><span class="fs-cap">E</span>xperience</button></div>
+      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="skills"><span class="fs-cap">S</span>kills</button></div>
+      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="credits"><span class="fs-cap">C</span>redits</button></div>
     </div>
   </nav>
   <div class="fs-quit">
-    <span class="fs-chain c1" aria-hidden="true"></span>
     <div class="fs-menu-in">
-      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="quit">Quit</button></div>
+      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="quit"><span class="fs-cap">Q</span>uit</button></div>
     </div>
   </div>
   <p class="fs-version">v1.26.0.6401 · fan-made homage, hand-built in Three.js<br>Not affiliated with Blizzard Entertainment. Warcraft III is a trademark of Blizzard.</p>
@@ -1354,7 +1392,7 @@ body.frozen .progress{display:none}
         <button class="fs-x" type="button" data-fs-close aria-label="Close screen">✕</button>
       </div>
       <div class="fs-sub-body" id="fsSubBody" tabindex="0"></div>
-      <div class="fs-sub-foot"><button class="fs-btn" type="button" data-fs-close>Back</button></div>
+      <div class="fs-sub-foot"><button class="fs-btn" type="button" data-fs-close><span class="fs-cap">B</span>ack</button></div>
     </div>
   </div>
 </div>
