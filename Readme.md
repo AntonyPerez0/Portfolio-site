@@ -92,8 +92,15 @@ a kinematic body and uses camera **unprojection** to follow the pointer.
 
 | Project | Stack |
 |:--|:--|
+| **SortiePrep** — DCS cockpit trainer (sortieprep.com) | JavaScript · state machines · PWA · Cloudflare Workers/D1 |
+| **C/C++ Arena** — real Clang in the browser (cpparena.com) | TypeScript · Clang 20/WASM · WASI · GitHub Actions |
+| **Java Arena** — javac 21 + JVM in the browser | TypeScript · Java 21 · JUnit 4 · GitHub Actions |
+| **Emulingo** — learn a language by playing Game Boy games | JavaScript · EmulatorJS · PaddleOCR · Web Speech |
+| **BuildForge** — D4 / WoW Forever second-screen build companion | TypeScript · PWA · GitHub Actions |
+| **News Dashboard** — ambient second-monitor news (newsdash.page) | React 18 · TypeScript · Express |
+| **CS2 Pro Configs** — pro settings as copy-paste console commands | HTML · JavaScript · weekly auto-update pipeline |
+| **GitOps Cloud Infrastructure Home Lab** ([homelab](https://github.com/AntonyPerez0/homelab)) | Kubernetes · Talos Linux · FluxCD · Falco/eBPF · Tailscale |
 | **DefectPredict** — AI test-case prioritization (CS capstone) | Python · scikit-learn · FastAPI · Jenkins · Docker · PostgreSQL |
-| **GitOps Cloud Infrastructure Home Lab** | Kubernetes · Talos Linux · FluxCD · Kustomize · Tailscale |
 | **WGUPS Package Routing** — Data Structures & Algorithms II | Python · custom hash table · greedy search |
 | **Full-Stack Inventory App** (team) | Node · Express · Sequelize · Tailwind · Jest |
 | **Movie Theater REST API** | Node · Express · Sequelize · SQLite · express-validator |
@@ -133,7 +140,10 @@ npm run build
 │   └── main.jsx            # 3D badge: physics lanyard, mounts into #badge3d
 ├── public/
 │   ├── resume.pdf          # served at /resume.pdf
-│   └── favicon.svg
+│   ├── favicon.svg         # site icon (fixes the old 404 - was outside public/)
+│   ├── og-image.png        # 1200x630 social share card (og:image / twitter:image)
+│   ├── sitemap.xml         # for search consoles
+│   └── 404.html            # terminal-styled GitHub Pages 404
 ├── .github/workflows/
 │   └── deploy.yml          # Vite build → GitHub Pages
 └── vite.config.js
