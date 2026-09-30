@@ -59,7 +59,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet" />
 
 <style>
 /* ============================================================
@@ -591,8 +591,8 @@ footer{padding:90px 0 56px;text-align:center}
   transition:all .25s ease;
 }
 .timewarp:hover{
-  border-color:#FF3EB5;color:#FF7ACD;border-style:solid;
-  box-shadow:0 0 24px rgba(255,62,181,.35);
+  border-color:#7DA5FF;color:#BFE0FF;border-style:solid;
+  box-shadow:0 0 24px rgba(125,165,255,.4);
   transform:rotate(-1.2deg) scale(1.05);
 }
 
@@ -611,171 +611,168 @@ html.js .reveal:focus-within{opacity:1;transform:none}
 </style>
 <style>
 /* ============================================================
-   ☆ MYSPACE 2006 - authentic classic profile layout ☆
-   Lives in its own #myspaceSite container, hidden by default.
+   ❄ ANTONY III — THE FROZEN PORTFOLIO ❄
+   A Warcraft III-style main-menu easter egg. Lives in its own
+   #frozenSite container, hidden by default. Every asset here is
+   hand-made CSS/SVG/Three.js — no Blizzard assets anywhere.
    ============================================================ */
-#myspaceSite{display:none}
-body.myspace #modernSite{display:none}
-body.myspace #myspaceSite{display:block}
-body.myspace{
-  background:#FFFFFF;
-  font-family:Verdana,Arial,Helvetica,sans-serif;
-  cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><text y="18" font-size="16">✨</text></svg>'), auto;
-}
-#myspaceSite{font-family:Verdana,Arial,Helvetica,sans-serif;font-size:11px;color:#000;line-height:1.45}
-#myspaceSite a{color:#003399;text-decoration:underline}
-#myspaceSite a:hover{color:#CC0000}
+#frozenSite{display:none}
+body.frozen #modernSite{display:none}
+body.frozen #frozenSite{display:block}
+body.frozen{background:#6F849B}
+body.frozen .progress{display:none}
 
-/* --- site header --- */
-.ms-topbar{background:#000;padding:0}
-.ms-topbar-in{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 10px;gap:10px;flex-wrap:wrap}
-.ms-logo{font-family:Arial,sans-serif;font-weight:bold;font-style:italic;font-size:22px;color:#fff;letter-spacing:-1px}
-.ms-logo span{color:#6699FF}
-.ms-logo small{font-style:normal;font-weight:normal;font-size:10px;color:#9CF;letter-spacing:0;display:block;line-height:1}
-.ms-search{display:flex;gap:4px;align-items:center}
-.ms-search input{font-size:11px;padding:2px 4px;border:1px solid #666;width:130px;font-family:Verdana}
-.ms-search .ms-go{font-size:10px;font-family:Verdana;padding:2px 8px;border:2px outset #DDD;background:#E8E8E8;cursor:pointer}
-.ms-search .ms-go:active{border-style:inset}
-.ms-toplinks{font-size:10px;color:#fff}
-.ms-toplinks a{color:#9CF!important}
-.ms-navbar{background:#3F6FA9;border-top:1px solid #9CC;border-bottom:1px solid #36C}
-.ms-navbar-in{max-width:800px;margin:0 auto;padding:4px 10px;text-align:center;font-size:10.5px;font-weight:bold}
-.ms-navbar a{color:#fff!important;text-decoration:none;padding:0 2px}
-.ms-navbar a:hover{text-decoration:underline}
-.ms-navbar .sep{color:#fff}
+#frozenSite{position:fixed;inset:0;z-index:200;overflow:auto}
+.fs-stage{position:absolute;inset:0;overflow:hidden}
 
-/* --- page shell --- */
-.ms-shell{max-width:800px;margin:0 auto;padding:8px 10px 20px}
-.ms-cols{display:flex;gap:12px;align-items:flex-start}
-.ms-left{width:300px;flex-shrink:0}
-.ms-right{flex:1;min-width:0}
-@media(max-width:680px){
-  .ms-cols{flex-direction:column}
-  .ms-left,.ms-right{width:100%}
+/* ---- static fallback scene (used when WebGL is off or reduced motion) ---- */
+.fs-sky{position:absolute;inset:0;
+  background:linear-gradient(180deg,#C9D4E0 0%,#B4C4D4 38%,#93A9BE 66%,#6F849B 100%);
 }
+.fs-sun{position:absolute;top:4%;left:36%;width:52vmin;height:52vmin;transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(255,255,255,.95) 0%,rgba(214,230,250,.5) 22%,rgba(160,190,225,.16) 48%,transparent 70%);}
+.fs-spire{position:absolute;bottom:16%;left:36%;width:30vmin;height:62vmin;transform:translateX(-50%);
+  background:linear-gradient(180deg,#E8F0F8 0%,#AFC2D4 55%,#7E93A9 100%);
+  clip-path:polygon(50% 0%,62% 7%,57% 18%,68% 26%,60% 36%,72% 46%,62% 58%,74% 68%,60% 80%,72% 90%,58% 100%,42% 100%,30% 90%,40% 80%,26% 68%,38% 58%,28% 46%,40% 36%,30% 26%,41% 18%,36% 7%);
+  opacity:.92;}
+.fs-spike{position:absolute;bottom:15%;width:7vmin;
+  background:linear-gradient(180deg,#BFD2E2,#7E93A9);
+  clip-path:polygon(50% 0%,100% 100%,0% 100%);}
+.fs-spike.s1{left:14%;height:26vmin;transform:rotate(-4deg)}
+.fs-spike.s2{left:25%;height:15vmin;transform:rotate(3deg)}
+.fs-spike.s3{left:56%;height:21vmin;transform:rotate(-3deg)}
+.fs-spike.s4{left:66%;height:13vmin;transform:rotate(5deg)}
+.fs-spike.s5{left:7%;height:11vmin}
+.fs-mist{position:absolute;left:0;right:0;bottom:0;height:34%;
+  background:linear-gradient(180deg,transparent,rgba(214,226,238,.7) 55%,rgba(160,180,200,.92));}
+#frozenBg{position:absolute;inset:0}
 
-/* --- left column (blue family) --- */
-.ms-name{font-size:16px;font-weight:bold;margin:4px 0 8px}
-.ms-profiletable{display:flex;gap:10px;margin-bottom:8px}
-.ms-pic{border:1px solid #000;width:110px;height:110px;flex-shrink:0;background:#D5E8FB}
-.ms-pic svg{width:100%;height:100%}
-.ms-basics{font-size:11px}
-.ms-basics b{font-size:11px}
-.ms-online{
-  display:inline-block;margin-top:6px;
-  font-size:9px;font-weight:bold;color:#000;background:#FF6600;
-  border:1px solid #C50;padding:1px 5px;
-  animation:msblink 1s steps(2,start) infinite;
-}
-@keyframes msblink{0%,49%{filter:brightness(1)}50%,100%{filter:brightness(1.45)}}
-.ms-mood{margin-top:6px}
-.ms-viewmy{margin:6px 0 12px;font-size:11px}
+/* ---- logo (parody, gold on a storm-dark plaque) ---- */
+.fs-logo{position:absolute;top:4.5vh;left:3.5vw;z-index:5;margin:0;padding:20px 28px;border-radius:12px;
+  background:radial-gradient(130% 130% at 30% 15%,rgba(14,24,50,.72),rgba(14,24,50,.34) 62%,transparent 88%);}
+.fs-logo-title{font-family:'Cinzel',serif;font-weight:800;font-size:clamp(38px,5.6vw,64px);line-height:.95;letter-spacing:.02em;color:#F6C945;margin:0;
+  text-shadow:0 0 1px #16325E,0 2px 0 #1B3667,0 5px 12px rgba(8,16,38,.9);}
+.fs-three{display:block;font-size:.52em;letter-spacing:.4em;color:#A9CCFF;margin-top:4px;
+  text-shadow:0 0 16px rgba(125,165,255,.85),0 2px 4px rgba(8,16,38,.9);}
+.fs-logo-sub{margin:8px 0 0;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(11px,1.5vw,16px);letter-spacing:.3em;color:#BFE0FF;
+  text-shadow:0 1px 3px rgba(8,16,38,.95),0 0 12px rgba(125,165,255,.45);}
 
-.ms-bluebox{border:1px solid #6699CC;margin-bottom:12px;background:#fff}
-.ms-bluebox-h{
-  background:#3F6FA9;color:#fff;font-weight:bold;font-size:12px;padding:3px 8px;
+/* ---- the metal menu panel ---- */
+.fs-menu,.fs-quit{position:absolute;z-index:6}
+.fs-menu{top:4.5vh;right:3.5vw;width:min(430px,92vw)}
+.fs-quit{bottom:10vh;right:3.5vw;width:min(430px,92vw)}
+.fs-chain{position:absolute;bottom:calc(100% - 6px);width:34px;height:11vh;min-height:70px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='46'%3E%3Cg fill='none' stroke='%23383D45' stroke-width='7'%3E%3Crect x='9' y='3' width='16' height='19' rx='8'/%3E%3Crect x='3' y='24' width='28' height='19' rx='9.5'/%3E%3C/g%3E%3Cg fill='none' stroke='%23585E68' stroke-width='2' opacity='.8'%3E%3Crect x='9' y='3' width='16' height='19' rx='8'/%3E%3Crect x='3' y='24' width='28' height='19' rx='9.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:repeat-y;background-position:center top;}
+.fs-chain.c1{left:16%}
+.fs-chain.c2{left:70%}
+.fs-menu-in{position:relative;padding:26px 22px;border-radius:8px;
+  background:linear-gradient(165deg,#41464F 0%,#2B2F36 42%,#1E2229 100%);
+  border:2px solid #5A606A;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.15),inset 0 -12px 26px rgba(0,0,0,.5),inset 0 12px 26px rgba(255,255,255,.05),0 20px 55px rgba(4,9,20,.6);}
+.fs-menu-in::before{content:'';position:absolute;inset:0;border-radius:8px;pointer-events:none;
+  background:
+    radial-gradient(circle 3px at 11px 11px,#9AA1AC 45%,#23262D 60%,transparent 66%),
+    radial-gradient(circle 3px at calc(100% - 11px) 11px,#9AA1AC 45%,#23262D 60%,transparent 66%),
+    radial-gradient(circle 3px at 11px calc(100% - 11px),#9AA1AC 45%,#23262D 60%,transparent 66%),
+    radial-gradient(circle 3px at calc(100% - 11px) calc(100% - 11px),#9AA1AC 45%,#23262D 60%,transparent 66%);}
+.fs-btnrow{position:relative;margin:0 0 16px 30px}
+.fs-btnrow:last-child{margin-bottom:0}
+.fs-btnrow::before{content:'';position:absolute;left:-21px;top:50%;transform:translateY(-50%);
+  border:9px solid transparent;border-right-color:#565C66;filter:drop-shadow(0 1px 1px rgba(0,0,0,.6));}
+.fs-btnrow.withmag{display:flex;gap:8px}
+.fs-btnrow.withmag .fs-btn{flex:1}
+.fs-btn{
+  display:block;width:100%;height:44px;border-radius:5px;cursor:pointer;padding:0 12px;
+  border:1px solid #05080F;
+  background:linear-gradient(180deg,#3452D6 0%,#1E30A6 45%,#111C6E 100%);
+  box-shadow:inset 0 1px 0 rgba(190,210,255,.35),inset 0 -8px 14px rgba(2,4,18,.55),0 3px 6px rgba(4,8,18,.55);
+  color:#F6C945;font-family:'Cinzel',serif;font-weight:700;font-size:15px;letter-spacing:.08em;
+  text-shadow:0 1px 2px rgba(0,0,10,.9);
+  transition:background .15s,box-shadow .15s;
 }
-.ms-bluebox-b{padding:6px}
-table.ms-int{width:100%;border-collapse:separate;border-spacing:3px}
-table.ms-int td{font-size:11px;padding:5px 7px;vertical-align:top}
-table.ms-int td.lbl{background:#B1D0F0;font-weight:bold;width:34%;color:#1F4A75}
-table.ms-int td.val{background:#D5E8FB}
-
-/* contact box (the iconic one) */
-.ms-contact{border:2px solid #6699CC;margin-bottom:12px}
-.ms-contact-h{
-  background:linear-gradient(#3F6FA9,#33619B);color:#fff;font-weight:bold;font-size:12px;padding:4px 8px;
+.fs-btn:hover{
+  background:linear-gradient(180deg,#4664EC 0%,#2A3FC4 45%,#1A2684 100%);
+  box-shadow:inset 0 1px 0 rgba(210,225,255,.45),inset 0 -8px 14px rgba(2,4,18,.5),0 3px 6px rgba(4,8,18,.55),0 0 16px rgba(110,150,255,.5);
 }
-.ms-contact-b{background:#D5E8FB;padding:8px;display:grid;grid-template-columns:1fr 1fr;gap:5px 8px;font-size:11px}
-.ms-contact-b a{white-space:nowrap}
-
-.ms-urlbox{border:1px solid #999;padding:6px 8px;margin-bottom:12px;font-size:11px}
-.ms-urlbox b{display:block;margin-bottom:2px}
-
-/* --- right column (orange family) --- */
-.ms-network{
-  border:2px solid #000;padding:14px 10px;text-align:center;
-  font-family:Arial,Helvetica,sans-serif;font-size:17px;font-weight:bold;
-  margin:6px 0 12px;background:#fff;
+.fs-btn:focus-visible{outline:2px solid #F6C945;outline-offset:3px}
+.fs-mag{
+  flex:0 0 44px;height:44px;border-radius:5px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  border:1px solid #05080F;padding:0;font-size:17px;
+  background:linear-gradient(180deg,#2A44BE 0%,#18279B 45%,#0F1864 100%);
+  box-shadow:inset 0 1px 0 rgba(190,210,255,.35),inset 0 -8px 14px rgba(2,4,18,.55),0 3px 6px rgba(4,8,18,.55);
+  color:#CFE0FF;text-shadow:0 1px 2px rgba(0,0,10,.9);transition:background .15s,box-shadow .15s;
 }
-.ms-network span{color:#C00}
-.ms-orangebox{border:1px solid #FFCC99;margin-bottom:12px;background:#fff}
-.ms-orangebox-h{
-  background:#FFCC99;color:#6B4700;font-weight:bold;font-size:12px;padding:3px 8px;
-}
-.ms-orangebox-h small{font-weight:normal;font-size:10px}
-.ms-orangebox-b{padding:8px;font-size:11px}
-.ms-orangebox-b .sub{color:#B35000;font-weight:bold;font-size:12px;margin:8px 0 3px}
-.ms-orangebox-b .sub:first-child{margin-top:0}
-.ms-bloglist{list-style:none}
-.ms-bloglist li{margin-bottom:7px}
-.ms-bloglist .bdate{color:#666;font-size:10px}
-.ms-new{
-  display:inline-block;font-size:8px;font-weight:bold;color:#fff;background:#CC0000;
-  padding:0 3px;margin-left:4px;vertical-align:2px;
-  animation:msblink 1s steps(2,start) infinite;
-}
-.ms-viewall{text-align:center;background:#FFEEDD;padding:4px;font-size:11px;border-top:1px solid #FFCC99}
-
-/* friend space */
-.ms-friendcount{margin-bottom:8px}
-.ms-friendcount b{color:#C00}
-.ms-top8{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
-@media(max-width:480px){.ms-top8{grid-template-columns:repeat(2,1fr)}}
-.ms-friend{font-size:10.5px}
-.ms-friend .nm{color:#C00;font-weight:bold;display:block;margin-bottom:3px}
-.ms-friend .ava{
-  border:1px solid #999;background:#EEF4FB;height:74px;
-  display:grid;place-items:center;font-size:38px;line-height:1;
+.fs-mag:hover{background:linear-gradient(180deg,#3A58E2 0%,#2437BC 45%,#161F7C 100%);box-shadow:inset 0 1px 0 rgba(210,225,255,.45),inset 0 -8px 14px rgba(2,4,18,.5),0 0 16px rgba(110,150,255,.5)}
+.fs-mag:focus-visible{outline:2px solid #F6C945;outline-offset:3px}
+.fs-quit .fs-menu-in{padding:18px 22px}
+.fs-version{
+  position:absolute;right:3.5vw;bottom:2.5vh;z-index:6;margin:0;max-width:92vw;
+  font-family:var(--mono);font-size:11px;line-height:1.6;color:#DCE5F2;
+  background:rgba(9,13,21,.74);padding:7px 11px;border-radius:6px;border:1px solid rgba(255,255,255,.14);
 }
 
-/* comments wall */
-table.ms-comments{width:100%;border-collapse:separate;border-spacing:3px}
-table.ms-comments td{vertical-align:top;font-size:11px;padding:7px}
-table.ms-comments td.who{background:#FFCC99;width:30%;text-align:center}
-table.ms-comments td.who .nm{color:#A31515;font-weight:bold;display:block;margin-bottom:4px}
-table.ms-comments td.who .cava{font-size:34px;line-height:1.2}
-table.ms-comments td.msg{background:#FFEEDD}
-table.ms-comments td.msg .cdate{font-weight:bold;display:block;margin-bottom:4px}
+/* ---- sub-screens (About Me / Campaign Missions / etc.) ---- */
+.fs-sub{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:22px}
+.fs-sub[hidden]{display:none}
+.fs-sub-backdrop{position:absolute;inset:0;background:rgba(5,9,17,.72);backdrop-filter:blur(3px)}
+.fs-sub-panel{position:relative;width:min(780px,94vw);max-height:min(84vh,780px);display:flex;flex-direction:column;border-radius:10px;
+  background:linear-gradient(165deg,#3E434C 0%,#262A31 45%,#191C23 100%);
+  border:2px solid #5A606A;
+  box-shadow:0 30px 90px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.12);}
+.fs-sub-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.09)}
+.fs-sub-head h2{margin:0;font-family:'Cinzel',serif;font-weight:700;font-size:20px;letter-spacing:.12em;color:#F6C945;text-shadow:0 1px 2px rgba(0,0,10,.9)}
+.fs-x{width:34px;height:34px;border-radius:5px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  border:1px solid #05080F;background:linear-gradient(180deg,#3452D6,#1E30A6 45%,#111C6E);
+  color:#F6C945;font-size:14px;text-shadow:0 1px 2px rgba(0,0,10,.9);transition:background .15s}
+.fs-x:hover{background:linear-gradient(180deg,#4664EC,#2A3FC4 45%,#1A2684)}
+.fs-x:focus-visible{outline:2px solid #F6C945;outline-offset:3px}
+.fs-sub-body{overflow:auto;padding:20px 22px;margin:12px 14px;border-radius:6px;
+  background:rgba(8,12,20,.6);border:1px solid rgba(255,255,255,.09)}
+.fs-sub-foot{padding:6px 14px 16px;display:flex;justify-content:center}
+.fs-sub-foot .fs-btn{width:220px}
+.fs-sub-body::-webkit-scrollbar{width:10px}
+.fs-sub-body::-webkit-scrollbar-thumb{background:#2C3340;border-radius:6px;border:2px solid #10141C}
 
-/* music player */
-.ms-player{
-  border:1px solid #FFCC99;background:#FFEEDD;margin-bottom:12px;padding:8px;
-  display:flex;align-items:center;gap:9px;font-size:11px;flex-wrap:wrap;
-}
-.ms-player .ms-btn{
-  border:2px outset #DDD;background:#E8E8E8;font-family:Verdana;font-size:10px;
-  font-weight:bold;padding:3px 9px;cursor:pointer;
-}
-.ms-player .ms-btn:active{border-style:inset}
-.ms-lcd{
-  background:#000;color:#0F0;font-family:'Courier New',monospace;font-size:10px;
-  padding:3px 8px;border:1px inset #666;white-space:nowrap;overflow:hidden;max-width:240px;
-}
-.ms-lcd span{display:inline-block;padding-left:100%;animation:lcdscroll 9s linear infinite}
-@keyframes lcdscroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
-.ms-eq{display:flex;gap:2px;align-items:flex-end;height:16px}
-.ms-eq i{width:4px;background:#0C0;height:3px}
-.ms-eq.playing i{animation:eq .5s infinite alternate}
-.ms-eq.playing i:nth-child(2){animation-delay:.12s}
-.ms-eq.playing i:nth-child(3){animation-delay:.24s}
-.ms-eq.playing i:nth-child(4){animation-delay:.06s}
-.ms-eq.playing i:nth-child(5){animation-delay:.18s}
-@keyframes eq{from{height:3px}to{height:16px}}
+/* ---- sub-screen content ---- */
+.fs-h3{font-family:'Cinzel',serif;color:#F6C945;font-size:15px;letter-spacing:.1em;margin:20px 0 8px}
+.fs-h3:first-child{margin-top:0}
+.fs-p{color:#C9D4E6;font-size:14.5px;line-height:1.75;margin:0 0 10px}
+.fs-p b{color:#ECF1FB}
+.fs-kv{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:14px;color:#C9D4E6;margin:0 0 10px}
+.fs-kv dt{color:#8FA0BC;font-family:var(--mono);font-size:12.5px;padding-top:2px;white-space:nowrap}
+.fs-kv dd{margin:0}
+.fs-row{display:flex;align-items:baseline;gap:12px;padding:10px 2px;border-bottom:1px solid rgba(255,255,255,.08)}
+.fs-row:last-child{border-bottom:0}
+.fs-row .nm{font-family:'Cinzel',serif;color:#F6C945;font-size:14px;white-space:nowrap;text-shadow:0 1px 2px rgba(0,0,10,.8)}
+.fs-row .dsc{color:#AAB8CE;font-size:13px;flex:1;min-width:0}
+.fs-row a{color:#9CC4FF;font-size:13px;white-space:nowrap;text-decoration:none}
+.fs-row a:hover{text-decoration:underline}
+.fs-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fs-col h4{margin:0 0 6px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:#9CC4FF;text-transform:uppercase}
+.fs-col ul{list-style:none;margin:0;padding:0}
+.fs-col li{color:#C9D4E6;font-size:13.5px;padding:3px 0}
+.fs-chipbtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.fs-chipbtns a{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 16px;border-radius:5px;text-decoration:none;
+  border:1px solid #05080F;background:linear-gradient(180deg,#3452D6,#1E30A6 45%,#111C6E);
+  color:#F6C945;font-family:'Cinzel',serif;font-weight:700;font-size:13px;letter-spacing:.06em;text-shadow:0 1px 2px rgba(0,0,10,.9)}
+.fs-chipbtns a:hover{background:linear-gradient(180deg,#4664EC,#2A3FC4 45%,#1A2684)}
+.fs-note{color:#8FA0BC;font-size:12.5px;font-style:italic;line-height:1.7}
 
-/* footer */
-.ms-footer{
-  text-align:center;font-size:10px;color:#666;border-top:1px solid #CCC;
-  margin-top:16px;padding-top:10px;
+@media(max-width:760px){
+  .fs-logo{position:static;margin:0;padding:18px 20px 0;border-radius:0}
+  .fs-menu,.fs-quit{position:relative;top:auto;right:auto;bottom:auto;margin:16px auto 0}
+  .fs-quit{margin-top:64px}
+  .fs-quit .fs-chain{display:none}
+  #frozenSite{padding-bottom:56px}
+  .fs-version{position:static;margin:14px auto 0;width:max-content}
+  .fs-cols{grid-template-columns:1fr}
+  .fs-row{flex-wrap:wrap}
 }
-.ms-footer a{margin:0 3px}
-.ms-back{
-  display:inline-block;margin-top:12px;
-  font-family:Verdana;font-size:11px;font-weight:bold;cursor:pointer;
-  border:2px outset #DDD;background:#E8E8E8;padding:5px 14px;color:#000;
+@media (prefers-reduced-motion: reduce){
+  #frozenSite *,#frozenSite *::before,#frozenSite *::after{animation:none!important;transition:none!important}
 }
-.ms-back:active{border-style:inset}
-</style>
+</style>>
 <style>
 /* ============================================================
    COMMAND PALETTE / PROGRESS / NAV POLISH
@@ -794,7 +791,7 @@ table.ms-comments td.msg .cdate{font-weight:bold;display:block;margin-bottom:4px
   background:var(--grad);border-radius:0 3px 3px 0;
   pointer-events:none;
 }
-body.myspace .progress{display:none}
+body.frozen .progress{display:none}
 
 .palette{position:fixed;inset:0;z-index:300}
 .palette[hidden]{display:none}
@@ -1234,7 +1231,7 @@ body.myspace .progress{display:none}
           <li>Interactive 3D badge on a physics-simulated lanyard — React Three Fiber + Rapier rope joints, draggable and throwable</li>
           <li>Progressive enhancement: a pure-CSS badge renders instantly, then upgrades to WebGL physics when the device can run it</li>
           <li>Built with Vite, deployed automatically to GitHub Pages by a GitHub Actions pipeline on every push to main</li>
-          <li>Hand-rolled design system, a vanilla-JS command palette (try ⌘K), and a fully period-accurate 2006 easter egg</li>
+          <li>Hand-rolled design system, a vanilla-JS command palette (try ⌘K), and a playable Warcraft III-style main-menu easter egg</li>
         </ul>
         <div class="tags"><span class="tag">React Three Fiber</span><span class="tag">Rapier</span><span class="tag">Three.js</span><span class="tag">Vite</span><span class="tag">GitHub Actions</span><span class="tag">Vanilla JS</span></div>
       </article>
@@ -1305,189 +1302,52 @@ body.myspace .progress{display:none}
 
   <footer class="wrap">
     <div class="foot-line">© <span id="yr"></span> Antony Perez - React Three Fiber · Rapier physics · deployed by pipeline · <a href="resume.pdf" download>résumé (pdf)</a></div>
-    <button class="timewarp" id="timewarp" type="button" aria-pressed="false">💿 it's 2006 somewhere…</button>
+    <button class="timewarp" id="timewarp" type="button" aria-pressed="false">❄ enter the frozen throne…</button>
   </footer>
 </main>
-</div><div id="myspaceSite" role="main" aria-label="2006 MySpace profile">
-
-  <div class="ms-topbar">
-    <div class="ms-topbar-in">
-      <h1 class="ms-logo">my<span>space</span>.com<small>a place for friends</small></h1>
-      <div class="ms-search">
-        <input type="text" placeholder="Search" aria-label="Search MySpace" />
-        <button class="ms-go" type="button">Go!</button>
+</div><div id="frozenSite" role="main" aria-label="Antony III - The Frozen Portfolio, a Warcraft III style main menu easter egg">
+  <div class="fs-stage" aria-hidden="true">
+    <div class="fs-sky"></div>
+    <div class="fs-sun"></div>
+    <div class="fs-spire"></div>
+    <i class="fs-spike s5"></i><i class="fs-spike s1"></i><i class="fs-spike s2"></i><i class="fs-spike s3"></i><i class="fs-spike s4"></i>
+    <div class="fs-mist"></div>
+  </div>
+  <div id="frozenBg" aria-hidden="true"></div>
+  <div class="fs-logo">
+    <h1 class="fs-logo-title">ANTONY<span class="fs-three">III</span></h1>
+    <p class="fs-logo-sub">THE FROZEN PORTFOLIO</p>
+  </div>
+  <nav class="fs-menu" aria-label="Frozen Throne menu">
+    <span class="fs-chain c1" aria-hidden="true"></span>
+    <span class="fs-chain c2" aria-hidden="true"></span>
+    <div class="fs-menu-in">
+      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="about">About Me</button></div>
+      <div class="fs-btnrow withmag">
+        <button class="fs-btn" type="button" data-fs="projects">Campaign Missions</button>
+        <a class="fs-mag" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener" aria-label="Open GitHub profile in a new tab" title="Open GitHub">🔍</a>
       </div>
-      <div class="ms-toplinks"><a href="#">Help</a> | <a href="#">SignUp</a></div>
+      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="xp">Experience</button></div>
+      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="skills">Skills</button></div>
+      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="credits">Credits</button></div>
+    </div>
+  </nav>
+  <div class="fs-quit">
+    <span class="fs-chain c1" aria-hidden="true"></span>
+    <div class="fs-menu-in">
+      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="quit">Quit</button></div>
     </div>
   </div>
-  <div class="ms-navbar">
-    <div class="ms-navbar-in">
-      <a href="#">Home</a><span class="sep"> | </span><a href="#">Browse</a><span class="sep"> | </span><a href="#">Search</a><span class="sep"> | </span><a href="#">Invite</a><span class="sep"> | </span><a href="#">Film</a><span class="sep"> | </span><a href="#">Mail</a><span class="sep"> | </span><a href="#">Blog</a><span class="sep"> | </span><a href="#">Favorites</a><span class="sep"> | </span><a href="#">Forum</a><span class="sep"> | </span><a href="#">Groups</a><span class="sep"> | </span><a href="#">Events</a><span class="sep"> | </span><a href="#">Videos</a><span class="sep"> | </span><a href="#">Music</a><span class="sep"> | </span><a href="#">Classifieds</a>
-    </div>
-  </div>
-
-  <div class="ms-shell">
-    <div class="ms-cols">
-
-      <div class="ms-left">
-        <div class="ms-name">Antony Perez</div>
-
-        <div class="ms-profiletable">
-          <div class="ms-pic" role="img" aria-label="Pixel art profile picture of Antony">
-            <svg viewBox="0 0 11 11" shape-rendering="crispEdges" role="img" aria-hidden="true">
-              <rect width="11" height="11" fill="#CFE3F7"/>
-              <rect x="3" y="1" width="5" height="1" fill="#2B1B12"/>
-              <rect x="2" y="2" width="7" height="1" fill="#2B1B12"/>
-              <rect x="2" y="3" width="1" height="2" fill="#2B1B12"/>
-              <rect x="8" y="3" width="1" height="2" fill="#2B1B12"/>
-              <rect x="3" y="3" width="5" height="1" fill="#E8B88A"/>
-              <rect x="2" y="4" width="7" height="1" fill="#111"/>
-              <rect x="3" y="5" width="5" height="1" fill="#E8B88A"/>
-              <rect x="3" y="6" width="1" height="1" fill="#E8B88A"/>
-              <rect x="7" y="6" width="1" height="1" fill="#E8B88A"/>
-              <rect x="4" y="6" width="3" height="1" fill="#7A3B1E"/>
-              <rect x="4" y="7" width="3" height="1" fill="#E8B88A"/>
-              <rect x="3" y="8" width="5" height="1" fill="#1D3F94"/>
-              <rect x="2" y="9" width="7" height="2" fill="#1D3F94"/>
-              <rect x="5" y="9" width="1" height="1" fill="#FF9900"/>
-            </svg>
-          </div>
-          <div class="ms-basics">
-            <b>"Documented. Tested. Deployed."</b><br>
-            Software Engineer /<br>
-            Technical Writer<br>
-            BAY AREA, California<br>
-            United States<br>
-            <span class="ms-online">ONLINE NOW!</span><br>
-            <span class="ms-mood"><b>Mood:</b> deployed ✅</span><br>
-            <b>Last Login:</b> Today
-          </div>
-        </div>
-        <div class="ms-viewmy"><b>View My:</b> <a href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">Pics</a> | <a href="https://antonyperez.com" target="_blank" rel="noopener">Videos</a></div>
-
-        <div class="ms-contact">
-          <div class="ms-contact-h">Contacting Antony</div>
-          <div class="ms-contact-b">
-            <a href="mailto:antonyperez0@yahoo.com">✉ Send Message</a>
-            <a href="mailto:?subject=check%20out%20this%20engineer&body=https://antonyperez.com">➡ Forward to Friend</a>
-            <a href="https://linkedin.com/in/antonyperez-swe" target="_blank" rel="noopener">👤 Add to Friends</a>
-            <a href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">⭐ Add to Favorites</a>
-            <a href="mailto:antonyperez0@yahoo.com">💬 Instant Message</a>
-            <a href="#" id="msBlock">🚫 Block User</a>
-            <a href="https://linkedin.com/in/antonyperez-swe" target="_blank" rel="noopener">👥 Add to Group</a>
-            <a href="resume.pdf" download>📊 Rank User</a>
-          </div>
-        </div>
-
-        <div class="ms-urlbox">
-          <b>MySpace URL:</b>
-          www.myspace.com/antonyperez
-        </div>
-
-        <div class="ms-bluebox">
-          <div class="ms-bluebox-h">Antony's Interests</div>
-          <div class="ms-bluebox-b">
-            <table class="ms-int">
-              <tr><td class="lbl">General</td><td class="val">CI/CD pipelines, GitOps, running kubernetes in my living room, writing docs ppl actually read, green checkmarks ✓✓✓</td></tr>
-              <tr><td class="lbl">Music</td><td class="val">The Killers, Death Cab for Cutie, My Chemical Romance, the sound of a passing test suite</td></tr>
-              <tr><td class="lbl">Movies</td><td class="val">Hackers, Office Space, The Matrix (the part where he reads the code obviously)</td></tr>
-              <tr><td class="lbl">Television</td><td class="val">nothing beats watching deploy logs scroll tbh</td></tr>
-              <tr><td class="lbl">Books</td><td class="val">API references, the Kubernetes docs (unironically), my own documentation (somebody has to)</td></tr>
-              <tr><td class="lbl">Heroes</td><td class="val">Tom (duh), whoever invented version control, &amp; every engineer who writes tests b4 they're forced to</td></tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="ms-bluebox">
-          <div class="ms-bluebox-h">Antony's Details</div>
-          <div class="ms-bluebox-b">
-            <table class="ms-int">
-              <tr><td class="lbl">Status:</td><td class="val"><b>Open to work!!</b></td></tr>
-              <tr><td class="lbl">Here for:</td><td class="val">Networking, Job Offers</td></tr>
-              <tr><td class="lbl">Hometown:</td><td class="val">SF Bay Area, CA</td></tr>
-              <tr><td class="lbl">Occupation:</td><td class="val">Technical Writer / Software Engineer</td></tr>
-              <tr><td class="lbl">Education:</td><td class="val">B.S. Computer Science, May 2026</td></tr>
-            </table>
-          </div>
-        </div>
+  <p class="fs-version">v1.26.0.6401 · fan-made homage, hand-built in Three.js<br>Not affiliated with Blizzard Entertainment. Warcraft III is a trademark of Blizzard.</p>
+  <div class="fs-sub" id="fsSub" hidden>
+    <div class="fs-sub-backdrop" data-fs-close></div>
+    <div class="fs-sub-panel" role="dialog" aria-modal="true" aria-labelledby="fsSubTitle">
+      <div class="fs-sub-head">
+        <h2 id="fsSubTitle">About Me</h2>
+        <button class="fs-x" type="button" data-fs-close aria-label="Close screen">✕</button>
       </div>
-
-      <div class="ms-right">
-        <div class="ms-network"><span>Antony</span> is in your extended network</div>
-
-        <div class="ms-player">
-          <button class="ms-btn" id="msPlay" type="button">▶ PLAY</button>
-          <div class="ms-eq" id="msEq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="ms-lcd"><span>♫ Antony's Profile Song: "Mr. Brightside" - The Killers ♫ it never left the charts &amp; neither will i ♫</span></div>
-        </div>
-
-        <div class="ms-orangebox">
-          <div class="ms-orangebox-h">Antony's Latest Blog Entry <small>[<a href="#">Subscribe to this Blog</a>]</small></div>
-          <div class="ms-orangebox-b">
-            <ul class="ms-bloglist">
-              <li><a href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">i built a kubernetes cluster in my LIVING ROOM</a> (<a href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">view more</a>)<span class="ms-new">NEW!</span><br><span class="bdate">FluxCD watches my git repo so i don't have to</span></li>
-              <li><a href="#">my CI pipeline caught a bug before prod AGAIN</a> (<a href="#">view more</a>)<br><span class="bdate">we love to see it. 95% platform integrity stays winning</span></li>
-              <li><a href="#">hot take: documentation is a love language</a> (<a href="#">view more</a>)<br><span class="bdate">ur onboarding doesn't have to hurt</span></li>
-            </ul>
-          </div>
-          <div class="ms-viewall">[<a href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">View All Blog Entries</a>]</div>
-        </div>
-
-        <div class="ms-orangebox">
-          <div class="ms-orangebox-h">About Antony</div>
-          <div class="ms-orangebox-b">
-            <div class="sub">About me:</div>
-            hiii i'm antony!! 👋 i'm a software engineer &amp; technical writer from the bay area. i write the code AND the docs so ur engineers will literally never be confused again. currently a technical writer @ clover network where i build CI guardrails w/ github actions. graduating w/ my B.S. in computer science may 2026!! i also run a whole kubernetes cluster at home w/ gitops bc i think it's fun (it is)
-            <div class="sub">Who I'd like to meet:</div>
-            a hiring manager w/ great taste 😏, recruiters who reply to emails, &amp; anyone who has ever written a unit test voluntarily
-          </div>
-        </div>
-
-        <div class="ms-orangebox">
-          <div class="ms-orangebox-h">Antony's Friend Space</div>
-          <div class="ms-orangebox-b">
-            <div class="ms-friendcount">Antony has <b>8</b> friends.</div>
-            <div class="ms-top8">
-              <div class="ms-friend"><span class="nm">Kubernetes</span><div class="ava">⎈</div></div>
-              <div class="ms-friend"><span class="nm">React</span><div class="ava">⚛️</div></div>
-              <div class="ms-friend"><span class="nm">GitHub Actions</span><div class="ava">🐙</div></div>
-              <div class="ms-friend"><span class="nm">Docker</span><div class="ava">🐳</div></div>
-              <div class="ms-friend"><span class="nm">FluxCD</span><div class="ava">🌊</div></div>
-              <div class="ms-friend"><span class="nm">Vitest</span><div class="ava">🧪</div></div>
-              <div class="ms-friend"><span class="nm">TypeScript</span><div class="ava">📐</div></div>
-              <div class="ms-friend"><span class="nm">Java</span><div class="ava">☕</div></div>
-            </div>
-          </div>
-          <div class="ms-viewall">[<a href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">View All of Antony's Friends</a>]</div>
-        </div>
-
-        <div class="ms-orangebox">
-          <div class="ms-orangebox-h">Antony's Friends Comments</div>
-          <div class="ms-orangebox-b">
-            <div class="ms-friendcount">Displaying <b>3</b> of <b>1337</b> comments (<a href="#">View/Edit All Comments</a>)</div>
-            <table class="ms-comments">
-              <tr>
-                <td class="who"><span class="nm">Kubernetes</span><div class="cava">⎈</div></td>
-                <td class="msg"><span class="cdate">Jun 11 2026 9:02 PM</span>thanks for the add!! ur cluster is literally self-healing... u barely even need me lol 💙</td>
-              </tr>
-              <tr>
-                <td class="who"><span class="nm">GitHub Actions</span><div class="cava">🐙</div></td>
-                <td class="msg"><span class="cdate">Jun 10 2026 11:47 AM</span>✓ All checks have passed - including the vibe check. hire this man</td>
-              </tr>
-              <tr>
-                <td class="who"><span class="nm">Vitest</span><div class="cava">🧪</div></td>
-                <td class="msg"><span class="cdate">Jun 8 2026 6:15 PM</span>100% coverage of my heart omg ;_; xoxo ~*~test driven 4ever~*~</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="ms-footer">
-          <a href="#">About</a> | <a href="#">FAQ</a> | <a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Safety Tips</a> | <a href="#">Contact MySpace</a> | <a href="#">Advertise</a><br>
-          ©2003-2026 AntonySpace.com. All Rights Reserved. You are visitor #<b id="msHits">0001337</b><br>
-          <button class="ms-back" id="msBack" type="button">🚀 take me back to 2026</button>
-        </div>
-      </div>
+      <div class="fs-sub-body" id="fsSubBody" tabindex="0"></div>
+      <div class="fs-sub-foot"><button class="fs-btn" type="button" data-fs-close>Back</button></div>
     </div>
   </div>
 </div>
@@ -1536,33 +1396,17 @@ body.myspace .progress{display:none}
     } else { done(false); }
   });
 
-  /* ===== time machine ===== */
+  /* ===== the frozen throne ===== */
   var MODERN_TITLE = document.title;
   function setMode(on){
-    document.body.classList.toggle('myspace', on);
-    document.title = on ? "Antony's Space ~*~ plz hire me ~*~" : MODERN_TITLE;
-    if (on) $('#msHits').textContent = String(1337 + Math.floor(Math.random()*90000)).padStart(7,'0');
+    document.body.classList.toggle('frozen', on);
+    document.title = on ? 'Antony III - The Frozen Portfolio' : MODERN_TITLE;
     var tw = $('#timewarp'); if (tw) tw.setAttribute('aria-pressed', on ? 'true' : 'false');
     window.scrollTo(0,0);
+    window.dispatchEvent(new CustomEvent('fs:mode', { detail: { on: on } }));
   }
   $('#timewarp').addEventListener('click', function(){ setMode(true); });
-  $('#msBack').addEventListener('click', function(){ setMode(false); });
-  
-  /* easter egg: blocking Antony just sends you back to the future */
-  var blockLink = $('#msBlock');
-  if (blockLink) blockLink.addEventListener('click', function(e){
-    e.preventDefault();
-    alert("u can't block antony... he has CI guardrails 🛡️\nreturning u to 2026 instead");
-    setMode(false);
-  });
-
-  /* fake profile song player */
-  var play = $('#msPlay'), eq = $('#msEq'), playing = false;
-  if (play) play.addEventListener('click', function(){
-    playing = !playing;
-    play.textContent = playing ? '⏸ PAUSE' : '▶ PLAY';
-    eq.classList.toggle('playing', playing);
-  });
+  window.addEventListener('fs:quit', function(){ setMode(false); });
 
   /* ===== console greeting for the curious ===== */
   try {
@@ -1614,7 +1458,7 @@ body.myspace .progress{display:none}
     if (palKBtn && !isMac) palKBtn.textContent = 'Ctrl K';
 
     var go = function(hash){
-      if (document.body.classList.contains('myspace')) setMode(false);
+      if (document.body.classList.contains('frozen')) setMode(false);
       var el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
     };
@@ -1634,16 +1478,16 @@ body.myspace .progress{display:none}
         } },
       { t: 'Open GitHub',        hint: 'AntonyPerez0', ic: '\u25f3', run: function(){ window.open('https://github.com/AntonyPerez0','_blank','noopener'); } },
       { t: 'Open LinkedIn',      hint: 'antonyperez-swe', ic: 'in', run: function(){ window.open('https://linkedin.com/in/antonyperez-swe','_blank','noopener'); } },
-      { t: "It's 2006 somewhere\u2026", hint: 'time machine', ic: '\ud83d\udcbf', mode: 'modern',  run: function(){ setMode(true); } },
-      { t: 'Take me back to 2026',      hint: 'time machine', ic: '\ud83d\ude80', mode: 'myspace', run: function(){ setMode(false); } }
+      { t: 'Enter the Frozen Throne', hint: 'easter egg', ic: '\u2744', mode: 'modern', run: function(){ setMode(true); } },
+      { t: 'Quit to 2026',            hint: 'easter egg', ic: '\u21a9', mode: 'frozen', run: function(){ setMode(false); } }
     ];
     var filtered = [], sel = 0, lastFocus = null;
 
     var visibleActions = function(q){
-      var inMs = document.body.classList.contains('myspace');
+      var inMs = document.body.classList.contains('frozen');
       return ACTIONS.filter(function(a){
         if (a.mode === 'modern' && inMs) return false;
-        if (a.mode === 'myspace' && !inMs) return false;
+        if (a.mode === 'frozen' && !inMs) return false;
         return !q || (a.t + ' ' + a.hint).toLowerCase().indexOf(q) !== -1;
       });
     };
@@ -1692,11 +1536,13 @@ body.myspace .progress{display:none}
     document.addEventListener('keydown', function(e){
       if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); if (pal.hidden) { openPal(); } else { closePal(); } }
       else if (e.key === 'Escape' && !pal.hidden) closePal();
+      else if (e.key === 'Escape' && document.body.classList.contains('frozen') && pal.hidden && !window.__fsSubOpen) setMode(false);
     });
   }
 })();
 </script>
 
+<script type="module" src="/src/frozen.js"></script>
 <script type="module" src="/src/main.jsx"></script>
 
 </body>

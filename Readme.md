@@ -9,7 +9,7 @@
 </a>
 
 <p>
-  <em>The personal portfolio of Antony Perez — a single-page site with an interactive,<br/>physics-simulated 3D conference badge you can grab, swing, and throw.</em>
+  <em>The personal portfolio of Antony Perez — a single-page site with an interactive,<br/>physics-simulated 3D conference badge you can grab, swing, and throw —<br/>plus a hidden Warcraft III-style 3D main menu easter egg.</em>
 </p>
 
 <p>
@@ -45,7 +45,7 @@
 | 🛡️ | **Progressive enhancement** — a pure-CSS badge renders instantly, then upgrades to the WebGL physics version when the device supports it. No WebGL? The static badge stays. |
 | ⌘ | **Command palette** (`⌘K` / `Ctrl-K`) — vanilla-JS, fuzzy-filtered, fully keyboard-navigable: jump to sections, copy email, grab the résumé. |
 | 🎨 | **Hand-rolled design system** — bespoke dark theme, gradient accents, scroll-reveal, active-section nav, and a scroll-progress bar. No UI kit. |
-| 💿 | **2006 time machine** — one button transforms the whole page into a period-accurate MySpace profile, Top 8 and all. |
+| ⚔ | **Frozen Throne easter egg** — one button drops you into a hand-built 3D Icecrown-style main menu (Three.js) whose buttons navigate the real portfolio. No Blizzard assets — everything is generated in code. |
 | 🚀 | **CI/CD to GitHub Pages** — every push to `main` builds with Vite and deploys automatically via GitHub Actions. |
 
 <br/>
@@ -135,9 +135,11 @@ npm run build
 
 ```text
 .
-├── index.html              # the whole site (modern view + MySpace mode)
+├── index.html              # the whole site (modern view + Frozen Throne mode)
 ├── src/
-│   └── main.jsx            # 3D badge: physics lanyard, mounts into #badge3d
+│   ├── main.jsx            # 3D badge: physics lanyard, mounts into #badge3d
+│   ├── frozen.js           # easter egg controller: menu, sub-screens, a11y
+│   └── frozen-scene.jsx    # 3D Icecrown-style vista, lazily imported
 ├── public/
 │   ├── resume.pdf          # served at /resume.pdf
 │   ├── favicon.svg         # site icon (fixes the old 404 - was outside public/)
