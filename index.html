@@ -645,7 +645,14 @@ body.frozen .progress{display:none}
 .fs-spike.s5{left:7%;height:11vmin}
 .fs-mist{position:absolute;left:0;right:0;bottom:0;height:34%;
   background:linear-gradient(180deg,transparent,rgba(214,226,238,.7) 55%,rgba(160,180,200,.92));}
-#frozenBg{position:absolute;inset:0}
+#frozenBg{position:absolute;inset:0;z-index:1}
+/* cinematic vignette + cool grade, under the UI */
+#frozenSite::after{
+  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    radial-gradient(130% 125% at 40% 34%, transparent 42%, rgba(8,14,26,.46) 100%),
+    linear-gradient(180deg, rgba(28,42,74,.12), transparent 30%, transparent 72%, rgba(9,16,30,.22));
+}
 
 /* ---- logo (parody, gold on a storm-dark plaque) ---- */
 .fs-logo{position:absolute;top:4.5vh;left:3.5vw;z-index:5;margin:0;padding:20px 28px;border-radius:12px;
