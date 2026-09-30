@@ -332,6 +332,12 @@
    function boot() {
      if (window.__badgeMounted) return
      const debug = new URLSearchParams(location.search).has('debug')
+
+     /* Reduced-motion users get the static badge — the physics sim is constant
+        animation, and the static badge already carries the same information. */
+     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+       return log('prefers-reduced-motion — keeping the static badge')
+     }
    
      let wrap = document.getElementById('badgeWrap') || document.querySelector('.badge-wrap')
      let mount = document.getElementById('badge3d')

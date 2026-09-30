@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="theme-color" content="#070B14" />
+<script>document.documentElement.classList.add('js')</script>
 <title>Antony Perez - Software Engineer</title>
 <meta name="description" content="Antony Perez is a software engineer in the SF Bay Area building full-stack applications and the GitOps infrastructure they ship on - Kubernetes, CI/CD, React, TypeScript." />
 <link rel="canonical" href="https://antonyperez.com/" />
@@ -73,7 +74,7 @@
   --line-strong:rgba(148,163,196,.28);
   --text:#E9EDF6;
   --muted:#8E9AB2;
-  --faint:#5E6A83;
+  --faint:#7C88A2;
   --blue:#5B8CFF;
   --violet:#9D7CFF;
   --green:#3DDC97;
@@ -104,6 +105,12 @@ body{
 ::selection{background:#5B8CFF;color:#06080F}
 a{color:var(--blue);text-decoration:none}
 a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+.skip-link{
+  position:fixed;top:-64px;left:16px;z-index:999;
+  background:var(--blue);color:#070B14;font-weight:600;font-size:14px;
+  padding:12px 18px;border-radius:10px;transition:top .2s ease;
+}
+.skip-link:focus{top:12px}
 img,svg{display:block;max-width:100%}
 
 /* subtle film grain over everything */
@@ -290,7 +297,7 @@ img,svg{display:block;max-width:100%}
 }
 .btn:hover{transform:translateY(-2px)}
 .btn-primary{
-  background:var(--grad);color:#fff!important;
+  background:var(--grad);color:#070B14!important;
   box-shadow:0 8px 28px -8px rgba(110,120,255,.55);
 }
 .btn-primary:hover{box-shadow:0 14px 36px -8px rgba(110,120,255,.7)}
@@ -590,9 +597,11 @@ footer{padding:90px 0 56px;text-align:center}
 }
 
 /* scroll reveal */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}}
+html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+html.js .reveal.in{opacity:1;transform:none}
+/* keyboard focus inside an unrevealed section must never land on invisible content */
+html.js .reveal:focus-within{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){html.js .reveal{opacity:1;transform:none}}
 
 /* scrollbar */
 ::-webkit-scrollbar{width:11px}
@@ -629,11 +638,11 @@ body.myspace{
 .ms-search .ms-go:active{border-style:inset}
 .ms-toplinks{font-size:10px;color:#fff}
 .ms-toplinks a{color:#9CF!important}
-.ms-navbar{background:#6698CB;border-top:1px solid #9CC;border-bottom:1px solid #36C}
+.ms-navbar{background:#3F6FA9;border-top:1px solid #9CC;border-bottom:1px solid #36C}
 .ms-navbar-in{max-width:800px;margin:0 auto;padding:4px 10px;text-align:center;font-size:10.5px;font-weight:bold}
 .ms-navbar a{color:#fff!important;text-decoration:none;padding:0 2px}
 .ms-navbar a:hover{text-decoration:underline}
-.ms-navbar .sep{color:#CFE0F1}
+.ms-navbar .sep{color:#fff}
 
 /* --- page shell --- */
 .ms-shell{max-width:800px;margin:0 auto;padding:8px 10px 20px}
@@ -654,28 +663,28 @@ body.myspace{
 .ms-basics b{font-size:11px}
 .ms-online{
   display:inline-block;margin-top:6px;
-  font-size:9px;font-weight:bold;color:#fff;background:#FF6600;
+  font-size:9px;font-weight:bold;color:#000;background:#FF6600;
   border:1px solid #C50;padding:1px 5px;
   animation:msblink 1s steps(2,start) infinite;
 }
-@keyframes msblink{0%,49%{opacity:1}50%,100%{opacity:.2}}
+@keyframes msblink{0%,49%{filter:brightness(1)}50%,100%{filter:brightness(1.45)}}
 .ms-mood{margin-top:6px}
 .ms-viewmy{margin:6px 0 12px;font-size:11px}
 
 .ms-bluebox{border:1px solid #6699CC;margin-bottom:12px;background:#fff}
 .ms-bluebox-h{
-  background:#6699CC;color:#fff;font-weight:bold;font-size:12px;padding:3px 8px;
+  background:#3F6FA9;color:#fff;font-weight:bold;font-size:12px;padding:3px 8px;
 }
 .ms-bluebox-b{padding:6px}
 table.ms-int{width:100%;border-collapse:separate;border-spacing:3px}
 table.ms-int td{font-size:11px;padding:5px 7px;vertical-align:top}
-table.ms-int td.lbl{background:#B1D0F0;font-weight:bold;width:34%;color:#336699}
+table.ms-int td.lbl{background:#B1D0F0;font-weight:bold;width:34%;color:#1F4A75}
 table.ms-int td.val{background:#D5E8FB}
 
 /* contact box (the iconic one) */
 .ms-contact{border:2px solid #6699CC;margin-bottom:12px}
 .ms-contact-h{
-  background:linear-gradient(#7FA8D9,#5C87BE);color:#fff;font-weight:bold;font-size:12px;padding:4px 8px;
+  background:linear-gradient(#3F6FA9,#33619B);color:#fff;font-weight:bold;font-size:12px;padding:4px 8px;
 }
 .ms-contact-b{background:#D5E8FB;padding:8px;display:grid;grid-template-columns:1fr 1fr;gap:5px 8px;font-size:11px}
 .ms-contact-b a{white-space:nowrap}
@@ -692,17 +701,17 @@ table.ms-int td.val{background:#D5E8FB}
 .ms-network span{color:#C00}
 .ms-orangebox{border:1px solid #FFCC99;margin-bottom:12px;background:#fff}
 .ms-orangebox-h{
-  background:#FFCC99;color:#996600;font-weight:bold;font-size:12px;padding:3px 8px;
+  background:#FFCC99;color:#6B4700;font-weight:bold;font-size:12px;padding:3px 8px;
 }
 .ms-orangebox-h small{font-weight:normal;font-size:10px}
 .ms-orangebox-b{padding:8px;font-size:11px}
-.ms-orangebox-b .sub{color:#FF6600;font-weight:bold;font-size:12px;margin:8px 0 3px}
+.ms-orangebox-b .sub{color:#B35000;font-weight:bold;font-size:12px;margin:8px 0 3px}
 .ms-orangebox-b .sub:first-child{margin-top:0}
 .ms-bloglist{list-style:none}
 .ms-bloglist li{margin-bottom:7px}
 .ms-bloglist .bdate{color:#666;font-size:10px}
 .ms-new{
-  display:inline-block;font-size:8px;font-weight:bold;color:#fff;background:#F00;
+  display:inline-block;font-size:8px;font-weight:bold;color:#fff;background:#CC0000;
   padding:0 3px;margin-left:4px;vertical-align:2px;
   animation:msblink 1s steps(2,start) infinite;
 }
@@ -724,7 +733,7 @@ table.ms-int td.val{background:#D5E8FB}
 table.ms-comments{width:100%;border-collapse:separate;border-spacing:3px}
 table.ms-comments td{vertical-align:top;font-size:11px;padding:7px}
 table.ms-comments td.who{background:#FFCC99;width:30%;text-align:center}
-table.ms-comments td.who .nm{color:#C00;font-weight:bold;display:block;margin-bottom:4px}
+table.ms-comments td.who .nm{color:#A31515;font-weight:bold;display:block;margin-bottom:4px}
 table.ms-comments td.who .cava{font-size:34px;line-height:1.2}
 table.ms-comments td.msg{background:#FFEEDD}
 table.ms-comments td.msg .cdate{font-weight:bold;display:block;margin-bottom:4px}
@@ -836,6 +845,7 @@ body.myspace .progress{display:none}
 </head>
 <body>
 
+<a class="skip-link" href="#top">Skip to content</a>
 <div id="modernSite">
 
 <div class="page-bg" aria-hidden="true">
@@ -851,7 +861,7 @@ body.myspace .progress{display:none}
     <li class="hide-m"><a href="#experience">Experience</a></li>
     <li class="hide-m"><a href="#projects">Projects</a></li>
     <li class="hide-m"><a href="#skills">Skills</a></li>
-    <li class="hide-m"><button class="nav-k" id="navCmdK" type="button" aria-label="Open command palette">⌘K</button></li>
+    <li><button class="nav-k" id="navCmdK" type="button" aria-label="Open command palette" aria-haspopup="dialog" aria-controls="palette" aria-expanded="false">⌘K</button></li>
     <li><a class="nav-cta" href="#contact">Get in touch</a></li>
   </ul>
 </nav>
@@ -869,7 +879,7 @@ body.myspace .progress{display:none}
         </div>
       </div>
       
-      <div class="badge-wrap" id="badgeWrap" aria-label="Interactive 3D conference badge on a physics-simulated lanyard - grab and throw it">
+      <div class="badge-wrap" id="badgeWrap" aria-hidden="true">
         <div class="badge-static" aria-hidden="true">
           <div class="badge-lanyard"></div>
           <div class="badge-clip"></div>
@@ -898,7 +908,7 @@ body.myspace .progress{display:none}
     <div class="wrap">
       <div class="term" role="img" aria-label="Terminal showing a passing CI pipeline for Antony Perez">
         <div class="term-bar"><span class="r"></span><span class="y"></span><span class="g"></span><span class="title">antony@portfolio - ci</span></div>
-        <div class="term-body">
+        <div class="term-body" role="region" aria-label="CI pipeline output" tabindex="0">
           <div class="row"><span class="p">❯</span> git log --oneline -3</div>
           <div class="row"><span class="k">a3f9c12</span> feat: 3D physics badge - react-three-fiber + rapier</div>
           <div class="row"><span class="k">7be04dd</span> feat: DefectPredict - ML test prioritization (capstone)</div>
@@ -1295,14 +1305,14 @@ body.myspace .progress{display:none}
 
   <footer class="wrap">
     <div class="foot-line">© <span id="yr"></span> Antony Perez - React Three Fiber · Rapier physics · deployed by pipeline · <a href="resume.pdf" download>résumé (pdf)</a></div>
-    <button class="timewarp" id="timewarp" type="button">💿 it's 2006 somewhere…</button>
+    <button class="timewarp" id="timewarp" type="button" aria-pressed="false">💿 it's 2006 somewhere…</button>
   </footer>
 </main>
-</div><div id="myspaceSite">
+</div><div id="myspaceSite" role="main" aria-label="2006 MySpace profile">
 
   <div class="ms-topbar">
     <div class="ms-topbar-in">
-      <div class="ms-logo">my<span>space</span>.com<small>a place for friends</small></div>
+      <h1 class="ms-logo">my<span>space</span>.com<small>a place for friends</small></h1>
       <div class="ms-search">
         <input type="text" placeholder="Search" aria-label="Search MySpace" />
         <button class="ms-go" type="button">Go!</button>
@@ -1323,7 +1333,7 @@ body.myspace .progress{display:none}
         <div class="ms-name">Antony Perez</div>
 
         <div class="ms-profiletable">
-          <div class="ms-pic" aria-label="Pixel art profile picture of Antony">
+          <div class="ms-pic" role="img" aria-label="Pixel art profile picture of Antony">
             <svg viewBox="0 0 11 11" shape-rendering="crispEdges" role="img" aria-hidden="true">
               <rect width="11" height="11" fill="#CFE3F7"/>
               <rect x="3" y="1" width="5" height="1" fill="#2B1B12"/>
@@ -1487,8 +1497,9 @@ body.myspace .progress{display:none}
 <div class="palette" id="palette" hidden>
   <div class="palette-backdrop" data-close></div>
   <div class="palette-panel" role="dialog" aria-modal="true" aria-label="Command palette">
-    <input class="palette-input" id="paletteInput" type="text" placeholder="Type a command or search…" autocomplete="off" spellcheck="false" />
-    <ul class="palette-list" id="paletteList"></ul>
+    <input class="palette-input" id="paletteInput" type="text" role="combobox" aria-expanded="true" aria-controls="paletteList" aria-autocomplete="list" aria-label="Search commands" placeholder="Type a command or search…" autocomplete="off" spellcheck="false" />
+    <ul class="palette-list" id="paletteList" role="listbox" tabindex="0" aria-label="Commands"></ul>
+    <div class="palette-empty" id="paletteEmpty" role="status" hidden>no matching commands</div>
     <div class="palette-foot"><span>↑↓ navigate</span><span>↵ run</span><span>esc close</span></div>
   </div>
 </div>
@@ -1531,6 +1542,7 @@ body.myspace .progress{display:none}
     document.body.classList.toggle('myspace', on);
     document.title = on ? "Antony's Space ~*~ plz hire me ~*~" : MODERN_TITLE;
     if (on) $('#msHits').textContent = String(1337 + Math.floor(Math.random()*90000)).padStart(7,'0');
+    var tw = $('#timewarp'); if (tw) tw.setAttribute('aria-pressed', on ? 'true' : 'false');
     window.scrollTo(0,0);
   }
   $('#timewarp').addEventListener('click', function(){ setMode(true); });
@@ -1636,23 +1648,36 @@ body.myspace .progress{display:none}
       });
     };
     var renderList = function(){
-      if (!filtered.length) { palList.innerHTML = '<li class="palette-empty">no matching commands</li>'; return; }
+      var empty = $('#paletteEmpty');
+      if (!filtered.length) {
+        palList.innerHTML = '';
+        palInput.removeAttribute('aria-activedescendant');
+        empty.hidden = false;
+        return;
+      }
+      empty.hidden = true;
       palList.innerHTML = filtered.map(function(a, i){
-        return '<li class="' + (i === sel ? 'sel' : '') + '" data-i="' + i + '"><span class="ic">' + a.ic + '</span><span>' + a.t + '</span><span class="hint">' + a.hint + '</span></li>';
+        return '<li class="' + (i === sel ? 'sel' : '') + '" role="option" id="pal-opt-' + i + '" aria-selected="' + (i === sel) + '" data-i="' + i + '"><span class="ic">' + a.ic + '</span><span>' + a.t + '</span><span class="hint">' + a.hint + '</span></li>';
       }).join('');
-      var s = palList.querySelector('.sel'); if (s && s.scrollIntoView) s.scrollIntoView({ block: 'nearest' });
+      palInput.setAttribute('aria-activedescendant', 'pal-opt-' + sel);
+      var s = document.getElementById('pal-opt-' + sel); if (s && s.scrollIntoView) s.scrollIntoView({ block: 'nearest' });
     };
     var refresh = function(){ filtered = visibleActions(palInput.value.trim().toLowerCase()); sel = 0; renderList(); };
-    var openPal = function(){ lastFocus = document.activeElement; pal.hidden = false; palInput.value = ''; refresh(); palInput.focus(); };
-    var closePal = function(){ pal.hidden = true; if (lastFocus && lastFocus.focus) lastFocus.focus(); };
+    var openPal = function(){ lastFocus = document.activeElement; pal.hidden = false; palInput.value = ''; refresh(); palInput.focus(); if (palKBtn) palKBtn.setAttribute('aria-expanded', 'true'); };
+    var closePal = function(){ pal.hidden = true; if (palKBtn) palKBtn.setAttribute('aria-expanded', 'false'); if (lastFocus && lastFocus.focus && lastFocus !== document.body) { lastFocus.focus(); } else if (palKBtn) { palKBtn.focus(); } };
     var runSel = function(){ var a = filtered[sel]; if (a) { closePal(); a.run(); } };
-
-    palInput.addEventListener('input', refresh);
-    palInput.addEventListener('keydown', function(e){
+    var onPalKeys = function(e){
       if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(sel + 1, filtered.length - 1); renderList(); }
       else if (e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(sel - 1, 0); renderList(); }
       else if (e.key === 'Enter') { e.preventDefault(); runSel(); }
-    });
+    };
+
+    palInput.addEventListener('input', refresh);
+    palInput.addEventListener('keydown', onPalKeys);
+    palList.addEventListener('keydown', onPalKeys);
+    /* the palette is modal - keep Tab cycling inside it (the input and the
+       listbox are the only focusables, so Tab is a no-op by design) */
+    pal.addEventListener('keydown', function(e){ if (e.key === 'Tab') e.preventDefault(); });
     palList.addEventListener('click', function(e){
       var li = e.target.closest('li[data-i]'); if (!li) return;
       sel = parseInt(li.getAttribute('data-i'), 10); runSel();
