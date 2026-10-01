@@ -131,18 +131,18 @@ function SceneEnv() {
     c.width = 2; c.height = 512
     const x = c.getContext('2d')
     const g = x.createLinearGradient(0, 0, 0, 512)
-    /* purple-lavender storm cast like the reference */
-    g.addColorStop(0, '#8B8FD0')
-    g.addColorStop(0.35, '#A5A5DC')
-    g.addColorStop(0.62, '#9BA0CC')
-    g.addColorStop(0.85, '#8791B8')
-    g.addColorStop(1, '#6B7A9E')
+    /* pale lavender-grey storm sky, lighter than the vignette suggests */
+    g.addColorStop(0, '#9FA2CB')
+    g.addColorStop(0.35, '#C3C4E2')
+    g.addColorStop(0.62, '#AEB2D6')
+    g.addColorStop(0.85, '#8E96BE')
+    g.addColorStop(1, '#7C86AE')
     x.fillStyle = g
     x.fillRect(0, 0, 2, 512)
     const tex = new THREE.CanvasTexture(c)
     tex.colorSpace = THREE.SRGBColorSpace
     scene.background = tex
-    scene.fog = new THREE.Fog(0x9BA0CC, 16, 75)
+    scene.fog = new THREE.Fog(0xAEB2D6, 20, 90)
     return () => { tex.dispose(); scene.background = null; scene.fog = null }
   }, [scene])
   return null
@@ -200,10 +200,10 @@ function Spire() {
   return (
     <group position={[-7, 7.2, 0]}>
       <mesh geometry={geom}>
-        <meshStandardMaterial color="#8CA2B8" roughness={0.62} metalness={0.04} flatShading />
+        <meshStandardMaterial color="#A3B7C9" roughness={0.62} metalness={0.04} flatShading />
       </mesh>
       <mesh geometry={ramp}>
-        <meshStandardMaterial color="#A9BDD2" roughness={0.42} metalness={0.02} />
+        <meshStandardMaterial color="#C3D2E2" roughness={0.42} metalness={0.02} />
       </mesh>
       {/* boulders rooting the spire (group-local y ≈ -7 puts them on the ground) */}
       {[[-3.1, -6.9, 1.6, 1.5], [2.6, -7.1, 1.1, 1.2], [0.6, -6.85, -2.5, 1.7], [-1.6, -7.05, -1.9, 1.0], [3.4, -6.95, 2.4, 0.8]].map((m, i) => (
@@ -264,7 +264,7 @@ function Spikes() {
         <mesh key={i} position={[s.x, s.h / 2 - 0.5, s.z]} rotation={[0, s.ry, s.tilt]}>
           <coneGeometry args={[s.rad, s.h, s.sides]} />
           <meshStandardMaterial
-            color={s.teal ? '#6FA8A0' : '#8CA4BA'}
+            color={s.teal ? '#4C8578' : '#54708C'}
             roughness={0.5} metalness={0.04} flatShading />
         </mesh>
       ))}
@@ -298,7 +298,7 @@ function Ground() {
   return (
     <group>
       <mesh geometry={geom} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>
-        <meshStandardMaterial color="#64798E" roughness={0.96} metalness={0} />
+        <meshStandardMaterial color="#43647C" roughness={0.96} metalness={0} />
       </mesh>
       {sheets.map((s, i) => (
         <mesh key={i} rotation={[-Math.PI / 2, 0, s.ry]} position={[s.x, s.y, s.z]}>
@@ -370,7 +370,7 @@ function Chain({ from, to, count }) {
   }, [matrices])
   return (
     <instancedMesh ref={ref} args={[null, null, matrices.length]}>
-      <torusGeometry args={[0.42, 0.13, 8, 14]} />
+      <torusGeometry args={[0.24, 0.07, 8, 14]} />
       <meshBasicMaterial color="#0B0C10" />
     </instancedMesh>
   )
@@ -379,8 +379,12 @@ function Chain({ from, to, count }) {
 function Chains() {
   return (
     <group>
-      <Chain from={[-10.5, 24, -2]} to={[-8.6, 10.8, -0.5]} count={18} />
-      <Chain from={[-3, 25, -6]} to={[-6.2, 12.8, -2]} count={19} />
+      {/* vertical hanger from the top of the frame onto the crown */}
+      <Chain from={[-4.6, 25, -3]} to={[-6.6, 14.4, 0]} count={17} />
+      {/* drape: crown down onto the left rocks */}
+      <Chain from={[-6.8, 14.2, 0.2]} to={[-14.5, 0.9, 1.2]} count={22} />
+      {/* drape: crown down onto the right rocks */}
+      <Chain from={[-6.3, 14, 0]} to={[0.5, 0.9, 2.2]} count={22} />
     </group>
   )
 }
