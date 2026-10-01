@@ -379,8 +379,6 @@ function Chain({ from, to, count }) {
 function Chains() {
   return (
     <group>
-      {/* vertical hanger from the top of the frame onto the crown */}
-      <Chain from={[-4.6, 25, -3]} to={[-6.6, 14.4, 0]} count={17} />
       {/* drape: crown down onto the left rocks */}
       <Chain from={[-6.8, 14.2, 0.2]} to={[-14.5, 0.9, 1.2]} count={22} />
       {/* drape: crown down onto the right rocks */}
