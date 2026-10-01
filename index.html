@@ -162,8 +162,9 @@ img,svg{display:block;max-width:100%}
 }
 .page-bg .dots{
   position:absolute;inset:0;
-  background-image:radial-gradient(rgba(168,190,224,.28) 1px,transparent 1px);
-  background-size:34px 34px;
+  /* ice-facet lattice: thin fracture lines forming diamond facets */
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280' viewBox='0 0 280 280'%3E%3Cg stroke='%23A8C4E8' stroke-width='1' fill='none'%3E%3Cpath d='M0 84 84 0M84 280 280 84M196 280 280 196M0 252 252 0' stroke-opacity='.16'/%3E%3Cpath d='M0 196 196 0M0 280 280 0' stroke-opacity='.09'/%3E%3C/g%3E%3Cg fill='%23CFE6FF'%3E%3Cpath d='M84 82l2.2 3.6 3.6 2.2-3.6 2.2-2.2 3.6-2.2-3.6-3.6-2.2 3.6-2.2z' fill-opacity='.10'/%3E%3Cpath d='M212 150l1.8 3 3 1.8-3 1.8-1.8 3-1.8-3-3-1.8 3-1.8z' fill-opacity='.07'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:280px 280px;
   background-position:0 0;
   -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 52%,transparent 96%);
   mask-image:linear-gradient(180deg,#000 0%,#000 52%,transparent 96%);
@@ -231,9 +232,9 @@ img,svg{display:block;max-width:100%}
   display:flex;flex-direction:column;
 }
 .badge-card::before{
-  content:'';position:absolute;inset:0;opacity:.5;
-  background-image:radial-gradient(rgba(168,190,224,.22) 1px,transparent 1px);
-  background-size:18px 18px;
+  content:'';position:absolute;inset:0;opacity:.6;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg stroke='%23A8C4E8' fill='none'%3E%3Cpath d='M0 42 42 0M42 140 140 42M98 140 140 98M0 126 126 0' stroke-opacity='.14'/%3E%3Cpath d='M0 98 98 0' stroke-opacity='.08'/%3E%3C/g%3E%3Cpath d='M42 41l1.8 3 3 1.8-3 1.8-1.8 3-1.8-3-3-1.8 3-1.8z' fill='%23CFE6FF' fill-opacity='.09'/%3E%3C/svg%3E");
+  background-size:140px 140px;
 }
 .badge-card::after{
   content:'';position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--grad);
