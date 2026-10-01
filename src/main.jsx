@@ -39,11 +39,23 @@
    
    /* ---- badge face (SVG data-URI texture) ---- */
    function makeBadgeTexture() {
+     /* deterministic QR-looking module grid */
+     const rnd = (seed => () => { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648 })(42)
+     const M = 12, QX = 659, QY = 1139
+     const inFinder = (gx, gy) => (gx < 8 && gy < 8) || (gx > 12 && gy < 8) || (gx < 8 && gy > 12)
+     let qr = ''
+     for (let gy = 0; gy < 21; gy++) for (let gx = 0; gx < 21; gx++) {
+       if (inFinder(gx, gy)) continue
+       if (rnd() < 0.42) qr += `<rect x="${QX + gx * M}" y="${QY + gy * M}" width="11" height="11" fill="#0E1830"/>`
+     }
+     const finder = (fx, fy) => `<rect x="${QX + fx * M}" y="${QY + fy * M}" width="84" height="84" fill="#0E1830"/><rect x="${QX + fx * M + 12}" y="${QY + fy * M + 12}" width="60" height="60" fill="#F4F7FE"/><rect x="${QX + fx * M + 24}" y="${QY + fy * M + 24}" width="36" height="36" fill="#0E1830"/>`
+     qr += finder(0, 0) + finder(14, 0) + finder(0, 14)
+
      const svg = `
      <svg width="1024" height="1440" xmlns="http://www.w3.org/2000/svg">
        <defs>
          <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
-           <stop offset="0%" stop-color="#141E36" />
+           <stop offset="0%" stop-color="#16223E" />
            <stop offset="100%" stop-color="#0A101E" />
          </linearGradient>
          <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -55,14 +67,26 @@
            <stop offset="55%" stop-color="#9DDFFF" />
            <stop offset="100%" stop-color="#EAF6FF" />
          </linearGradient>
+         <linearGradient id="sheen" x1="0%" y1="0%" x2="70%" y2="100%">
+           <stop offset="0%" stop-color="rgba(255,255,255,0.13)" />
+           <stop offset="30%" stop-color="rgba(255,255,255,0.045)" />
+           <stop offset="55%" stop-color="rgba(255,255,255,0)" />
+           <stop offset="100%" stop-color="rgba(180,215,255,0.06)" />
+         </linearGradient>
+         <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0"/></filter>
        </defs>
-       <rect width="1024" height="1440" rx="64" fill="url(#bg)" stroke="#2E3C5C" stroke-width="4" />
+       <!-- die-cut card with punched slot (evenodd) -->
+       <path fill-rule="evenodd" fill="url(#bg)" d="M64 0 H960 A64 64 0 0 1 1024 64 V1376 A64 64 0 0 1 960 1440 H64 A64 64 0 0 1 0 1376 V64 A64 64 0 0 1 64 0 Z M487 113 h50 a26 26 0 0 1 26 26 v4 a26 26 0 0 1 -26 26 h-50 a26 26 0 0 1 -26 -26 v-4 a26 26 0 0 1 26 -26 Z" />
+       <!-- inner bevel highlight along the die-cut edge -->
+       <rect x="4" y="4" width="1016" height="1432" rx="60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3" />
        <rect x="0" y="1424" width="1024" height="16" fill="url(#strip)" />
-       <rect x="402" y="56" width="220" height="46" rx="23" fill="#070B14" stroke="#3A4A70" stroke-width="3" />
        <text x="92" y="232" font-family="monospace" font-size="30" fill="#8E9AB2" letter-spacing="6">ACCESS // ENGINEERING</text>
        <text x="932" y="232" font-family="monospace" font-size="30" fill="#8E9AB2" text-anchor="end">'26</text>
        <line x1="92" y1="270" x2="932" y2="270" stroke="#2E3C5C" stroke-width="3" />
+       <!-- embossed name: dark offset under light face -->
+       <text x="90" y="492" font-family="sans-serif" font-size="168" font-weight="800" fill="#050A16" opacity="0.85">ANTONY</text>
        <text x="86" y="488" font-family="sans-serif" font-size="168" font-weight="800" fill="#EDF1FA">ANTONY</text>
+       <text x="90" y="652" font-family="sans-serif" font-size="168" font-weight="800" fill="#050A16" opacity="0.85">PEREZ</text>
        <text x="86" y="648" font-family="sans-serif" font-size="168" font-weight="800" fill="#EDF1FA">PEREZ</text>
        <text x="92" y="744" font-family="monospace" font-size="44" font-weight="600" fill="url(#textGrad)" letter-spacing="10">SOFTWARE ENGINEER</text>
        <text x="92" y="864" font-family="monospace" font-size="33" fill="#5E6A83">stack</text>
@@ -83,13 +107,23 @@
          <rect x="318" y="1204" width="4" height="110"/><rect x="330" y="1204" width="12" height="110"/>
        </g>
        <text x="92" y="1360" font-family="monospace" font-size="26" fill="#5E6A83">ANT-2026-SHIPIT</text>
-       <rect x="632" y="1226" width="300" height="76" rx="38" fill="rgba(61,220,151,0.14)" stroke="#3DDC97" stroke-width="3" />
-       <text x="668" y="1276" font-family="monospace" font-size="34" font-weight="600" fill="#3DDC97">✓ CI PASSED</text>
+       <rect x="632" y="1226" width="300" height="76" rx="38" fill="rgba(63,224,192,0.14)" stroke="#3FE0C0" stroke-width="3" />
+       <text x="668" y="1276" font-family="monospace" font-size="34" font-weight="600" fill="#3FE0C0">✓ CI PASSED</text>
+       <!-- QR code block -->
+       <rect x="640" y="1120" width="290" height="290" rx="20" fill="#F4F7FE" />
+       ${qr}
+       <!-- plastic sheen + print grain -->
+       <rect width="1024" height="1440" fill="url(#sheen)" />
+       <rect width="1024" height="1440" filter="url(#grain)" opacity="0.6" />
      </svg>`
      const dataUri = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg)
      const texture = new THREE.TextureLoader().load(dataUri)
      texture.colorSpace = THREE.SRGBColorSpace
      texture.anisotropy = 16
+     /* map shape-space UVs (extrude generates x,y in card units) */
+     texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping
+     texture.repeat.set(1 / 1.6, 1 / 2.25)
+     texture.offset.set(0.5, 0.5)
      return texture
    }
    
@@ -217,7 +251,38 @@
    
      /* shared metal look for the hardware (a factory so each mesh gets its own
         material element — React can't render the same element instance twice) */
-     const metal = () => <meshStandardMaterial color="#C7D0E0" metalness={1} roughness={0.24} />
+     /* die-cut card geometry: rounded-rect extrusion with a punched slot hole.
+       ExtrudeGeometry UVs come out in shape units, hence the texture repeat/offset. */
+    const cardGeo = useMemo(() => {
+      const w = 1.6, h = 2.25, r = 0.1
+      const s = new THREE.Shape()
+      s.moveTo(-w / 2 + r, -h / 2)
+      s.lineTo(w / 2 - r, -h / 2)
+      s.absarc(w / 2 - r, -h / 2 + r, r, -Math.PI / 2, 0)
+      s.lineTo(w / 2, h / 2 - r)
+      s.absarc(w / 2 - r, h / 2 - r, r, 0, Math.PI / 2)
+      s.lineTo(-w / 2 + r, h / 2)
+      s.absarc(-w / 2 + r, h / 2 - r, r, Math.PI / 2, Math.PI)
+      s.lineTo(-w / 2, -h / 2 + r)
+      s.absarc(-w / 2 + r, -h / 2 + r, r, Math.PI, Math.PI * 1.5)
+      /* punched slot hole (matches the transparent slot in the texture) */
+      const hole = new THREE.Path()
+      const hw = 0.16, hh = 0.088, hr = 0.04, hy = 0.905
+      hole.moveTo(-hw / 2 + hr, hy - hh / 2)
+      hole.lineTo(hw / 2 - hr, hy - hh / 2)
+      hole.absarc(hw / 2 - hr, hy - hh / 2 + hr, hr, -Math.PI / 2, 0)
+      hole.lineTo(hw / 2, hy + hh / 2 - hr)
+      hole.absarc(hw / 2 - hr, hy + hh / 2 - hr, hr, 0, Math.PI / 2)
+      hole.lineTo(-hw / 2 + hr, hy + hh / 2)
+      hole.absarc(-hw / 2 + hr, hy + hh / 2 - hr, hr, Math.PI / 2, Math.PI)
+      hole.lineTo(-hw / 2, hy - hh / 2 + hr)
+      hole.absarc(-hw / 2 + hr, hy - hh / 2 + hr, hr, Math.PI, Math.PI * 1.5)
+      s.holes.push(hole)
+      const g = new THREE.ExtrudeGeometry(s, { depth: 0.032, bevelEnabled: true, bevelThickness: 0.006, bevelSize: 0.006, bevelSegments: 2, curveSegments: 16 })
+      g.translate(0, 0, -0.016 - 0.006)
+      return g
+    }, [])
+    const metal = () => <meshStandardMaterial color="#C7D0E0" metalness={1} roughness={0.24} />
    
      return (
        <>
@@ -240,14 +305,15 @@
                onPointerUp={(e) => { e.target.releasePointerCapture(e.pointerId); drag(false) }}
                onPointerDown={(e) => { e.target.setPointerCapture(e.pointerId); drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))) }}
              >
-               <mesh>
-                 <planeGeometry args={[1.6, 2.25]} />
-                 <meshPhysicalMaterial
+               <mesh geometry={cardGeo}>
+                 <meshPhysicalMaterial attach="material-0"
                    map={tex} transparent
-                   clearcoat={1} clearcoatRoughness={0.18}
-                   roughness={0.4} metalness={0.35}
-                   side={THREE.DoubleSide}
+                   clearcoat={1} clearcoatRoughness={0.12}
+                   roughness={0.3} metalness={0.08}
+                   sheen={0.4} sheenRoughness={0.55} sheenColor="#bfd9ff"
+                   envMapIntensity={1.25}
                  />
+                 <meshStandardMaterial attach="material-1" color="#0E1830" roughness={0.55} metalness={0.05} />
                </mesh>
    
                {/* ---- LANYARD HARDWARE (the badge hook) ---- */}
@@ -256,20 +322,15 @@
                  <capsuleGeometry args={[0.06, 0.4, 6, 16]} />
                  {metal()}
                </mesh>
-               {/* short link from crimp down to the ring */}
-               <mesh position={[0, 1.36, 0]}>
-                 <boxGeometry args={[0.07, 0.1, 0.06]} />
+               {/* link from crimp down to the ring */}
+               <mesh position={[0, 1.19, 0]}>
+                 <cylinderGeometry args={[0.028, 0.028, 0.56, 10]} />
                  {metal()}
                </mesh>
-               {/* split ring threaded through the card's top slot */}
-               <mesh position={[0, 1.25, 0]}>
-                 <torusGeometry args={[0.085, 0.022, 16, 30]} />
+               {/* split ring threaded through the punched slot */}
+               <mesh position={[0, 0.905, 0.01]} rotation={[Math.PI / 2, 0, 0]}>
+                 <torusGeometry args={[0.09, 0.022, 16, 30]} />
                  {metal()}
-               </mesh>
-               {/* reinforced slot tab on the card */}
-               <mesh position={[0, 1.1, 0.012]}>
-                 <boxGeometry args={[0.34, 0.1, 0.02]} />
-                 <meshStandardMaterial color="#1B2740" metalness={0.2} roughness={0.6} />
                </mesh>
              </group>
            </RigidBody>
@@ -305,9 +366,10 @@
        <Canvas
          camera={{ position: [0, 0, 13], fov: 25 }}
          dpr={[1, 1.5]}
-         gl={{ alpha: true, antialias: true }}
+         gl={{ alpha: true, antialias: true, toneMapping: THREE.ACESFilmicToneMapping }}
          style={{ background: 'transparent', touchAction: 'pan-y' }}
-         onCreated={() => {
+         onCreated={({ gl }) => {
+           gl.toneMappingExposure = 1.15
            wrap.classList.add('live')
            wrap.classList.remove('loading')
            const hint = document.getElementById('badgeHint')
