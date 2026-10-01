@@ -83,11 +83,11 @@ function makeCloudTexture(W = 900, H = 560) {
       a = Math.min(1, a) * band * (0.5 + 0.62 * wisp)
       // fake lighting: brighter where cloud thickness rises toward upper-left
       const lit = fbmA(nx * 3.2 + 0.035, ny * 2.4 - 0.03, 3)
-      const bright = 118 + 112 * lit + 26 * wisp
+      const bright = 128 + 108 * lit + 22 * wisp
       const i = (py * W + px) * 4
-      d[i] = Math.min(255, bright * 1.02)
-      d[i + 1] = Math.min(255, bright)
-      d[i + 2] = Math.min(255, bright * 1.07 + 14)
+      d[i] = Math.min(255, bright * 1.08 + 18)
+      d[i + 1] = Math.min(255, bright * 1.02)
+      d[i + 2] = Math.min(255, bright * 1.14 + 26)
       d[i + 3] = Math.min(235, a * 235)
     }
   }
@@ -131,16 +131,18 @@ function SceneEnv() {
     c.width = 2; c.height = 512
     const x = c.getContext('2d')
     const g = x.createLinearGradient(0, 0, 0, 512)
-    g.addColorStop(0, '#55677E')
-    g.addColorStop(0.45, '#7E92A8')
-    g.addColorStop(0.75, '#64788E')
-    g.addColorStop(1, '#4A5B6E')
+    /* purple-lavender storm cast like the reference */
+    g.addColorStop(0, '#8B8FD0')
+    g.addColorStop(0.35, '#A5A5DC')
+    g.addColorStop(0.62, '#9BA0CC')
+    g.addColorStop(0.85, '#8791B8')
+    g.addColorStop(1, '#6B7A9E')
     x.fillStyle = g
     x.fillRect(0, 0, 2, 512)
     const tex = new THREE.CanvasTexture(c)
     tex.colorSpace = THREE.SRGBColorSpace
     scene.background = tex
-    scene.fog = new THREE.Fog(0x7E93A9, 16, 75)
+    scene.fog = new THREE.Fog(0x9BA0CC, 16, 75)
     return () => { tex.dispose(); scene.background = null; scene.fog = null }
   }, [scene])
   return null
@@ -217,14 +219,16 @@ function Spire() {
           <meshStandardMaterial color="#DFE9F3" roughness={0.32} flatShading />
         </mesh>
       ))}
-      {/* crown burst: light column + stacked glows */}
-      <sprite position={[0, 10.6, -0.5]} scale={[6, 22, 1]}>
-        <spriteMaterial map={shaft} transparent opacity={0.42} depthWrite={false} blending={THREE.AdditiveBlending} />
+      {/* crown burst: kept fully BEHIND the summit and chains (like the
+          reference halo) — additive sprites render after opaque meshes, so
+          overlapping them would wash the chains out */}
+      <sprite position={[0, 10.6, -6]} scale={[6, 20, 1]}>
+        <spriteMaterial map={shaft} transparent opacity={0.4} depthWrite={false} blending={THREE.AdditiveBlending} />
       </sprite>
-      <sprite position={[0, 10.8, 0]} scale={[13, 13, 1]}>
-        <spriteMaterial map={glow} transparent opacity={0.5} depthWrite={false} blending={THREE.AdditiveBlending} />
+      <sprite position={[0, 10.8, -7]} scale={[13, 13, 1]}>
+        <spriteMaterial map={glow} transparent opacity={0.55} depthWrite={false} blending={THREE.AdditiveBlending} />
       </sprite>
-      <sprite position={[0, 10.7, 0.5]} scale={[6, 6, 1]}>
+      <sprite position={[0, 10.7, -6.5]} scale={[6, 6, 1]}>
         <spriteMaterial map={glow} transparent opacity={0.85} depthWrite={false} blending={THREE.AdditiveBlending} />
       </sprite>
       <pointLight position={[0, 10.8, 1]} color="#DCEBFF" intensity={750} distance={85} decay={2} />
@@ -367,7 +371,7 @@ function Chain({ from, to, count }) {
   return (
     <instancedMesh ref={ref} args={[null, null, matrices.length]}>
       <torusGeometry args={[0.42, 0.13, 8, 14]} />
-      <meshStandardMaterial color="#16181D" roughness={0.8} metalness={0.25} />
+      <meshBasicMaterial color="#0B0C10" />
     </instancedMesh>
   )
 }
@@ -418,21 +422,13 @@ function Snow() {
   )
 }
 
-/* ---- camera: gentle parallax, low heroic angle --------------------------------- */
+/* ---- camera: locked heroic angle (no mouse parallax) ------------------------ */
 function Rig() {
-  const base = useMemo(() => new THREE.Vector3(1.8, 4.2, 26), [])
-  const look = useMemo(() => new THREE.Vector3(-6.5, 8, 0), [])
-  const target = useMemo(() => new THREE.Vector3(), [])
-  useFrame((state, delta) => {
-    const t = state.clock.elapsedTime
-    target.set(
-      base.x + state.pointer.x * 1.4,
-      base.y + state.pointer.y * 0.8 + Math.sin(t * 0.3) * 0.12,
-      base.z
-    )
-    state.camera.position.lerp(target, 1 - Math.pow(0.001, delta))
-    state.camera.lookAt(look)
-  })
+  const { camera } = useThree()
+  useEffect(() => {
+    camera.position.set(0, 5.2, 27)
+    camera.lookAt(-7, 8.2, 0)
+  }, [camera])
   return null
 }
 
@@ -467,7 +463,7 @@ export function mountScene(container) {
     <Canvas
       dpr={[1, 1.75]}
       gl={{ antialias: true, powerPreference: 'high-performance' }}
-      camera={{ fov: 44, position: [1.8, 4.2, 26], near: 0.1, far: 260 }}
+      camera={{ fov: 44, position: [0, 5.2, 27], near: 0.1, far: 260 }}
     >
       <Scene />
     </Canvas>
