@@ -673,11 +673,11 @@ body.frozen .progress{display:none}
 
 /* ---- the metal menu panel ---- */
 .fs-menu,.fs-quit{position:absolute;z-index:6}
-.fs-menu{top:4.5vh;right:3.5vw;width:min(430px,92vw)}
+.fs-menu{top:13vh;right:3.5vw;width:min(430px,92vw)}
 .fs-quit{bottom:10vh;right:3.5vw;width:min(430px,92vw)}
-.fs-chain{position:absolute;bottom:calc(100% - 6px);width:34px;height:11vh;min-height:70px;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='52'%3E%3Crect x='3' y='1' width='28' height='24' rx='12' fill='%2311140A' stroke='%233A4048' stroke-width='3'/%3E%3Crect x='0' y='27' width='34' height='24' rx='12' fill='%230F1218' stroke='%233A4048' stroke-width='3'/%3E%3Crect x='8' y='6' width='18' height='7' rx='3.5' fill='%234A5058' opacity='.55'/%3E%3Crect x='5' y='33' width='24' height='7' rx='3.5' fill='%234A5058' opacity='.55'/%3E%3C/svg%3E");
-  background-repeat:repeat-y;background-position:center top;}
+.fs-chain-svg{position:absolute;bottom:calc(100% - 5px);width:48px;height:190px;z-index:1}
+.fs-chain-svg.c1{left:14%}
+.fs-chain-svg.c2{left:70%}
 .fs-chain.c1{left:16%}
 .fs-chain.c2{left:70%}
 .fs-menu-in{position:relative;padding:30px 26px;border-radius:10px;
@@ -1373,13 +1373,57 @@ body.frozen .progress{display:none}
     <p class="fs-logo-sub">THE&nbsp;FROZEN&nbsp;PORTFOLIO</p>
   </div>
   <nav class="fs-menu" aria-label="Frozen Throne menu">
-    <span class="fs-chain c1" aria-hidden="true"></span>
-    <span class="fs-chain c2" aria-hidden="true"></span>
+    <svg class="fs-chain-svg c1" viewBox="0 0 48 190" aria-hidden="true">
+      <defs>
+        <linearGradient id="fsMetalWide" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#6B7382"/>
+          <stop offset=".28" stop-color="#3E444D"/>
+          <stop offset=".55" stop-color="#23272E"/>
+          <stop offset="1" stop-color="#101318"/>
+        </linearGradient>
+        <linearGradient id="fsMetalNarrow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#565D68"/>
+          <stop offset=".3" stop-color="#2E333B"/>
+          <stop offset=".7" stop-color="#1A1D23"/>
+          <stop offset="1" stop-color="#0D0F13"/>
+        </linearGradient>
+      </defs>
+      <rect x="4" y="0" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="10" y="4" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
+      <rect x="13" y="36" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="4" y="46" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="10" y="50" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
+      <rect x="13" y="82" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="4" y="92" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="10" y="96" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
+      <rect x="13" y="128" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="4" y="138" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="10" y="142" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
+      <rect x="13" y="174" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="6" y="180" width="36" height="10" rx="3" fill="#181C22" stroke="#0D0F13" stroke-width="1.5"/>
+    </svg>
+    <svg class="fs-chain-svg c2" viewBox="0 0 48 190" aria-hidden="true">
+      <rect x="4" y="0" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="10" y="4" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
+      <rect x="13" y="36" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="4" y="46" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="10" y="50" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
+      <rect x="13" y="82" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="4" y="92" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="10" y="96" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
+      <rect x="13" y="128" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="4" y="138" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="10" y="142" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
+      <rect x="13" y="174" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
+      <rect x="6" y="180" width="36" height="10" rx="3" fill="#181C22" stroke="#0D0F13" stroke-width="1.5"/>
+    </svg>
     <div class="fs-menu-in">
       <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="about"><span class="fs-cap">A</span>bout Me</button></div>
       <div class="fs-btnrow withmag">
         <button class="fs-btn" type="button" data-fs="projects"><span class="fs-cap">C</span>ampaign Missions</button>
-        <a class="fs-mag" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener" aria-label="Open GitHub profile in a new tab" title="Open GitHub">🔍</a>
+        <a class="fs-mag" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener" aria-label="Open GitHub profile in a new tab" title="Open GitHub">
+          <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="#CFE0FF" stroke-width="2.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.6" y1="15.6" x2="21" y2="21"/></svg>
+        </a>
       </div>
       <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="xp"><span class="fs-cap">E</span>xperience</button></div>
       <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="skills"><span class="fs-cap">S</span>kills</button></div>
