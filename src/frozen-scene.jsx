@@ -380,9 +380,9 @@ function Chains() {
   return (
     <group>
       {/* drape: crown down onto the left rocks */}
-      <Chain from={[-6.8, 14.2, 0.2]} to={[-14.5, 0.9, 1.2]} count={22} />
+      <Chain from={[-6.8, 14.2, 0.2]} to={[-14.5, 0.9, 1.2]} count={30} />
       {/* drape: crown down onto the right rocks */}
-      <Chain from={[-6.3, 14, 0]} to={[0.5, 0.9, 2.2]} count={22} />
+      <Chain from={[-6.3, 14, 0]} to={[0.5, 0.9, 2.2]} count={30} />
     </group>
   )
 }
