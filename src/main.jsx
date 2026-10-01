@@ -47,13 +47,13 @@
            <stop offset="100%" stop-color="#0A101E" />
          </linearGradient>
          <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-           <stop offset="0%" stop-color="#5B8CFF" />
-           <stop offset="100%" stop-color="#C77CFF" />
+           <stop offset="0%" stop-color="#6FCBFF" />
+           <stop offset="100%" stop-color="#EAF6FF" />
          </linearGradient>
          <linearGradient id="strip" x1="0%" y1="0%" x2="100%" y2="0%">
-           <stop offset="0%" stop-color="#5B8CFF" />
-           <stop offset="55%" stop-color="#9D7CFF" />
-           <stop offset="100%" stop-color="#C77CFF" />
+           <stop offset="0%" stop-color="#6FCBFF" />
+           <stop offset="55%" stop-color="#9DDFFF" />
+           <stop offset="100%" stop-color="#EAF6FF" />
          </linearGradient>
        </defs>
        <rect width="1024" height="1440" rx="64" fill="url(#bg)" stroke="#2E3C5C" stroke-width="4" />
