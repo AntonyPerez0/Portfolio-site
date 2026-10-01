@@ -121,7 +121,7 @@ img,svg{display:block;max-width:100%}
 #modernSite{position:relative}
 #modernSite > *{position:relative;z-index:2}
 
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:28px;padding-right:28px}
 
 /* ============================================================
    NAV - floating glass pill
@@ -138,7 +138,7 @@ img,svg{display:block;max-width:100%}
   -webkit-backdrop-filter:blur(16px);
 }
 .nav-logo{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--text);letter-spacing:.01em}
-.nav-logo em{color:var(--green);font-style:normal}
+.nav-logo em{color:var(--blue);font-style:normal;text-shadow:0 0 10px rgba(125,165,255,.6)}
 .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
 .nav-links a{
   font-size:13.5px;font-weight:500;color:var(--muted);
@@ -288,7 +288,7 @@ img,svg{display:block;max-width:100%}
   max-width:600px;margin-bottom:40px;
 }
 .hero .sub strong{color:var(--text);font-weight:600}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:72px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
 .btn{
   font-family:var(--body);font-size:14.5px;font-weight:600;
   padding:14px 26px;border-radius:12px;border:none;cursor:pointer;
@@ -383,8 +383,8 @@ img,svg{display:block;max-width:100%}
 /* ============================================================
    SECTIONS
    ============================================================ */
-section{padding:110px 0 0}
-.sec-head{margin-bottom:48px;max-width:640px}
+section{padding:64px 0 0}
+.sec-head{margin-bottom:36px;max-width:640px}
 .eyebrow{
   display:inline-flex;align-items:center;gap:9px;
   font-family:var(--mono);font-size:12px;font-weight:500;
@@ -392,7 +392,7 @@ section{padding:110px 0 0}
   margin-bottom:16px;
 }
 .eyebrow::before{content:'';width:22px;height:1px;background:var(--blue)}
-.eyebrow .check{color:var(--green);letter-spacing:0;text-transform:none}
+.eyebrow .check{color:var(--blue);letter-spacing:0;text-transform:none}
 .sec-head h2{
   font-family:var(--display);font-weight:800;
   font-size:clamp(32px,4.6vw,52px);letter-spacing:-.025em;line-height:1.08;
@@ -461,11 +461,11 @@ section{padding:110px 0 0}
 /* ============================================================
    PROJECTS
    ============================================================ */
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:860px){.proj-grid{grid-template-columns:1fr}}
 .proj{
   background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:34px 32px;display:flex;flex-direction:column;position:relative;overflow:hidden;
+  padding:28px 26px;display:flex;flex-direction:column;position:relative;overflow:hidden;
   transition:border-color .2s,background .2s,transform .2s,box-shadow .2s;
 }
 .proj::before{
@@ -486,9 +486,17 @@ section{padding:110px 0 0}
 .proj h3{font-family:var(--display);font-weight:700;font-size:23px;letter-spacing:-.015em}
 .proj .link{font-family:var(--mono);font-size:12.5px;white-space:nowrap;color:var(--muted);transition:color .15s}
 .proj .link:hover{color:var(--blue)}
-.proj > p{color:var(--muted);font-size:15px;margin-bottom:18px}
-.proj ul{list-style:none;margin-bottom:24px}
-.proj li{position:relative;padding-left:24px;margin-bottom:10px;color:#C3CDE2;font-size:14.5px}
+.proj > p{color:var(--muted);font-size:15px;margin-bottom:14px}
+.proj ul{list-style:none;margin-bottom:16px}
+.proj li{position:relative;padding-left:24px;margin-bottom:8px;color:#C3CDE2;font-size:14.5px}
+/* compact strip for coursework / smaller builds */
+.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}
+@media(max-width:860px){.mini-grid{grid-template-columns:1fr}}
+.mini{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:5px}
+.mini b{font-family:var(--display);font-weight:700;font-size:15px;color:var(--text);letter-spacing:-.01em}
+.mini span{color:var(--muted);font-size:13px;line-height:1.6}
+.mini a{font-family:var(--mono);font-size:12px;color:var(--blue);white-space:nowrap;width:max-content}
+.mini a:hover{text-decoration:underline}
 .proj li::before{
   content:'';position:absolute;left:2px;top:.6em;width:7px;height:7px;
   border-radius:2px;background:var(--grad);transform:rotate(45deg);
@@ -557,7 +565,7 @@ section{padding:110px 0 0}
   background:var(--bg-2);
   border:1px solid var(--line);
   border-radius:28px;
-  padding:clamp(44px,7vw,84px) clamp(28px,6vw,72px);
+  padding:clamp(36px,5vw,60px) clamp(28px,6vw,72px);
   text-align:center;
 }
 .contact-card::before{
@@ -574,15 +582,15 @@ section{padding:110px 0 0}
   margin-bottom:18px;
 }
 .contact-card h2 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.contact-card .lede{color:var(--muted);max-width:520px;margin:0 auto 38px;font-size:16.5px}
+.contact-card .lede{color:var(--muted);max-width:520px;margin:0 auto 28px;font-size:16.5px}
 .contact-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .copy-hint{font-family:var(--mono);font-size:12.5px;color:var(--green);margin-top:22px;min-height:18px}
 
 /* ============================================================
    FOOTER + TIME MACHINE
    ============================================================ */
-footer{padding:90px 0 56px;text-align:center}
-.foot-line{font-family:var(--mono);font-size:12.5px;color:var(--faint);margin-bottom:36px}
+footer{padding:40px 0 52px;text-align:center}
+.foot-line{font-family:var(--mono);font-size:12.5px;color:var(--faint);margin-bottom:22px}
 .foot-line a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
 .timewarp{
   font-family:var(--mono);font-size:12.5px;cursor:pointer;
@@ -905,7 +913,7 @@ body.frozen .progress{display:none}
 </div>
 
 <nav class="nav" aria-label="Main">
-  <a class="nav-logo" href="#top"><em>●</em>&nbsp; antony.perez</a>
+  <a class="nav-logo" href="#top"><em>❄</em>&nbsp; antony.perez</a>
   <ul class="nav-links">
     <li class="hide-m"><a href="#about">About</a></li>
     <li class="hide-m"><a href="#experience">Experience</a></li>
@@ -1001,7 +1009,7 @@ body.frozen .progress{display:none}
 
   <section id="about" class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow">01 - About <span class="check">✓</span></div>
+      <div class="eyebrow">01 - About <span class="check">❄</span></div>
       <h2>Engineer first.<br>Writer when it counts.</h2>
     </div>
     <div class="about-grid">
@@ -1023,7 +1031,7 @@ body.frozen .progress{display:none}
 
   <section id="experience" class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow">02 - Experience <span class="check">✓</span></div>
+      <div class="eyebrow">02 - Experience <span class="check">❄</span></div>
       <h2>Where I've shipped.</h2>
     </div>
     <div class="timeline">
@@ -1051,7 +1059,7 @@ body.frozen .progress{display:none}
 
   <section id="projects" class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow">03 - Projects <span class="check">✓</span></div>
+      <div class="eyebrow">03 - Projects <span class="check">❄</span></div>
       <h2>Built, tested & running.</h2>
       <p class="lede">Browser-native compilers, OCR emulators, live data pipelines, production infrastructure, full-stack builds, and degree coursework - designed, shipped, and tested.</p>
     </div>
@@ -1070,7 +1078,6 @@ body.frozen .progress{display:none}
           <li>12 procedures / 274 steps across start-up, INS alignment, air-to-air, landing, and shutdown - for both the pilot and RIO seats</li>
           <li>Aircraft-agnostic core (switch state machine, event bus, hotspot &amp; pan/zoom view layer) with the F-14B as a data-only module, so new airframes drop in</li>
           <li>Headless test suite drives every procedure to completion through the real sim, exercises failure paths (hung start, rejected CAP entry) and verifies no hotspot overlaps</li>
-          <li>Offline-first PWA - network-first code, cache-first photos - plus a zero-dependency static build that also bundles to one portable HTML file</li>
         </ul>
         <div class="tags"><span class="tag">JavaScript</span><span class="tag">ES Modules</span><span class="tag">State Machines</span><span class="tag">PWA · Service Worker</span><span class="tag">Cloudflare Workers · D1</span><span class="tag">Zero-dependency</span></div>
       </article>
@@ -1089,7 +1096,6 @@ body.frozen .progress{display:none}
           <li>48 modules and 318 steps from <code>printf</code> to professional C++ - pointers, RAII, the STL, templates, move semantics, concurrency, memory ordering - plus 52 tested reference pages</li>
           <li>Deathmatch mode: 657 drills (62 of them classic interview questions) - predict the output, fill the token, spot the bug, will it compile - ranked Silver I to The Global Elite; every 8th rep is a compiled boss rep</li>
           <li>11 multi-milestone projects plus a 12-project Pro Track graded by GitHub Actions in the learner's own repository: CMake, gdb, sanitizers, GoogleTest, mutation testing</li>
-          <li>30 visualizations recorded by running real programs under gdb, stepping through line by line while drawing the stack, the heap and every pointer as an arrow</li>
         </ul>
         <div class="tags"><span class="tag">TypeScript</span><span class="tag">Clang 20 · WebAssembly</span><span class="tag">WASI</span><span class="tag">Browser Tests</span><span class="tag">GitHub Actions</span><span class="tag">Static · Serverless</span></div>
       </article>
@@ -1108,7 +1114,6 @@ body.frozen .progress{display:none}
           <li>Follows the MOOC's topic order (modules 1-54) with its own lessons, fill-in-the-blank steps, one-at-a-time hints, and a multi-file editor</li>
           <li>Built in CI-fenced batches - 13 of 20 shipped: the Playground, "What does it print?" challenges, and JUnit 4 tests executing in the browser</li>
           <li>Deathmatch drills, interview prep, daily challenge and placement quiz, modeled on C/C++ Arena</li>
-          <li>Pro Track planned: projects on the learner's own machine, graded by GitHub Actions with Maven and JUnit</li>
         </ul>
         <div class="tags"><span class="tag">TypeScript</span><span class="tag">Java 21 · In-browser JVM</span><span class="tag">JUnit 4</span><span class="tag">GitHub Actions</span></div>
       </article>
@@ -1127,7 +1132,6 @@ body.frozen .progress{display:none}
           <li>Full GB / GBC / GBA / NES / SNES / Genesis / NDS emulation with save states and battery-SRAM persistence; 28 languages, translatable in any direction</li>
           <li>Live OCR pipeline: PaddleOCR PP-OCRv5 (an ~8 MB on-device neural model) with a Tesseract fallback, Hunspell spell-correction, and per-region translation of dialog boxes, menus and battle text</li>
           <li>Tap any word for an instant dictionary popup; Web Speech TTS; SM-2 spaced-repetition deck with a due queue, streaks and CSV export</li>
-          <li>ROMs live in IndexedDB on-device - nothing is ever uploaded; installable as a PWA</li>
         </ul>
         <div class="tags"><span class="tag">JavaScript</span><span class="tag">EmulatorJS</span><span class="tag">PaddleOCR</span><span class="tag">Web Speech API</span><span class="tag">IndexedDB</span><span class="tag">PWA</span></div>
       </article>
@@ -1145,7 +1149,6 @@ body.frozen .progress{display:none}
         <ul>
           <li>Level-by-level build paths in checkable bands ("Levels 3-5") with per-device progress persistence and a "you are here" marker</li>
           <li>Hand-built in-game character screens: quality-colored hover tooltips with affixes, temper lines and flavor text - 21 hand-drawn SVG slot icons, zero hotlinked assets</li>
-          <li>Talent-spine diagrams computed from the level path, not invented tree layouts</li>
           <li>Installable, fully offline PWA fed by CI, deploy and nightly data-sync GitHub Actions pipelines</li>
         </ul>
         <div class="tags"><span class="tag">TypeScript</span><span class="tag">PWA · Offline</span><span class="tag">SVG</span><span class="tag">GitHub Actions</span><span class="tag">CI/CD</span></div>
@@ -1165,7 +1168,6 @@ body.frozen .progress{display:none}
           <li>Heartbeat tile engine: every tile swap is a timestamp comparison on a single 250 ms heartbeat, so swaps, hover-pauses, countdown bars and stuck-state healing are pure functions of time - a throttled background tab can never permanently stall one</li>
           <li>Photo &amp; excerpt pipeline scrapes <code>og:image</code> / JSON-LD after resolving Google News gateway links back to real publisher URLs - ~90% coverage from feeds that ship neither</li>
           <li>React 18 + strict TypeScript end-to-end, with a data layer that transparently switches between a live Express API and pre-built static snapshots</li>
-          <li>Built for weeks of unattended runtime on a second screen</li>
         </ul>
         <div class="tags"><span class="tag">React 18</span><span class="tag">TypeScript strict</span><span class="tag">Express</span><span class="tag">RSS · Scraping</span><span class="tag">CI/CD</span></div>
       </article>
@@ -1196,70 +1198,21 @@ body.frozen .progress{display:none}
           <li>Immutable bare-metal Kubernetes on a Talos Linux kernel layer - no SSH, no shell, no config drift - tuned for local compute budgets</li>
           <li>Automated GitOps deployment engine with FluxCD + Kustomize - every change ships from a git commit; if it isn't in Git, it doesn't exist</li>
           <li>Runtime security monitoring with Falco on the modern eBPF driver, streaming syscall-level threat detections to a dedicated event UI</li>
-          <li>Prometheus + Grafana observability, CloudNativePG PostgreSQL 16 clusters, and 18 self-hosted services from CI/CD to local AI</li>
-          <li>Nightly self-auditing backups with retention policy and heartbeat health checks, plus an encrypted Tailscale mesh for zero-trust admin</li>
+          <li>Prometheus + Grafana observability, CloudNativePG PostgreSQL 16 clusters, and nightly self-auditing backups with heartbeat health checks</li>
+          <li>18 self-hosted services - from CI/CD (Forgejo) and automation (n8n) to document management, media, RSS, and local AI</li>
         </ul>
         <div class="tags"><span class="tag">Kubernetes</span><span class="tag">Talos Linux</span><span class="tag">FluxCD</span><span class="tag">Falco · eBPF</span><span class="tag">Tailscale</span><span class="tag">CloudNativePG</span></div>
       </article>
 
-      <article class="proj reveal">
+      <article class="proj proj-wide reveal">
         <div class="proj-icon">▦</div>
-        <div class="proj-top"><h3>Full-Stack Inventory App</h3><a class="link" href="https://github.com/AntonyPerez0/group-full-stack-inventory-project-team-rocket" target="_blank" rel="noopener">github ↗</a></div>
-        <p>A full-stack RESTful CRUD application for tracking e-commerce inventory, built as a team ("Team Rocket") through the full request lifecycle.</p>
-        <ul>
-          <li>Sequelize <code>Item</code> model (name, description, price, category, image) backed by Express CRUD routes</li>
-          <li>Front-end views to list, view, add, edit, and delete items, styled with Tailwind CSS</li>
-          <li>Automated test coverage across every route; collaborated via feature branches and pull requests</li>
-        </ul>
-        <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Sequelize</span><span class="tag">Tailwind</span><span class="tag">Jest</span><span class="tag">REST · Team</span></div>
-      </article>
-
-      <article class="proj reveal">
-        <div class="proj-icon">▷</div>
-        <div class="proj-top"><h3>Movie Theater REST API</h3><a class="link" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">github ↗</a></div>
-        <p>An Express + Sequelize API serving a movie-theater database - Users and Shows resources with full endpoint coverage and server-side validation.</p>
-        <ul>
-          <li>Two Express routers exposing GET / PUT / DELETE endpoints, including user-to-show associations and genre filtering by query</li>
-          <li>Server-side validation with express-validator (show titles capped at 25 chars; usernames must be valid emails)</li>
-          <li>SQLite via Sequelize with a re-seedable database; every endpoint verified in Postman</li>
-        </ul>
-        <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Sequelize</span><span class="tag">SQLite</span><span class="tag">express-validator</span><span class="tag">Postman</span></div>
-      </article>
-
-      <article class="proj reveal">
-        <div class="proj-icon">⇄</div>
-        <div class="proj-top"><h3>WGUPS Package Routing - DS&amp;A II</h3><a class="link" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">github ↗</a></div>
-        <p>A delivery-routing program (WGU C950) that schedules 40 packages across 27 addresses while holding total distance under a strict mileage budget.</p>
-        <ul>
-          <li>Custom self-adjusting hash table for O(1) package lookup by ID, with no external data-structure libraries</li>
-          <li>Greedy nearest-neighbor routing algorithm that keeps all trucks under the 120-mile constraint</li>
-          <li>Console interface to query any package's status and delivery time at any point in the day</li>
-        </ul>
-        <div class="tags"><span class="tag">Python</span><span class="tag">Algorithms</span><span class="tag">Hash Tables</span><span class="tag">Greedy Search</span><span class="tag">CLI</span></div>
-      </article>
-
-      <article class="proj reveal">
-        <div class="proj-icon">✓</div>
-        <div class="proj-top"><h3>SonarCloud Quality Gate in CI</h3><a class="link" href="https://github.com/AntonyPerez0/Sonar-Cloud-and-GitHub-Actions" target="_blank" rel="noopener">github ↗</a></div>
-        <p>A GitHub Actions pipeline that runs the test suite and pushes results to SonarCloud for static analysis and quality gating on every change.</p>
-        <ul>
-          <li>Workflow triggers Jest tests on every push and pull request to <code>main</code></li>
-          <li>SonarCloud scan wired into the pipeline for coverage, code smells, and security findings</li>
-          <li>Dockerized Node service with a <code>sonar-project.properties</code> config and automatic-analysis disabled in favor of CI</li>
-        </ul>
-        <div class="tags"><span class="tag">GitHub Actions</span><span class="tag">SonarCloud</span><span class="tag">Jest</span><span class="tag">Docker</span><span class="tag">CI/CD</span></div>
-      </article>
-
-      <article class="proj reveal">
-        <div class="proj-icon">⚛</div>
-        <div class="proj-top"><h3>Front-End Portfolio Application</h3><a class="link" href="https://antonyperez.com" target="_blank" rel="noopener">antonyperez.com ↗</a></div>
-        <p>A responsive single-page application demonstrating scalable front-end architecture - including the test suite and pipeline that keep it deployable.</p>
-        <ul>
-          <li>Component-driven SPA built with React, Vite, and CSS Modules</li>
-          <li>Automated unit + integration suite with Vitest and React Testing Library - test-driven from the start</li>
-          <li>Full CI/CD via GitHub Actions: build validation, lint gates, and automated production releases</li>
-        </ul>
-        <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Vitest</span><span class="tag">RTL</span><span class="tag">GitHub Actions</span><span class="tag">CSS Modules</span></div>
+        <div class="proj-top"><h3>More Shipped Work - Coursework &amp; CI</h3><span class="proj-links"><a class="link" href="https://github.com/AntonyPerez0?tab=repositories" target="_blank" rel="noopener">all repos ↗</a></span></div>
+        <div class="mini-grid">
+          <div class="mini"><b>Full-Stack Inventory App</b><span>Team e-commerce CRUD through the full request lifecycle - Express, Sequelize, Tailwind, Jest-tested routes</span><a href="https://github.com/AntonyPerez0/group-full-stack-inventory-project-team-rocket" target="_blank" rel="noopener">github ↗</a></div>
+          <div class="mini"><b>Movie Theater REST API</b><span>Express + Sequelize API with express-validator and a re-seedable SQLite database, verified in Postman</span></div>
+          <div class="mini"><b>WGUPS Package Routing - DS&amp;A II</b><span>Custom hash table + greedy routing that delivers 40 packages across 27 addresses under a 120-mile budget</span></div>
+          <div class="mini"><b>SonarCloud Quality Gate in CI</b><span>GitHub Actions pipeline running Jest + SonarCloud scans on every push and pull request</span><a href="https://github.com/AntonyPerez0/Sonar-Cloud-and-GitHub-Actions" target="_blank" rel="noopener">github ↗</a></div>
+        </div>
       </article>
 
       <article class="proj proj-wide reveal">
@@ -1267,9 +1220,7 @@ body.frozen .progress{display:none}
         <div class="proj-top"><h3>DefectPredict - AI Test Prioritization (Capstone)</h3><a class="link" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">github ↗</a></div>
         <p>My WGU B.S. Computer Science capstone (C964): a machine-learning service that predicts which code is most likely to fail and reorders the CI/CD regression suite to run the riskiest tests first - shrinking feedback time and cloud compute.</p>
         <ul>
-          <li>Random Forest classifier scoring each commit's defect risk from version-control history, defect tickets, and past test outcomes</li>
-          <li>Features engineered from commit metadata: TF-IDF on commit messages, one-hot encoding for author and module, then standardized</li>
-          <li>Targeted a 30% drop in regression-suite runtime and ≥85% precision identifying failing modules on the first test pass</li>
+          <li>Random Forest classifier scoring each commit's defect risk from version-control history, defect tickets, and past test outcomes - targeting a 30% drop in regression-suite runtime and ≥85% precision on the first pass</li>
           <li>Served as a FastAPI microservice in Docker, wired into Jenkins via webhooks, logging every prediction to PostgreSQL for retraining</li>
           <li>Secured with OAuth 2.0 and TLS 1.3; validated through unit, integration, and end-to-end tests plus a two-week shadow-mode rollout</li>
         </ul>
@@ -1293,7 +1244,7 @@ body.frozen .progress{display:none}
 
   <section id="skills" class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow">04 - Skills <span class="check">✓</span></div>
+      <div class="eyebrow">04 - Skills <span class="check">❄</span></div>
       <h2>The toolbox.</h2>
     </div>
     <div class="skill-grid">
@@ -1314,7 +1265,7 @@ body.frozen .progress{display:none}
 
   <section id="education" class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow">05 - Education <span class="check">✓</span></div>
+      <div class="eyebrow">05 - Education <span class="check">❄</span></div>
       <h2>Credentials.</h2>
     </div>
     <div class="edu-grid">
