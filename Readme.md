@@ -93,23 +93,14 @@ a kinematic body and uses camera **unprojection** to follow the pointer.
 | Project | Stack |
 |:--|:--|
 | **SortiePrep** — DCS cockpit trainer, F-14B + F/A-18C (sortieprep.com) | JavaScript · state machines · PWA · Cloudflare Workers/D1 |
+| **The Arena family** — C/C++, Java, Rust and Python courses with real compilers in the browser (cpparena.com · javaarena.com · rustarena.app · pythonarena.org) | TypeScript · WebAssembly · Clang/javac/rustc/CPython · GitHub Actions |
 | **Job Autopilot** — desktop app that finds jobs and applies with honest resumes | Electron · JavaScript · Playwright · LLM guardrails |
-| **C/C++ Arena** — real Clang in the browser (cpparena.com) | TypeScript · Clang 20/WASM · WASI · GitHub Actions |
-| **Java Arena** — javac 21 + JVM in the browser (javaarena.com) | TypeScript · Java 21 · Wasm GC · JUnit 4 · GitHub Actions |
-| **RustArena** — Rust zero to job-ready (rustarena.app) | TypeScript · Rust · mutation testing · GitHub Actions |
-| **Python Arena** — CPython 3.14 in the browser (pythonarena.org) | TypeScript · Pyodide/WASM · React 18 · GitHub Actions |
-| **Spritespeak** — learn a language by playing Game Boy games | JavaScript · EmulatorJS · PaddleOCR · Web Speech |
-| **BuildForge** — D4 / WoW Forever second-screen build companion | TypeScript · PWA · GitHub Actions |
-| **News Dashboard** — ambient second-monitor news (newsdash.page) | React 18 · TypeScript · Express |
-| **CS2 Pro Configs** — pro settings as copy-paste console commands | HTML · JavaScript · weekly auto-update pipeline |
-| **Anomaly Grove** — live multiplayer Roblox tycoon | Luau (strict) · Roblox · Selene · 240 tests |
-| **Baseline Control** — EIA-649 configuration management simulator | JavaScript · procedural generation · zero-dependency |
 | **GitOps Cloud Infrastructure Home Lab** ([homelab](https://github.com/AntonyPerez0/homelab)) | Kubernetes · Talos Linux · FluxCD · Falco/eBPF · Tailscale |
+| **Anomaly Grove** — live multiplayer Roblox tycoon | Luau (strict) · Roblox · Selene · 240 tests |
+| **Spritespeak** — learn a language by playing Game Boy games | JavaScript · EmulatorJS · PaddleOCR · Web Speech |
+| **News Dashboard** — ambient second-monitor news (newsdash.page) | React 18 · TypeScript · Express |
 | **DefectPredict** — AI test-case prioritization (CS capstone) | Python · scikit-learn · FastAPI · Jenkins · Docker · PostgreSQL |
-| **WGUPS Package Routing** — Data Structures & Algorithms II | Python · custom hash table · greedy search |
-| **Full-Stack Inventory App** (team) | Node · Express · Sequelize · Tailwind · Jest |
-| **Movie Theater REST API** | Node · Express · Sequelize · SQLite · express-validator |
-| **SonarCloud Quality Gate in CI** | GitHub Actions · SonarCloud · Jest · Docker |
+| *More:* BuildForge · CS2 Pro Configs · Baseline Control · Full-Stack Inventory App · WGUPS Package Routing | |
 
 <br/>
 

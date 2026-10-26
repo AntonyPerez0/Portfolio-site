@@ -493,6 +493,7 @@ section{padding:64px 0 0}
 /* compact strip for coursework / smaller builds */
 .mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}
 @media(max-width:860px){.mini-grid{grid-template-columns:1fr}}
+.mini-grid + .tags{margin-top:18px}
 .mini{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:5px}
 .mini b{font-family:var(--display);font-weight:700;font-size:15px;color:var(--text);letter-spacing:-.01em}
 .mini span{color:var(--muted);font-size:13px;line-height:1.6}
@@ -1062,7 +1063,7 @@ body.frozen .progress{display:none}
     <div class="sec-head reveal">
       <div class="eyebrow">03 - Projects <span class="check">❄</span></div>
       <h2>Built, tested & running.</h2>
-      <p class="lede">Browser-native compilers, a desktop job-application agent, a live Roblox game, OCR emulators, live data pipelines, production infrastructure, and degree coursework - designed, shipped, and tested.</p>
+      <p class="lede">Browser-native compilers, a desktop job-application agent, a live Roblox game, production infrastructure, and more - designed, shipped, and tested.</p>
     </div>
     <div class="proj-grid">
       <article class="proj proj-wide reveal">
@@ -1085,6 +1086,23 @@ body.frozen .progress{display:none}
       </article>
 
       <article class="proj proj-wide reveal">
+        <div class="proj-icon">⌨</div>
+        <div class="proj-top"><h3>The Arena Family - Real Compilers in the Browser</h3></div>
+        <p>Four free, freeCodeCamp-style courses - <strong>C/C++, Java, Rust and Python</strong> - where every exercise is compiled and run for real, not pattern-matched. Each has lessons, Deathmatch drills, guided projects, and a Pro Track graded by GitHub Actions in the learner's own repository.</p>
+        <ul>
+          <li>Expected outputs are never typed by hand: the build runs every reference solution on the real toolchain, then CI replays them in the browser engine and fails on any difference</li>
+          <li>Static and serverless - no account, progress in the browser, offline once visited; WCAG 2.2 AA with axe scans of every page type and pre-rendered pages for SEO</li>
+        </ul>
+        <div class="mini-grid">
+          <div class="mini"><b>C/C++ Arena</b><span>Clang 20 compiled to WebAssembly, running on your device - 48 modules, 657 drills, and gdb-recorded memory visualizations</span><a href="https://cpparena.com" target="_blank" rel="noopener">live ↗</a></div>
+          <div class="mini"><b>Java Arena</b><span>javac 21 on Wasm GC plus a Rust JVM - 59 modules following the Helsinki MOOC, with its own JavaFX checked against OpenJFX 21</span><a href="https://javaarena.com/" target="_blank" rel="noopener">live ↗</a></div>
+          <div class="mini"><b>RustArena</b><span>The real Rust compiler grades every test in one request - 48 modules on the roadmap.sh path, test-writing graded by planted mutants</span><a href="https://rustarena.app" target="_blank" rel="noopener">live ↗</a></div>
+          <div class="mini"><b>Python Arena</b><span>CPython 3.14 via Pyodide - 65 modules from <code>print</code> to pygame, with game lessons graded frame by frame</span><a href="https://pythonarena.org" target="_blank" rel="noopener">live ↗</a></div>
+        </div>
+        <div class="tags"><span class="tag">TypeScript</span><span class="tag">WebAssembly</span><span class="tag">Clang · javac · rustc · CPython</span><span class="tag">Mutation Testing</span><span class="tag">GitHub Actions</span></div>
+      </article>
+
+      <article class="proj reveal">
         <div class="proj-icon">✉</div>
         <div class="proj-top">
           <h3>Job Autopilot - Honest Job Applications on Autopilot</h3>
@@ -1102,148 +1120,18 @@ body.frozen .progress{display:none}
         <div class="tags"><span class="tag">Electron</span><span class="tag">JavaScript</span><span class="tag">Playwright</span><span class="tag">LLM Guardrails</span><span class="tag">Ollama</span><span class="tag">GitHub Actions</span></div>
       </article>
 
-      <article class="proj proj-wide reveal">
-        <div class="proj-icon">⌨</div>
-        <div class="proj-top">
-          <h3>C/C++ Arena - Learn C++ in the Browser</h3>
-          <span class="proj-links">
-            <a class="link" href="https://cpparena.com" target="_blank" rel="noopener">live ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/cpp-arena" target="_blank" rel="noopener">github ↗</a>
-          </span>
-        </div>
-        <p>A free, freeCodeCamp-style C and C++ curriculum where the code you write is compiled <strong>for real</strong>: Clang 20 compiled to WebAssembly runs in a Web Worker on your device - no server, no account, no waiting. Live at <a href="https://cpparena.com" target="_blank" rel="noopener">cpparena.com</a>.</p>
-        <ul>
-          <li>48 modules and 318 steps from <code>printf</code> to professional C++ - pointers, RAII, the STL, templates, move semantics, concurrency, memory ordering - plus 52 tested reference pages</li>
-          <li>Deathmatch mode: 657 drills (62 of them classic interview questions) - predict the output, fill the token, spot the bug, will it compile - ranked Silver I to The Global Elite; every 8th rep is a compiled boss rep</li>
-          <li>11 multi-milestone projects plus a 12-project Pro Track graded by GitHub Actions in the learner's own repository: CMake, gdb, sanitizers, GoogleTest, mutation testing</li>
-        </ul>
-        <div class="tags"><span class="tag">TypeScript</span><span class="tag">Clang 20 · WebAssembly</span><span class="tag">WASI</span><span class="tag">Browser Tests</span><span class="tag">GitHub Actions</span><span class="tag">Static · Serverless</span></div>
-      </article>
-
       <article class="proj reveal">
-        <div class="proj-icon">☕</div>
-        <div class="proj-top">
-          <h3>Java Arena - the MOOC, Rebuilt for the Browser</h3>
-          <span class="proj-links">
-            <a class="link" href="https://javaarena.com/" target="_blank" rel="noopener">live ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/Java-Arena" target="_blank" rel="noopener">github ↗</a>
-          </span>
-        </div>
-        <p>A free Java course following the University of Helsinki MOOC's parts 1-14, with <strong>javac 21 and a real JVM running in your browser</strong> - you compile and run on your own device, nothing leaves it. Live at <a href="https://javaarena.com/" target="_blank" rel="noopener">javaarena.com</a>.</p>
+        <div class="proj-icon">⎈</div>
+        <div class="proj-top"><h3>GitOps Cloud Infrastructure Home Lab</h3><span class="proj-links"><a class="link" href="https://github.com/AntonyPerez0/homelab" target="_blank" rel="noopener">github ↗</a></span></div>
+        <p>Production-grade Kubernetes running on bare metal in my home - declaratively managed, self-healing, and administered over a zero-trust network. The repo is a sanitized public mirror of my real infrastructure-as-code.</p>
         <ul>
-          <li>59 modules (the full MOOC plus 5 extras) with fill-in steps, multi-file programs, JUnit 4 tests in the browser, and a Pro Track graded by GitHub Actions</li>
-          <li>javac 21 compiled to Wasm GC, running on a Rust JVM (Ristretto) in WebAssembly; a 52-program fidelity suite fails CI on any difference from a real JDK</li>
-          <li>Its own practice JavaFX: GUI lessons, charts, canvases and an Asteroids game, checked against real OpenJFX 21 on every pull request</li>
+          <li>Immutable bare-metal Kubernetes on a Talos Linux kernel layer - no SSH, no shell, no config drift - tuned for local compute budgets</li>
+          <li>Automated GitOps deployment engine with FluxCD + Kustomize - every change ships from a git commit; if it isn't in Git, it doesn't exist</li>
+          <li>Runtime security monitoring with Falco on the modern eBPF driver, streaming syscall-level threat detections to a dedicated event UI</li>
+          <li>Prometheus + Grafana observability, CloudNativePG PostgreSQL 16 clusters, and nightly self-auditing backups with heartbeat health checks</li>
+          <li>18 self-hosted services - from CI/CD (Forgejo) and automation (n8n) to document management, media, RSS, and local AI</li>
         </ul>
-        <div class="tags"><span class="tag">TypeScript</span><span class="tag">Java 21 · Wasm GC</span><span class="tag">Rust JVM</span><span class="tag">JUnit 4</span><span class="tag">GitHub Actions</span></div>
-      </article>
-
-      <article class="proj reveal">
-        <div class="proj-icon">⚙</div>
-        <div class="proj-top">
-          <h3>RustArena - Rust, Zero to Job-Ready</h3>
-          <span class="proj-links">
-            <a class="link" href="https://rustarena.app" target="_blank" rel="noopener">live ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/RustArena" target="_blank" rel="noopener">github ↗</a>
-          </span>
-        </div>
-        <p>The Rust sister site, following the roadmap.sh Rust path, where <strong>every exercise is compiled and tested by the real Rust compiler</strong>. Live at <a href="https://rustarena.app" target="_blank" rel="noopener">rustarena.app</a>.</p>
-        <ul>
-          <li>48 modules from <code>println!</code> to async Tokio, unsafe/FFI and web services; plain-English notes for borrow-checker errors like E0382 and E0502</li>
-          <li>One request grades every test: a hidden runner spawns the learner's program per test case with its own stdin, args, files and time limit</li>
-          <li>"Write the tests" exercises grade the learner's test suite against planted mutants; a 12-project Pro Track (axum, SQLx, criterion) is graded by GitHub Actions</li>
-        </ul>
-        <div class="tags"><span class="tag">TypeScript</span><span class="tag">Rust</span><span class="tag">Mutation Testing</span><span class="tag">WCAG 2.2 AA</span><span class="tag">GitHub Actions</span></div>
-      </article>
-
-      <article class="proj reveal">
-        <div class="proj-icon">🐍</div>
-        <div class="proj-top">
-          <h3>Python Arena - CPython 3.14 in the Browser</h3>
-          <span class="proj-links">
-            <a class="link" href="https://pythonarena.org" target="_blank" rel="noopener">live ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/pythonarena" target="_blank" rel="noopener">github ↗</a>
-          </span>
-        </div>
-        <p>The Helsinki Python MOOC rebuilt with <strong>real CPython 3.14 running on your device</strong> through Pyodide/WebAssembly - 65 modules from your first <code>print</code> to pygame and algorithms. Live at <a href="https://pythonarena.org" target="_blank" rel="noopener">pythonarena.org</a>.</p>
-        <ul>
-          <li>Every example and model solution runs on reference CPython at build time, then CI replays it in Pyodide and fails on any difference</li>
-          <li>Headless pygame-ce: each frame becomes a picture plus "the window as text", so game lessons are graded deterministically</li>
-          <li>Big tests sized so a correct-but-slow solution times out - and the build proves each slow solution really does</li>
-        </ul>
-        <div class="tags"><span class="tag">TypeScript</span><span class="tag">Python 3.14</span><span class="tag">Pyodide · WebAssembly</span><span class="tag">React 18</span><span class="tag">GitHub Actions</span></div>
-      </article>
-
-      <article class="proj reveal">
-        <div class="proj-icon">🕹</div>
-        <div class="proj-top">
-          <h3>Spritespeak - Learn a Language by Playing Game Boy Games</h3>
-          <span class="proj-links">
-            <a class="link" href="https://antonyperez0.github.io/spritespeak/" target="_blank" rel="noopener">live ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/spritespeak" target="_blank" rel="noopener">github ↗</a>
-          </span>
-        </div>
-        <p>A browser emulator that turns retro-game dialogue into a live language lesson: OCR watches the screen, translates it, pronounces it, and collects vocabulary into a spaced-repetition deck - Duolingo, but you learn by actually playing.</p>
-        <ul>
-          <li>GB / GBC / GBA / NES / SNES / Genesis / NDS / N64 emulation with in-game saves, quick-save and autosave; 28 languages, translatable in any direction</li>
-          <li>Live OCR pipeline: PaddleOCR PP-OCRv5 on ONNX Runtime Web in a worker, with a Tesseract fallback, Hunspell spell-correction, and multi-box dialogue joined into whole sentences before translation</li>
-          <li>Tap any word for an instant dictionary popup; Web Speech TTS; SM-2 spaced-repetition deck with a due queue, streaks and CSV export</li>
-        </ul>
-        <div class="tags"><span class="tag">JavaScript</span><span class="tag">EmulatorJS</span><span class="tag">PaddleOCR</span><span class="tag">Web Speech API</span><span class="tag">IndexedDB</span><span class="tag">PWA</span></div>
-      </article>
-
-      <article class="proj reveal">
-        <div class="proj-icon">⚔</div>
-        <div class="proj-top">
-          <h3>BuildForge - Second-Screen Build Companion</h3>
-          <span class="proj-links">
-            <a class="link" href="https://antonyperez0.github.io/buildforge/" target="_blank" rel="noopener">live ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/buildforge" target="_blank" rel="noopener">github ↗</a>
-          </span>
-        </div>
-        <p>Zero-guessing build companions for Diablo IV and World of Warcraft: Forever that live on your second screen or phone - every skill, gear priority, rotation step and endgame phase, at the exact level you need it.</p>
-        <ul>
-          <li>Level-by-level build paths in checkable bands ("Levels 3-5") with per-device progress persistence and a "you are here" marker</li>
-          <li>Hand-built in-game character screens: quality-colored hover tooltips with affixes, temper lines and flavor text - 21 hand-drawn SVG slot icons, zero hotlinked assets</li>
-          <li>Installable, fully offline PWA fed by CI, deploy and nightly data-sync GitHub Actions pipelines</li>
-        </ul>
-        <div class="tags"><span class="tag">TypeScript</span><span class="tag">PWA · Offline</span><span class="tag">SVG</span><span class="tag">GitHub Actions</span><span class="tag">CI/CD</span></div>
-      </article>
-
-      <article class="proj reveal">
-        <div class="proj-icon">▤</div>
-        <div class="proj-top">
-          <h3>News Dashboard - Ambient News for a Second Monitor</h3>
-          <span class="proj-links">
-            <a class="link" href="https://newsdash.page" target="_blank" rel="noopener">live ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/news-dashboard" target="_blank" rel="noopener">github ↗</a>
-          </span>
-        </div>
-        <p>Ten categories of live headlines cycle continuously through a grid of rich tiles - photos, excerpts, source logos - so the news stays glanceable without touching a scrollbar. Zero API keys, zero server costs.</p>
-        <ul>
-          <li>Heartbeat tile engine: every tile swap is a timestamp comparison on a single 250 ms heartbeat, so swaps, hover-pauses, countdown bars and stuck-state healing are pure functions of time - a throttled background tab can never permanently stall one</li>
-          <li>Photo &amp; excerpt pipeline scrapes <code>og:image</code> / JSON-LD after resolving Google News gateway links back to real publisher URLs - ~90% coverage from feeds that ship neither</li>
-          <li>React 18 + strict TypeScript end-to-end, with a data layer that transparently switches between a live Express API and pre-built static snapshots</li>
-        </ul>
-        <div class="tags"><span class="tag">React 18</span><span class="tag">TypeScript strict</span><span class="tag">Express</span><span class="tag">RSS · Scraping</span><span class="tag">CI/CD</span></div>
-      </article>
-
-      <article class="proj reveal">
-        <div class="proj-icon">✛</div>
-        <div class="proj-top">
-          <h3>CS2 Pro Configs - Play Like the Pros</h3>
-          <span class="proj-links">
-            <a class="link" href="https://antonyperez0.github.io/cs2-pro-configs/" target="_blank" rel="noopener">live ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/cs2-pro-configs" target="_blank" rel="noopener">github ↗</a>
-          </span>
-        </div>
-        <p>620+ CS2 pros' settings distilled into one-click, copy-paste console commands - crosshair, sensitivity, viewmodel and HUD/radar in a single paste - auto-updated weekly.</p>
-        <ul>
-          <li>Configs are joined into a single <code>;</code>-separated line on purpose: the CS2 console is single-line, so multi-line pastes are unreliable</li>
-          <li>Converts every player's legacy crosshair into CS2's post-patch convar system (the Sept 2026 "Rush Hour" update removed share codes and the old <code>cl_crosshair*</code> convars), reproducing published values for donk / m0NESY / s1mple exactly</li>
-          <li>Filters out cheat-protected and removed convars automatically, so one paste always applies cleanly</li>
-        </ul>
-        <div class="tags"><span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">GitHub Pages</span><span class="tag">Weekly Auto-Updates</span></div>
+        <div class="tags"><span class="tag">Kubernetes</span><span class="tag">Talos Linux</span><span class="tag">FluxCD</span><span class="tag">Falco · eBPF</span><span class="tag">Tailscale</span><span class="tag">CloudNativePG</span></div>
       </article>
 
       <article class="proj reveal">
@@ -1265,50 +1153,42 @@ body.frozen .progress{display:none}
       </article>
 
       <article class="proj reveal">
-        <div class="proj-icon">⌗</div>
+        <div class="proj-icon">🕹</div>
         <div class="proj-top">
-          <h3>Baseline Control - Config Management Sim</h3>
+          <h3>Spritespeak - Learn a Language by Playing Game Boy Games</h3>
           <span class="proj-links">
-            <a class="link" href="https://antonyperez0.github.io/baseline-control/" target="_blank" rel="noopener">live ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/baseline-control" target="_blank" rel="noopener">github ↗</a>
+            <a class="link" href="https://antonyperez0.github.io/spritespeak/" target="_blank" rel="noopener">live ↗</a>
+            <a class="link" href="https://github.com/AntonyPerez0/spritespeak" target="_blank" rel="noopener">github ↗</a>
           </span>
         </div>
-        <p>You are a configuration analyst at a fictional defense contractor: audit change packages, classify engineering changes, and decide what gets released to the vault. The company is invented; the standards are real - <strong>EIA-649</strong>, Class I/II changes, CDRLs, FCA/PCA and baselines.</p>
+        <p>A browser emulator that turns retro-game dialogue into a live language lesson: OCR watches the screen, translates it, pronounces it, and collects vocabulary into a spaced-repetition deck - Duolingo, but you learn by actually playing.</p>
         <ul>
-          <li>Ten task types, every scenario generated from a seed and graded against a derived answer key, so it never runs out</li>
-          <li>The test suite generates ~14,000 scenarios across every task type to prove each one is solvable and graded correctly</li>
-          <li>Vanilla JavaScript, zero runtime dependencies, works offline, and builds into a single standalone HTML file</li>
+          <li>GB / GBC / GBA / NES / SNES / Genesis / NDS / N64 emulation with in-game saves, quick-save and autosave; 28 languages, translatable in any direction</li>
+          <li>Live OCR pipeline: PaddleOCR PP-OCRv5 on ONNX Runtime Web in a worker, with a Tesseract fallback, Hunspell spell-correction, and multi-box dialogue joined into whole sentences before translation</li>
+          <li>Tap any word for an instant dictionary popup; Web Speech TTS; SM-2 spaced-repetition deck with a due queue, streaks and CSV export</li>
         </ul>
-        <div class="tags"><span class="tag">JavaScript</span><span class="tag">Procedural Generation</span><span class="tag">Zero-dependency</span><span class="tag">PWA</span></div>
+        <div class="tags"><span class="tag">JavaScript</span><span class="tag">EmulatorJS</span><span class="tag">PaddleOCR</span><span class="tag">Web Speech API</span><span class="tag">IndexedDB</span><span class="tag">PWA</span></div>
       </article>
 
       <article class="proj reveal">
-        <div class="proj-icon">⎈</div>
-        <div class="proj-top"><h3>GitOps Cloud Infrastructure Home Lab</h3><span class="proj-links"><a class="link" href="https://github.com/AntonyPerez0/homelab" target="_blank" rel="noopener">github ↗</a></span></div>
-        <p>Production-grade Kubernetes running on bare metal in my home - declaratively managed, self-healing, and administered over a zero-trust network. The repo is a sanitized public mirror of my real infrastructure-as-code.</p>
-        <ul>
-          <li>Immutable bare-metal Kubernetes on a Talos Linux kernel layer - no SSH, no shell, no config drift - tuned for local compute budgets</li>
-          <li>Automated GitOps deployment engine with FluxCD + Kustomize - every change ships from a git commit; if it isn't in Git, it doesn't exist</li>
-          <li>Runtime security monitoring with Falco on the modern eBPF driver, streaming syscall-level threat detections to a dedicated event UI</li>
-          <li>Prometheus + Grafana observability, CloudNativePG PostgreSQL 16 clusters, and nightly self-auditing backups with heartbeat health checks</li>
-          <li>18 self-hosted services - from CI/CD (Forgejo) and automation (n8n) to document management, media, RSS, and local AI</li>
-        </ul>
-        <div class="tags"><span class="tag">Kubernetes</span><span class="tag">Talos Linux</span><span class="tag">FluxCD</span><span class="tag">Falco · eBPF</span><span class="tag">Tailscale</span><span class="tag">CloudNativePG</span></div>
-      </article>
-
-      <article class="proj proj-wide reveal">
-        <div class="proj-icon">▦</div>
-        <div class="proj-top"><h3>More Shipped Work - Coursework &amp; CI</h3><span class="proj-links"><a class="link" href="https://github.com/AntonyPerez0?tab=repositories" target="_blank" rel="noopener">all repos ↗</a></span></div>
-        <div class="mini-grid">
-          <div class="mini"><b>F-14B CASE 1 Procedures Trainer</b><span>The jet flies the carrier pattern on rails, you run the checklist on DCS's own key bindings - checked by tests against the NAVAIR manual's own numbers</span><a href="https://github.com/AntonyPerez0/f14-trainer" target="_blank" rel="noopener">github ↗</a></div>
-          <div class="mini"><b>Full-Stack Inventory App</b><span>Team e-commerce CRUD through the full request lifecycle - Express, Sequelize, Tailwind, Jest-tested routes</span><a href="https://github.com/AntonyPerez0/group-full-stack-inventory-project-team-rocket" target="_blank" rel="noopener">github ↗</a></div>
-          <div class="mini"><b>Movie Theater REST API</b><span>Express + Sequelize API with express-validator and a re-seedable SQLite database, verified in Postman</span></div>
-          <div class="mini"><b>WGUPS Package Routing - DS&amp;A II</b><span>Custom hash table + greedy routing that delivers 40 packages across 27 addresses under a 120-mile budget</span></div>
-          <div class="mini"><b>SonarCloud Quality Gate in CI</b><span>GitHub Actions pipeline running Jest + SonarCloud scans on every push and pull request</span><a href="https://github.com/AntonyPerez0/Sonar-Cloud-and-GitHub-Actions" target="_blank" rel="noopener">github ↗</a></div>
+        <div class="proj-icon">▤</div>
+        <div class="proj-top">
+          <h3>News Dashboard - Ambient News for a Second Monitor</h3>
+          <span class="proj-links">
+            <a class="link" href="https://newsdash.page" target="_blank" rel="noopener">live ↗</a>
+            <a class="link" href="https://github.com/AntonyPerez0/news-dashboard" target="_blank" rel="noopener">github ↗</a>
+          </span>
         </div>
+        <p>Ten categories of live headlines cycle continuously through a grid of rich tiles - photos, excerpts, source logos - so the news stays glanceable without touching a scrollbar. Zero API keys, zero server costs.</p>
+        <ul>
+          <li>Heartbeat tile engine: every tile swap is a timestamp comparison on a single 250 ms heartbeat, so swaps, hover-pauses, countdown bars and stuck-state healing are pure functions of time - a throttled background tab can never permanently stall one</li>
+          <li>Photo &amp; excerpt pipeline scrapes <code>og:image</code> / JSON-LD after resolving Google News gateway links back to real publisher URLs - ~90% coverage from feeds that ship neither</li>
+          <li>React 18 + strict TypeScript end-to-end, with a data layer that transparently switches between a live Express API and pre-built static snapshots</li>
+        </ul>
+        <div class="tags"><span class="tag">React 18</span><span class="tag">TypeScript strict</span><span class="tag">Express</span><span class="tag">RSS · Scraping</span><span class="tag">CI/CD</span></div>
       </article>
 
-      <article class="proj proj-wide reveal">
+      <article class="proj reveal">
         <div class="proj-icon">◎</div>
         <div class="proj-top"><h3>DefectPredict - AI Test Prioritization (Capstone)</h3><a class="link" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">github ↗</a></div>
         <p>My WGU B.S. Computer Science capstone (C964): a machine-learning service that predicts which code is most likely to fail and reorders the CI/CD regression suite to run the riskiest tests first - shrinking feedback time and cloud compute.</p>
@@ -1321,16 +1201,16 @@ body.frozen .progress{display:none}
       </article>
 
       <article class="proj proj-wide reveal">
-        <div class="proj-icon">◈</div>
-        <div class="proj-top"><h3>This Very Website</h3><span class="proj-links"><a class="link" href="https://github.com/AntonyPerez0/Portfolio-site" target="_blank" rel="noopener">view source ↗</a></span></div>
-        <p>The portfolio is a project too — treated like production software, not a template. Open the dev tools; the build is part of the pitch.</p>
-        <ul>
-          <li>Interactive 3D badge on a physics-simulated lanyard — React Three Fiber + Rapier rope joints, draggable and throwable</li>
-          <li>Progressive enhancement: a pure-CSS badge renders instantly, then upgrades to WebGL physics when the device can run it</li>
-          <li>Built with Vite, deployed automatically to GitHub Pages by a GitHub Actions pipeline on every push to main</li>
-          <li>Hand-rolled design system, a vanilla-JS command palette (try ⌘K), and a playable Warcraft III-style main-menu easter egg</li>
-        </ul>
-        <div class="tags"><span class="tag">React Three Fiber</span><span class="tag">Rapier</span><span class="tag">Three.js</span><span class="tag">Vite</span><span class="tag">GitHub Actions</span><span class="tag">Vanilla JS</span></div>
+        <div class="proj-icon">▦</div>
+        <div class="proj-top"><h3>More Projects</h3><span class="proj-links"><a class="link" href="https://github.com/AntonyPerez0?tab=repositories" target="_blank" rel="noopener">all repos ↗</a></span></div>
+        <div class="mini-grid">
+          <div class="mini"><b>BuildForge</b><span>Offline PWA build companion for Diablo IV and WoW Forever - level-by-level paths, hand-drawn SVG gear screens, nightly data syncs</span><a href="https://antonyperez0.github.io/buildforge/" target="_blank" rel="noopener">live ↗</a></div>
+          <div class="mini"><b>CS2 Pro Configs</b><span>620+ pro players' settings as one-click console commands, converted to CS2's post-patch crosshair convars and auto-updated weekly</span><a href="https://antonyperez0.github.io/cs2-pro-configs/" target="_blank" rel="noopener">live ↗</a></div>
+          <div class="mini"><b>Baseline Control</b><span>EIA-649 configuration-management simulator - endless seeded change packages to audit, ~14,000 generated scenarios in its tests</span><a href="https://antonyperez0.github.io/baseline-control/" target="_blank" rel="noopener">live ↗</a></div>
+          <div class="mini"><b>Full-Stack Inventory App</b><span>Team e-commerce CRUD through the full request lifecycle - Express, Sequelize, Tailwind, Jest-tested routes</span><a href="https://github.com/AntonyPerez0/group-full-stack-inventory-project-team-rocket" target="_blank" rel="noopener">github ↗</a></div>
+          <div class="mini"><b>WGUPS Package Routing - DS&amp;A II</b><span>Custom hash table + greedy routing that delivers 40 packages across 27 addresses under a 120-mile budget</span></div>
+          <div class="mini"><b>This Very Website</b><span>Physics-simulated 3D badge (React Three Fiber + Rapier), progressive enhancement, a ⌘K palette, and a Warcraft III easter egg - deployed by GitHub Actions</span><a href="https://github.com/AntonyPerez0/Portfolio-site" target="_blank" rel="noopener">view source ↗</a></div>
+        </div>
       </article>
     </div>
   </section>
