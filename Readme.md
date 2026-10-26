@@ -92,13 +92,18 @@ a kinematic body and uses camera **unprojection** to follow the pointer.
 
 | Project | Stack |
 |:--|:--|
-| **SortiePrep** — DCS cockpit trainer (sortieprep.com) | JavaScript · state machines · PWA · Cloudflare Workers/D1 |
+| **SortiePrep** — DCS cockpit trainer, F-14B + F/A-18C (sortieprep.com) | JavaScript · state machines · PWA · Cloudflare Workers/D1 |
+| **Job Autopilot** — desktop app that finds jobs and applies with honest resumes | Electron · JavaScript · Playwright · LLM guardrails |
 | **C/C++ Arena** — real Clang in the browser (cpparena.com) | TypeScript · Clang 20/WASM · WASI · GitHub Actions |
-| **Java Arena** — javac 21 + JVM in the browser | TypeScript · Java 21 · JUnit 4 · GitHub Actions |
-| **Emulingo** — learn a language by playing Game Boy games | JavaScript · EmulatorJS · PaddleOCR · Web Speech |
+| **Java Arena** — javac 21 + JVM in the browser (javaarena.com) | TypeScript · Java 21 · Wasm GC · JUnit 4 · GitHub Actions |
+| **RustArena** — Rust zero to job-ready (rustarena.app) | TypeScript · Rust · mutation testing · GitHub Actions |
+| **Python Arena** — CPython 3.14 in the browser (pythonarena.org) | TypeScript · Pyodide/WASM · React 18 · GitHub Actions |
+| **Spritespeak** — learn a language by playing Game Boy games | JavaScript · EmulatorJS · PaddleOCR · Web Speech |
 | **BuildForge** — D4 / WoW Forever second-screen build companion | TypeScript · PWA · GitHub Actions |
 | **News Dashboard** — ambient second-monitor news (newsdash.page) | React 18 · TypeScript · Express |
 | **CS2 Pro Configs** — pro settings as copy-paste console commands | HTML · JavaScript · weekly auto-update pipeline |
+| **Anomaly Grove** — live multiplayer Roblox tycoon | Luau (strict) · Roblox · Selene · 240 tests |
+| **Baseline Control** — EIA-649 configuration management simulator | JavaScript · procedural generation · zero-dependency |
 | **GitOps Cloud Infrastructure Home Lab** ([homelab](https://github.com/AntonyPerez0/homelab)) | Kubernetes · Talos Linux · FluxCD · Falco/eBPF · Tailscale |
 | **DefectPredict** — AI test-case prioritization (CS capstone) | Python · scikit-learn · FastAPI · Jenkins · Docker · PostgreSQL |
 | **WGUPS Package Routing** — Data Structures & Algorithms II | Python · custom hash table · greedy search |
