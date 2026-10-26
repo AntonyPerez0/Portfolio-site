@@ -1,0 +1,27 @@
+[
+ {
+  "shape": "Workbench",
+  "theme": "cobalt",
+  "axes": "light/grotesk-sans/cool",
+  "hero": "Corridor",
+  "nav": "masthead",
+  "footer": "letter close",
+  "imagery": "screenshots 11 (capture.mjs 6, user repos 5) + three.js compiler pipeline",
+  "photos": [],
+  "entry": "hero: 3D compiler pipeline",
+  "fingerprint": "workbench-corridor-index-showcase-ruler-statement",
+  "sections": [
+   "hero",
+   "index",
+   "showcase+mapping",
+   "ruler",
+   "statement",
+   "footer"
+  ],
+  "signature": "3D compiler pipeline, a real C program streaming from source to wasm bytes",
+  "waived": [],
+  "prompt": "software engineer portfolio, technical, 3D compiler pipeline",
+  "date": "2026-10-26",
+  "mode": "build"
+ }
+]

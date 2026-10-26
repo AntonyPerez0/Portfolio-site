@@ -1,1570 +1,252 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="theme-color" content="#0A1120" />
-<script>document.documentElement.classList.add('js')</script>
-<title>Antony Perez - Software Engineer</title>
-<meta name="description" content="Antony Perez is a software engineer in the SF Bay Area building full-stack applications and the GitOps infrastructure they ship on - Kubernetes, CI/CD, React, TypeScript." />
-<link rel="canonical" href="https://antonyperez.com/" />
-<meta property="og:url" content="https://antonyperez.com/" />
-<meta property="og:title" content="Antony Perez - Software Engineer" />
-<meta property="og:description" content="Full-stack applications and the GitOps infrastructure they ship on - Kubernetes, CI/CD, React, TypeScript. Documented. Tested. Deployed." />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Antony Perez" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:image" content="https://antonyperez.com/og-image.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Conference badge reading Antony Perez, Software Engineer, hanging from a lanyard with a green CI PASSED chip" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Antony Perez - Software Engineer" />
-<meta name="twitter:description" content="Full-stack applications and the GitOps infrastructure they ship on - Kubernetes, CI/CD, React, TypeScript. Documented. Tested. Deployed." />
-<meta name="twitter:image" content="https://antonyperez.com/og-image.png" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "dateModified": "2026-09-30",
-  "mainEntity": {
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antony Perez, software engineer</title>
+  <meta name="description" content="Antony Perez is a Bay Area software engineer who ships browser compilers, flight trainers, games and the infrastructure under them.">
+  <link rel="canonical" href="https://antonyperez.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://antonyperez.com/">
+  <meta property="og:title" content="Antony Perez, software engineer">
+  <meta property="og:description" content="Browser compilers, flight trainers, games and the infrastructure under them.">
+  <meta property="og:image" content="https://antonyperez.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f7f9fc">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles/site.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "Person",
     "name": "Antony Perez",
     "jobTitle": "Software Engineer",
-    "description": "Software engineer in the SF Bay Area building full-stack applications and the GitOps infrastructure they ship on.",
     "url": "https://antonyperez.com/",
-    "image": "https://antonyperez.com/og-image.png",
-    "worksFor": { "@type": "Organization", "name": "Clover Network" },
-    "alumniOf": [
-      { "@type": "CollegeOrUniversity", "name": "Western Governors University" },
-      { "@type": "Organization", "name": "Multiverse" }
-    ],
-    "homeLocation": {
-      "@type": "Place",
-      "address": { "@type": "PostalAddress", "addressRegion": "CA", "addressCountry": "US" }
-    },
-    "knowsAbout": [
-      "TypeScript", "JavaScript", "React", "Node.js", "Express",
-      "Python", "Java", "C++", "Rust", "SQL", "Kubernetes", "GitOps", "FluxCD",
-      "GitHub Actions", "CI/CD", "Three.js", "WebAssembly", "Electron", "Playwright"
-    ],
-    "sameAs": [
-      "https://github.com/AntonyPerez0",
-      "https://linkedin.com/in/antonyperez-swe"
-    ]
+    "email": "mailto:antonyperez0@yahoo.com",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Western Governors University" },
+    "sameAs": ["https://github.com/AntonyPerez0", "https://linkedin.com/in/antonyperez-swe"]
   }
-}
-</script>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet" />
-
-<style>
-/* ============================================================
-   DESIGN TOKENS - modern theme
-   ============================================================ */
-:root{
-  --bg:#0A1120;
-  --bg-2:#111B33;
-  --card:rgba(158,173,202,.075);
-  --card-hover:rgba(158,173,202,.13);
-  --line:rgba(158,173,202,.22);
-  --line-strong:rgba(158,173,202,.38);
-  --text:#F4F7FE;
-  --muted:#ABB8D0;
-  --faint:#8FA0BC;
-  --blue:#8FD0FF;
-  --frost:#9DDFFF;
-  --green:#3FE0C0;
-  --green-dim:rgba(79,227,168,.14);
-  --grad:linear-gradient(120deg,#6FCBFF 0%,#9DDFFF 55%,#EAF6FF 100%);
-  --display:'Bricolage Grotesque',sans-serif;
-  --body:'Inter',sans-serif;
-  --mono:'JetBrains Mono',monospace;
-  --r-lg:20px;
-  --r-md:14px;
-  --maxw:1100px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-}
-body{
-  font-family:var(--body);
-  background:var(--bg);
-  color:var(--text);
-  font-size:16px;
-  line-height:1.7;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-::selection{background:#6FCBFF;color:#0A1120}
-a{color:var(--blue);text-decoration:none}
-a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
-.skip-link{
-  position:fixed;top:-64px;left:16px;z-index:999;
-  background:var(--blue);color:#0A1120;font-weight:600;font-size:14px;
-  padding:12px 18px;border-radius:10px;transition:top .2s ease;
-}
-.skip-link:focus{top:12px}
-img,svg{display:block;max-width:100%}
-
-/* subtle film grain over everything */
-#modernSite::after{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.02 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-#modernSite{position:relative}
-#modernSite > *{position:relative;z-index:2}
-
-.wrap{max-width:var(--maxw);margin:0 auto;padding-left:28px;padding-right:28px}
-
-/* ============================================================
-   NAV - floating glass pill
-   ============================================================ */
-.nav{
-  position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:100;
-  width:min(var(--maxw),calc(100% - 32px));
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding:10px 10px 10px 22px;
-  background:rgba(17,27,51,.8);
-  border:1px solid var(--line);
-  border-radius:999px;
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-}
-.nav-logo{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--text);letter-spacing:.01em}
-.nav-logo em{color:var(--blue);font-style:normal;text-shadow:0 0 10px rgba(125,165,255,.6)}
-.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
-.nav-links a{
-  font-size:13.5px;font-weight:500;color:var(--muted);
-  padding:8px 14px;border-radius:999px;transition:color .15s,background .15s;
-}
-.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.06)}
-.nav-cta{
-  font-size:13.5px;font-weight:600;color:#0A1120!important;
-  background:var(--text);padding:9px 18px!important;border-radius:999px!important;
-  transition:background .15s!important;
-}
-.nav-cta:hover{background:#fff!important}
-@media(max-width:720px){.nav-links li.hide-m{display:none}}
-
-/* ============================================================
-   PAGE BACKGROUND - one seamless layer
-   ============================================================ */
-#modernSite > .page-bg{
-  position:absolute;top:0;left:0;right:0;height:1200px;
-  overflow:hidden;pointer-events:none;z-index:0;
-}
-.page-bg .dots{
-  position:absolute;inset:0;
-  /* ice-facet lattice: thin fracture lines forming diamond facets */
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280' viewBox='0 0 280 280'%3E%3Cg stroke='%23A8C4E8' stroke-width='1' fill='none'%3E%3Cpath d='M0 84 84 0M84 280 280 84M196 280 280 196M0 252 252 0' stroke-opacity='.16'/%3E%3Cpath d='M0 196 196 0M0 280 280 0' stroke-opacity='.09'/%3E%3C/g%3E%3Cg fill='%23CFE6FF'%3E%3Cpath d='M84 82l2.2 3.6 3.6 2.2-3.6 2.2-2.2 3.6-2.2-3.6-3.6-2.2 3.6-2.2z' fill-opacity='.10'/%3E%3Cpath d='M212 150l1.8 3 3 1.8-3 1.8-1.8 3-1.8-3-3-1.8 3-1.8z' fill-opacity='.07'/%3E%3C/g%3E%3C/svg%3E");
-  background-size:280px 280px;
-  background-position:0 0;
-  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 52%,transparent 96%);
-  mask-image:linear-gradient(180deg,#000 0%,#000 52%,transparent 96%);
-}
-.page-bg .orb{position:absolute;border-radius:50%;filter:blur(90px)}
-.page-bg .orb.a{width:560px;height:560px;background:rgba(111,203,255,.16);top:-180px;right:-120px}
-.page-bg .orb.b{width:420px;height:420px;background:rgba(143,208,255,.13);top:160px;left:-220px}
-
-/* ============================================================
-   HERO & 3D BADGE LAYOUT
-   ============================================================ */
-.hero{position:relative;padding:150px 0 72px}
-.hero-grid{
-  display:grid;grid-template-columns:1.05fr .95fr;gap:28px;
-  align-items:center;margin-bottom:60px;
-}
-@media(max-width:920px){.hero-grid{grid-template-columns:1fr;margin-bottom:36px}}
-
-.badge-wrap{
-  position:relative;height:660px;margin:-150px 0 -60px;
-  min-width:0;display:flex;align-items:flex-start;justify-content:center;
-}
-@media(max-width:920px){.badge-wrap{height:500px;margin:24px -12px 0}}
-.badge-canvas{position:absolute;inset:0;z-index:2}
-.badge-canvas canvas{touch-action:pan-y}
-.badge-hint{
-  position:absolute;bottom:38px;left:50%;transform:translateX(-50%);
-  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--faint);white-space:nowrap;pointer-events:none;z-index:3;
-  transition:opacity .4s;
-}
-/* when the live 3D badge mounts, the static one bows out */
-.badge-wrap.live .badge-static{opacity:0;transform:translateX(-50%) scale(.96);pointer-events:none}
-
-/* ---- STATIC FALLBACK BADGE (always in the HTML, zero-JS) ---- */
-.badge-static{
-  position:absolute;top:150px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;
-  transition:opacity .6s ease,transform .6s ease;z-index:1;
-  width:min(290px,70%);
-}
-@media(max-width:920px){.badge-static{top:0}}
-@media(prefers-reduced-motion:no-preference){
-  .badge-static{animation:badgeSway 6s ease-in-out infinite;transform-origin:top center}
-  @keyframes badgeSway{0%,100%{rotate:-2deg}50%{rotate:2deg}}
-}
-.badge-lanyard{
-  width:13px;height:140px;
-  background:
-    linear-gradient(90deg,transparent 36%,rgba(255,255,255,.2) 50%,transparent 64%),
-    var(--grad);
-  border-radius:3px;
-}
-@media(max-width:920px){.badge-lanyard{height:84px}}
-.badge-clip{
-  width:46px;height:14px;background:linear-gradient(#C2CCDE,#8E9AB2);
-  border-radius:4px;margin-top:-3px;box-shadow:0 2px 5px rgba(0,0,0,.4);
-}
-.badge-card{
-  width:100%;aspect-ratio:1024/1440;margin-top:-2px;
-  border-radius:18px;padding:24px 22px;
-  background:linear-gradient(160deg,#141E36,#0A101E);
-  border:1px solid #2E3C5C;position:relative;overflow:hidden;
-  box-shadow:0 34px 70px -28px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.05);
-  display:flex;flex-direction:column;
-}
-.badge-card::before{
-  content:'';position:absolute;inset:0;opacity:.6;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg stroke='%23A8C4E8' fill='none'%3E%3Cpath d='M0 42 42 0M42 140 140 42M98 140 140 98M0 126 126 0' stroke-opacity='.14'/%3E%3Cpath d='M0 98 98 0' stroke-opacity='.08'/%3E%3C/g%3E%3Cpath d='M42 41l1.8 3 3 1.8-3 1.8-1.8 3-1.8-3-3-1.8 3-1.8z' fill='%23CFE6FF' fill-opacity='.09'/%3E%3C/svg%3E");
-  background-size:140px 140px;
-}
-.badge-card::after{
-  content:'';position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--grad);
-}
-.badge-card > *{position:relative}
-.badge-slot{width:72px;height:13px;border:2px solid #3A4A70;border-radius:8px;margin:0 auto 16px}
-.badge-eyebrow{
-  font-family:var(--mono);font-size:8.5px;letter-spacing:.2em;color:var(--faint);
-  display:flex;justify-content:space-between;margin-bottom:10px;
-}
-.badge-name{
-  font-family:var(--display);font-weight:800;font-size:29px;line-height:.96;
-  letter-spacing:-.02em;color:#EDF1FA;
-}
-.badge-role{
-  font-family:var(--mono);font-size:9px;letter-spacing:.18em;margin:9px 0 14px;font-weight:600;
-  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.badge-meta{font-family:var(--mono);font-size:9.5px;line-height:2;color:#8E9AB2}
-.badge-meta b{color:#5E6A83;font-weight:500;display:inline-block;width:54px}
-.badge-foot{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
-.badge-bars{display:flex;gap:2px;align-items:flex-end;height:25px}
-.badge-bars i{width:2px;background:#D7DEF0;font-style:normal}
-.badge-ci{
-  font-family:var(--mono);font-size:8.5px;font-weight:600;color:var(--green);
-  background:var(--green-dim);border:1px solid rgba(79,227,168,.3);
-  padding:4px 9px;border-radius:999px;white-space:nowrap;
-}
-
-.hero-badge{
-  display:inline-flex;align-items:center;gap:9px;
-  font-family:var(--mono);font-size:12.5px;font-weight:500;
-  color:var(--green);background:var(--green-dim);
-  border:1px solid rgba(79,227,168,.3);
-  border-radius:999px;padding:7px 16px;margin-bottom:34px;
-}
-.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 2.4s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-.hero h1{
-  font-family:var(--display);font-weight:800;
-  font-size:clamp(46px,7.4vw,92px);
-  line-height:1.02;letter-spacing:-.03em;
-  max-width:13ch;
-  margin-bottom:28px;
-}
-.hero h1 .grad{
-  background:var(--grad);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.hero .sub{
-  font-size:clamp(16.5px,1.9vw,19px);color:var(--muted);
-  max-width:600px;margin-bottom:40px;
-}
-.hero .sub strong{color:var(--text);font-weight:600}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
-.btn{
-  font-family:var(--body);font-size:14.5px;font-weight:600;
-  padding:14px 26px;border-radius:12px;border:none;cursor:pointer;
-  display:inline-flex;align-items:center;gap:9px;
-  transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease;
-}
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{
-  background:var(--grad);color:#0A1120!important;
-  box-shadow:0 8px 28px -8px rgba(110,120,255,.55);
-}
-.btn-primary:hover{box-shadow:0 14px 36px -8px rgba(110,120,255,.7)}
-.btn-ghost{
-  background:transparent;color:var(--text)!important;
-  border:1px solid var(--line-strong);
-}
-.btn-ghost:hover{border-color:var(--text);background:rgba(255,255,255,.04)}
-
-/* terminal card */
-.term{
-  background:linear-gradient(180deg,rgba(19,31,58,.92),rgba(13,21,42,.92));
-  border:1px solid var(--line);
-  border-radius:var(--r-lg);
-  overflow:hidden;
-  max-width:720px;
-  box-shadow:0 40px 80px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(125,165,255,.06);
-  position:relative;
-}
-.term::before{
-  content:'';position:absolute;inset:0;border-radius:var(--r-lg);padding:1px;
-  background:linear-gradient(135deg,rgba(111,203,255,.35),transparent 40%,transparent 60%,rgba(234,246,255,.22));
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  pointer-events:none;
-}
-.term-bar{
-  display:flex;align-items:center;gap:7px;padding:13px 18px;
-  border-bottom:1px solid var(--line);
-}
-.term-bar span{width:11px;height:11px;border-radius:50%}
-.term-bar .r{background:#FF5F57}.term-bar .y{background:#FEBC2E}.term-bar .g{background:#28C840}
-.term-bar .title{
-  font-family:var(--mono);font-size:12px;color:var(--faint);margin-left:10px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;
-}
-.term-body{
-  padding:22px 24px;font-family:var(--mono);font-size:13.5px;line-height:1.95;
-  color:#A9B6CE;overflow-x:auto;
-}
-.term-body .row{white-space:nowrap}
-.term-body .p{color:var(--green)}
-.term-body .c{color:var(--faint)}
-.term-body .k{color:var(--blue)}
-.term-body .ok{color:var(--green);font-weight:600}
-.term-step{
-  display:flex;align-items:baseline;gap:12px;
-  white-space:nowrap;padding-left:1.5ch;
-}
-.term-step .lbl{color:var(--faint)}
-.term-step .lead{flex:1;border-bottom:1px dotted #2C3A55;transform:translateY(-4px);min-width:24px}
-.term-step .res{color:var(--green);font-weight:600}
-.term-body .cursor{animation:blink 1.1s steps(2,start) infinite}
-@keyframes blink{50%{opacity:0}}
-
-/* ============================================================
-   BENTO HIGHLIGHTS
-   ============================================================ */
-.bento{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
-  padding:8px 0 0;
-}
-@media(max-width:920px){.bento{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.bento{grid-template-columns:1fr}}
-.bento-card{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:28px 26px;position:relative;overflow:hidden;
-  transition:border-color .2s,background .2s,transform .2s;
-}
-.bento-card:hover{border-color:var(--line-strong);background:var(--card-hover);transform:translateY(-3px)}
-.bento-card .big{
-  font-family:var(--display);font-weight:800;font-size:44px;
-  letter-spacing:-.02em;line-height:1.05;margin-bottom:8px;
-}
-.bento-card .big.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.bento-card .big.green{color:var(--green)}
-.bento-card p{font-size:13.5px;color:var(--muted);line-height:1.6}
-.bento-card .eyebrow{
-  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--faint);margin-bottom:18px;
-}
-
-/* ============================================================
-   SECTIONS
-   ============================================================ */
-section{padding:64px 0 0}
-.sec-head{margin-bottom:36px;max-width:640px}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:9px;
-  font-family:var(--mono);font-size:12px;font-weight:500;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--blue);
-  margin-bottom:16px;
-}
-.eyebrow::before{content:'';width:22px;height:1px;background:var(--blue)}
-.eyebrow .check{color:var(--blue);letter-spacing:0;text-transform:none}
-.sec-head h2{
-  font-family:var(--display);font-weight:800;
-  font-size:clamp(32px,4.6vw,52px);letter-spacing:-.025em;line-height:1.08;
-}
-.sec-head .lede{color:var(--muted);margin-top:16px;font-size:16.5px}
-</style>
-<style>
-/* ============================================================
-   ABOUT
-   ============================================================ */
-.about-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:48px;align-items:start}
-@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
-.about p{margin-bottom:20px;color:#CDD6E9;font-size:16.5px}
-.about p strong{color:var(--text)}
-.about p .hl{color:var(--blue);font-weight:600}
-.fact-card{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;
-}
-.fact-card h3{
-  font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--faint);margin-bottom:18px;
-}
-.fact{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
-.fact:last-child{border-bottom:none}
-.fact .k{color:var(--muted)}
-.fact .v{font-weight:600;text-align:right;color:var(--text)}
-.fact .v.green{color:var(--green)}
-
-/* ============================================================
-   EXPERIENCE - gradient timeline
-   ============================================================ */
-.timeline{position:relative;padding-left:42px}
-.timeline::before{
-  content:'';position:absolute;left:9px;top:8px;bottom:8px;width:2px;
-  background:linear-gradient(180deg,var(--blue),var(--frost) 60%,transparent);
-  border-radius:2px;
-}
-@media(max-width:560px){.timeline{padding-left:32px}}
-.job{position:relative;padding-bottom:56px}
-.job:last-child{padding-bottom:0}
-.job::before{
-  content:'';position:absolute;left:-42px;top:7px;width:20px;height:20px;border-radius:50%;
-  background:var(--bg);border:2px solid var(--blue);
-  box-shadow:0 0 0 5px rgba(111,203,255,.14);
-}
-@media(max-width:560px){.job::before{left:-32px;width:16px;height:16px}}
-.job-head{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:baseline}
-.job-head h3{font-family:var(--display);font-weight:700;font-size:25px;letter-spacing:-.015em}
-.job-when{
-  font-family:var(--mono);font-size:12.5px;color:var(--muted);
-  border:1px solid var(--line);border-radius:999px;padding:5px 14px;white-space:nowrap;
-}
-.job-when.now{color:var(--green);border-color:rgba(79,227,168,.35);background:var(--green-dim)}
-.job-org{font-size:14.5px;color:var(--blue);font-weight:600;margin:6px 0 20px}
-.job-org span{color:var(--faint);font-weight:400}
-.job ul{list-style:none}
-.job li{
-  position:relative;padding-left:24px;margin-bottom:12px;color:#C3CDE2;font-size:15.5px;
-}
-.job li::before{
-  content:'';position:absolute;left:2px;top:.62em;width:7px;height:7px;
-  border-radius:2px;background:var(--grad);transform:rotate(45deg);
-}
-.job li strong{color:var(--text);font-weight:600}
-
-/* ============================================================
-   PROJECTS
-   ============================================================ */
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:860px){.proj-grid{grid-template-columns:1fr}}
-.proj{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:28px 26px;display:flex;flex-direction:column;position:relative;overflow:hidden;
-  transition:border-color .2s,background .2s,transform .2s,box-shadow .2s;
-}
-.proj::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:var(--grad);opacity:.65;
-}
-.proj:hover{
-  border-color:var(--line-strong);background:var(--card-hover);
-  transform:translateY(-4px);
-  box-shadow:0 24px 48px -24px rgba(0,0,0,.7);
-}
-.proj-icon{
-  width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
-  background:rgba(125,165,255,.12);border:1px solid rgba(125,165,255,.25);
-  font-size:21px;margin-bottom:22px;
-}
-.proj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
-.proj h3{font-family:var(--display);font-weight:700;font-size:23px;letter-spacing:-.015em}
-.proj .link{font-family:var(--mono);font-size:12.5px;white-space:nowrap;color:var(--muted);transition:color .15s}
-.proj .link:hover{color:var(--blue)}
-.proj > p{color:var(--muted);font-size:15px;margin-bottom:14px}
-.proj ul{list-style:none;margin-bottom:16px}
-.proj li{position:relative;padding-left:24px;margin-bottom:8px;color:#C3CDE2;font-size:14.5px}
-/* compact strip for coursework / smaller builds */
-.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}
-@media(max-width:860px){.mini-grid{grid-template-columns:1fr}}
-.mini-grid + .tags{margin-top:18px}
-.mini{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:5px}
-.mini b{font-family:var(--display);font-weight:700;font-size:15px;color:var(--text);letter-spacing:-.01em}
-.mini span{color:var(--muted);font-size:13px;line-height:1.6}
-.mini a{font-family:var(--mono);font-size:12px;color:var(--blue);white-space:nowrap;width:max-content}
-.mini a:hover{text-decoration:underline}
-.proj li::before{
-  content:'';position:absolute;left:2px;top:.6em;width:7px;height:7px;
-  border-radius:2px;background:var(--grad);transform:rotate(45deg);
-}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
-.tag{
-  font-family:var(--mono);font-size:11.5px;font-weight:500;
-  background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--muted);
-  padding:5px 12px;border-radius:999px;
-}
-
-/* ============================================================
-   SKILLS
-   ============================================================ */
-.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media(max-width:860px){.skill-grid{grid-template-columns:1fr}}
-.skill-col{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 28px;
-  transition:border-color .2s,background .2s;
-}
-.skill-col:hover{border-color:var(--line-strong);background:var(--card-hover)}
-.skill-col h3{
-  font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--muted);margin-bottom:20px;
-  display:flex;align-items:center;gap:10px;
-}
-.skill-col h3 i{width:9px;height:9px;border-radius:3px;background:var(--blue);font-style:normal}
-.skill-col.k2 h3 i{background:var(--frost)}
-.skill-col.k3 h3 i{background:var(--green)}
-.skill-col ul{list-style:none;display:flex;flex-wrap:wrap;gap:9px}
-.skill-col li{
-  font-family:var(--mono);font-size:13px;
-  background:rgba(255,255,255,.04);border:1px solid var(--line);
-  padding:7px 14px;border-radius:10px;color:#CDD6E9;
-  transition:border-color .15s,color .15s;
-}
-.skill-col li:hover{border-color:var(--line-strong);color:var(--text)}
-
-/* ============================================================
-   EDUCATION
-   ============================================================ */
-.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media(max-width:860px){.edu-grid{grid-template-columns:1fr}}
-.edu{
-  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 28px;
-  transition:border-color .2s,background .2s,transform .2s;
-}
-.edu:hover{border-color:var(--line-strong);background:var(--card-hover);transform:translateY(-3px)}
-.edu .when{font-family:var(--mono);font-size:12px;color:var(--faint);margin-bottom:14px}
-.edu h3{font-family:var(--display);font-weight:700;font-size:19px;margin-bottom:6px;letter-spacing:-.01em}
-.edu p{font-size:14px;color:var(--muted)}
-.edu .badge{
-  display:inline-block;margin-top:16px;font-family:var(--mono);font-size:11px;font-weight:500;
-  letter-spacing:.08em;text-transform:uppercase;
-  color:var(--blue);background:rgba(125,165,255,.1);
-  border:1px solid rgba(125,165,255,.25);
-  padding:5px 12px;border-radius:999px;
-}
-.edu .badge.green{color:var(--green);background:var(--green-dim);border-color:rgba(79,227,168,.3)}
-
-/* ============================================================
-   CONTACT
-   ============================================================ */
-.contact-card{
-  position:relative;overflow:hidden;
-  background:var(--bg-2);
-  border:1px solid var(--line);
-  border-radius:28px;
-  padding:clamp(36px,5vw,60px) clamp(28px,6vw,72px);
-  text-align:center;
-}
-.contact-card::before{
-  content:'';position:absolute;inset:-40%;
-  background:
-    radial-gradient(circle at 25% 20%,rgba(125,165,255,.18),transparent 42%),
-    radial-gradient(circle at 78% 85%,rgba(143,208,255,.14),transparent 42%);
-  pointer-events:none;
-}
-.contact-card > *{position:relative}
-.contact-card h2{
-  font-family:var(--display);font-weight:800;
-  font-size:clamp(34px,5.4vw,58px);letter-spacing:-.025em;line-height:1.06;
-  margin-bottom:18px;
-}
-.contact-card h2 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.contact-card .lede{color:var(--muted);max-width:520px;margin:0 auto 28px;font-size:16.5px}
-.contact-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.copy-hint{font-family:var(--mono);font-size:12.5px;color:var(--green);margin-top:22px;min-height:18px}
-
-/* ============================================================
-   FOOTER + TIME MACHINE
-   ============================================================ */
-footer{padding:40px 0 52px;text-align:center}
-.foot-line{font-family:var(--mono);font-size:12.5px;color:var(--faint);margin-bottom:22px}
-.foot-line a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
-.timewarp{
-  font-family:var(--mono);font-size:12.5px;cursor:pointer;
-  background:transparent;border:1px dashed var(--line-strong);color:var(--muted);
-  padding:11px 22px;border-radius:999px;
-  transition:all .25s ease;
-}
-.timewarp:hover{
-  border-color:#6FCBFF;color:#BFE0FF;border-style:solid;
-  box-shadow:0 0 24px rgba(111,203,255,.4);
-  transform:rotate(-1.2deg) scale(1.05);
-}
-
-/* scroll reveal */
-html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
-html.js .reveal.in{opacity:1;transform:none}
-/* keyboard focus inside an unrevealed section must never land on invisible content */
-html.js .reveal:focus-within{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){html.js .reveal{opacity:1;transform:none}}
-
-/* scrollbar */
-::-webkit-scrollbar{width:11px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:#1E2C4A;border-radius:6px;border:3px solid var(--bg)}
-::-webkit-scrollbar-thumb:hover{background:#2C3D63}
-</style>
-<style>
-/* ============================================================
-   ❄ ANTONY III — THE FROZEN PORTFOLIO ❄
-   A Warcraft III-style main-menu easter egg. Lives in its own
-   #frozenSite container, hidden by default. Every asset here is
-   hand-made CSS/SVG/Three.js — no Blizzard assets anywhere.
-   ============================================================ */
-#frozenSite{display:none}
-body.frozen #modernSite{display:none}
-body.frozen #frozenSite{display:block}
-body.frozen{background:#6F849B}
-body.frozen .progress{display:none}
-
-#frozenSite{position:fixed;inset:0;z-index:200;overflow:auto}
-.fs-stage{position:absolute;inset:0;overflow:hidden}
-
-/* ---- static fallback scene (used when WebGL is off or reduced motion) ---- */
-.fs-sky{position:absolute;inset:0;
-  background:linear-gradient(180deg,#C9D4E0 0%,#B4C4D4 38%,#93A9BE 66%,#6F849B 100%);
-}
-.fs-sun{position:absolute;top:4%;left:36%;width:52vmin;height:52vmin;transform:translateX(-50%);
-  background:radial-gradient(circle,rgba(255,255,255,.95) 0%,rgba(214,230,250,.5) 22%,rgba(160,190,225,.16) 48%,transparent 70%);}
-.fs-spire{position:absolute;bottom:16%;left:36%;width:30vmin;height:62vmin;transform:translateX(-50%);
-  background:linear-gradient(180deg,#E8F0F8 0%,#AFC2D4 55%,#7E93A9 100%);
-  clip-path:polygon(50% 0%,62% 7%,57% 18%,68% 26%,60% 36%,72% 46%,62% 58%,74% 68%,60% 80%,72% 90%,58% 100%,42% 100%,30% 90%,40% 80%,26% 68%,38% 58%,28% 46%,40% 36%,30% 26%,41% 18%,36% 7%);
-  opacity:.92;}
-.fs-spike{position:absolute;bottom:15%;width:7vmin;
-  background:linear-gradient(180deg,#BFD2E2,#7E93A9);
-  clip-path:polygon(50% 0%,100% 100%,0% 100%);}
-.fs-spike.s1{left:14%;height:26vmin;transform:rotate(-4deg)}
-.fs-spike.s2{left:25%;height:15vmin;transform:rotate(3deg)}
-.fs-spike.s3{left:56%;height:21vmin;transform:rotate(-3deg)}
-.fs-spike.s4{left:66%;height:13vmin;transform:rotate(5deg)}
-.fs-spike.s5{left:7%;height:11vmin}
-.fs-mist{position:absolute;left:0;right:0;bottom:0;height:34%;
-  background:linear-gradient(180deg,transparent,rgba(214,226,238,.7) 55%,rgba(160,180,200,.92));}
-#frozenBg{position:absolute;inset:0;z-index:1}
-/* cinematic vignette + cool grade, under the UI */
-#frozenSite::after{
-  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:
-    radial-gradient(130% 125% at 40% 34%, transparent 42%, rgba(8,14,26,.46) 100%),
-    linear-gradient(180deg, rgba(28,42,74,.12), transparent 30%, transparent 72%, rgba(9,16,30,.22));
-}
-
-/* ---- logo (parody, gold on a storm-dark plaque) ---- */
-.fs-logo{position:absolute;top:4.5vh;left:3.5vw;z-index:5;margin:0;padding:22px 34px 18px;border-radius:12px;
-  background:radial-gradient(130% 130% at 30% 15%,rgba(14,24,50,.72),rgba(14,24,50,.34) 62%,transparent 88%);}
-.fs-logo-ice{position:absolute;left:50%;top:-18px;transform:translateX(-50%);z-index:-1;
-  font-family:'Cinzel',serif;font-weight:800;font-size:clamp(110px,15vw,168px);line-height:1;letter-spacing:.02em;
-  background:linear-gradient(180deg,#FFFFFF 0%,#DCEBFB 26%,#9FC2E6 55%,#4E7BAA 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 0 3px #2E639C) drop-shadow(0 0 6px #2E639C) drop-shadow(0 3px 7px rgba(8,16,38,.7)) drop-shadow(0 0 18px rgba(140,185,240,.6));
-  user-select:none;}
-.fs-logo-title{position:relative;margin:0;
-  font-family:'Cinzel',serif;font-weight:800;font-size:clamp(44px,6.4vw,76px);line-height:.95;letter-spacing:.01em;
-  background:linear-gradient(180deg,#FFF3C4 0%,#FFD75E 30%,#F0B429 52%,#B97E14 74%,#8A5A0C 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 1px 0 #14243F) drop-shadow(0 2px 0 #0E1B33) drop-shadow(0 5px 10px rgba(6,12,28,.9)) drop-shadow(0 0 26px rgba(255,196,64,.28));}
-.fs-logo-sub{position:relative;margin:10px 0 0;font-family:'Cinzel',serif;font-weight:700;font-size:clamp(11px,1.5vw,16px);letter-spacing:.3em;color:#BFE0FF;
-  text-shadow:0 1px 3px rgba(8,16,38,.95),0 0 12px rgba(125,165,255,.45);}
-
-/* ---- the metal menu panel ---- */
-.fs-menu,.fs-quit{position:absolute;z-index:6}
-.fs-menu{top:13vh;right:3.5vw;width:min(430px,92vw)}
-.fs-quit{bottom:10vh;right:3.5vw;width:min(430px,92vw)}
-.fs-chain-svg{position:absolute;bottom:calc(100% - 5px);width:48px;height:190px;z-index:1}
-.fs-chain-svg.c1{left:14%}
-.fs-chain-svg.c2{left:70%}
-.fs-chain.c1{left:16%}
-.fs-chain.c2{left:70%}
-.fs-menu-in{position:relative;padding:30px 26px;border-radius:10px;
-  background:
-    repeating-linear-gradient(94deg, rgba(255,255,255,.045) 0 2px, rgba(0,0,0,0) 2px 7px),
-    repeating-linear-gradient(88deg, rgba(0,0,0,.12) 0 3px, rgba(0,0,0,0) 3px 9px),
-    linear-gradient(168deg,#464B54 0%,#2C3037 48%,#191C22 100%);
-  border:3px solid #0D1015;
-  box-shadow:
-    inset 0 0 0 2px #5A606A,
-    inset 0 0 0 7px #1D2127,
-    inset 0 0 0 9px #52586299,
-    inset 0 2px 0 rgba(255,255,255,.16),
-    inset 0 -16px 32px rgba(0,0,0,.55),
-    0 24px 60px rgba(4,9,20,.65);
-}
-/* rivet studs along every edge */
-.fs-menu-in::before{
-  content:'';position:absolute;inset:3px;border-radius:7px;pointer-events:none;z-index:1;
-  --stud: radial-gradient(circle 3.5px at 50% 42%, #C6CDD8 0%, #7A828F 46%, #262A31 74%, transparent 80%);
-  background-image:var(--stud),var(--stud),var(--stud),var(--stud);
-  background-size:44px 13px, 44px 13px, 13px 44px, 13px 44px;
-  background-repeat:repeat-x, repeat-x, repeat-y, repeat-y;
-  background-position:8px 2px, 8px calc(100% - 2px), 2px 8px, calc(100% - 2px) 8px;
-}
-/* heavy corner bolts */
-.fs-menu-in::after{
-  content:'';position:absolute;inset:0;border-radius:10px;pointer-events:none;z-index:1;
-  --bolt: radial-gradient(circle 6px at 50% 44%, #C6CDD8 0%, #7A828F 48%, #14171D 76%, transparent 82%);
-  background-image:var(--bolt),var(--bolt),var(--bolt),var(--bolt);
-  background-size:34px 34px, 34px 34px, 34px 34px, 34px 34px;
-  background-repeat:no-repeat;
-  background-position:4px 4px, calc(100% - 4px) 4px, 4px calc(100% - 4px), calc(100% - 4px) calc(100% - 4px);
-}
-.fs-btnrow{position:relative;z-index:2;margin:0 0 18px 30px}
-.fs-btnrow:last-child{margin-bottom:0}
-.fs-btnrow::before{content:'';position:absolute;left:-21px;top:50%;transform:translateY(-50%);
-  border:9px solid transparent;border-right-color:#565C66;filter:drop-shadow(0 1px 1px rgba(0,0,0,.6));}
-.fs-btnrow.withmag{display:flex;gap:10px}
-.fs-btnrow.withmag .fs-btn{flex:1}
-.fs-btn{
-  display:block;width:100%;height:46px;border-radius:5px;cursor:pointer;padding:0 12px;
-  border:1px solid #06080F;
-  background:linear-gradient(180deg,#2E49C4 0%,#1A2A94 45%,#0F185E 100%);
-  box-shadow:
-    0 0 0 3px #3A4049,
-    0 0 0 5px #0C0F14,
-    inset 0 2px 0 rgba(190,210,255,.4),
-    inset 0 -9px 15px rgba(2,4,18,.6),
-    0 4px 8px rgba(4,8,18,.55);
-  color:#F6C945;font-family:'Cinzel',serif;font-weight:700;font-size:15px;letter-spacing:.08em;
-  text-shadow:0 1px 2px rgba(0,0,10,.9);
-  transition:background .15s,box-shadow .15s;
-}
-.fs-cap{color:#FFFFFF}
-.fs-btn:hover{
-  background:linear-gradient(180deg,#3D5BD8 0%,#2438B2 45%,#161F76 100%);
-  box-shadow:
-    0 0 0 3px #434955,
-    0 0 0 5px #0C0F14,
-    inset 0 2px 0 rgba(210,225,255,.5),
-    inset 0 -9px 15px rgba(2,4,18,.55),
-    0 4px 8px rgba(4,8,18,.55),
-    0 0 18px rgba(110,150,255,.5);
-}
-.fs-btn:focus-visible{outline:2px solid #F6C945;outline-offset:6px}
-.fs-mag{
-  flex:0 0 46px;height:46px;border-radius:5px;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  border:1px solid #06080F;padding:0;font-size:17px;
-  background:linear-gradient(180deg,#2439AC 0%,#15227E 45%,#0C1354 100%);
-  box-shadow:
-    0 0 0 3px #3A4049,
-    0 0 0 5px #0C0F14,
-    inset 0 2px 0 rgba(190,210,255,.4),
-    inset 0 -9px 15px rgba(2,4,18,.6),
-    0 4px 8px rgba(4,8,18,.55);
-  color:#CFE0FF;text-shadow:0 1px 2px rgba(0,0,10,.9);transition:background .15s,box-shadow .15s;
-}
-.fs-mag:hover{background:linear-gradient(180deg,#3350CC 0%,#1F2FA0 45%,#121A6A 100%);box-shadow:0 0 0 3px #434955,0 0 0 5px #0C0F14,inset 0 2px 0 rgba(210,225,255,.5),inset 0 -9px 15px rgba(2,4,18,.55),0 0 18px rgba(110,150,255,.5)}
-.fs-mag:focus-visible{outline:2px solid #F6C945;outline-offset:6px}
-.fs-quit .fs-menu-in{padding:22px 26px}
-.fs-version{
-  position:absolute;right:3.5vw;bottom:2.5vh;z-index:6;margin:0;max-width:92vw;
-  font-family:var(--mono);font-size:11px;line-height:1.6;color:#DCE5F2;
-  background:rgba(9,13,21,.74);padding:7px 11px;border-radius:6px;border:1px solid rgba(255,255,255,.14);
-}
-
-/* ---- sub-screens (About Me / Campaign Missions / etc.) ---- */
-.fs-sub{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:22px}
-.fs-sub[hidden]{display:none}
-.fs-sub-backdrop{position:absolute;inset:0;background:rgba(5,9,17,.72);backdrop-filter:blur(3px)}
-.fs-sub-panel{position:relative;width:min(780px,94vw);max-height:min(84vh,780px);display:flex;flex-direction:column;border-radius:10px;
-  background:linear-gradient(165deg,#3E434C 0%,#262A31 45%,#191C23 100%);
-  border:2px solid #5A606A;
-  box-shadow:0 30px 90px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.12);}
-.fs-sub-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.09)}
-.fs-sub-head h2{margin:0;font-family:'Cinzel',serif;font-weight:700;font-size:20px;letter-spacing:.12em;color:#F6C945;text-shadow:0 1px 2px rgba(0,0,10,.9)}
-.fs-x{width:34px;height:34px;border-radius:5px;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  border:1px solid #05080F;background:linear-gradient(180deg,#3452D6,#1E30A6 45%,#111C6E);
-  color:#F6C945;font-size:14px;text-shadow:0 1px 2px rgba(0,0,10,.9);transition:background .15s}
-.fs-x:hover{background:linear-gradient(180deg,#4664EC,#2A3FC4 45%,#1A2684)}
-.fs-x:focus-visible{outline:2px solid #F6C945;outline-offset:3px}
-.fs-sub-body{overflow:auto;padding:20px 22px;margin:12px 14px;border-radius:6px;
-  background:rgba(8,12,20,.6);border:1px solid rgba(255,255,255,.09)}
-.fs-sub-foot{padding:6px 14px 16px;display:flex;justify-content:center}
-.fs-sub-foot .fs-btn{width:220px}
-.fs-sub-body::-webkit-scrollbar{width:10px}
-.fs-sub-body::-webkit-scrollbar-thumb{background:#2C3340;border-radius:6px;border:2px solid #10141C}
-
-/* ---- sub-screen content ---- */
-.fs-h3{font-family:'Cinzel',serif;color:#F6C945;font-size:15px;letter-spacing:.1em;margin:20px 0 8px}
-.fs-h3:first-child{margin-top:0}
-.fs-p{color:#C9D4E6;font-size:14.5px;line-height:1.75;margin:0 0 10px}
-.fs-p b{color:#ECF1FB}
-.fs-kv{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;font-size:14px;color:#C9D4E6;margin:0 0 10px}
-.fs-kv dt{color:#8FA0BC;font-family:var(--mono);font-size:12.5px;padding-top:2px;white-space:nowrap}
-.fs-kv dd{margin:0}
-.fs-row{display:flex;align-items:baseline;gap:12px;padding:10px 2px;border-bottom:1px solid rgba(255,255,255,.08)}
-.fs-row:last-child{border-bottom:0}
-.fs-row .nm{font-family:'Cinzel',serif;color:#F6C945;font-size:14px;white-space:nowrap;text-shadow:0 1px 2px rgba(0,0,10,.8)}
-.fs-row .dsc{color:#AAB8CE;font-size:13px;flex:1;min-width:0}
-.fs-row a{color:#9CC4FF;font-size:13px;white-space:nowrap;text-decoration:none}
-.fs-row a:hover{text-decoration:underline}
-.fs-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.fs-col h4{margin:0 0 6px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:#9CC4FF;text-transform:uppercase}
-.fs-col ul{list-style:none;margin:0;padding:0}
-.fs-col li{color:#C9D4E6;font-size:13.5px;padding:3px 0}
-.fs-chipbtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
-.fs-chipbtns a{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 16px;border-radius:5px;text-decoration:none;
-  border:1px solid #05080F;background:linear-gradient(180deg,#3452D6,#1E30A6 45%,#111C6E);
-  color:#F6C945;font-family:'Cinzel',serif;font-weight:700;font-size:13px;letter-spacing:.06em;text-shadow:0 1px 2px rgba(0,0,10,.9)}
-.fs-chipbtns a:hover{background:linear-gradient(180deg,#4664EC,#2A3FC4 45%,#1A2684)}
-.fs-note{color:#8FA0BC;font-size:12.5px;font-style:italic;line-height:1.7}
-
-@media(max-width:760px){
-  .fs-logo{position:static;margin:0;padding:18px 20px 0;border-radius:0}
-  .fs-menu,.fs-quit{position:relative;top:auto;right:auto;bottom:auto;margin:16px auto 0}
-  .fs-quit{margin-top:28px}
-  .fs-quit .fs-chain{display:none}
-  #frozenSite{padding-bottom:56px}
-  .fs-version{position:static;margin:14px auto 0;width:max-content}
-  .fs-cols{grid-template-columns:1fr}
-  .fs-row{flex-wrap:wrap}
-}
-@media (prefers-reduced-motion: reduce){
-  #frozenSite *,#frozenSite *::before,#frozenSite *::after{animation:none!important;transition:none!important}
-}
-</style>>
-<style>
-/* ============================================================
-   COMMAND PALETTE / PROGRESS / NAV POLISH
-   ============================================================ */
-.nav-k{
-  font-family:var(--mono);font-size:12px;font-weight:600;cursor:pointer;
-  color:var(--muted);background:rgba(255,255,255,.04);
-  border:1px solid var(--line);border-radius:8px;padding:6px 11px;
-  transition:color .15s,border-color .15s;
-}
-.nav-k:hover{color:var(--text);border-color:var(--line-strong)}
-.nav-links a.active{color:var(--text);background:rgba(255,255,255,.07)}
-
-.progress{
-  position:fixed;top:0;left:0;height:3px;width:0;z-index:160;
-  background:var(--grad);border-radius:0 3px 3px 0;
-  pointer-events:none;
-}
-body.frozen .progress{display:none}
-
-.palette{position:fixed;inset:0;z-index:300}
-.palette[hidden]{display:none}
-.palette-backdrop{
-  position:absolute;inset:0;background:rgba(5,8,15,.65);
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-}
-.palette-panel{
-  position:absolute;top:16vh;left:50%;transform:translateX(-50%);
-  width:min(580px,calc(100% - 32px));
-  background:rgba(17,27,51,.97);
-  border:1px solid var(--line-strong);border-radius:18px;
-  box-shadow:0 40px 90px -30px rgba(0,0,0,.9);
-  overflow:hidden;
-  font-family:var(--body);
-}
-.palette-input{
-  width:100%;background:transparent;border:none;outline:none;
-  font-family:var(--mono);font-size:15.5px;color:var(--text);
-  padding:18px 22px;border-bottom:1px solid var(--line);
-}
-.palette-input::placeholder{color:var(--faint)}
-.palette-list{list-style:none;max-height:320px;overflow-y:auto;padding:8px;margin:0}
-.palette-list li{
-  display:flex;align-items:center;gap:14px;
-  padding:11px 14px;border-radius:10px;cursor:pointer;
-  font-size:14.5px;color:#CDD6E9;
-}
-.palette-list li .ic{
-  width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
-  background:rgba(255,255,255,.05);border:1px solid var(--line);
-  font-family:var(--mono);font-size:13px;flex-shrink:0;
-}
-.palette-list li .hint{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--faint)}
-.palette-list li.sel{background:rgba(125,165,255,.13);color:var(--text)}
-.palette-list li.sel .ic{border-color:rgba(111,203,255,.4)}
-.palette-empty{padding:22px;text-align:center;font-family:var(--mono);font-size:13px;color:var(--faint)}
-.palette-foot{
-  display:flex;gap:18px;justify-content:flex-end;
-  padding:10px 18px;border-top:1px solid var(--line);
-  font-family:var(--mono);font-size:11px;color:var(--faint);
-}
-.proj-wide{grid-column:1/-1}
-.proj code{font-family:var(--mono);font-size:.86em;background:rgba(255,255,255,.10);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:#CDD6E9}
-.proj-links{display:flex;gap:14px;flex-shrink:0}
-.proj > p strong{color:var(--text);font-weight:600}
-</style>
+  </script>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-<a class="skip-link" href="#top">Skip to content</a>
-<div id="modernSite">
-
-<div class="page-bg" aria-hidden="true">
-  <div class="dots"></div>
-  <div class="orb a"></div>
-  <div class="orb b"></div>
-</div>
-
-<nav class="nav" aria-label="Main">
-  <a class="nav-logo" href="#top"><em>❄</em>&nbsp; antony.perez</a>
-  <ul class="nav-links">
-    <li class="hide-m"><a href="#about">About</a></li>
-    <li class="hide-m"><a href="#experience">Experience</a></li>
-    <li class="hide-m"><a href="#projects">Projects</a></li>
-    <li class="hide-m"><a href="#skills">Skills</a></li>
-    <li><button class="nav-k" id="navCmdK" type="button" aria-label="Open command palette" aria-haspopup="dialog" aria-controls="palette" aria-expanded="false">⌘K</button></li>
-    <li><a class="nav-cta" href="#contact">Get in touch</a></li>
-  </ul>
-</nav>
-
-<main id="top">
-  <header class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-text">
-        <div class="hero-badge"><span class="dot"></span>Open to software engineering roles</div>
-        <h1>Engineered. Tested. <span class="grad">Deployed.</span></h1>
-        <p class="sub">I'm <strong>Antony Perez</strong> - a software engineer in the SF Bay Area. I build full-stack applications and the <strong>GitOps infrastructure they ship on</strong>, with a CI pipeline proving every commit.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">View my work</a>
-          <a class="btn btn-ghost" href="resume.pdf" download>↓ Download résumé</a>
-        </div>
-      </div>
-      
-      <div class="badge-wrap" id="badgeWrap" aria-hidden="true">
-        <div class="badge-static" aria-hidden="true">
-          <div class="badge-lanyard"></div>
-          <div class="badge-clip"></div>
-          <div class="badge-card">
-            <div class="badge-slot"></div>
-            <div class="badge-eyebrow"><span>ACCESS // ENGINEERING</span><span>'26</span></div>
-            <div class="badge-name">ANTONY<br>PEREZ</div>
-            <div class="badge-role">SOFTWARE ENGINEER</div>
-            <div class="badge-meta">
-              <div><b>stack</b>k8s · react · ts · CI/CD</div>
-              <div><b>repo</b>AntonyPerez0</div>
-              <div><b>degree</b>b.s. cs — 2026</div>
-            </div>
-            <div class="badge-foot">
-              <div class="badge-bars"><i style="height:24px"></i><i style="height:11px"></i><i style="height:21px"></i><i style="height:8px"></i><i style="height:17px"></i><i style="height:24px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:25px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:12px"></i><i style="height:18px"></i></div>
-              <span class="badge-ci">✓ CI PASSED</span>
-            </div>
-          </div>
-        </div>
-        <div id="badge3d" class="badge-canvas"></div>
-        <div class="badge-hint" id="badgeHint"></div>
-      </div>
-      
-    </div>
-
-    <div class="wrap">
-      <div class="term" role="img" aria-label="Terminal showing a passing CI pipeline for Antony Perez">
-        <div class="term-bar"><span class="r"></span><span class="y"></span><span class="g"></span><span class="title">antony@portfolio - ci</span></div>
-        <div class="term-body" role="region" aria-label="CI pipeline output" tabindex="0">
-          <div class="row"><span class="p">❯</span> git log --oneline -3</div>
-          <div class="row"><span class="k">a3f9c12</span> feat: 3D physics badge - react-three-fiber + rapier</div>
-          <div class="row"><span class="k">7be04dd</span> feat: DefectPredict - ML test prioritization (capstone)</div>
-          <div class="row"><span class="k">c91e2a0</span> feat: GitOps homelab - k8s + FluxCD</div>
-          <div class="row"><span class="p">❯</span> npm run pipeline</div>
-          <div class="term-step"><span class="lbl">lint</span><span class="lead"></span><span class="res">✓ passed</span></div>
-          <div class="term-step"><span class="lbl">test (vitest)</span><span class="lead"></span><span class="res">✓ all suites green</span></div>
-          <div class="term-step"><span class="lbl">build</span><span class="lead"></span><span class="res">✓ passed</span></div>
-          <div class="term-step"><span class="lbl">deploy</span><span class="lead"></span><span class="res">✓ live</span></div>
-          <div class="row"><span class="p">❯</span> <span class="cursor">█</span></div>
-        </div>
-      </div>
+  <header class="mast">
+    <div class="container mast__row">
+      <nav class="mast__links" aria-label="Sections">
+        <a href="#work">Work</a>
+        <a href="#arena">Arena</a>
+        <a href="#experience">Experience</a>
+      </nav>
+      <a class="mast__mark" href="#main" aria-label="Antony Perez, back to top">Antony Perez</a>
+      <nav class="mast__links mast__links--end" aria-label="Contact">
+        <a href="./resume.pdf">Résumé</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <div class="wrap">
-    <div class="bento">
-      <div class="bento-card reveal">
-        <div class="eyebrow">CI guardrails · Clover</div>
-        <div class="big grad">95%</div>
-        <p>improvement in platform integrity from automation & verification scripts I architected with GitHub Actions</p>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__field" data-loop aria-hidden="true">
+        <canvas class="hero__canvas" id="pipeline"></canvas>
+        <ol class="hero__stages" id="stages">
+          <li>source</li>
+          <li>tokens</li>
+          <li>syntax tree</li>
+          <li>IR</li>
+          <li>wasm</li>
+        </ol>
       </div>
-      <div class="bento-card reveal">
-        <div class="eyebrow">Defect isolation · UL</div>
-        <div class="big grad">15%</div>
-        <p>reduction in product defect rates from edge-case hunting alongside systems engineers</p>
-      </div>
-      <div class="bento-card reveal">
-        <div class="eyebrow">Runs in my living room</div>
-        <div class="big">k8s</div>
-        <p>bare-metal Kubernetes homelab - GitOps-managed, self-healing, administered over a zero-trust mesh</p>
-      </div>
-      <div class="bento-card reveal">
-        <div class="eyebrow">Availability</div>
-        <div class="big green">Now</div>
-        <p>interviewing for SWE roles · B.S. Computer Science completes May 2026</p>
-      </div>
-    </div>
-  </div>
-
-  <section id="about" class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">01 - About <span class="check">❄</span></div>
-      <h2>Engineer first.<br>Writer when it counts.</h2>
-    </div>
-    <div class="about-grid">
-      <div class="about reveal">
-        <p>I build software end to end: <strong>the application, the tests that verify it, and the pipeline that ships it.</strong></p>
-        <p>At <span class="hl">Clover Network</span> I work embedded with Agile engineering squads, building GitHub Actions automation, CI guardrails, and API integrations for mobile SDKs and e-commerce modules. At home I run a <span class="hl">bare-metal Kubernetes cluster</span> with full GitOps deployment - Talos Linux, FluxCD, zero-trust networking - because the fastest way to understand infrastructure is to be the one paged when it breaks. This very page is a React Three Fiber physics simulation deployed through a CI pipeline.</p>
-        <p>And the writer part? It means my PRs, commit messages, and docs are the ones engineers actually want to read. I finish my <strong>B.S. in Computer Science in May 2026</strong> and I'm looking for a team that values tested code shipped fast.</p>
-      </div>
-      <aside class="fact-card reveal">
-        <h3>// quick facts</h3>
-        <div class="fact"><span class="k">Location</span><span class="v">SF Bay Area, CA</span></div>
-        <div class="fact"><span class="k">Role today</span><span class="v">Technical Writer @ Clover</span></div>
-        <div class="fact"><span class="k">Degree</span><span class="v">B.S. CS - May 2026</span></div>
-        <div class="fact"><span class="k">Sweet spot</span><span class="v">Full-stack · CI/CD · k8s</span></div>
-        <div class="fact"><span class="k">Status</span><span class="v green">● open to roles</span></div>
-      </aside>
-    </div>
-  </section>
-
-  <section id="experience" class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">02 - Experience <span class="check">❄</span></div>
-      <h2>Where I've shipped.</h2>
-    </div>
-    <div class="timeline">
-      <article class="job reveal">
-        <div class="job-head"><h3>Technical Writer</h3><span class="job-when now">Sept 2024 - Present</span></div>
-        <div class="job-org">Clover Network, LLC <span>· Sunnyvale, CA</span></div>
-        <ul>
-          <li>Architected custom automation and verification scripts with GitHub Actions, establishing CI guardrails that <strong>improved platform integrity by 95%</strong>.</li>
-          <li>Engineered API integrations and technical documentation for mobile SDKs and core e-commerce modules, <strong>significantly accelerating engineering onboarding</strong>.</li>
-          <li>Spearheaded migration of legacy resources into <strong>git-backed architecture</strong>, enabling modern version control and high-quality peer-review workflows.</li>
-          <li>Collaborated with cross-functional Agile engineering teams to guarantee production feature accuracy and accelerate validation lifecycles.</li>
-        </ul>
-      </article>
-      <article class="job reveal">
-        <div class="job-head"><h3>Laboratory Technician</h3><span class="job-when">Apr 2022 - Sept 2024</span></div>
-        <div class="job-org">UL Solutions <span>· Fremont, CA</span></div>
-        <ul>
-          <li>Executed hardware-software interoperability safety tests and data-driven diagnostic matrices on prototype infrastructure for <strong>Tier-1 enterprise customers</strong>.</li>
-          <li>Maintained cloud-based tracking systems and digital audit logs in strict alignment with international regulatory frameworks and QA compliance.</li>
-          <li>Partnered with software and systems engineers to isolate edge-case defects, <strong>reducing product defect rates by 15%</strong>.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section id="projects" class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">03 - Projects <span class="check">❄</span></div>
-      <h2>Built, tested & running.</h2>
-      <p class="lede">Browser-native compilers, a desktop job-application agent, a live Roblox game, production infrastructure, and more - designed, shipped, and tested.</p>
-    </div>
-    <div class="proj-grid">
-      <article class="proj proj-wide reveal">
-        <div class="proj-icon">✈</div>
-        <div class="proj-top">
-          <h3>SortiePrep - DCS Cockpit Trainer</h3>
-          <span class="proj-links">
-            <a class="link" href="https://sortieprep.com/" target="_blank" rel="noopener">live ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/Interactive-F-14-startup-simulator" target="_blank" rel="noopener">github ↗</a>
-          </span>
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <h1 id="hero-title">Source in,<br> software out.</h1>
+          <p class="lead">Bay Area software engineer shipping browser compilers, flight trainers and games.</p>
+          <div class="hero__actions">
+            <a class="key key--primary" href="#work">See the work</a>
+            <a class="key" href="./resume.pdf">Résumé (PDF)</a>
+          </div>
         </div>
-        <p>A browser trainer for DCS cockpit procedures. You click the real switches on real cockpit images, and a simulated aircraft underneath decides when a checklist step is actually complete - not when you say it is. Ships the <strong>F-14B Tomcat and the F/A-18C Hornet</strong>. Live at <a href="https://sortieprep.com/" target="_blank" rel="noopener">sortieprep.com</a>, where it serves <strong>100+ monthly visitors</strong>.</p>
-        <ul>
-          <li>F-14B: 12 procedures / 274 steps across start-up, INS alignment, air-to-air, landing, and shutdown - for both the pilot and RIO seats</li>
-          <li>F/A-18C: 5 procedures / 135 steps over 179 controls, with the APU, both F404s, generators, hydraulics, bleed air and INS simulated - 109 steps confirm themselves off aircraft state</li>
-          <li>Aircraft-agnostic core (switch state machine, event bus, hotspot &amp; pan/zoom view layer) where each airframe is a data module, so new airframes drop in</li>
-          <li>Headless test suites drive every procedure to completion through the real sim, exercise failure paths (hung start, rejected CAP entry) and verify no hotspot overlaps</li>
-        </ul>
-        <div class="tags"><span class="tag">JavaScript</span><span class="tag">ES Modules</span><span class="tag">State Machines</span><span class="tag">PWA · Service Worker</span><span class="tag">Cloudflare Workers · D1</span><span class="tag">Zero-dependency</span></div>
-      </article>
+      </div>
+      <button class="hero__pause" type="button" data-loop-toggle aria-controls="pipeline">Pause</button>
+      <p class="visually-hidden">The background shows a C program streaming through a compiler, from loose source characters on the left to ordered WebAssembly bytes on the right.</p>
+    </section>
 
-      <article class="proj proj-wide reveal">
-        <div class="proj-icon">⌨</div>
-        <div class="proj-top"><h3>The Arena Family - Real Compilers in the Browser</h3></div>
-        <p>Four free, freeCodeCamp-style courses - <strong>C/C++, Java, Rust and Python</strong> - where every exercise is compiled and run for real, not pattern-matched. Each has lessons, Deathmatch drills, guided projects, and a Pro Track graded by GitHub Actions in the learner's own repository.</p>
-        <ul>
-          <li>Expected outputs are never typed by hand: the build runs every reference solution on the real toolchain, then CI replays them in the browser engine and fails on any difference</li>
-          <li>Static and serverless - no account, progress in the browser, offline once visited; WCAG 2.2 AA with axe scans of every page type and pre-rendered pages for SEO</li>
-        </ul>
-        <div class="mini-grid">
-          <div class="mini"><b>C/C++ Arena</b><span>Clang 20 compiled to WebAssembly, running on your device - 48 modules, 657 drills, and gdb-recorded memory visualizations</span><a href="https://cpparena.com" target="_blank" rel="noopener">live ↗</a></div>
-          <div class="mini"><b>Java Arena</b><span>javac 21 on Wasm GC plus a Rust JVM - 59 modules following the Helsinki MOOC, with its own JavaFX checked against OpenJFX 21</span><a href="https://javaarena.com/" target="_blank" rel="noopener">live ↗</a></div>
-          <div class="mini"><b>RustArena</b><span>The real Rust compiler grades every test in one request - 48 modules on the roadmap.sh path, test-writing graded by planted mutants</span><a href="https://rustarena.app" target="_blank" rel="noopener">live ↗</a></div>
-          <div class="mini"><b>Python Arena</b><span>CPython 3.14 via Pyodide - 65 modules from <code>print</code> to pygame, with game lessons graded frame by frame</span><a href="https://pythonarena.org" target="_blank" rel="noopener">live ↗</a></div>
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <h2 id="work-title">Things I’ve shipped</h2>
+        <div class="work__grid">
+          <ol class="index" id="index">
+            <li class="index__row" data-shot="sortieprep">
+              <h3><a href="https://sortieprep.com/">SortiePrep</a></h3>
+              <p>DCS cockpit trainer for the F-14B and F/A-18C.</p>
+              <a class="index__code" href="https://github.com/AntonyPerez0/Interactive-F-14-startup-simulator">Code</a>
+              <figure class="index__thumb" data-slot="work-sortieprep" data-kind="product" data-alt="SortiePrep's aircraft picker"><img src="./work/sortieprep-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
+            </li>
+            <li class="index__row" data-shot="autopilot">
+              <h3><a href="https://github.com/AntonyPerez0/job-autopilot-desktop/releases/latest">Job Autopilot</a></h3>
+              <p>Finds jobs and applies, using only lines you approved.</p>
+              <a class="index__code" href="https://github.com/AntonyPerez0/job-autopilot-desktop">Code</a>
+              <figure class="index__thumb" data-slot="work-autopilot" data-kind="product" data-alt="Job Autopilot's overview screen"><img src="./work/autopilot-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
+            </li>
+            <li class="index__row" data-shot="grove">
+              <h3><a href="https://www.roblox.com/games/88948987401653/Anomaly-Grove">Anomaly Grove</a></h3>
+              <p>Live Roblox tycoon in 24,000 lines of strict Luau.</p>
+              <a class="index__code" href="https://github.com/AntonyPerez0/anomaly-grove">Code</a>
+              <figure class="index__thumb" data-slot="work-grove" data-kind="product" data-alt="Anomaly Grove key art"><img src="./work/grove-800.webp" width="800" height="450" alt="" loading="lazy"></figure>
+            </li>
+            <li class="index__row" data-shot="spritespeak">
+              <h3><a href="https://antonyperez0.github.io/spritespeak/">Spritespeak</a></h3>
+              <p>Game Boy emulator that translates as you play.</p>
+              <a class="index__code" href="https://github.com/AntonyPerez0/spritespeak">Code</a>
+              <figure class="index__thumb" data-slot="work-spritespeak" data-kind="product" data-alt="Spritespeak translating a Game Boy game"><img src="./work/spritespeak-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
+            </li>
+            <li class="index__row" data-shot="homelab">
+              <h3><a href="https://github.com/AntonyPerez0/homelab">GitOps homelab</a></h3>
+              <p>Bare-metal Kubernetes on Talos, deployed by FluxCD.</p>
+              <a class="index__code" href="https://github.com/AntonyPerez0/homelab">Code</a>
+              <figure class="index__thumb" data-slot="work-homelab" data-kind="product" data-alt="The homelab's Grafana dashboard"><img src="./work/homelab-800.webp" width="800" height="819" alt="" loading="lazy"></figure>
+            </li>
+            <li class="index__row" data-shot="news">
+              <h3><a href="https://newsdash.page">News Dashboard</a></h3>
+              <p>Ambient headlines for a second monitor.</p>
+              <a class="index__code" href="https://github.com/AntonyPerez0/news-dashboard">Code</a>
+              <figure class="index__thumb" data-slot="work-news" data-kind="product" data-alt="News Dashboard's headline grid"><img src="./work/news-800.webp" width="800" height="450" alt="" loading="lazy"></figure>
+            </li>
+            <li class="index__row" data-shot="buildforge">
+              <h3><a href="https://antonyperez0.github.io/buildforge/">BuildForge</a></h3>
+              <p>Offline build guides for Diablo IV and WoW.</p>
+              <a class="index__code" href="https://github.com/AntonyPerez0/buildforge">Code</a>
+              <figure class="index__thumb" data-slot="work-buildforge" data-kind="product" data-alt="BuildForge's game picker"><img src="./work/buildforge-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
+            </li>
+            <li class="index__row" data-shot="baseline">
+              <h3><a href="https://antonyperez0.github.io/baseline-control/">Baseline Control</a></h3>
+              <p>Configuration management simulator built on EIA-649.</p>
+              <a class="index__code" href="https://github.com/AntonyPerez0/baseline-control">Code</a>
+              <figure class="index__thumb" data-slot="work-baseline" data-kind="product" data-alt="A change package audit in Baseline Control"><img src="./work/baseline-800.webp" width="800" height="549" alt="" loading="lazy"></figure>
+            </li>
+          </ol>
+
+          <div class="preview" aria-hidden="true">
+            <div class="preview__stack" id="preview">
+              <figure class="preview__shot is-on" data-shot="sortieprep" data-slot="shot-sortieprep" data-kind="product"><img src="./work/sortieprep-1600.webp" srcset="./work/sortieprep-800.webp 800w, ./work/sortieprep-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="1000" alt="" loading="lazy"></figure>
+              <figure class="preview__shot" data-shot="autopilot" data-slot="shot-autopilot" data-kind="product"><img src="./work/autopilot-1600.webp" srcset="./work/autopilot-800.webp 800w, ./work/autopilot-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="1000" alt="" loading="lazy"></figure>
+              <figure class="preview__shot" data-shot="grove" data-slot="shot-grove" data-kind="product"><img src="./work/grove-1600.webp" srcset="./work/grove-800.webp 800w, ./work/grove-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="900" alt="" loading="lazy"></figure>
+              <figure class="preview__shot" data-shot="spritespeak" data-slot="shot-spritespeak" data-kind="product"><img src="./work/spritespeak-1600.webp" srcset="./work/spritespeak-800.webp 800w, ./work/spritespeak-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="1000" alt="" loading="lazy"></figure>
+              <figure class="preview__shot preview__shot--top" data-shot="homelab" data-slot="shot-homelab" data-kind="product"><img src="./work/homelab-1600.webp" srcset="./work/homelab-800.webp 800w, ./work/homelab-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="1638" alt="" loading="lazy"></figure>
+              <figure class="preview__shot" data-shot="news" data-slot="shot-news" data-kind="product"><img src="./work/news-1600.webp" srcset="./work/news-800.webp 800w, ./work/news-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="900" alt="" loading="lazy"></figure>
+              <figure class="preview__shot" data-shot="buildforge" data-slot="shot-buildforge" data-kind="product"><img src="./work/buildforge-1600.webp" srcset="./work/buildforge-800.webp 800w, ./work/buildforge-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="1000" alt="" loading="lazy"></figure>
+              <figure class="preview__shot preview__shot--top" data-shot="baseline" data-slot="shot-baseline" data-kind="product"><img src="./work/baseline-1600.webp" srcset="./work/baseline-800.webp 800w, ./work/baseline-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="1098" alt="" loading="lazy"></figure>
+            </div>
+          </div>
         </div>
-        <div class="tags"><span class="tag">TypeScript</span><span class="tag">WebAssembly</span><span class="tag">Clang · javac · rustc · CPython</span><span class="tag">Mutation Testing</span><span class="tag">GitHub Actions</span></div>
-      </article>
+      </div>
+    </section>
 
-      <article class="proj reveal">
-        <div class="proj-icon">✉</div>
-        <div class="proj-top">
-          <h3>Job Autopilot - Honest Job Applications on Autopilot</h3>
-          <span class="proj-links">
-            <a class="link" href="https://github.com/AntonyPerez0/job-autopilot-desktop/releases/latest" target="_blank" rel="noopener">download ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/job-autopilot-desktop" target="_blank" rel="noopener">github ↗</a>
-          </span>
+    <section class="arena" id="arena" aria-labelledby="arena-title">
+      <div class="container">
+        <div class="arena__head">
+          <h2 id="arena-title">Four compilers, no server</h2>
+          <p class="lead">Free courses in C, C++, Java, Rust and Python where every exercise really compiles.</p>
         </div>
-        <p>A desktop app for macOS and Windows that finds jobs that fit you, builds a one-page resume for each one <strong>only from lines you approved</strong>, fills in the application in its own browser window, and applies - for hourly and everyday jobs as well as office and tech work.</p>
-        <ul>
-          <li>Honest by design: the AI may only reword your facts; rule-based checks with no AI involved reject any number, tool or claim you didn't give, and a second AI pass fact-checks every line</li>
-          <li>Fills Greenhouse, Lever, Ashby, SmartRecruiters, Workable and multi-page forms; starts in dry run, never guesses a legal agreement, never applies to the same job twice</li>
-          <li>Everything stays on your computer - no accounts, no analytics; bring your own AI key (about a cent per application) or run a local model through Ollama or LM Studio</li>
-        </ul>
-        <div class="tags"><span class="tag">Electron</span><span class="tag">JavaScript</span><span class="tag">Playwright</span><span class="tag">LLM Guardrails</span><span class="tag">Ollama</span><span class="tag">GitHub Actions</span></div>
-      </article>
+        <figure class="arena__shot" data-slot="arena-cpp" data-kind="product" data-alt="C/C++ Arena's home page">
+          <img src="./work/cpparena-1600.webp" srcset="./work/cpparena-800.webp 800w, ./work/cpparena-1600.webp 1600w" sizes="(min-width: 90rem) 1312px, 92vw" width="1600" height="1000" alt="C/C++ Arena's home page, with a C program compiled in the browser and its tests passing" loading="lazy">
+        </figure>
+        <div class="arena__below">
+          <figure class="mapping" aria-label="A C program and the output it prints">
+            <div class="mapping__pane graphite">
+              <p class="mapping__file">swap.c</p>
+<pre><code><span class="token">#include</span> &lt;stdio.h&gt;
 
-      <article class="proj reveal">
-        <div class="proj-icon">⎈</div>
-        <div class="proj-top"><h3>GitOps Cloud Infrastructure Home Lab</h3><span class="proj-links"><a class="link" href="https://github.com/AntonyPerez0/homelab" target="_blank" rel="noopener">github ↗</a></span></div>
-        <p>Production-grade Kubernetes running on bare metal in my home - declaratively managed, self-healing, and administered over a zero-trust network. The repo is a sanitized public mirror of my real infrastructure-as-code.</p>
-        <ul>
-          <li>Immutable bare-metal Kubernetes on a Talos Linux kernel layer - no SSH, no shell, no config drift - tuned for local compute budgets</li>
-          <li>Automated GitOps deployment engine with FluxCD + Kustomize - every change ships from a git commit; if it isn't in Git, it doesn't exist</li>
-          <li>Runtime security monitoring with Falco on the modern eBPF driver, streaming syscall-level threat detections to a dedicated event UI</li>
-          <li>Prometheus + Grafana observability, CloudNativePG PostgreSQL 16 clusters, and nightly self-auditing backups with heartbeat health checks</li>
-          <li>18 self-hosted services - from CI/CD (Forgejo) and automation (n8n) to document management, media, RSS, and local AI</li>
-        </ul>
-        <div class="tags"><span class="tag">Kubernetes</span><span class="tag">Talos Linux</span><span class="tag">FluxCD</span><span class="tag">Falco · eBPF</span><span class="tag">Tailscale</span><span class="tag">CloudNativePG</span></div>
-      </article>
+<span class="token">void</span> swap(<span class="token">int</span> *a, <span class="token">int</span> *b) {
+    <span class="token">int</span> t = *a;
+    *a = *b;
+    *b = t;
+}
 
-      <article class="proj reveal">
-        <div class="proj-icon">◆</div>
-        <div class="proj-top">
-          <h3>Anomaly Grove - Live Multiplayer Roblox Game</h3>
-          <span class="proj-links">
-            <a class="link" href="https://www.roblox.com/games/88948987401653/Anomaly-Grove" target="_blank" rel="noopener">play ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/anomaly-grove" target="_blank" rel="noopener">github ↗</a>
-          </span>
+<span class="token">int</span> main(<span class="token">void</span>) {
+    <span class="token">int</span> x = 4, y = 2;
+    swap(&amp;x, &amp;y);
+<span class="mapping__hit">    printf("x = %d, y = %d\n", x, y);</span>
+    <span class="token">return</span> 0;
+}</code></pre>
+            </div>
+            <svg class="mapping__elbow" viewBox="0 0 40 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 100 H20 V20 H40"/></svg>
+            <div class="mapping__pane graphite">
+              <p class="mapping__file">stdout</p>
+<pre><code>$ cc -Wall swap.c
+$ ./a.out
+<span class="mapping__hit">x = 2, y = 4</span></code></pre>
+            </div>
+          </figure>
+          <ul class="arena__list">
+            <li><a href="https://cpparena.com">C/C++ Arena</a><span>Clang 20 compiled to WebAssembly</span></li>
+            <li><a href="https://javaarena.com/">Java Arena</a><span>javac 21 on a Rust JVM in Wasm</span></li>
+            <li><a href="https://rustarena.app">RustArena</a><span>Graded by the real rustc</span></li>
+            <li><a href="https://pythonarena.org">Python Arena</a><span>CPython 3.14 through Pyodide</span></li>
+          </ul>
         </div>
-        <p>A grow-and-steal tycoon live on Roblox: grow glowing cores, steal them from rival bases, and survive monster-filled nights. <strong>~24,000 lines of strict-typed Luau</strong> across 142 modules.</p>
-        <ul>
-          <li>Server-authoritative: every client request is validated for type, range, reach, cooldown and ownership, backed by a full security audit of the remote handlers</li>
-          <li>Schema-versioned saves with migrations, retries and session locking, so a player hopping servers can never load stale data</li>
-          <li>240 automated tests; economy pacing tuned by a Python simulation of ~1,200 hours of play</li>
-        </ul>
-        <div class="tags"><span class="tag">Luau (strict)</span><span class="tag">Roblox</span><span class="tag">Selene · StyLua</span><span class="tag">Python Simulation</span></div>
-      </article>
+      </div>
+    </section>
 
-      <article class="proj reveal">
-        <div class="proj-icon">🕹</div>
-        <div class="proj-top">
-          <h3>Spritespeak - Learn a Language by Playing Game Boy Games</h3>
-          <span class="proj-links">
-            <a class="link" href="https://antonyperez0.github.io/spritespeak/" target="_blank" rel="noopener">live ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/spritespeak" target="_blank" rel="noopener">github ↗</a>
-          </span>
+    <section class="experience" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <h2 id="experience-title">Where I’ve worked</h2>
+        <div class="ruler" role="list">
+          <div class="ruler__scale" aria-hidden="true">
+            <span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span>
+          </div>
+          <article class="ruler__span ruler__span--ul" role="listitem">
+            <h3>Laboratory Technician</h3>
+            <p class="ruler__org">UL Solutions, Fremont</p>
+            <p class="ruler__when"><time datetime="2022-04">Apr 2022</time> to <time datetime="2024-09">Sept 2024</time></p>
+            <p>Interoperability safety tests on prototype hardware for enterprise customers.</p>
+          </article>
+          <article class="ruler__span ruler__span--clover" role="listitem">
+            <h3>Technical Writer</h3>
+            <p class="ruler__org">Clover Network, Sunnyvale</p>
+            <p class="ruler__when"><time datetime="2024-09">Sept 2024</time> to now</p>
+            <p>GitHub Actions guardrails and SDK documentation for engineering squads.</p>
+          </article>
+          <article class="ruler__span ruler__span--wgu" role="listitem">
+            <h3>B.S. Computer Science</h3>
+            <p class="ruler__org">Western Governors University</p>
+            <p class="ruler__when"><time datetime="2026-05">May 2026</time></p>
+          </article>
         </div>
-        <p>A browser emulator that turns retro-game dialogue into a live language lesson: OCR watches the screen, translates it, pronounces it, and collects vocabulary into a spaced-repetition deck - Duolingo, but you learn by actually playing.</p>
-        <ul>
-          <li>GB / GBC / GBA / NES / SNES / Genesis / NDS / N64 emulation with in-game saves, quick-save and autosave; 28 languages, translatable in any direction</li>
-          <li>Live OCR pipeline: PaddleOCR PP-OCRv5 on ONNX Runtime Web in a worker, with a Tesseract fallback, Hunspell spell-correction, and multi-box dialogue joined into whole sentences before translation</li>
-          <li>Tap any word for an instant dictionary popup; Web Speech TTS; SM-2 spaced-repetition deck with a due queue, streaks and CSV export</li>
-        </ul>
-        <div class="tags"><span class="tag">JavaScript</span><span class="tag">EmulatorJS</span><span class="tag">PaddleOCR</span><span class="tag">Web Speech API</span><span class="tag">IndexedDB</span><span class="tag">PWA</span></div>
-      </article>
+      </div>
+    </section>
 
-      <article class="proj reveal">
-        <div class="proj-icon">▤</div>
-        <div class="proj-top">
-          <h3>News Dashboard - Ambient News for a Second Monitor</h3>
-          <span class="proj-links">
-            <a class="link" href="https://newsdash.page" target="_blank" rel="noopener">live ↗</a>
-            <a class="link" href="https://github.com/AntonyPerez0/news-dashboard" target="_blank" rel="noopener">github ↗</a>
-          </span>
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title" class="contact__line">Hiring for a software role? Write to me.</h2>
+        <div class="contact__mail">
+          <a class="contact__address" href="mailto:antonyperez0@yahoo.com">antonyperez0@yahoo.com</a>
+          <button class="key" type="button" data-copy="antonyperez0@yahoo.com">Copy address</button>
+          <p class="contact__status" role="status" aria-live="polite"></p>
         </div>
-        <p>Ten categories of live headlines cycle continuously through a grid of rich tiles - photos, excerpts, source logos - so the news stays glanceable without touching a scrollbar. Zero API keys, zero server costs.</p>
-        <ul>
-          <li>Heartbeat tile engine: every tile swap is a timestamp comparison on a single 250 ms heartbeat, so swaps, hover-pauses, countdown bars and stuck-state healing are pure functions of time - a throttled background tab can never permanently stall one</li>
-          <li>Photo &amp; excerpt pipeline scrapes <code>og:image</code> / JSON-LD after resolving Google News gateway links back to real publisher URLs - ~90% coverage from feeds that ship neither</li>
-          <li>React 18 + strict TypeScript end-to-end, with a data layer that transparently switches between a live Express API and pre-built static snapshots</li>
+        <ul class="contact__links">
+          <li><a href="https://linkedin.com/in/antonyperez-swe">LinkedIn</a></li>
+          <li><a href="https://github.com/AntonyPerez0">GitHub</a></li>
+          <li><a href="./resume.pdf">Résumé (PDF)</a></li>
         </ul>
-        <div class="tags"><span class="tag">React 18</span><span class="tag">TypeScript strict</span><span class="tag">Express</span><span class="tag">RSS · Scraping</span><span class="tag">CI/CD</span></div>
-      </article>
+      </div>
+    </section>
+  </main>
 
-      <article class="proj reveal">
-        <div class="proj-icon">◎</div>
-        <div class="proj-top"><h3>DefectPredict - AI Test Prioritization (Capstone)</h3><a class="link" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">github ↗</a></div>
-        <p>My WGU B.S. Computer Science capstone (C964): a machine-learning service that predicts which code is most likely to fail and reorders the CI/CD regression suite to run the riskiest tests first - shrinking feedback time and cloud compute.</p>
-        <ul>
-          <li>Random Forest classifier scoring each commit's defect risk from version-control history, defect tickets, and past test outcomes - targeting a 30% drop in regression-suite runtime and ≥85% precision on the first pass</li>
-          <li>Served as a FastAPI microservice in Docker, wired into Jenkins via webhooks, logging every prediction to PostgreSQL for retraining</li>
-          <li>Secured with OAuth 2.0 and TLS 1.3; validated through unit, integration, and end-to-end tests plus a two-week shadow-mode rollout</li>
-        </ul>
-        <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Random Forest</span><span class="tag">FastAPI</span><span class="tag">Jenkins CI/CD</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span><span class="tag">pandas</span></div>
-      </article>
-
-      <article class="proj proj-wide reveal">
-        <div class="proj-icon">▦</div>
-        <div class="proj-top"><h3>More Projects</h3><span class="proj-links"><a class="link" href="https://github.com/AntonyPerez0?tab=repositories" target="_blank" rel="noopener">all repos ↗</a></span></div>
-        <div class="mini-grid">
-          <div class="mini"><b>BuildForge</b><span>Offline PWA build companion for Diablo IV and WoW Forever - level-by-level paths, hand-drawn SVG gear screens, nightly data syncs</span><a href="https://antonyperez0.github.io/buildforge/" target="_blank" rel="noopener">live ↗</a></div>
-          <div class="mini"><b>CS2 Pro Configs</b><span>620+ pro players' settings as one-click console commands, converted to CS2's post-patch crosshair convars and auto-updated weekly</span><a href="https://antonyperez0.github.io/cs2-pro-configs/" target="_blank" rel="noopener">live ↗</a></div>
-          <div class="mini"><b>Baseline Control</b><span>EIA-649 configuration-management simulator - endless seeded change packages to audit, ~14,000 generated scenarios in its tests</span><a href="https://antonyperez0.github.io/baseline-control/" target="_blank" rel="noopener">live ↗</a></div>
-          <div class="mini"><b>Full-Stack Inventory App</b><span>Team e-commerce CRUD through the full request lifecycle - Express, Sequelize, Tailwind, Jest-tested routes</span><a href="https://github.com/AntonyPerez0/group-full-stack-inventory-project-team-rocket" target="_blank" rel="noopener">github ↗</a></div>
-          <div class="mini"><b>WGUPS Package Routing - DS&amp;A II</b><span>Custom hash table + greedy routing that delivers 40 packages across 27 addresses under a 120-mile budget</span></div>
-          <div class="mini"><b>This Very Website</b><span>Physics-simulated 3D badge (React Three Fiber + Rapier), progressive enhancement, a ⌘K palette, and a Warcraft III easter egg - deployed by GitHub Actions</span><a href="https://github.com/AntonyPerez0/Portfolio-site" target="_blank" rel="noopener">view source ↗</a></div>
-        </div>
-      </article>
+  <footer class="foot">
+    <div class="container foot__row">
+      <p class="foot__sign">Thanks for reading. Antony, <time datetime="2026-10">October 2026</time>.</p>
+      <p class="foot__small"><a href="https://github.com/AntonyPerez0/Portfolio-site">This site’s source</a> is on GitHub.</p>
     </div>
-  </section>
-
-  <section id="skills" class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">04 - Skills <span class="check">❄</span></div>
-      <h2>The toolbox.</h2>
-    </div>
-    <div class="skill-grid">
-      <div class="skill-col reveal">
-        <h3><i></i>Languages</h3>
-        <ul><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>Java</li><li>Kotlin</li><li>C/C++</li><li>Rust</li><li>Luau</li><li>SQL</li><li>HTML5</li><li>CSS3</li></ul>
-      </div>
-      <div class="skill-col k2 reveal">
-        <h3><i></i>Frameworks</h3>
-        <ul><li>React</li><li>Next.js</li><li>Node.js</li><li>Express.js</li><li>Electron</li><li>Three.js</li><li>WebAssembly</li><li>Jetpack Compose</li><li>Bootstrap</li></ul>
-      </div>
-      <div class="skill-col k3 reveal">
-        <h3><i></i>DevOps &amp; Testing</h3>
-        <ul><li>Kubernetes</li><li>Docker</li><li>FluxCD</li><li>Kustomize</li><li>GitHub Actions</li><li>Git</li><li>Tailscale</li><li>CloudNativePG</li><li>Vitest</li><li>Playwright</li><li>JUnit</li><li>React Testing Library</li><li>Retrofit</li></ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="education" class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">05 - Education <span class="check">❄</span></div>
-      <h2>Credentials.</h2>
-    </div>
-    <div class="edu-grid">
-      <div class="edu reveal">
-        <div class="when">May 2026</div>
-        <h3>Western Governors University</h3>
-        <p>B.S., Computer Science</p>
-        <span class="badge">Degree</span>
-      </div>
-      <div class="edu reveal">
-        <div class="when">Sept 2024 - Sept 2025</div>
-        <h3>Multiverse Bootcamp</h3>
-        <p>Computer Software Engineering</p>
-        <span class="badge green">Apprenticeship</span>
-      </div>
-      <div class="edu reveal">
-        <div class="when">Apr 2024</div>
-        <h3>Altcademy</h3>
-        <p>Full Stack Web Development</p>
-        <span class="badge green">Certificate</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="wrap">
-    <div class="contact-card reveal">
-      <h2>Let's ship something <span class="grad">together.</span></h2>
-      <p class="lede">I'm interviewing for software engineering roles now. If your team values tested code and clear communication, I'd love to talk.</p>
-      <div class="contact-actions">
-        <a class="btn btn-primary" href="mailto:antonyperez0@yahoo.com">✉ antonyperez0@yahoo.com</a>
-        <button class="btn btn-ghost" type="button" id="copyEmail">Copy email</button>
-        <a class="btn btn-ghost" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-ghost" href="https://linkedin.com/in/antonyperez-swe" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-      <div class="copy-hint" id="copyHint" role="status" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <footer class="wrap">
-    <div class="foot-line">© <span id="yr"></span> Antony Perez - React Three Fiber · Rapier physics · deployed by pipeline · <a href="resume.pdf" download>résumé (pdf)</a></div>
-    <button class="timewarp" id="timewarp" type="button" aria-pressed="false">❄ enter the frozen throne…</button>
   </footer>
-</main>
-</div><div id="frozenSite" role="main" aria-label="Antony III - The Frozen Portfolio, a Warcraft III style main menu easter egg">
-  <div class="fs-stage" aria-hidden="true">
-    <div class="fs-sky"></div>
-    <div class="fs-sun"></div>
-    <div class="fs-spire"></div>
-    <i class="fs-spike s5"></i><i class="fs-spike s1"></i><i class="fs-spike s2"></i><i class="fs-spike s3"></i><i class="fs-spike s4"></i>
-    <div class="fs-mist"></div>
-  </div>
-  <div id="frozenBg" aria-hidden="true"></div>
-  <div class="fs-logo">
-    <span class="fs-logo-ice" aria-hidden="true">III</span>
-    <h1 class="fs-logo-title">Antony</h1>
-    <p class="fs-logo-sub">THE&nbsp;FROZEN&nbsp;PORTFOLIO</p>
-  </div>
-  <nav class="fs-menu" aria-label="Frozen Throne menu">
-    <svg class="fs-chain-svg c1" viewBox="0 0 48 190" aria-hidden="true">
-      <defs>
-        <linearGradient id="fsMetalWide" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#6B7382"/>
-          <stop offset=".28" stop-color="#3E444D"/>
-          <stop offset=".55" stop-color="#23272E"/>
-          <stop offset="1" stop-color="#101318"/>
-        </linearGradient>
-        <linearGradient id="fsMetalNarrow" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#565D68"/>
-          <stop offset=".3" stop-color="#2E333B"/>
-          <stop offset=".7" stop-color="#1A1D23"/>
-          <stop offset="1" stop-color="#0D0F13"/>
-        </linearGradient>
-      </defs>
-      <rect x="4" y="0" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="10" y="4" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
-      <rect x="13" y="36" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="4" y="46" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="10" y="50" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
-      <rect x="13" y="82" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="4" y="92" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="10" y="96" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
-      <rect x="13" y="128" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="4" y="138" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="10" y="142" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
-      <rect x="13" y="174" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="6" y="180" width="36" height="10" rx="3" fill="#181C22" stroke="#0D0F13" stroke-width="1.5"/>
-    </svg>
-    <svg class="fs-chain-svg c2" viewBox="0 0 48 190" aria-hidden="true">
-      <rect x="4" y="0" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="10" y="4" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
-      <rect x="13" y="36" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="4" y="46" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="10" y="50" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
-      <rect x="13" y="82" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="4" y="92" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="10" y="96" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
-      <rect x="13" y="128" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="4" y="138" width="40" height="38" rx="19" fill="url(#fsMetalWide)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="10" y="142" width="28" height="7" rx="3.5" fill="#7A828E" opacity=".5"/>
-      <rect x="13" y="174" width="22" height="30" rx="11" fill="url(#fsMetalNarrow)" stroke="#0D0F13" stroke-width="1.5"/>
-      <rect x="6" y="180" width="36" height="10" rx="3" fill="#181C22" stroke="#0D0F13" stroke-width="1.5"/>
-    </svg>
-    <div class="fs-menu-in">
-      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="about"><span class="fs-cap">A</span>bout Me</button></div>
-      <div class="fs-btnrow withmag">
-        <button class="fs-btn" type="button" data-fs="projects"><span class="fs-cap">C</span>ampaign Missions</button>
-        <a class="fs-mag" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener" aria-label="Open GitHub profile in a new tab" title="Open GitHub">
-          <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="#CFE0FF" stroke-width="2.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.6" y1="15.6" x2="21" y2="21"/></svg>
-        </a>
-      </div>
-      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="xp"><span class="fs-cap">E</span>xperience</button></div>
-      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="skills"><span class="fs-cap">S</span>kills</button></div>
-      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="credits"><span class="fs-cap">C</span>redits</button></div>
-    </div>
-  </nav>
-  <div class="fs-quit">
-    <div class="fs-menu-in">
-      <div class="fs-btnrow"><button class="fs-btn" type="button" data-fs="quit"><span class="fs-cap">Q</span>uit</button></div>
-    </div>
-  </div>
-  <p class="fs-version">v1.26.0.6401 · fan-made homage, hand-built in Three.js<br>Not affiliated with Blizzard Entertainment. Warcraft III is a trademark of Blizzard.</p>
-  <div class="fs-sub" id="fsSub" hidden>
-    <div class="fs-sub-backdrop" data-fs-close></div>
-    <div class="fs-sub-panel" role="dialog" aria-modal="true" aria-labelledby="fsSubTitle">
-      <div class="fs-sub-head">
-        <h2 id="fsSubTitle">About Me</h2>
-        <button class="fs-x" type="button" data-fs-close aria-label="Close screen">✕</button>
-      </div>
-      <div class="fs-sub-body" id="fsSubBody" tabindex="0"></div>
-      <div class="fs-sub-foot"><button class="fs-btn" type="button" data-fs-close><span class="fs-cap">B</span>ack</button></div>
-    </div>
-  </div>
-</div>
 
-<div class="progress" id="progress" aria-hidden="true"></div>
-
-<div class="palette" id="palette" hidden>
-  <div class="palette-backdrop" data-close></div>
-  <div class="palette-panel" role="dialog" aria-modal="true" aria-label="Command palette">
-    <input class="palette-input" id="paletteInput" type="text" role="combobox" aria-expanded="true" aria-controls="paletteList" aria-autocomplete="list" aria-label="Search commands" placeholder="Type a command or search…" autocomplete="off" spellcheck="false" />
-    <ul class="palette-list" id="paletteList" role="listbox" tabindex="0" aria-label="Commands"></ul>
-    <div class="palette-empty" id="paletteEmpty" role="status" hidden>no matching commands</div>
-    <div class="palette-foot"><span>↑↓ navigate</span><span>↵ run</span><span>esc close</span></div>
-  </div>
-</div>
-
-<script>
-(function(){
-  "use strict";
-  var $ = function(s){ return document.querySelector(s); };
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* year */
-  $('#yr').textContent = new Date().getFullYear();
-
-  /* scroll reveal */
-  var reveals = document.querySelectorAll('.reveal');
-  if (reduced || !('IntersectionObserver' in window)) {
-    reveals.forEach(function(el){ el.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12 });
-    reveals.forEach(function(el){ io.observe(el); });
-  }
-
-  /* copy email */
-  var copyBtn = $('#copyEmail'), hint = $('#copyHint');
-  if (copyBtn) copyBtn.addEventListener('click', function(){
-    var email = 'antonyperez0@yahoo.com';
-    function done(ok){ hint.textContent = ok ? '✓ copied to clipboard' : email; setTimeout(function(){ hint.textContent=''; }, 2600); }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(email).then(function(){ done(true); }, function(){ done(false); });
-    } else { done(false); }
-  });
-
-  /* ===== the frozen throne ===== */
-  var MODERN_TITLE = document.title;
-  function setMode(on){
-    document.body.classList.toggle('frozen', on);
-    document.title = on ? 'Antony III - The Frozen Portfolio' : MODERN_TITLE;
-    var tw = $('#timewarp'); if (tw) tw.setAttribute('aria-pressed', on ? 'true' : 'false');
-    window.scrollTo(0,0);
-    window.dispatchEvent(new CustomEvent('fs:mode', { detail: { on: on } }));
-  }
-  $('#timewarp').addEventListener('click', function(){ setMode(true); });
-  window.addEventListener('fs:quit', function(){ setMode(false); });
-
-  /* ===== console greeting for the curious ===== */
-  try {
-    console.log('%c\u2388 antony.perez \u2014 documented \u00b7 tested \u00b7 deployed',
-      'font-family:monospace;font-size:13px;padding:6px 12px;background:#111B33;color:#3FE0C0;border:1px solid #2A3A5C;border-radius:8px');
-    console.log('Reading the source? Good instinct. Say hi: antonyperez0@yahoo.com \u00b7 github.com/AntonyPerez0');
-  } catch (e) {}
-
-  /* ===== scroll progress bar ===== */
-  var prog = $('#progress');
-  if (prog) {
-    var ticking = false;
-    var onScroll = function(){
-      if (ticking) return; ticking = true;
-      requestAnimationFrame(function(){
-        var h = document.documentElement;
-        var max = h.scrollHeight - h.clientHeight;
-        prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
-        ticking = false;
-      });
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  /* ===== highlight the section you're reading in the nav ===== */
-  var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-  if ('IntersectionObserver' in window && navLinks.length) {
-    var navMap = {};
-    navLinks.forEach(function(a){
-      if (a.classList.contains('nav-cta')) return;
-      var s = document.getElementById(a.getAttribute('href').slice(1));
-      if (s) navMap[s.id] = a;
-    });
-    var navIO = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (!en.isIntersecting) return;
-        navLinks.forEach(function(a){ a.classList.remove('active'); });
-        if (navMap[en.target.id]) navMap[en.target.id].classList.add('active');
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    Object.keys(navMap).forEach(function(id){ navIO.observe(document.getElementById(id)); });
-  }
-
-  /* ===== command palette (\u2318K) ===== */
-  var pal = $('#palette'), palInput = $('#paletteInput'), palList = $('#paletteList'), palKBtn = $('#navCmdK');
-  if (pal && palInput && palList) {
-    var isMac = /Mac|iPhone|iPad/.test(navigator.platform || '');
-    if (palKBtn && !isMac) palKBtn.textContent = 'Ctrl K';
-
-    var go = function(hash){
-      if (document.body.classList.contains('frozen')) setMode(false);
-      var el = document.querySelector(hash);
-      if (el) el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
-    };
-    var ACTIONS = [
-      { t: 'Go to About',        hint: '#about',      ic: '01', run: function(){ go('#about'); } },
-      { t: 'Go to Experience',   hint: '#experience', ic: '02', run: function(){ go('#experience'); } },
-      { t: 'Go to Projects',     hint: '#projects',   ic: '03', run: function(){ go('#projects'); } },
-      { t: 'Go to Skills',       hint: '#skills',     ic: '04', run: function(){ go('#skills'); } },
-      { t: 'Go to Education',    hint: '#education',  ic: '05', run: function(){ go('#education'); } },
-      { t: 'Contact me',         hint: '#contact',    ic: '\u2709', run: function(){ go('#contact'); } },
-      { t: 'Download r\u00e9sum\u00e9',  hint: 'PDF', ic: '\u2193', run: function(){
-          var a = document.createElement('a'); a.href = 'resume.pdf'; a.setAttribute('download','antony-perez-resume.pdf');
-          document.body.appendChild(a); a.click(); a.remove();
-        } },
-      { t: 'Copy email address', hint: 'antonyperez0@yahoo.com', ic: '\u29c9', run: function(){
-          var btn = $('#copyEmail'); go('#contact'); if (btn) btn.click();
-        } },
-      { t: 'Open GitHub',        hint: 'AntonyPerez0', ic: '\u25f3', run: function(){ window.open('https://github.com/AntonyPerez0','_blank','noopener'); } },
-      { t: 'Open LinkedIn',      hint: 'antonyperez-swe', ic: 'in', run: function(){ window.open('https://linkedin.com/in/antonyperez-swe','_blank','noopener'); } },
-      { t: 'Enter the Frozen Throne', hint: 'easter egg', ic: '\u2744', mode: 'modern', run: function(){ setMode(true); } },
-      { t: 'Quit to 2026',            hint: 'easter egg', ic: '\u21a9', mode: 'frozen', run: function(){ setMode(false); } }
-    ];
-    var filtered = [], sel = 0, lastFocus = null;
-
-    var visibleActions = function(q){
-      var inMs = document.body.classList.contains('frozen');
-      return ACTIONS.filter(function(a){
-        if (a.mode === 'modern' && inMs) return false;
-        if (a.mode === 'frozen' && !inMs) return false;
-        return !q || (a.t + ' ' + a.hint).toLowerCase().indexOf(q) !== -1;
-      });
-    };
-    var renderList = function(){
-      var empty = $('#paletteEmpty');
-      if (!filtered.length) {
-        palList.innerHTML = '';
-        palInput.removeAttribute('aria-activedescendant');
-        empty.hidden = false;
-        return;
-      }
-      empty.hidden = true;
-      palList.innerHTML = filtered.map(function(a, i){
-        return '<li class="' + (i === sel ? 'sel' : '') + '" role="option" id="pal-opt-' + i + '" aria-selected="' + (i === sel) + '" data-i="' + i + '"><span class="ic">' + a.ic + '</span><span>' + a.t + '</span><span class="hint">' + a.hint + '</span></li>';
-      }).join('');
-      palInput.setAttribute('aria-activedescendant', 'pal-opt-' + sel);
-      var s = document.getElementById('pal-opt-' + sel); if (s && s.scrollIntoView) s.scrollIntoView({ block: 'nearest' });
-    };
-    var refresh = function(){ filtered = visibleActions(palInput.value.trim().toLowerCase()); sel = 0; renderList(); };
-    var openPal = function(){ lastFocus = document.activeElement; pal.hidden = false; palInput.value = ''; refresh(); palInput.focus(); if (palKBtn) palKBtn.setAttribute('aria-expanded', 'true'); };
-    var closePal = function(){ pal.hidden = true; if (palKBtn) palKBtn.setAttribute('aria-expanded', 'false'); if (lastFocus && lastFocus.focus && lastFocus !== document.body) { lastFocus.focus(); } else if (palKBtn) { palKBtn.focus(); } };
-    var runSel = function(){ var a = filtered[sel]; if (a) { closePal(); a.run(); } };
-    var onPalKeys = function(e){
-      if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(sel + 1, filtered.length - 1); renderList(); }
-      else if (e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(sel - 1, 0); renderList(); }
-      else if (e.key === 'Enter') { e.preventDefault(); runSel(); }
-    };
-
-    palInput.addEventListener('input', refresh);
-    palInput.addEventListener('keydown', onPalKeys);
-    palList.addEventListener('keydown', onPalKeys);
-    /* the palette is modal - keep Tab cycling inside it (the input and the
-       listbox are the only focusables, so Tab is a no-op by design) */
-    pal.addEventListener('keydown', function(e){ if (e.key === 'Tab') e.preventDefault(); });
-    palList.addEventListener('click', function(e){
-      var li = e.target.closest('li[data-i]'); if (!li) return;
-      sel = parseInt(li.getAttribute('data-i'), 10); runSel();
-    });
-    palList.addEventListener('mousemove', function(e){
-      var li = e.target.closest('li[data-i]'); if (!li) return;
-      var i = parseInt(li.getAttribute('data-i'), 10);
-      if (i !== sel) { sel = i; renderList(); }
-    });
-    pal.addEventListener('click', function(e){ if (e.target.hasAttribute('data-close')) closePal(); });
-    if (palKBtn) palKBtn.addEventListener('click', openPal);
-    document.addEventListener('keydown', function(e){
-      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); if (pal.hidden) { openPal(); } else { closePal(); } }
-      else if (e.key === 'Escape' && !pal.hidden) closePal();
-      else if (e.key === 'Escape' && document.body.classList.contains('frozen') && pal.hidden && !window.__fsSubOpen) setMode(false);
-    });
-  }
-})();
-</script>
-
-<script type="module" src="/src/frozen.js"></script>
-<script type="module" src="/src/main.jsx"></script>
-
+  <script>window.hallmarkSlots = (m) => { for (const [k, v] of Object.entries(m)) { const s = document.querySelector(`[data-slot="${k}"]`); if (!s) continue; const im = new Image(); im.src = typeof v === 'string' ? v : v.src; im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || ''; s.querySelectorAll(':scope > img').forEach((o) => o.remove()); s.prepend(im); } };
+document.querySelectorAll('[data-slot] img').forEach((i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); });</script>
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>
