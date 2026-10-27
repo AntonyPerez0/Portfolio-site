@@ -28,3 +28,18 @@
   --shadow-key-press: inset 0 1px 2px oklch(21% 0.028 262 / 0.14);
   --tracking-display: -0.028em; --display-weight: 600;
 }
+[data-mode="dark"] {
+  color-scheme: dark;
+  --color-paper: oklch(16% 0.014 260); --color-paper-2: oklch(19% 0.016 260); --color-paper-3: oklch(22% 0.018 260);
+  --color-ink: oklch(94% 0.010 250); --color-ink-2: oklch(81% 0.016 254); --color-muted: oklch(68% 0.020 256);
+  --color-rule: oklch(28% 0.018 258); --color-rule-2: oklch(37% 0.022 258);
+  --color-graphite: oklch(23% 0.024 262); --color-graphite-2: oklch(28.5% 0.028 262); --color-graphite-ink: oklch(93% 0.010 250); --color-graphite-muted: oklch(72% 0.022 256);
+  --color-accent: oklch(64% 0.16 258); --color-accent-2: oklch(80% 0.11 254); --color-accent-wash: oklch(24% 0.05 258); --color-accent-ink: oklch(16% 0.014 260); --color-focus: oklch(70% 0.15 258);
+  --color-accent-deep: oklch(74% 0.14 256); --color-accent-edge: oklch(46% 0.14 260);
+  --color-glyph-1: oklch(23% 0.022 258); --color-glyph-2: oklch(29% 0.04 258); --color-glyph-3: oklch(39% 0.08 257); --color-glyph-4: oklch(52% 0.12 257);
+  --color-key-face: oklch(23% 0.018 258); --color-key-edge: oklch(11% 0.012 260);
+  --shadow-card: inset 0 0 0 1px var(--color-rule);
+  --shadow-key: 0 3px 0 0 var(--color-key-edge), inset 0 1px 0 oklch(94% 0.010 250 / 0.07);
+  --shadow-key-accent: 0 3px 0 0 var(--color-accent-edge), inset 0 1px 0 oklch(94% 0.010 250 / 0.18);
+  --shadow-key-press: inset 0 1px 2px oklch(11% 0.012 260 / 0.6);
+}

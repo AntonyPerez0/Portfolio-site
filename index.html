@@ -12,13 +12,13 @@
   <meta property="og:description" content="Browser compilers, flight trainers, games and the infrastructure under them.">
   <meta property="og:image" content="https://antonyperez.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#f7f9fc">
+  <meta name="theme-color" content="#0f141d">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/styles/site.css">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>(function () { var d = document.documentElement, m = 'dark'; try { m = localStorage.getItem('mode') || 'dark'; } catch (e) {} d.dataset.mode = m; d.classList.add('js'); })();</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,28 +43,33 @@
         <a href="#experience">Experience</a>
       </nav>
       <a class="mast__mark" href="#main" aria-label="Antony Perez, back to top">Antony Perez</a>
-      <nav class="mast__links mast__links--end" aria-label="Contact">
-        <a href="./resume.pdf">Résumé</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="mast__end">
+        <nav class="mast__links mast__links--end" aria-label="Contact">
+          <a class="mast__resume" href="./resume.pdf">Résumé</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="mode" type="button" id="mode" aria-label="Switch to light mode">
+          <svg class="mode__sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="mode__moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__field" data-loop aria-hidden="true">
-        <canvas class="hero__canvas" id="pipeline"></canvas>
-        <ol class="hero__stages" id="stages">
-          <li>source</li>
-          <li>tokens</li>
-          <li>syntax tree</li>
-          <li>IR</li>
-          <li>wasm</li>
-        </ol>
+      <canvas class="field" data-field="hero" aria-hidden="true"></canvas>
+      <div class="hero__gallery" data-loop aria-hidden="true">
+        <canvas id="gallery"></canvas>
+        <div class="hero__poster">
+          <img src="./work/grove-800.webp" width="800" height="450" alt="" loading="lazy">
+          <img src="./work/sortieprep-800.webp" width="800" height="500" alt="" loading="lazy">
+        </div>
+        <a class="hero__label" id="gallery-label" href="#work" tabindex="-1"><b></b><span>Open project</span></a>
       </div>
       <div class="container hero__inner">
         <div class="hero__text">
-          <h1 id="hero-title">Source in,<br> software out.</h1>
+          <h1 id="hero-title">Software I’ve shipped, still running.</h1>
           <p class="lead">Bay Area software engineer shipping browser compilers, flight trainers and games.</p>
           <div class="hero__actions">
             <a class="key key--primary" href="#work">See the work</a>
@@ -72,13 +77,13 @@
           </div>
         </div>
       </div>
-      <button class="hero__pause" type="button" data-loop-toggle aria-controls="pipeline">Pause</button>
-      <p class="visually-hidden">The background shows a C program streaming through a compiler, from loose source characters on the left to ordered WebAssembly bytes on the right.</p>
+      <button class="hero__pause" type="button" data-loop-toggle aria-controls="gallery">Pause</button>
+      <p class="visually-hidden">Beside the heading, screenshots of eight projects turn slowly on a ring. The same projects are listed with links in the next section.</p>
     </section>
 
     <section class="work" id="work" aria-labelledby="work-title">
       <div class="container">
-        <h2 id="work-title">Things I’ve shipped</h2>
+        <h2 id="work-title">All eight, with the code</h2>
         <div class="work__grid">
           <ol class="index" id="index">
             <li class="index__row" data-shot="sortieprep">
@@ -147,6 +152,8 @@
       </div>
     </section>
 
+    <canvas class="field field--band" data-field="band" aria-hidden="true"></canvas>
+
     <section class="arena" id="arena" aria-labelledby="arena-title">
       <div class="container">
         <div class="arena__head">
@@ -195,7 +202,7 @@ $ ./a.out
 
     <section class="experience" id="experience" aria-labelledby="experience-title">
       <div class="container">
-        <h2 id="experience-title">Where I’ve worked</h2>
+        <h2 id="experience-title">From the lab bench to CI pipelines</h2>
         <div class="ruler" role="list">
           <div class="ruler__scale" aria-hidden="true">
             <span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span>
@@ -222,6 +229,7 @@ $ ./a.out
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
+      <canvas class="field" data-field="contact" aria-hidden="true"></canvas>
       <div class="container">
         <h2 id="contact-title" class="contact__line">Hiring for a software role? Write to me.</h2>
         <div class="contact__mail">

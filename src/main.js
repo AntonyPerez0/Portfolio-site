@@ -45,10 +45,30 @@ const drawElbow = () => {
 document.fonts.ready.then(drawElbow);
 addEventListener('resize', drawElbow, { passive: true });
 
-// The pipeline: only when WebGL is available.
-const canvas = document.getElementById('pipeline');
+// Light and dark: dark first, the choice remembered.
+const root = document.documentElement;
+const modeBtn = document.getElementById('mode');
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+const applyMode = (mode) => {
+  root.dataset.mode = mode;
+  modeBtn?.setAttribute('aria-label', mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  themeMeta?.setAttribute('content', mode === 'dark' ? '#0f141d' : '#f7f9fc');
+  dispatchEvent(new Event('modechange'));
+};
+applyMode(root.dataset.mode === 'light' ? 'light' : 'dark');
+modeBtn?.addEventListener('click', () => {
+  const next = root.dataset.mode === 'dark' ? 'light' : 'dark';
+  try { localStorage.setItem('mode', next); } catch { /* private mode: the switch still works for this visit */ }
+  applyMode(next);
+});
+
+// The generated ground.
+import('./field.js').then(({ startFields }) => startFields({ reduced }));
+
+// The project ring: only when WebGL 2 is available.
+const canvas = document.getElementById('gallery');
 const gl = canvas && document.createElement('canvas').getContext('webgl2');
 if (gl) {
-  document.documentElement.classList.add('has-gl');
-  import('./pipeline.js').then(({ startPipeline }) => startPipeline({ canvas, reduced }));
+  root.classList.add('has-gl');
+  import('./gallery.js').then(({ startGallery }) => startGallery({ canvas, reduced }));
 }

@@ -1,5 +1,36 @@
 [
  {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "page",
+  "shape": "Workbench",
+  "theme": "cobalt",
+  "axes": "dark/grotesk-sans/cool",
+  "hero": "Stage",
+  "nav": "masthead",
+  "footer": "letter close",
+  "imagery": "screenshots 10 + three.js ring of project screenshots",
+  "photos": [],
+  "entry": "hero: 3D ring of real project screenshots",
+  "fingerprint": "workbench-stage-index-field-showcase-ruler-statement",
+  "sections": [
+   "hero",
+   "index",
+   "field band",
+   "showcase+mapping",
+   "ruler",
+   "statement",
+   "footer"
+  ],
+  "signature": "three.js ring of the eight real project screenshots",
+  "waived": [
+   "59",
+   "44c"
+  ],
+  "prompt": "software engineer portfolio, different 3D, textured background, light and dark mode",
+  "date": "2026-10-27"
+ },
+ {
   "shape": "Workbench",
   "theme": "cobalt",
   "axes": "light/grotesk-sans/cool",
