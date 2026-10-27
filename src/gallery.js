@@ -205,7 +205,13 @@ export function startGallery({ canvas, reduced }) {
     sync();
   }, { passive: true });
   hero.addEventListener('pointerleave', () => { setHot(null); state.hover = false; sync(); });
-  canvas.addEventListener('click', () => { if (hot) location.href = hot.userData.href; });
+  // A tap has no hover before it: find the panel under the finger, then open it.
+  canvas.addEventListener('click', (e) => {
+    const r = canvas.getBoundingClientRect();
+    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -(((e.clientY - r.top) / r.height) * 2 - 1));
+    const p = pick();
+    if (p) location.href = p.userData.href;
+  });
   pauseBtn?.addEventListener('click', () => { state.held = !state.held; sync(); });
   hero.addEventListener('focusin', () => { state.focus = true; sync(); });
   hero.addEventListener('focusout', () => { state.focus = false; sync(); });

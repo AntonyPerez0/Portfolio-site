@@ -2,3 +2,4 @@ node_modules
 dist
 .hallmark/shots/
 .hallmark/shot.mjs
+.hallmark/tap.mjs
