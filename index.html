@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Antony Perez, software engineer</title>
-  <meta name="description" content="Antony Perez is a Bay Area software engineer who ships browser compilers, flight trainers, games and the infrastructure under them.">
+  <meta name="description" content="Antony Perez is a Bay Area software engineer who ships browser compilers, a flight-sim cockpit trainer, a live Roblox game and the servers under them.">
   <link rel="canonical" href="https://antonyperez.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://antonyperez.com/">
   <meta property="og:title" content="Antony Perez, software engineer">
-  <meta property="og:description" content="Browser compilers, flight trainers, games and the infrastructure under them.">
+  <meta property="og:description" content="Browser compilers, a flight-sim cockpit trainer, a live Roblox game and the servers under them.">
   <meta property="og:image" content="https://antonyperez.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#0f141d">
+  <meta name="theme-color" content="#16191d">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500&family=Atkinson+Hyperlegible+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/styles/site.css">
   <script>(function () { var d = document.documentElement, m = 'dark'; try { m = localStorage.getItem('mode') || 'dark'; } catch (e) {} d.dataset.mode = m; d.classList.add('js'); })();</script>
   <script type="application/ld+json">
@@ -35,167 +35,145 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="mast">
-    <div class="container mast__row">
-      <nav class="mast__links" aria-label="Sections">
+  <header class="bar">
+    <div class="container bar__row">
+      <a class="bar__mark" href="#main" aria-label="Antony Perez, back to top">Antony Perez</a>
+      <nav class="bar__links" aria-label="Sections">
         <a href="#work">Work</a>
         <a href="#arena">Arena</a>
         <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <a class="mast__mark" href="#main" aria-label="Antony Perez, back to top">Antony Perez</a>
-      <div class="mast__end">
-        <nav class="mast__links mast__links--end" aria-label="Contact">
-          <a class="mast__resume" href="./resume.pdf">Résumé</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <button class="mode" type="button" id="mode" aria-label="Switch to light mode">
-          <svg class="mode__sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-          <svg class="mode__moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-        </button>
-      </div>
+      <a class="bar__resume" href="./resume.pdf" data-pf="resume">Résumé</a>
+      <a class="bar__pf" href="#preflight" id="pf-chip"><span class="bar__pf-label">Pre-flight</span> <span class="measured" data-pf-count>0 of 4</span></a>
+      <button class="mode" type="button" id="mode" aria-label="Switch to light mode">
+        <svg class="mode__sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="mode__moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <canvas class="field" data-field="hero" aria-hidden="true"></canvas>
-      <div class="hero__gallery" data-loop aria-hidden="true">
-        <canvas id="gallery"></canvas>
-        <div class="hero__poster">
-          <img src="./work/grove-800.webp" width="800" height="450" alt="" loading="lazy">
-          <img src="./work/sortieprep-800.webp" width="800" height="500" alt="" loading="lazy">
-        </div>
-        <a class="hero__label" id="gallery-label" href="#work" tabindex="-1"><b></b><span>Open project</span></a>
-      </div>
-      <div class="container hero__inner">
-        <div class="hero__text">
-          <h1 id="hero-title">Software I’ve shipped, still running.</h1>
-          <p class="lead">Bay Area software engineer shipping browser compilers, flight trainers and games.</p>
-          <div class="hero__actions">
-            <a class="key key--primary" href="#work">See the work</a>
-            <a class="key" href="./resume.pdf">Résumé (PDF)</a>
+    <section class="intro-sec" aria-labelledby="title">
+      <div class="container">
+        <div class="intro">
+          <h1 id="title">Antony Perez, software engineer.</h1>
+          <p class="lead">Shipping browser compilers, a flight trainer and a live Roblox game.</p>
+          <div class="intro__actions">
+            <a class="btn btn--primary" href="./resume.pdf" data-pf="resume">Résumé (PDF)</a>
+            <a class="btn" href="mailto:antonyperez0@yahoo.com">Email me</a>
           </div>
         </div>
       </div>
-      <button class="hero__pause" type="button" data-loop-toggle aria-controls="gallery">Pause</button>
-      <p class="visually-hidden">Beside the heading, screenshots of eight projects turn slowly on a ring. The same projects are listed with links in the next section.</p>
     </section>
 
     <section class="work" id="work" aria-labelledby="work-title">
       <div class="container">
-        <h2 id="work-title">All eight, with the code</h2>
-        <div class="work__grid">
-          <ol class="index" id="index">
-            <li class="index__row" data-shot="sortieprep">
-              <h3><a href="https://sortieprep.com/">SortiePrep</a></h3>
-              <p>DCS cockpit trainer for the F-14B and F/A-18C.</p>
-              <a class="index__code" href="https://github.com/AntonyPerez0/Interactive-F-14-startup-simulator">Code</a>
-              <figure class="index__thumb" data-slot="work-sortieprep" data-kind="product" data-alt="SortiePrep's aircraft picker"><img src="./work/sortieprep-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
-            </li>
-            <li class="index__row" data-shot="autopilot">
-              <h3><a href="https://github.com/AntonyPerez0/job-autopilot-desktop/releases/latest">Job Autopilot</a></h3>
-              <p>Finds jobs and applies, using only lines you approved.</p>
-              <a class="index__code" href="https://github.com/AntonyPerez0/job-autopilot-desktop">Code</a>
-              <figure class="index__thumb" data-slot="work-autopilot" data-kind="product" data-alt="Job Autopilot's overview screen"><img src="./work/autopilot-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
-            </li>
-            <li class="index__row" data-shot="grove">
-              <h3><a href="https://www.roblox.com/games/88948987401653/Anomaly-Grove">Anomaly Grove</a></h3>
-              <p>Live Roblox tycoon in 24,000 lines of strict Luau.</p>
-              <a class="index__code" href="https://github.com/AntonyPerez0/anomaly-grove">Code</a>
-              <figure class="index__thumb" data-slot="work-grove" data-kind="product" data-alt="Anomaly Grove key art"><img src="./work/grove-800.webp" width="800" height="450" alt="" loading="lazy"></figure>
-            </li>
-            <li class="index__row" data-shot="spritespeak">
-              <h3><a href="https://antonyperez0.github.io/spritespeak/">Spritespeak</a></h3>
-              <p>Game Boy emulator that translates as you play.</p>
-              <a class="index__code" href="https://github.com/AntonyPerez0/spritespeak">Code</a>
-              <figure class="index__thumb" data-slot="work-spritespeak" data-kind="product" data-alt="Spritespeak translating a Game Boy game"><img src="./work/spritespeak-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
-            </li>
-            <li class="index__row" data-shot="homelab">
-              <h3><a href="https://github.com/AntonyPerez0/homelab">GitOps homelab</a></h3>
-              <p>Bare-metal Kubernetes on Talos, deployed by FluxCD.</p>
-              <a class="index__code" href="https://github.com/AntonyPerez0/homelab">Code</a>
-              <figure class="index__thumb" data-slot="work-homelab" data-kind="product" data-alt="The homelab's Grafana dashboard"><img src="./work/homelab-800.webp" width="800" height="819" alt="" loading="lazy"></figure>
-            </li>
-            <li class="index__row" data-shot="news">
-              <h3><a href="https://newsdash.page">News Dashboard</a></h3>
-              <p>Ambient headlines for a second monitor.</p>
-              <a class="index__code" href="https://github.com/AntonyPerez0/news-dashboard">Code</a>
-              <figure class="index__thumb" data-slot="work-news" data-kind="product" data-alt="News Dashboard's headline grid"><img src="./work/news-800.webp" width="800" height="450" alt="" loading="lazy"></figure>
-            </li>
-            <li class="index__row" data-shot="buildforge">
-              <h3><a href="https://antonyperez0.github.io/buildforge/">BuildForge</a></h3>
-              <p>Offline build guides for Diablo IV and WoW.</p>
-              <a class="index__code" href="https://github.com/AntonyPerez0/buildforge">Code</a>
-              <figure class="index__thumb" data-slot="work-buildforge" data-kind="product" data-alt="BuildForge's game picker"><img src="./work/buildforge-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
-            </li>
-            <li class="index__row" data-shot="baseline">
-              <h3><a href="https://antonyperez0.github.io/baseline-control/">Baseline Control</a></h3>
-              <p>Configuration management simulator built on EIA-649.</p>
-              <a class="index__code" href="https://github.com/AntonyPerez0/baseline-control">Code</a>
-              <figure class="index__thumb" data-slot="work-baseline" data-kind="product" data-alt="A change package audit in Baseline Control"><img src="./work/baseline-800.webp" width="800" height="549" alt="" loading="lazy"></figure>
-            </li>
-          </ol>
-
-          <div class="preview" aria-hidden="true">
-            <div class="preview__stack" id="preview">
-              <figure class="preview__shot is-on" data-shot="sortieprep" data-slot="shot-sortieprep" data-kind="product"><img src="./work/sortieprep-1600.webp" srcset="./work/sortieprep-800.webp 800w, ./work/sortieprep-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="1000" alt="" loading="lazy"></figure>
-              <figure class="preview__shot" data-shot="autopilot" data-slot="shot-autopilot" data-kind="product"><img src="./work/autopilot-1600.webp" srcset="./work/autopilot-800.webp 800w, ./work/autopilot-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="1000" alt="" loading="lazy"></figure>
-              <figure class="preview__shot" data-shot="grove" data-slot="shot-grove" data-kind="product"><img src="./work/grove-1600.webp" srcset="./work/grove-800.webp 800w, ./work/grove-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="900" alt="" loading="lazy"></figure>
-              <figure class="preview__shot" data-shot="spritespeak" data-slot="shot-spritespeak" data-kind="product"><img src="./work/spritespeak-1600.webp" srcset="./work/spritespeak-800.webp 800w, ./work/spritespeak-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="1000" alt="" loading="lazy"></figure>
-              <figure class="preview__shot preview__shot--top" data-shot="homelab" data-slot="shot-homelab" data-kind="product"><img src="./work/homelab-1600.webp" srcset="./work/homelab-800.webp 800w, ./work/homelab-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="1638" alt="" loading="lazy"></figure>
-              <figure class="preview__shot" data-shot="news" data-slot="shot-news" data-kind="product"><img src="./work/news-1600.webp" srcset="./work/news-800.webp 800w, ./work/news-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="900" alt="" loading="lazy"></figure>
-              <figure class="preview__shot" data-shot="buildforge" data-slot="shot-buildforge" data-kind="product"><img src="./work/buildforge-1600.webp" srcset="./work/buildforge-800.webp 800w, ./work/buildforge-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="1000" alt="" loading="lazy"></figure>
-              <figure class="preview__shot preview__shot--top" data-shot="baseline" data-slot="shot-baseline" data-kind="product"><img src="./work/baseline-1600.webp" srcset="./work/baseline-800.webp 800w, ./work/baseline-1600.webp 1600w" sizes="(min-width: 60rem) 38vw, 100vw" width="1600" height="1098" alt="" loading="lazy"></figure>
+        <h2 class="visually-hidden" id="work-title">Projects</h2>
+        <div class="bento">
+          <article class="tile tile--lead t-sortie">
+            <figure class="tile__shot" data-slot="sortieprep" data-kind="product" data-alt="SortiePrep's aircraft picker"><img src="./work/sortieprep-1600.webp" srcset="./work/sortieprep-800.webp 800w, ./work/sortieprep-1600.webp 1600w" sizes="(min-width: 60rem) 56vw, 100vw" width="1600" height="1000" alt="" fetchpriority="high"></figure>
+            <div class="tile__body tile__body--split">
+              <div>
+                <h3><a href="https://sortieprep.com/" target="_blank" rel="noopener" data-pf="open">SortiePrep</a></h3>
+                <p>DCS cockpit trainer. Click the real switches; the simulated jet decides when a step is done.</p>
+                <a class="tile__code" href="https://github.com/AntonyPerez0/Interactive-F-14-startup-simulator" target="_blank" rel="noopener" data-pf="code">Code</a>
+              </div>
+              <p class="reading"><span class="reading__value measured">100+</span><span class="reading__label">monthly visitors</span></p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          </article>
 
-    <canvas class="field field--band" data-field="band" aria-hidden="true"></canvas>
+          <article class="tile t-pf" id="preflight" aria-labelledby="pf-title">
+            <h3 id="pf-title">Pre-flight checklist</h3>
+            <p class="tile__note">Four checks for a hiring visit. Each one ticks itself when you do it.</p>
+            <ol class="checklist">
+              <li data-pf-item="open"><span>Open a project</span><span class="checklist__state measured">waiting</span></li>
+              <li data-pf-item="code"><span>Read some code</span><span class="checklist__state measured">waiting</span></li>
+              <li data-pf-item="exp"><span>Check the experience</span><span class="checklist__state measured">waiting</span></li>
+              <li data-pf-item="resume"><span>Grab the résumé</span><span class="checklist__state measured">waiting</span></li>
+            </ol>
+            <p class="checklist__done" role="status" aria-live="polite"></p>
+            <button class="checklist__reset" type="button" data-pf-reset>Reset checklist</button>
+          </article>
 
-    <section class="arena" id="arena" aria-labelledby="arena-title">
-      <div class="container">
-        <div class="arena__head">
-          <h2 id="arena-title">Four compilers, no server</h2>
-          <p class="lead">Free courses in C, C++, Java, Rust and Python where every exercise really compiles.</p>
-        </div>
-        <figure class="arena__shot" data-slot="arena-cpp" data-kind="product" data-alt="C/C++ Arena's home page">
-          <img src="./work/cpparena-1600.webp" srcset="./work/cpparena-800.webp 800w, ./work/cpparena-1600.webp 1600w" sizes="(min-width: 90rem) 1312px, 92vw" width="1600" height="1000" alt="C/C++ Arena's home page, with a C program compiled in the browser and its tests passing" loading="lazy">
-        </figure>
-        <div class="arena__below">
-          <figure class="mapping" aria-label="A C program and the output it prints">
-            <div class="mapping__pane graphite">
-              <p class="mapping__file">swap.c</p>
-<pre><code><span class="token">#include</span> &lt;stdio.h&gt;
+          <article class="tile t-activity" aria-labelledby="act-title">
+            <h3 id="act-title">On GitHub</h3>
+            <div class="act-head">
+              <p class="reading reading--wide"><span class="reading__value measured" data-act-total>474</span><span class="reading__label">contributions in the last year</span></p>
+              <a class="tile__code" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener" data-pf="code">Profile</a>
+            </div>
+            <div class="heatmap" data-act-map role="img" aria-label="Contribution calendar for the last year"></div>
+          </article>
 
-<span class="token">void</span> swap(<span class="token">int</span> *a, <span class="token">int</span> *b) {
-    <span class="token">int</span> t = *a;
-    *a = *b;
-    *b = t;
-}
+          <article class="tile t-grove">
+            <figure class="tile__shot" data-slot="grove" data-kind="product" data-alt="Anomaly Grove key art"><img src="./work/grove-800.webp" width="800" height="450" alt="" loading="lazy"></figure>
+            <div class="tile__body">
+              <h3><a href="https://www.roblox.com/games/88948987401653/Anomaly-Grove" target="_blank" rel="noopener" data-pf="open">Anomaly Grove</a></h3>
+              <p>Live Roblox tycoon: 24,000 lines of strict Luau, 240 tests.</p>
+              <a class="tile__code" href="https://github.com/AntonyPerez0/anomaly-grove" target="_blank" rel="noopener" data-pf="code">Code</a>
+            </div>
+          </article>
 
-<span class="token">int</span> main(<span class="token">void</span>) {
-    <span class="token">int</span> x = 4, y = 2;
+          <article class="tile t-arena" id="arena" aria-labelledby="arena-title">
+            <figure class="tile__shot" data-slot="cpparena" data-kind="product" data-alt="C/C++ Arena's home page"><img src="./work/cpparena-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
+            <h3 id="arena-title">Four compilers, no server</h3>
+            <p class="tile__note">Free courses where every exercise compiles for real, in your browser.</p>
+            <div class="code">
+              <p class="code__file">swap.c</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+void swap(int *a, int *b) { int t = *a; *a = *b; *b = t; }
+
+int main(void) {
+    int x = 4, y = 2;
     swap(&amp;x, &amp;y);
-<span class="mapping__hit">    printf("x = %d, y = %d\n", x, y);</span>
-    <span class="token">return</span> 0;
+    printf("x = %d, y = %d\n", x, y);
 }</code></pre>
+              <p class="code__out"><span class="code__file">stdout</span><samp class="measured">x = 2, y = 4</samp></p>
             </div>
-            <svg class="mapping__elbow" viewBox="0 0 40 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 100 H20 V20 H40"/></svg>
-            <div class="mapping__pane graphite">
-              <p class="mapping__file">stdout</p>
-<pre><code>$ cc -Wall swap.c
-$ ./a.out
-<span class="mapping__hit">x = 2, y = 4</span></code></pre>
+            <ul class="arena-list">
+              <li><a href="https://cpparena.com" target="_blank" rel="noopener" data-pf="open">C/C++ Arena</a><span>Clang 20 in WebAssembly</span></li>
+              <li><a href="https://javaarena.com/" target="_blank" rel="noopener" data-pf="open">Java Arena</a><span>javac 21 on a Rust JVM</span></li>
+              <li><a href="https://rustarena.app" target="_blank" rel="noopener" data-pf="open">RustArena</a><span>Graded by the real rustc</span></li>
+              <li><a href="https://pythonarena.org" target="_blank" rel="noopener" data-pf="open">Python Arena</a><span>CPython 3.14 via Pyodide</span></li>
+            </ul>
+          </article>
+
+          <article class="tile t-autopilot">
+            <figure class="tile__shot" data-slot="autopilot" data-kind="product" data-alt="Job Autopilot's overview screen"><img src="./work/autopilot-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
+            <div class="tile__body">
+              <h3><a href="https://github.com/AntonyPerez0/job-autopilot-desktop/releases/latest" target="_blank" rel="noopener" data-pf="open">Job Autopilot</a></h3>
+              <p>Desktop app that applies to jobs using only lines you approved.</p>
+              <a class="tile__code" href="https://github.com/AntonyPerez0/job-autopilot-desktop" target="_blank" rel="noopener" data-pf="code">Code</a>
             </div>
-          </figure>
-          <ul class="arena__list">
-            <li><a href="https://cpparena.com">C/C++ Arena</a><span>Clang 20 compiled to WebAssembly</span></li>
-            <li><a href="https://javaarena.com/">Java Arena</a><span>javac 21 on a Rust JVM in Wasm</span></li>
-            <li><a href="https://rustarena.app">RustArena</a><span>Graded by the real rustc</span></li>
-            <li><a href="https://pythonarena.org">Python Arena</a><span>CPython 3.14 through Pyodide</span></li>
-          </ul>
+          </article>
+
+          <article class="tile t-homelab">
+            <figure class="tile__shot tile__shot--top" data-slot="homelab" data-kind="product" data-alt="The homelab's Grafana dashboard"><img src="./work/homelab-800.webp" width="800" height="819" alt="" loading="lazy"></figure>
+            <div class="tile__body">
+              <h3><a href="https://github.com/AntonyPerez0/homelab" target="_blank" rel="noopener" data-pf="code">GitOps homelab</a></h3>
+              <p>Bare-metal Kubernetes on Talos, deployed by FluxCD.</p>
+            </div>
+          </article>
+
+          <article class="tile t-sprite">
+            <figure class="tile__shot" data-slot="spritespeak" data-kind="product" data-alt="Spritespeak translating a Game Boy game"><img src="./work/spritespeak-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
+            <div class="tile__body">
+              <h3><a href="https://antonyperez0.github.io/spritespeak/" target="_blank" rel="noopener" data-pf="open">Spritespeak</a></h3>
+              <p>Game Boy emulator that translates the screen as you play.</p>
+              <a class="tile__code" href="https://github.com/AntonyPerez0/spritespeak" target="_blank" rel="noopener" data-pf="code">Code</a>
+            </div>
+          </article>
+
+          <article class="tile t-more" aria-labelledby="more-title">
+            <h3 id="more-title">Also shipped</h3>
+            <ul class="more-list">
+              <li><a href="https://newsdash.page" target="_blank" rel="noopener" data-pf="open">News Dashboard</a><span>Headlines for a second monitor</span><a class="more-code" href="https://github.com/AntonyPerez0/news-dashboard" target="_blank" rel="noopener" data-pf="code">Code</a></li>
+              <li><a href="https://antonyperez0.github.io/buildforge/" target="_blank" rel="noopener" data-pf="open">BuildForge</a><span>Diablo IV and WoW build guides</span><a class="more-code" href="https://github.com/AntonyPerez0/buildforge" target="_blank" rel="noopener" data-pf="code">Code</a></li>
+              <li><a href="https://antonyperez0.github.io/baseline-control/" target="_blank" rel="noopener" data-pf="open">Baseline Control</a><span>EIA-649 configuration simulator</span><a class="more-code" href="https://github.com/AntonyPerez0/baseline-control" target="_blank" rel="noopener" data-pf="code">Code</a></li>
+            </ul>
+            <a class="tile__code" href="https://github.com/AntonyPerez0?tab=repositories" target="_blank" rel="noopener" data-pf="code">All repositories</a>
+          </article>
         </div>
       </div>
     </section>
@@ -203,53 +181,71 @@ $ ./a.out
     <section class="experience" id="experience" aria-labelledby="experience-title">
       <div class="container">
         <h2 id="experience-title">From the lab bench to CI pipelines</h2>
-        <div class="ruler" role="list">
-          <div class="ruler__scale" aria-hidden="true">
-            <span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span>
-          </div>
-          <article class="ruler__span ruler__span--ul" role="listitem">
-            <h3>Laboratory Technician</h3>
-            <p class="ruler__org">UL Solutions, Fremont</p>
-            <p class="ruler__when"><time datetime="2022-04">Apr 2022</time> to <time datetime="2024-09">Sept 2024</time></p>
-            <p>Interoperability safety tests on prototype hardware for enterprise customers.</p>
-          </article>
-          <article class="ruler__span ruler__span--clover" role="listitem">
-            <h3>Technical Writer</h3>
-            <p class="ruler__org">Clover Network, Sunnyvale</p>
-            <p class="ruler__when"><time datetime="2024-09">Sept 2024</time> to now</p>
-            <p>GitHub Actions guardrails and SDK documentation for engineering squads.</p>
-          </article>
-          <article class="ruler__span ruler__span--wgu" role="listitem">
-            <h3>B.S. Computer Science</h3>
-            <p class="ruler__org">Western Governors University</p>
-            <p class="ruler__when"><time datetime="2026-05">May 2026</time></p>
-          </article>
-        </div>
+        <ol class="trail">
+          <li class="trail__row">
+            <p class="trail__when measured"><time datetime="2024-09">2024-09</time> to now</p>
+            <div>
+              <h3>Technical Writer, Clover Network</h3>
+              <p>GitHub Actions guardrails and SDK documentation for engineering squads in Sunnyvale.</p>
+            </div>
+          </li>
+          <li class="trail__row">
+            <p class="trail__when measured"><time datetime="2026-05">2026-05</time></p>
+            <div>
+              <h3>B.S. Computer Science, Western Governors University</h3>
+              <p>Capstone: DefectPredict, a model that runs the riskiest tests first.</p>
+            </div>
+          </li>
+          <li class="trail__row">
+            <p class="trail__when measured"><time datetime="2022-04">2022-04</time> to <time datetime="2024-09">2024-09</time></p>
+            <div>
+              <h3>Laboratory Technician, UL Solutions</h3>
+              <p>Interoperability safety tests on prototype hardware in Fremont.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
-      <canvas class="field" data-field="contact" aria-hidden="true"></canvas>
-      <div class="container">
-        <h2 id="contact-title" class="contact__line">Hiring for a software role? Write to me.</h2>
+      <div class="container contact__grid">
+        <h2 id="contact-title">Hiring for a software role? Write to me.</h2>
         <div class="contact__mail">
           <a class="contact__address" href="mailto:antonyperez0@yahoo.com">antonyperez0@yahoo.com</a>
-          <button class="key" type="button" data-copy="antonyperez0@yahoo.com">Copy address</button>
+          <button class="btn" type="button" data-copy="antonyperez0@yahoo.com">Copy address</button>
           <p class="contact__status" role="status" aria-live="polite"></p>
         </div>
-        <ul class="contact__links">
-          <li><a href="https://linkedin.com/in/antonyperez-swe">LinkedIn</a></li>
-          <li><a href="https://github.com/AntonyPerez0">GitHub</a></li>
-          <li><a href="./resume.pdf">Résumé (PDF)</a></li>
-        </ul>
       </div>
     </section>
   </main>
 
   <footer class="foot">
-    <div class="container foot__row">
-      <p class="foot__sign">Thanks for reading. Antony, <time datetime="2026-10">October 2026</time>.</p>
-      <p class="foot__small"><a href="https://github.com/AntonyPerez0/Portfolio-site">This site’s source</a> is on GitHub.</p>
+    <div class="container">
+      <div class="foot__cols">
+        <div>
+          <p class="foot__head">Work</p>
+          <ul>
+            <li><a href="https://sortieprep.com/" target="_blank" rel="noopener">SortiePrep</a></li>
+            <li><a href="https://cpparena.com" target="_blank" rel="noopener">C/C++ Arena</a></li>
+            <li><a href="https://www.roblox.com/games/88948987401653/Anomaly-Grove" target="_blank" rel="noopener">Anomaly Grove</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot__head">Elsewhere</p>
+          <ul>
+            <li><a href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/antonyperez-swe" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="./resume.pdf" data-pf="resume">Résumé (PDF)</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="foot__head">This site</p>
+          <ul>
+            <li><a href="https://github.com/AntonyPerez0/Portfolio-site" target="_blank" rel="noopener">Source on GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="foot__legal">© 2026 Antony Perez. San Francisco Bay Area.</p>
     </div>
   </footer>
 

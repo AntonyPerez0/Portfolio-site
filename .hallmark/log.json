@@ -3,6 +3,35 @@
   "mode": "redesign",
   "depth": "full",
   "scope": "page",
+  "shape": "Bento Grid",
+  "theme": "console",
+  "axes": "dark/grotesk-sans/chromatic-amber",
+  "hero": "Banner",
+  "nav": "slab bar with pre-flight chip",
+  "footer": "index columns",
+  "imagery": "screenshots 7 (product)",
+  "photos": [],
+  "entry": "bento with self-ticking pre-flight checklist",
+  "fingerprint": "bento-banner-trail-statement",
+  "sections": [
+   "intro",
+   "bento",
+   "trail",
+   "contact",
+   "footer"
+  ],
+  "signature": "pre-flight checklist that ticks itself as the visitor acts",
+  "waived": [
+   "44c",
+   "59"
+  ],
+  "prompt": "software engineer portfolio, clean bento plus one twist, light and dark",
+  "date": "2026-10-27"
+ },
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "page",
   "shape": "Workbench",
   "theme": "cobalt",
   "axes": "dark/grotesk-sans/cool",

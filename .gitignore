@@ -3,3 +3,4 @@ dist
 .hallmark/shots/
 .hallmark/shot.mjs
 .hallmark/tap.mjs
+.hallmark/pf-test.mjs
