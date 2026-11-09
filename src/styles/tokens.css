@@ -1,33 +1,59 @@
 :root {
-  color-scheme: dark;
-  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
-  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
-  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
-  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
-  --color-error: oklch(72% 0.15 27); --color-success: oklch(76% 0.13 150);
-  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
-  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
-  --color-paper: oklch(17% 0.008 250); --color-paper-2: oklch(21% 0.009 250); --color-paper-3: oklch(13.5% 0.007 250);
-  --color-ink: oklch(95% 0.005 250); --color-ink-2: oklch(83% 0.008 250); --color-muted: oklch(71% 0.01 250);
-  --color-rule: oklch(31% 0.01 250); --color-rule-2: oklch(42% 0.012 250);
-  --color-accent: oklch(82% 0.15 80); --color-accent-ink: oklch(18% 0.04 75); --color-accent-soft: oklch(29% 0.05 80); --color-focus: oklch(82% 0.15 80);
-  --color-cool: oklch(77% 0.12 245); --color-cool-soft: oklch(29% 0.05 245);
-  --color-ok: oklch(76% 0.15 150); --color-ok-soft: oklch(24.5% 0.03 150); --color-bad: oklch(70% 0.17 25); --color-bad-soft: oklch(24.5% 0.035 25);
-  --font-display: "Host Grotesk", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
-  --font-outlier: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
-  --radius-card: 10px; --radius-pill: 6px; --rule-hair: 1px;
-  --shadow-card: none;
-  --tracking-display: -0.03em; --display-weight: 500;
+  color-scheme: light dark;
+
+  /* Warm neutrals (Radix Sand), one accent, one signal green. */
+  --bg: light-dark(#fdfdfc, #111110);
+  --bg-2: light-dark(#f9f9f8, #191918);
+  --bg-3: light-dark(#f1f0ef, #222221);
+  --line: light-dark(#e9e8e6, #2a2a28);
+  --line-2: light-dark(#dad9d6, #3b3a37);
+  --faint: light-dark(#bcbbb5, #62605b);
+  --muted: light-dark(#63635e, #b5b3ad);
+  --ink: light-dark(#21201c, #eeeeec);
+  --accent: light-dark(oklch(55% 0.16 48), oklch(80% 0.14 70));
+  --ok: light-dark(oklch(60% 0.15 150), oklch(78% 0.17 150));
+  --ring: light-dark(rgb(0 0 0 / 0.07), rgb(255 255 255 / 0.08));
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Newsreader", ui-serif, Georgia, serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  --col: 40rem;
+  --wide: 48rem;
+  --pad: 24px;
+  --radius: 14px;
+  --radius-sm: 8px;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-fast: 150ms;
+  --dur: 300ms;
 }
-[data-mode="light"] {
-  color-scheme: light;
-  --color-paper: oklch(97.5% 0.007 85); --color-paper-2: oklch(99.3% 0.004 85); --color-paper-3: oklch(93.5% 0.010 85);
-  --color-ink: oklch(19% 0.010 60); --color-ink-2: oklch(32% 0.010 60); --color-muted: oklch(45% 0.012 60);
-  --color-rule: oklch(88% 0.010 80); --color-rule-2: oklch(76% 0.012 80);
-  --color-accent: oklch(50% 0.13 68); --color-accent-ink: oklch(98.5% 0.005 85); --color-accent-soft: oklch(93% 0.04 80); --color-focus: oklch(50% 0.13 68);
-  --color-cool: oklch(50% 0.13 250); --color-cool-soft: oklch(93% 0.03 245);
-  --color-ok: oklch(48% 0.12 150); --color-ok-soft: oklch(94% 0.03 150); --color-bad: oklch(52% 0.17 25); --color-bad-soft: oklch(94% 0.03 25);
-  --color-error: oklch(52% 0.17 25); --color-success: oklch(48% 0.12 150);
+
+[data-mode="light"] { color-scheme: light; }
+[data-mode="dark"] { color-scheme: dark; }
+
+/* Browsers without light-dark() get the same palette per mode. */
+@supports not (color: light-dark(#000, #fff)) {
+  :root { --bg: #fdfdfc; --bg-2: #f9f9f8; --bg-3: #f1f0ef; --line: #e9e8e6; --line-2: #dad9d6; --faint: #bcbbb5; --muted: #63635e; --ink: #21201c; --accent: oklch(55% 0.16 48); --ok: oklch(60% 0.15 150); --ring: rgb(0 0 0 / 0.07); }
+  [data-mode="dark"] { --bg: #111110; --bg-2: #191918; --bg-3: #222221; --line: #2a2a28; --line-2: #3b3a37; --faint: #62605b; --muted: #b5b3ad; --ink: #eeeeec; --accent: oklch(80% 0.14 70); --ok: oklch(78% 0.17 150); --ring: rgb(255 255 255 / 0.08); }
+}
+
+@media (max-width: 40rem) {
+  :root { --pad: 20px; --radius: 12px; }
 }

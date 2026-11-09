@@ -8,23 +8,27 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@600&family=IBM+Plex+Sans:wght@400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..500&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet">
+  <script>(function () { var m; try { m = localStorage.getItem('mode'); } catch (e) {} if (m === 'light' || m === 'dark') document.documentElement.dataset.mode = m; })();</script>
   <style>
-    :root { --paper: oklch(98.6% 0.005 250); --ink: oklch(21% 0.028 262); --ink-2: oklch(36% 0.022 260); --graphite: oklch(21% 0.024 262); --graphite-ink: oklch(93% 0.010 250); --accent: oklch(52% 0.19 258); --accent-2: oklch(76% 0.13 254); --display: "Familjen Grotesk", system-ui, sans-serif; --body: "IBM Plex Sans", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace; }
-    html, body { overflow-x: clip; }
-    body { margin: 0; min-height: 100dvh; display: grid; place-items: center; padding: 24px; box-sizing: border-box; background: var(--paper); color: var(--ink); font: 400 1rem/1.55 var(--body); }
-    main { display: grid; gap: 24px; max-width: 36rem; }
-    h1 { margin: 0; font: 600 clamp(2.5rem, 6vw, 4rem)/1.02 var(--display); letter-spacing: -0.028em; }
-    pre { margin: 0; padding: 24px; border-radius: 16px 4px; background: var(--graphite); color: var(--graphite-ink); font: 400 0.875rem/1.6 var(--mono); overflow-x: auto; }
-    pre span { color: var(--accent-2); }
-    p { margin: 0; color: var(--ink-2); }
-    a { color: var(--ink); text-underline-offset: 0.2em; }
+    :root { color-scheme: light dark; --bg: light-dark(#fdfdfc, #111110); --bg-2: light-dark(#f9f9f8, #191918); --line: light-dark(#e9e8e6, #2a2a28); --line-2: light-dark(#dad9d6, #3b3a37); --muted: light-dark(#63635e, #b5b3ad); --ink: light-dark(#21201c, #eeeeec); --accent: light-dark(oklch(55% 0.16 48), oklch(80% 0.14 70)); --mono: "Geist Mono", ui-monospace, monospace; }
+    [data-mode="light"] { color-scheme: light; }
+    [data-mode="dark"] { color-scheme: dark; }
+    body { margin: 0; min-height: 100dvh; display: grid; place-items: center; padding: 24px; box-sizing: border-box; background: var(--bg); color: var(--muted); font: 400 1rem/1.65 "Inter", ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    main { display: grid; gap: 24px; width: min(100%, 32rem); }
+    .label { margin: 0; font: 500 0.75rem/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; }
+    h1 { margin: 0; color: var(--ink); font-size: 1rem; font-weight: 500; }
+    pre { margin: 0; padding: 16px 20px; border-radius: 12px; background: var(--bg-2); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink); font: 400 0.8125rem/1.7 var(--mono); overflow-x: auto; }
+    pre span { color: var(--accent); }
+    p { margin: 0; }
+    a { color: var(--ink); text-decoration-color: var(--line-2); text-underline-offset: 0.22em; }
     a:hover { text-decoration-color: var(--accent); }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
   </style>
 </head>
 <body>
   <main>
+    <p class="label">Error 404</p>
     <h1>Nothing compiled here.</h1>
     <pre>$ curl -I https://antonyperez.com<span id="path"></span>
 HTTP/2 <span>404</span></pre>

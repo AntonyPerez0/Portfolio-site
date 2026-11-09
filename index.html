@@ -4,253 +4,334 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Antony Perez, software engineer</title>
-  <meta name="description" content="Antony Perez is a Bay Area software engineer who ships browser compilers, a flight-sim cockpit trainer, a live Roblox game and the servers under them.">
+  <meta name="description" content="Antony Perez is a software engineer in the SF Bay Area. He builds browser courses that run real compilers in WebAssembly, a DCS cockpit trainer, a live Roblox game and the infrastructure under them.">
   <link rel="canonical" href="https://antonyperez.com/">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="profile">
   <meta property="og:url" content="https://antonyperez.com/">
   <meta property="og:title" content="Antony Perez, software engineer">
-  <meta property="og:description" content="Browser compilers, a flight-sim cockpit trainer, a live Roblox game and the servers under them.">
+  <meta property="og:description" content="Browser courses that run real compilers, a DCS cockpit trainer, a live Roblox game and the infrastructure under them.">
   <meta property="og:image" content="https://antonyperez.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#16191d">
+  <meta name="theme-color" content="#fdfdfc">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="alternate" type="text/plain" href="./llms.txt" title="llms.txt">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500&family=Atkinson+Hyperlegible+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..600&family=Newsreader:ital@1&family=Geist+Mono:wght@400..500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/styles/site.css">
-  <script>(function () { var d = document.documentElement, m = 'dark'; try { m = localStorage.getItem('mode') || 'dark'; } catch (e) {} d.dataset.mode = m; d.classList.add('js'); })();</script>
+  <script>(function () { var d = document.documentElement, m; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'light' && m !== 'dark') m = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; d.dataset.mode = m; document.querySelector('meta[name="theme-color"]').content = m === 'dark' ? '#111110' : '#fdfdfc'; })();</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Antony Perez",
-    "jobTitle": "Software Engineer",
-    "url": "https://antonyperez.com/",
-    "email": "mailto:antonyperez0@yahoo.com",
-    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Western Governors University" },
-    "sameAs": ["https://github.com/AntonyPerez0", "https://linkedin.com/in/antonyperez-swe"]
+    "@type": "ProfilePage",
+    "dateModified": "2026-11-08",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Antony Perez",
+      "jobTitle": "Software Engineer",
+      "url": "https://antonyperez.com/",
+      "email": "mailto:antonyperez0@yahoo.com",
+      "image": "https://antonyperez.com/og-image.png",
+      "worksFor": { "@type": "Organization", "name": "Clover Network" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Western Governors University" },
+        { "@type": "Organization", "name": "Multiverse" }
+      ],
+      "homeLocation": { "@type": "Place", "name": "San Francisco Bay Area, California" },
+      "knowsAbout": ["TypeScript", "JavaScript", "Java", "Kotlin", "Python", "SQL", "WebAssembly", "React", "Node.js", "Kubernetes", "FluxCD", "GitHub Actions", "CI/CD", "Electron", "Playwright"],
+      "sameAs": ["https://github.com/AntonyPerez0", "https://linkedin.com/in/antonyperez-swe"]
+    }
   }
   </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="bar">
-    <div class="container bar__row">
-      <a class="bar__mark" href="#main" aria-label="Antony Perez, back to top">Antony Perez</a>
-      <nav class="bar__links" aria-label="Sections">
-        <a href="#work">Work</a>
-        <a href="#arena">Arena</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+  <div class="page">
+    <header class="intro">
+      <div class="intro__top rise" style="--i: 0">
+        <div>
+          <h1 class="intro__name">Antony Perez</h1>
+          <p class="intro__role">Software engineer, SF Bay Area</p>
+        </div>
+        <button class="mode" type="button" id="mode" aria-label="Switch to dark mode">
+          <svg class="mode__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.1A8.5 8.5 0 0 1 9.9 3.5a8.5 8.5 0 1 0 10.6 10.6Z"/></svg>
+          <svg class="mode__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
+        </button>
+      </div>
+
+      <div class="intro__bio rise" style="--i: 1">
+        <p>I build software end to end: the app, the tests that prove it, and the pipeline that ships it. Lately that means free courses where <em>real compilers</em> run in your browser, a cockpit trainer for DCS pilots at <a href="https://sortieprep.com/">sortieprep.com</a>, and a live multiplayer Roblox game.</p>
+        <p>By day I’m a technical writer at <span class="ink">Clover Network</span>, where I build GitHub Actions guardrails for engineering teams. Before that I tested server hardware for Apple, Google and Microsoft at <span class="ink">UL Solutions</span>. I finished a B.S. in Computer Science at WGU in 2026.</p>
+      </div>
+
+      <p class="status mono rise" style="--i: 2"><span class="status__dot" aria-hidden="true"></span>Open to software engineering roles</p>
+
+      <nav class="links rise" style="--i: 3" aria-label="Résumé and profiles">
+        <a class="btn" href="./resume.pdf">
+          Résumé
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg>
+        </a>
+        <a href="mailto:antonyperez0@yahoo.com">Email</a>
+        <a href="https://github.com/AntonyPerez0">GitHub<span class="arrow" aria-hidden="true">↗</span></a>
+        <a href="https://linkedin.com/in/antonyperez-swe">LinkedIn<span class="arrow" aria-hidden="true">↗</span></a>
       </nav>
-      <a class="bar__resume" href="./resume.pdf" data-pf="resume">Résumé</a>
-      <a class="bar__pf" href="#preflight" id="pf-chip"><span class="bar__pf-label">Pre-flight</span> <span class="measured" data-pf-count>0 of 4</span></a>
-      <button class="mode" type="button" id="mode" aria-label="Switch to light mode">
-        <svg class="mode__sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-        <svg class="mode__moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-      </button>
-    </div>
-  </header>
+    </header>
 
-  <main id="main">
-    <section class="intro-sec" aria-labelledby="title">
-      <div class="container">
-        <div class="intro">
-          <h1 id="title">Antony Perez, software engineer.</h1>
-          <p class="lead">Shipping browser compilers, a flight trainer and a live Roblox game.</p>
-          <div class="intro__actions">
-            <a class="btn btn--primary" href="./resume.pdf" data-pf="resume">Résumé (PDF)</a>
-            <a class="btn" href="mailto:antonyperez0@yahoo.com">Email me</a>
-          </div>
+    <main id="main">
+      <section class="section section--first" id="work" aria-labelledby="work-title">
+        <div class="section-head rise" style="--i: 4">
+          <h2 class="label" id="work-title">Selected work</h2>
         </div>
-      </div>
-    </section>
 
-    <section class="work" id="work" aria-labelledby="work-title">
-      <div class="container">
-        <h2 class="visually-hidden" id="work-title">Projects</h2>
-        <div class="bento">
-          <article class="tile tile--lead t-sortie">
-            <figure class="tile__shot" data-slot="sortieprep" data-kind="product" data-alt="SortiePrep's aircraft picker"><img src="./work/sortieprep-1600.webp" srcset="./work/sortieprep-800.webp 800w, ./work/sortieprep-1600.webp 1600w" sizes="(min-width: 60rem) 56vw, 100vw" width="1600" height="1000" alt="" fetchpriority="high"></figure>
-            <div class="tile__body tile__body--split">
-              <div>
-                <h3><a href="https://sortieprep.com/" target="_blank" rel="noopener" data-pf="open">SortiePrep</a></h3>
-                <p>DCS cockpit trainer. Click the real switches; the simulated jet decides when a step is done.</p>
-                <a class="tile__code" href="https://github.com/AntonyPerez0/Interactive-F-14-startup-simulator" target="_blank" rel="noopener" data-pf="code">Code</a>
-              </div>
-              <p class="reading"><span class="reading__value measured">100+</span><span class="reading__label">monthly visitors</span></p>
+        <div class="projects">
+          <article class="project rise" style="--i: 5" aria-labelledby="p-arena">
+            <a class="plate plate--arena" href="https://cpparena.com" tabindex="-1" aria-hidden="true">
+              <img src="./work/cpparena-1600.webp" srcset="./work/cpparena-800.webp 800w, ./work/cpparena-1600.webp 1600w" sizes="(min-width: 54rem) 660px, 90vw" width="1600" height="1000" alt="" fetchpriority="high">
+            </a>
+            <div class="project__body">
+              <h3 class="project__title" id="p-arena"><a href="https://cpparena.com">Arena courses<span class="arrow" aria-hidden="true">↗</span></a></h3>
+              <p>Free courses in C/C++, Java, Rust and Python where every exercise is compiled and run for real in your browser: Clang 20 in WebAssembly, javac 21 on a Rust JVM, the real rustc grading every test, and CPython 3.14 through Pyodide. No account needed.</p>
+              <p class="project__meta mono">TypeScript · WebAssembly · GitHub Actions · WCAG 2.2 AA</p>
+              <ul class="project__links">
+                <li><a href="https://cpparena.com">cpparena.com<span class="arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://javaarena.com/">javaarena.com<span class="arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://rustarena.app">rustarena.app<span class="arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://pythonarena.org">pythonarena.org<span class="arrow" aria-hidden="true">↗</span></a></li>
+              </ul>
+              <details class="how">
+                <summary>How it works</summary>
+                <ul>
+                  <li><strong>No hand-typed answers.</strong> The build runs every reference solution on the real toolchain, then CI replays them in the browser engine and fails on any difference.</li>
+                  <li><strong>Static and serverless.</strong> Progress stays in the browser, and every course works offline once visited.</li>
+                  <li><strong>Graded like real work.</strong> A Pro Track is graded by GitHub Actions in the learner’s own repository, and RustArena grades test-writing with planted mutants.</li>
+                  <li><strong>Accessible.</strong> WCAG 2.2 AA, with axe scans of every page type.</li>
+                  <li><strong>Source.</strong> <a href="https://github.com/AntonyPerez0/cpp-arena">cpp-arena</a>, <a href="https://github.com/AntonyPerez0/Java-Arena">Java-Arena</a>, <a href="https://github.com/AntonyPerez0/RustArena">RustArena</a> and <a href="https://github.com/AntonyPerez0/pythonarena">pythonarena</a> on GitHub.</li>
+                </ul>
+              </details>
             </div>
           </article>
 
-          <article class="tile t-pf" id="preflight" aria-labelledby="pf-title">
-            <h3 id="pf-title">Pre-flight checklist</h3>
-            <p class="tile__note">Four checks for a hiring visit. Each one ticks itself when you do it.</p>
-            <ol class="checklist">
-              <li data-pf-item="open"><span>Open a project</span><span class="checklist__state measured">waiting</span></li>
-              <li data-pf-item="code"><span>Read some code</span><span class="checklist__state measured">waiting</span></li>
-              <li data-pf-item="exp"><span>Check the experience</span><span class="checklist__state measured">waiting</span></li>
-              <li data-pf-item="resume"><span>Grab the résumé</span><span class="checklist__state measured">waiting</span></li>
-            </ol>
-            <p class="checklist__done" role="status" aria-live="polite"></p>
-            <button class="checklist__reset" type="button" data-pf-reset>Reset checklist</button>
-          </article>
-
-          <article class="tile t-activity" aria-labelledby="act-title">
-            <h3 id="act-title">On GitHub</h3>
-            <div class="act-head">
-              <p class="reading reading--wide"><span class="reading__value measured" data-act-total>474</span><span class="reading__label">contributions in the last year</span></p>
-              <a class="tile__code" href="https://github.com/AntonyPerez0" target="_blank" rel="noopener" data-pf="code">Profile</a>
-            </div>
-            <div class="heatmap" data-act-map role="img" aria-label="Contribution calendar for the last year"></div>
-          </article>
-
-          <article class="tile t-grove">
-            <figure class="tile__shot" data-slot="grove" data-kind="product" data-alt="Anomaly Grove key art"><img src="./work/grove-800.webp" width="800" height="450" alt="" loading="lazy"></figure>
-            <div class="tile__body">
-              <h3><a href="https://www.roblox.com/games/88948987401653/Anomaly-Grove" target="_blank" rel="noopener" data-pf="open">Anomaly Grove</a></h3>
-              <p>Live Roblox tycoon: 24,000 lines of strict Luau, 240 tests.</p>
-              <a class="tile__code" href="https://github.com/AntonyPerez0/anomaly-grove" target="_blank" rel="noopener" data-pf="code">Code</a>
+          <article class="project" aria-labelledby="p-sortie">
+            <a class="plate plate--sortie" href="https://sortieprep.com/" tabindex="-1" aria-hidden="true">
+              <img src="./work/sortieprep-1600.webp" srcset="./work/sortieprep-800.webp 800w, ./work/sortieprep-1600.webp 1600w" sizes="(min-width: 54rem) 660px, 90vw" width="1600" height="1000" alt="" loading="lazy" decoding="async">
+            </a>
+            <div class="project__body">
+              <h3 class="project__title" id="p-sortie"><a href="https://sortieprep.com/">SortiePrep<span class="arrow" aria-hidden="true">↗</span></a></h3>
+              <p>A cockpit trainer for DCS World. You click the real switches on real cockpit images, and a simulated aircraft underneath decides when each checklist step is actually done. Two airframes, 409 procedure steps, 100+ monthly visitors.</p>
+              <p class="project__meta mono">JavaScript · State machines · PWA · Cloudflare Workers</p>
+              <ul class="project__links">
+                <li><a href="https://sortieprep.com/">sortieprep.com<span class="arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/AntonyPerez0/Interactive-F-14-startup-simulator">Source<span class="arrow" aria-hidden="true">↗</span></a></li>
+              </ul>
+              <details class="how">
+                <summary>How it works</summary>
+                <ul>
+                  <li><strong>Aircraft-agnostic core.</strong> A switch state machine, an event bus and a hotspot and pan-zoom view layer; each airframe is a data module, so new jets drop in.</li>
+                  <li><strong>The jet decides.</strong> The F/A-18C simulates the APU, both F404 engines, generators, hydraulics, bleed air and INS, so 109 steps confirm themselves off aircraft state.</li>
+                  <li><strong>Tested headless.</strong> Test suites drive every procedure to completion through the real sim and exercise failure paths such as a hung start.</li>
+                  <li><strong>Runs anywhere.</strong> An installable PWA with offline caching, plus a presence API on Cloudflare Workers and D1.</li>
+                </ul>
+              </details>
             </div>
           </article>
 
-          <article class="tile t-arena" id="arena" aria-labelledby="arena-title">
-            <figure class="tile__shot" data-slot="cpparena" data-kind="product" data-alt="C/C++ Arena's home page"><img src="./work/cpparena-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
-            <h3 id="arena-title">Four compilers, no server</h3>
-            <p class="tile__note">Free courses where every exercise compiles for real, in your browser.</p>
-            <div class="code">
-              <p class="code__file">swap.c</p>
-<pre><code>#include &lt;stdio.h&gt;
-
-void swap(int *a, int *b) { int t = *a; *a = *b; *b = t; }
-
-int main(void) {
-    int x = 4, y = 2;
-    swap(&amp;x, &amp;y);
-    printf("x = %d, y = %d\n", x, y);
-}</code></pre>
-              <p class="code__out"><span class="code__file">stdout</span><samp class="measured">x = 2, y = 4</samp></p>
-            </div>
-            <ul class="arena-list">
-              <li><a href="https://cpparena.com" target="_blank" rel="noopener" data-pf="open">C/C++ Arena</a><span>Clang 20 in WebAssembly</span></li>
-              <li><a href="https://javaarena.com/" target="_blank" rel="noopener" data-pf="open">Java Arena</a><span>javac 21 on a Rust JVM</span></li>
-              <li><a href="https://rustarena.app" target="_blank" rel="noopener" data-pf="open">RustArena</a><span>Graded by the real rustc</span></li>
-              <li><a href="https://pythonarena.org" target="_blank" rel="noopener" data-pf="open">Python Arena</a><span>CPython 3.14 via Pyodide</span></li>
-            </ul>
-          </article>
-
-          <article class="tile t-autopilot">
-            <figure class="tile__shot" data-slot="autopilot" data-kind="product" data-alt="Job Autopilot's overview screen"><img src="./work/autopilot-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
-            <div class="tile__body">
-              <h3><a href="https://github.com/AntonyPerez0/job-autopilot-desktop/releases/latest" target="_blank" rel="noopener" data-pf="open">Job Autopilot</a></h3>
-              <p>Desktop app that applies to jobs using only lines you approved.</p>
-              <a class="tile__code" href="https://github.com/AntonyPerez0/job-autopilot-desktop" target="_blank" rel="noopener" data-pf="code">Code</a>
+          <article class="project" aria-labelledby="p-grove">
+            <a class="plate plate--full plate--grove" href="https://www.roblox.com/games/88948987401653/Anomaly-Grove" tabindex="-1" aria-hidden="true">
+              <img src="./work/grove-1600.webp" srcset="./work/grove-800.webp 800w, ./work/grove-1600.webp 1600w" sizes="(min-width: 54rem) 768px, 100vw" width="1600" height="900" alt="" loading="lazy" decoding="async">
+            </a>
+            <div class="project__body">
+              <h3 class="project__title" id="p-grove"><a href="https://www.roblox.com/games/88948987401653/Anomaly-Grove">Anomaly Grove<span class="arrow" aria-hidden="true">↗</span></a></h3>
+              <p>A grow-and-steal tycoon live on Roblox: grow glowing cores, steal them from rival bases and survive monster-filled nights. 24,000 lines of strict-typed Luau across 142 modules, covered by 240 tests.</p>
+              <p class="project__meta mono">Luau (strict) · Roblox · Python simulation</p>
+              <ul class="project__links">
+                <li><a href="https://www.roblox.com/games/88948987401653/Anomaly-Grove">Play on Roblox<span class="arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/AntonyPerez0/anomaly-grove">Source<span class="arrow" aria-hidden="true">↗</span></a></li>
+              </ul>
+              <details class="how">
+                <summary>How it works</summary>
+                <ul>
+                  <li><strong>Server-authoritative.</strong> Every client request is checked for type, range, reach, cooldown and ownership, backed by a security audit of the remote handlers.</li>
+                  <li><strong>Saves that survive.</strong> Schema-versioned saves with migrations, retries and session locking, so a player hopping servers never loads stale data.</li>
+                  <li><strong>Tuned by simulation.</strong> Economy pacing comes from a Python simulation of about 1,200 hours of play.</li>
+                </ul>
+              </details>
             </div>
           </article>
 
-          <article class="tile t-homelab">
-            <figure class="tile__shot tile__shot--top" data-slot="homelab" data-kind="product" data-alt="The homelab's Grafana dashboard"><img src="./work/homelab-800.webp" width="800" height="819" alt="" loading="lazy"></figure>
-            <div class="tile__body">
-              <h3><a href="https://github.com/AntonyPerez0/homelab" target="_blank" rel="noopener" data-pf="code">GitOps homelab</a></h3>
-              <p>Bare-metal Kubernetes on Talos, deployed by FluxCD.</p>
+          <article class="project" aria-labelledby="p-autopilot">
+            <a class="plate plate--autopilot" href="https://github.com/AntonyPerez0/job-autopilot-desktop/releases/latest" tabindex="-1" aria-hidden="true">
+              <img src="./work/autopilot-1600.webp" srcset="./work/autopilot-800.webp 800w, ./work/autopilot-1600.webp 1600w" sizes="(min-width: 54rem) 660px, 90vw" width="1600" height="1000" alt="" loading="lazy" decoding="async">
+            </a>
+            <div class="project__body">
+              <h3 class="project__title" id="p-autopilot"><a href="https://github.com/AntonyPerez0/job-autopilot-desktop/releases/latest">Job Autopilot<span class="arrow" aria-hidden="true">↗</span></a></h3>
+              <p>A desktop app for macOS and Windows that finds jobs that fit you, builds a one-page résumé for each from lines you approved, then fills in and sends the application. The AI may only reword your facts, never add to them.</p>
+              <p class="project__meta mono">Electron · Playwright · LLM guardrails · Ollama</p>
+              <ul class="project__links">
+                <li><a href="https://github.com/AntonyPerez0/job-autopilot-desktop/releases/latest">Download<span class="arrow" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/AntonyPerez0/job-autopilot-desktop">Source<span class="arrow" aria-hidden="true">↗</span></a></li>
+              </ul>
+              <details class="how">
+                <summary>How it works</summary>
+                <ul>
+                  <li><strong>Honest by design.</strong> Rule-based checks with no AI involved reject any number, tool or claim you didn’t give, and a second AI pass fact-checks every line.</li>
+                  <li><strong>Real application forms.</strong> It fills Greenhouse, Lever, Ashby, SmartRecruiters, Workable and multi-page forms, starts in dry run and never applies to the same job twice.</li>
+                  <li><strong>Local first.</strong> No accounts and no analytics. Bring your own AI key, about a cent per application, or run a local model through Ollama or LM Studio.</li>
+                </ul>
+              </details>
             </div>
           </article>
 
-          <article class="tile t-sprite">
-            <figure class="tile__shot" data-slot="spritespeak" data-kind="product" data-alt="Spritespeak translating a Game Boy game"><img src="./work/spritespeak-800.webp" width="800" height="500" alt="" loading="lazy"></figure>
-            <div class="tile__body">
-              <h3><a href="https://antonyperez0.github.io/spritespeak/" target="_blank" rel="noopener" data-pf="open">Spritespeak</a></h3>
-              <p>Game Boy emulator that translates the screen as you play.</p>
-              <a class="tile__code" href="https://github.com/AntonyPerez0/spritespeak" target="_blank" rel="noopener" data-pf="code">Code</a>
+          <article class="project" aria-labelledby="p-homelab">
+            <a class="plate plate--homelab" href="https://github.com/AntonyPerez0/homelab" tabindex="-1" aria-hidden="true">
+              <img src="./work/homelab-1600.webp" srcset="./work/homelab-800.webp 800w, ./work/homelab-1600.webp 1600w" sizes="(min-width: 54rem) 660px, 90vw" width="1600" height="1638" alt="" loading="lazy" decoding="async">
+            </a>
+            <div class="project__body">
+              <h3 class="project__title" id="p-homelab"><a href="https://github.com/AntonyPerez0/homelab">GitOps homelab<span class="arrow" aria-hidden="true">↗</span></a></h3>
+              <p>Bare-metal Kubernetes in my home, managed entirely from Git. Talos Linux, FluxCD and Kustomize run 18 self-hosted services, from CI/CD and automation to local AI, with runtime threat detection and nightly backups.</p>
+              <p class="project__meta mono">Kubernetes · Talos Linux · FluxCD · Falco · Prometheus</p>
+              <ul class="project__links">
+                <li><a href="https://github.com/AntonyPerez0/homelab">Source<span class="arrow" aria-hidden="true">↗</span></a></li>
+              </ul>
+              <details class="how">
+                <summary>How it works</summary>
+                <ul>
+                  <li><strong>Immutable nodes.</strong> Talos Linux has no SSH and no shell, so the cluster can’t drift from its configuration.</li>
+                  <li><strong>Git is the source of truth.</strong> FluxCD reconciles every change from a commit; if it isn’t in Git, it doesn’t exist.</li>
+                  <li><strong>Watched and backed up.</strong> Falco on the eBPF driver streams syscall-level detections, Prometheus and Grafana watch the rest, and CloudNativePG runs PostgreSQL 16 with nightly self-auditing backups.</li>
+                </ul>
+              </details>
             </div>
-          </article>
-
-          <article class="tile t-more" aria-labelledby="more-title">
-            <h3 id="more-title">Also shipped</h3>
-            <ul class="more-list">
-              <li><a href="https://newsdash.page" target="_blank" rel="noopener" data-pf="open">News Dashboard</a><span>Headlines for a second monitor</span><a class="more-code" href="https://github.com/AntonyPerez0/news-dashboard" target="_blank" rel="noopener" data-pf="code">Code</a></li>
-              <li><a href="https://antonyperez0.github.io/buildforge/" target="_blank" rel="noopener" data-pf="open">BuildForge</a><span>Diablo IV and WoW build guides</span><a class="more-code" href="https://github.com/AntonyPerez0/buildforge" target="_blank" rel="noopener" data-pf="code">Code</a></li>
-              <li><a href="https://antonyperez0.github.io/baseline-control/" target="_blank" rel="noopener" data-pf="open">Baseline Control</a><span>EIA-649 configuration simulator</span><a class="more-code" href="https://github.com/AntonyPerez0/baseline-control" target="_blank" rel="noopener" data-pf="code">Code</a></li>
-            </ul>
-            <a class="tile__code" href="https://github.com/AntonyPerez0?tab=repositories" target="_blank" rel="noopener" data-pf="code">All repositories</a>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="experience" id="experience" aria-labelledby="experience-title">
-      <div class="container">
-        <h2 id="experience-title">From the lab bench to CI pipelines</h2>
-        <ol class="trail">
-          <li class="trail__row">
-            <p class="trail__when measured"><time datetime="2024-09">2024-09</time> to now</p>
-            <div>
-              <h3>Technical Writer, Clover Network</h3>
-              <p>GitHub Actions guardrails and SDK documentation for engineering squads in Sunnyvale.</p>
+      <section class="section" aria-labelledby="more-title">
+        <div class="section-head">
+          <h2 class="label" id="more-title">More projects</h2>
+          <a href="https://github.com/AntonyPerez0?tab=repositories">All repositories ↗</a>
+        </div>
+        <ul class="more">
+          <li>
+            <a class="more__name" href="https://antonyperez0.github.io/spritespeak/">Spritespeak<span class="arrow" aria-hidden="true">↗</span></a>
+            <p class="more__desc">A Game Boy emulator that reads, translates and speaks the screen as you play.</p>
+            <a class="more__code" href="https://github.com/AntonyPerez0/spritespeak">Source<span class="vh"> for Spritespeak</span></a>
+          </li>
+          <li>
+            <a class="more__name" href="https://newsdash.page">News Dashboard<span class="arrow" aria-hidden="true">↗</span></a>
+            <p class="more__desc">Live headlines that cycle through a second monitor with no API keys and no server costs.</p>
+            <a class="more__code" href="https://github.com/AntonyPerez0/news-dashboard">Source<span class="vh"> for News Dashboard</span></a>
+          </li>
+          <li>
+            <a class="more__name" href="https://copyprosta.com/">CS2 Pro Configs<span class="arrow" aria-hidden="true">↗</span></a>
+            <p class="more__desc">620 pro players’ settings as one-click console commands, updated weekly.</p>
+            <a class="more__code" href="https://github.com/AntonyPerez0/cs2-pro-configs">Source<span class="vh"> for CS2 Pro Configs</span></a>
+          </li>
+          <li>
+            <a class="more__name" href="https://antonyperez0.github.io/buildforge/">BuildForge<span class="arrow" aria-hidden="true">↗</span></a>
+            <p class="more__desc">Offline build companions for Diablo IV and World of Warcraft.</p>
+            <a class="more__code" href="https://github.com/AntonyPerez0/buildforge">Source<span class="vh"> for BuildForge</span></a>
+          </li>
+          <li>
+            <a class="more__name" href="https://antonyperez0.github.io/baseline-control/">Baseline Control<span class="arrow" aria-hidden="true">↗</span></a>
+            <p class="more__desc">An EIA-649 configuration-management simulator with endless seeded change packages.</p>
+            <a class="more__code" href="https://github.com/AntonyPerez0/baseline-control">Source<span class="vh"> for Baseline Control</span></a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section activity" aria-labelledby="activity-title" data-activity hidden>
+        <div class="section-head">
+          <h2 class="label" id="activity-title">Activity</h2>
+          <a href="https://github.com/AntonyPerez0">@AntonyPerez0 ↗</a>
+        </div>
+        <svg class="spark" data-spark role="img" aria-label="Weekly contributions on GitHub over the last year"></svg>
+        <p class="activity__note"><span><span class="ink" data-total></span> contributions in the last year</span><span data-last hidden></span></p>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="section-head">
+          <h2 class="label" id="experience-title">Experience</h2>
+        </div>
+        <ol class="rows">
+          <li class="row">
+            <p class="row__when mono"><time datetime="2024-09">2024</time> — Now</p>
+            <div class="row__what">
+              <h3>Technical Writer <span>at</span> Clover Network</h3>
+              <p>Builds GitHub Actions verification scripts that act as CI guardrails, documents mobile SDKs and e-commerce APIs with Agile engineering teams, and moved legacy docs into git-backed peer review. Sunnyvale.</p>
             </div>
           </li>
-          <li class="trail__row">
-            <p class="trail__when measured"><time datetime="2026-05">2026-05</time></p>
-            <div>
-              <h3>B.S. Computer Science, Western Governors University</h3>
-              <p>Capstone: DefectPredict, a model that runs the riskiest tests first.</p>
-            </div>
-          </li>
-          <li class="trail__row">
-            <p class="trail__when measured"><time datetime="2022-04">2022-04</time> to <time datetime="2024-09">2024-09</time></p>
-            <div>
-              <h3>Laboratory Technician, UL Solutions</h3>
-              <p>Interoperability safety tests on prototype hardware in Fremont.</p>
+          <li class="row">
+            <p class="row__when mono"><time datetime="2022-04">2022</time> — <time datetime="2024-09">2024</time></p>
+            <div class="row__what">
+              <h3>Laboratory Technician <span>at</span> UL Solutions</h3>
+              <p>Ran Energy Star, thermal and power tests on enterprise server hardware for Apple, Google, HP, Dell and Microsoft, plus safety tests on prototype hardware, in an ISO 17025 lab. Fremont.</p>
             </div>
           </li>
         </ol>
-      </div>
-    </section>
 
-    <section class="contact" id="contact" aria-labelledby="contact-title">
-      <div class="container contact__grid">
-        <h2 id="contact-title">Hiring for a software role? Write to me.</h2>
+        <div class="sub">
+          <h2 class="label">Education</h2>
+          <ol class="rows">
+            <li class="row">
+              <p class="row__when mono"><time datetime="2026-05">2026</time></p>
+              <div class="row__what">
+                <h3>B.S. Computer Science <span>at</span> Western Governors University</h3>
+                <p>Capstone: DefectPredict, a model that scores each commit’s defect risk and runs the riskiest tests first.</p>
+              </div>
+            </li>
+            <li class="row">
+              <p class="row__when mono"><time datetime="2024-09">2024</time> — <time datetime="2025-09">2025</time></p>
+              <div class="row__what">
+                <h3>Software Engineering <span>at</span> Multiverse</h3>
+                <p>Full-stack JavaScript with Express, Sequelize, React and Jest, ending in a team-built inventory app.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="sub">
+          <h2 class="label">Toolbox</h2>
+          <dl class="rows rows--tight stack">
+            <div class="row"><dt class="row__when mono">Languages</dt><dd>TypeScript, JavaScript, Java, Kotlin, Python, SQL, Luau</dd></div>
+            <div class="row"><dt class="row__when mono">Web</dt><dd>React, Vite, Node.js, Express, WebAssembly, service workers</dd></div>
+            <div class="row"><dt class="row__when mono">Infrastructure</dt><dd>Kubernetes, Docker, FluxCD, GitHub Actions, Cloudflare Workers</dd></div>
+            <div class="row"><dt class="row__when mono">Testing</dt><dd>Vitest, Jest, Playwright, axe</dd></div>
+          </dl>
+        </div>
+
+        <p class="after"><a href="./resume.pdf">Full résumé (PDF)<span class="arrow" aria-hidden="true">↗</span></a></p>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="section-head">
+          <h2 class="label" id="contact-title">Contact</h2>
+        </div>
+        <p class="contact__lead">Hiring for a software role? <em>Let’s talk.</em></p>
+        <p class="contact__note">Email is the fastest way to reach me, and <a href="./resume.pdf">my résumé</a> has the details.</p>
         <div class="contact__mail">
-          <a class="contact__address" href="mailto:antonyperez0@yahoo.com">antonyperez0@yahoo.com</a>
-          <button class="btn" type="button" data-copy="antonyperez0@yahoo.com">Copy address</button>
-          <p class="contact__status" role="status" aria-live="polite"></p>
+          <a href="mailto:antonyperez0@yahoo.com">antonyperez0@yahoo.com</a>
+          <button class="copy" type="button" data-copy="antonyperez0@yahoo.com" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+            Copy
+          </button>
         </div>
-      </div>
-    </section>
-  </main>
+        <p class="contact__status" role="status" aria-live="polite"></p>
+      </section>
+    </main>
 
-  <footer class="foot">
-    <div class="container">
-      <div class="foot__cols">
-        <div>
-          <p class="foot__head">Work</p>
-          <ul>
-            <li><a href="https://sortieprep.com/" target="_blank" rel="noopener">SortiePrep</a></li>
-            <li><a href="https://cpparena.com" target="_blank" rel="noopener">C/C++ Arena</a></li>
-            <li><a href="https://www.roblox.com/games/88948987401653/Anomaly-Grove" target="_blank" rel="noopener">Anomaly Grove</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="foot__head">Elsewhere</p>
-          <ul>
-            <li><a href="https://github.com/AntonyPerez0" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="https://linkedin.com/in/antonyperez-swe" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="./resume.pdf" data-pf="resume">Résumé (PDF)</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="foot__head">This site</p>
-          <ul>
-            <li><a href="https://github.com/AntonyPerez0/Portfolio-site" target="_blank" rel="noopener">Source on GitHub</a></li>
-          </ul>
-        </div>
-      </div>
-      <p class="foot__legal">© 2026 Antony Perez. San Francisco Bay Area.</p>
-    </div>
-  </footer>
+    <footer class="foot">
+      <p>© 2026 Antony Perez</p>
+      <p class="foot__colophon">
+        <span>Built with Vite, no framework</span>
+        <a href="https://github.com/AntonyPerez0/Portfolio-site">Source ↗</a>
+        <a href="https://github.com/AntonyPerez0/Portfolio-site/commit/%REV%">rev %REV%</a>
+      </p>
+    </footer>
+  </div>
 
-  <script>window.hallmarkSlots = (m) => { for (const [k, v] of Object.entries(m)) { const s = document.querySelector(`[data-slot="${k}"]`); if (!s) continue; const im = new Image(); im.src = typeof v === 'string' ? v : v.src; im.alt = (typeof v === 'object' && v.alt) || s.dataset.alt || ''; s.querySelectorAll(':scope > img').forEach((o) => o.remove()); s.prepend(im); } };
-document.querySelectorAll('[data-slot] img').forEach((i) => { if (i.complete && !i.naturalWidth) i.remove(); else i.addEventListener('error', () => i.remove(), { once: true }); });</script>
   <script type="module" src="./src/main.js"></script>
 </body>
 </html>
