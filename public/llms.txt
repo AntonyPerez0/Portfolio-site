@@ -9,11 +9,13 @@
 
 ## Selected work
 
-- [Arena courses](https://cpparena.com): free C/C++, Java, Rust and Python courses where every exercise is compiled and run in the browser (Clang 20 in WebAssembly, javac 21 on a Rust JVM, rustc, CPython 3.14 via Pyodide). Sites: https://cpparena.com, https://javaarena.com, https://rustarena.app, https://pythonarena.org
-- [SortiePrep](https://sortieprep.com/): DCS World cockpit trainer; a simulated aircraft decides when each checklist step is done. F-14B and F/A-18C, 409 procedure steps, 100+ monthly visitors. Source: https://github.com/AntonyPerez0/Interactive-F-14-startup-simulator
+- [Arena courses](https://cpparena.com): free C/C++, Java, Rust and Python courses where every exercise is compiled and run in the browser (Clang 20 in WebAssembly, javac 21 on a Rust JVM, rustc, CPython 3.14 via Pyodide). RustArena alone: 9,000+ visitors a month. Sites: https://cpparena.com, https://javaarena.com, https://rustarena.app, https://pythonarena.org
+- [SortiePrep](https://sortieprep.com/): DCS World cockpit trainer; a simulated aircraft decides when each checklist step is done. F-14B and F/A-18C, 409 procedure steps. Source: https://github.com/AntonyPerez0/Interactive-F-14-startup-simulator
 - [Anomaly Grove](https://www.roblox.com/games/88948987401653/Anomaly-Grove): live Roblox tycoon, 24,000 lines of strict Luau across 142 modules, 240 tests. Source: https://github.com/AntonyPerez0/anomaly-grove
-- [CS2 Pro Configs](https://copyprosta.com/): his most-visited site. 620 Counter-Strike 2 pros' settings as ready-to-paste console commands, with crosshairs converted to CS2's new crosshair system, rebuilt weekly by GitHub Actions. Source: https://github.com/AntonyPerez0/cs2-pro-configs
+- [CS2 Pro Configs](https://copyprosta.com/): his most-visited site, with 16,000+ visitors a month. 620 Counter-Strike 2 pros' settings as ready-to-paste console commands, with crosshairs converted to CS2's new crosshair system, rebuilt weekly by GitHub Actions. Source: https://github.com/AntonyPerez0/cs2-pro-configs
 - [GitOps homelab](https://github.com/AntonyPerez0/homelab): bare-metal Kubernetes on Talos Linux, deployed by FluxCD and Kustomize, 18 self-hosted services, Falco runtime detection.
+
+Visitor counts are Cloudflare's unique visitors for the 30 days to 9 November 2026.
 
 ## More projects
 

@@ -77,6 +77,8 @@ a:hover > .arrow { color: var(--accent); transform: translate(2px, -2px); }
   .how[open]::details-content { block-size: auto; opacity: 1; }
 }
 
+.footnote { margin-top: var(--space-8); font-size: var(--text-sm); }
+
 /* More projects */
 .more { display: grid; gap: var(--space-5); }
 .more li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 var(--space-5); }
