@@ -23,6 +23,24 @@ modeBtn?.addEventListener('click', () => {
 });
 systemDark.addEventListener('change', (e) => { if (!saved()) applyMode(e.matches ? 'dark' : 'light'); });
 
+// Desktop header: a hairline once the page scrolls under it, and the nav marks the section in view.
+const header = document.querySelector('.top');
+const onScroll = () => header?.classList.toggle('is-stuck', scrollY > 4);
+addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+const navLinks = [...document.querySelectorAll('.top__nav a[href^="#"]')];
+const watched = [document.querySelector('.hero'), ...navLinks.map((a) => document.querySelector(a.hash))].filter(Boolean);
+if ('IntersectionObserver' in window && navLinks.length) {
+  const spy = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      navLinks.forEach((a) => (a.hash === `#${e.target.id}` ? a.setAttribute('aria-current', 'location') : a.removeAttribute('aria-current')));
+    }
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  watched.forEach((el) => spy.observe(el));
+}
+
 // Copy the email address; the button only appears where the clipboard API exists.
 document.querySelectorAll('[data-copy]').forEach((btn) => {
   if (!navigator.clipboard) return;

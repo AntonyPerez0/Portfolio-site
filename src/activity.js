@@ -1,5 +1,6 @@
-// The Activity section: a year of real GitHub contributions as weekly bars, and the latest push.
-// It stays hidden unless the contribution data arrives, so a failed fetch leaves no empty box.
+// GitHub activity: a year of real contributions as weekly bars, and the latest push.
+// Desktop shows it beside the intro and phones further down, so every [data-activity] block is filled.
+// Each stays hidden unless the contribution data arrives, so a failed fetch leaves no empty box.
 const SVG = 'http://www.w3.org/2000/svg';
 
 const weeks = (days) => {
@@ -40,19 +41,23 @@ function drawBars(svg, data) {
 }
 
 export async function startActivity(user) {
-  const section = document.querySelector('[data-activity]');
-  if (!section) return;
+  const blocks = [...document.querySelectorAll('[data-activity]')];
+  if (!blocks.length) return;
   try {
     const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${user}?y=last`);
     if (!res.ok) throw new Error(res.status);
     const data = await res.json();
     const days = data.contributions ?? [];
     if (!days.length) return;
-    drawBars(section.querySelector('[data-spark]'), weeks(days));
+    const bars = weeks(days);
     const total = data.total?.lastYear ?? days.reduce((n, d) => n + d.count, 0);
-    section.querySelector('[data-total]').textContent = total.toLocaleString('en-US');
-    section.querySelector('[data-spark]').setAttribute('aria-label', `Weekly GitHub contributions over the last year, ${total} in total`);
-    section.hidden = false;
+    for (const block of blocks) {
+      const spark = block.querySelector('[data-spark]');
+      drawBars(spark, bars);
+      spark.setAttribute('aria-label', `Weekly GitHub contributions over the last year, ${total} in total`);
+      block.querySelector('[data-total]').textContent = total.toLocaleString('en-US');
+      block.hidden = false;
+    }
   } catch {
     return;
   }
@@ -62,11 +67,13 @@ export async function startActivity(user) {
     if (!res.ok) return;
     const repo = (await res.json()).find((r) => !r.fork && !r.private && r.name.toLowerCase() !== user.toLowerCase());
     if (!repo) return;
-    const last = section.querySelector('[data-last]');
-    const a = Object.assign(document.createElement('a'), { href: repo.html_url, textContent: repo.name });
-    const time = Object.assign(document.createElement('time'), { dateTime: repo.pushed_at, textContent: ago(repo.pushed_at) });
-    last.append('Last push to ', a, ', ', time);
-    last.hidden = false;
+    for (const block of blocks) {
+      const last = block.querySelector('[data-last]');
+      const a = Object.assign(document.createElement('a'), { href: repo.html_url, textContent: repo.name });
+      const time = Object.assign(document.createElement('time'), { dateTime: repo.pushed_at, textContent: ago(repo.pushed_at) });
+      last.append('Last push to ', a, ', ', time);
+      last.hidden = false;
+    }
   } catch {
     /* the bars already say enough */
   }
