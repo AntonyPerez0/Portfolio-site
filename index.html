@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Antony Perez, software engineer</title>
-  <meta name="description" content="Antony Perez is a software engineer in the SF Bay Area. He builds browser courses that run real compilers in WebAssembly, a DCS cockpit trainer, a live Roblox game and the infrastructure under them.">
+  <meta name="description" content="Antony Perez is a software engineer in the SF Bay Area. He builds browser courses that run real compilers in WebAssembly, a DCS cockpit trainer, a live Roblox game, a walking-pad app for gamers and the infrastructure under them.">
   <link rel="canonical" href="https://antonyperez.com/">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://antonyperez.com/">
   <meta property="og:title" content="Antony Perez, software engineer">
-  <meta property="og:description" content="Browser courses that run real compilers, a DCS cockpit trainer, a live Roblox game and the infrastructure under them.">
+  <meta property="og:description" content="Browser courses that run real compilers, a DCS cockpit trainer, a live Roblox game, a walking-pad app for gamers and the infrastructure under them.">
   <meta property="og:image" content="https://antonyperez.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -26,7 +26,7 @@
   {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    "dateModified": "2026-11-08",
+    "dateModified": "2026-11-25",
     "mainEntity": {
       "@type": "Person",
       "name": "Antony Perez",
@@ -96,7 +96,8 @@
             <li><a href="#p-sortie"><span class="glance__num">02</span><span class="glance__name">SortiePrep</span><span class="glance__dots" aria-hidden="true"></span><span class="glance__stat">409 procedure steps</span></a></li>
             <li><a href="#p-grove"><span class="glance__num">03</span><span class="glance__name">Anomaly Grove</span><span class="glance__dots" aria-hidden="true"></span><span class="glance__stat">24k lines of Luau</span></a></li>
             <li><a href="#p-cs2"><span class="glance__num">04</span><span class="glance__name">CS2 Pro Configs</span><span class="glance__dots" aria-hidden="true"></span><span class="glance__stat">16k+ visitors/mo</span></a></li>
-            <li><a href="#p-homelab"><span class="glance__num">05</span><span class="glance__name">GitOps homelab</span><span class="glance__dots" aria-hidden="true"></span><span class="glance__stat">18 services</span></a></li>
+            <li><a href="#p-walka"><span class="glance__num">05</span><span class="glance__name">Walka</span><span class="glance__dots" aria-hidden="true"></span><span class="glance__stat">2,000+ tests</span></a></li>
+            <li><a href="#p-homelab"><span class="glance__num">06</span><span class="glance__name">GitOps homelab</span><span class="glance__dots" aria-hidden="true"></span><span class="glance__stat">18 services</span></a></li>
           </ol>
         </aside>
         <div class="pulse" aria-labelledby="pulse-title" role="group" data-activity hidden>
@@ -218,12 +219,37 @@
           </div>
         </article>
 
+        <article class="project" aria-labelledby="p-walka">
+          <a class="plate plate--walka" href="https://walka.dev/" tabindex="-1" aria-hidden="true">
+            <img src="./work/walka-1600.webp" srcset="./work/walka-800.webp 800w, ./work/walka-1600.webp 1600w" sizes="(min-width: 64rem) 664px, (min-width: 54rem) 768px, (min-width: 40rem) 640px, calc(100vw - 40px)" width="1600" height="1000" alt="" loading="lazy" decoding="async">
+          </a>
+          <div class="project__body">
+            <p class="project__kicker mono"><span>05</span>Desktop app</p>
+            <h3 class="project__title" id="p-walka"><a href="https://walka.dev/">Walka<span class="arrow" aria-hidden="true">↗</span></a></h3>
+            <p>A walking log for people who walk on an under-desk treadmill while they play World of Warcraft. A free Windows and Mac app listens to the walking pad over Bluetooth, records each walk’s steps, miles and calories under the character you’re playing, and a game addon draws that character’s road on the map. About 19,000 lines of Python and 4,400 of Lua, covered by 2,000+ tests.</p>
+            <p class="project__meta mono">Python · Bluetooth FTMS · Lua · SvelteKit · GitHub Actions</p>
+            <ul class="project__links">
+              <li><a href="https://walka.dev/">walka.dev<span class="arrow" aria-hidden="true">↗</span></a></li>
+              <li><a href="https://github.com/AntonyPerez0/walka-addon">Source<span class="arrow" aria-hidden="true">↗</span></a></li>
+            </ul>
+            <details class="how">
+              <summary>How it works</summary>
+              <ul>
+                <li><strong>Reads the game without touching it.</strong> An addon can’t use Bluetooth, files or the network, so it draws its state as a strip of black and white squares in the corner of the screen ten times a second, and the app reads that strip off a tiny screenshot. No key presses, no memory reading.</li>
+                <li><strong>Only listens.</strong> Early versions made the belt follow your character; I took that out, since a motorised belt under someone watching a game isn’t worth the risk. The app now has no command that can move a belt, and the tests check that an emulated treadmill was sent nothing.</li>
+                <li><strong>One file to run.</strong> CI tests on Windows and macOS, builds a single Walka.exe and Mac apps for Apple and Intel chips, and scans each release with Microsoft Defender before publishing it.</li>
+                <li><strong>A site to match.</strong> <a href="https://walka.dev/">walka.dev</a> is a static SvelteKit site with optional accounts and a food diary on Supabase. Its build fails on a broken link or anything loaded from another site. <a href="https://github.com/AntonyPerez0/walka-website">Source</a>.</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
         <article class="project" aria-labelledby="p-homelab">
           <a class="plate plate--homelab" href="https://github.com/AntonyPerez0/homelab" tabindex="-1" aria-hidden="true">
             <img src="./work/homelab-1600.webp" srcset="./work/homelab-800.webp 800w, ./work/homelab-1600.webp 1600w" sizes="(min-width: 64rem) 664px, (min-width: 54rem) 768px, (min-width: 40rem) 640px, calc(100vw - 40px)" width="1600" height="1638" alt="" loading="lazy" decoding="async">
           </a>
           <div class="project__body">
-            <p class="project__kicker mono"><span>05</span>Infrastructure</p>
+            <p class="project__kicker mono"><span>06</span>Infrastructure</p>
             <h3 class="project__title" id="p-homelab"><a href="https://github.com/AntonyPerez0/homelab">GitOps homelab<span class="arrow" aria-hidden="true">↗</span></a></h3>
             <p>Bare-metal Kubernetes in my home, managed entirely from Git. Talos Linux, FluxCD and Kustomize run 18 self-hosted services, from CI/CD and automation to local AI, with runtime threat detection and nightly backups.</p>
             <p class="project__meta mono">Kubernetes · Talos Linux · FluxCD · Falco · Prometheus</p>
@@ -250,6 +276,11 @@
         <a href="https://github.com/AntonyPerez0?tab=repositories">All repositories ↗</a>
       </div>
       <ul class="more">
+        <li>
+          <a class="more__name" href="https://antonyperez0.github.io/intprep/">IntPrep<span class="arrow" aria-hidden="true">↗</span></a>
+          <p class="more__desc">The 150 classic coding-interview problems taught step by step, with your Python run in the browser and spaced review to keep them in memory.</p>
+          <a class="more__code" href="https://github.com/AntonyPerez0/intprep">Source<span class="vh"> for IntPrep</span></a>
+        </li>
         <li>
           <a class="more__name" href="https://antonyperez0.github.io/spritespeak/">Spritespeak<span class="arrow" aria-hidden="true">↗</span></a>
           <p class="more__desc">A Game Boy emulator that reads, translates and speaks the screen as you play.</p>

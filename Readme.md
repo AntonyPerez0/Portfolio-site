@@ -5,7 +5,7 @@ The portfolio of Antony Perez, a software engineer in the San Francisco Bay Area
 A quiet, text-first design in the style of today's most admired engineer portfolios (see [the research](docs/research/portfolio-design-trends.md)). Phones get one column; from 1024px wide the page becomes a 1200px two-column layout with a sticky header.
 
 - **First screen:** availability, a one-line statement, two sentences of bio and the résumé one click away. On desktop, a Highlights list (one key number per project) and the live GitHub activity sit beside it.
-- **Selected work:** five numbered projects, each with a large screenshot on a tinted plate (beside the text on desktop), an outcome line with real numbers, its stack, links, and a "How it works" panel covering the hard parts.
+- **Selected work:** six numbered projects, each with a large screenshot on a tinted plate (beside the text on desktop), an outcome line with real numbers, its stack, links, and a "How it works" panel covering the hard parts.
 - **More projects, experience, education and toolbox:** a ruled table, two résumé columns and four tool groups on desktop; short rows on phones.
 - **Colors and type:** warm neutrals (Radix Sand) with light and dark modes. The page follows the system setting until the visitor picks one. Type is Inter, with Newsreader italic for a few phrases and Geist Mono for labels.
 
