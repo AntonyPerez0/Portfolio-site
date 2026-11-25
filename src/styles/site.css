@@ -70,6 +70,7 @@ a:hover > .arrow { color: var(--accent); transform: translate(2px, -2px); }
 .plate--sortie { --plate: oklch(25% 0.035 162); }
 .plate--grove { --plate: oklch(28% 0.08 300); }
 .plate--cs2 { --plate: oklch(34% 0.075 48); }
+.plate--walka { --plate: oklch(27% 0.07 275); }
 .plate--homelab { --plate: oklch(25% 0.02 255); }
 
 .project__body { display: grid; align-content: start; }
